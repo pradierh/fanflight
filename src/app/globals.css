@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  /* World Cup 2026 Official Colors */
+  --wc-teal: #00B4AA;
+  --wc-teal-dark: #009990;
+  --wc-coral: #FF6B6B;
+  --wc-coral-dark: #E55555;
+  --wc-navy: #1A1F3C;
+  --wc-navy-light: #2A3052;
+  --wc-gold: #FFD700;
+
+  /* UI Colors */
+  --background: #F8FAFC;
+  --foreground: #1A1F3C;
+  --card-bg: #FFFFFF;
+  --card-border: #E2E8F0;
+
+  /* Status Colors */
+  --status-green: #22C55E;
+  --status-yellow: #EAB308;
+  --status-red: #EF4444;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-wc-teal: var(--wc-teal);
+  --color-wc-teal-dark: var(--wc-teal-dark);
+  --color-wc-coral: var(--wc-coral);
+  --color-wc-coral-dark: var(--wc-coral-dark);
+  --color-wc-navy: var(--wc-navy);
+  --color-wc-navy-light: var(--wc-navy-light);
+  --color-wc-gold: var(--wc-gold);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-status-green: var(--status-green);
+  --color-status-yellow: var(--status-yellow);
+  --color-status-red: var(--status-red);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: linear-gradient(135deg, var(--wc-navy) 0%, var(--wc-navy-light) 100%);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--wc-navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--wc-teal);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--wc-teal-dark);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, var(--wc-teal) 0%, var(--wc-coral) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Pulse animation for countdown */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--wc-coral), 0 0 10px var(--wc-coral);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--wc-coral), 0 0 30px var(--wc-coral);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
