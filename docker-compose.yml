@@ -1,0 +1,79 @@
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    container_name: postgres
+    volumes:
+      - postgres_db:/var/lib/postgresql/data
+    ports: 
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U root -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  spark-master:
+    build: ./data-pipeline/spark
+    container_name: spark-master
+    user: root
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+    env_file:
+      - .env
+    ports:
+      - "8080:8080" # Interface Web(localhost:8080)
+      - "7077:7077" # Port de communication pour les machines
+    command: >
+           bash -c "/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master &
+           sleep 5 &&
+           python3 /opt/spark/scripts/spark_listener.py"
+    working_dir: /opt/spark
+    volumes:
+      - ./data-pipeline/spark/scripts:/opt/spark/scripts
+      - ./data-pipeline/data:/opt/spark/data
+
+  spark-worker:
+    build: ./data-pipeline/spark
+    container_name: spark-worker
+    user: root
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+    env_file:
+      - .env
+    depends_on:
+      spark-master:
+        condition: service_started
+    ports:
+      - "8081:8081" # Interface Web du Worker (localhost:8081)
+    # On dit au worker de se connecter au master
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    working_dir: /opt/spark
+    volumes:
+      - ./data-pipeline/spark/scripts:/opt/spark/scripts
+      - ./data-pipeline/data:/opt/spark/data
+  
+  backend-api:
+    build: ./API       
+    container_name: backend_api
+    ports:
+      - "8000:8000"         
+    volumes:
+      - ./API:/app
+      - ./data-pipeline/data:/opt/data
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy                # L'API attend que la base de données soit lancée
+                    
+
+volumes:
+  postgres_db:

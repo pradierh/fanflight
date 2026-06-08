@@ -1,0 +1,905 @@
+{
+    "search_metadata": {
+        "id": "6a216e9673d2244993e1f8e3",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/VtKpHC974qTmr46tlIQISQ/6a216e9673d2244993e1f8e3.json",
+        "created_at": "2026-06-04 12:24:54 UTC",
+        "processed_at": "2026-06-04 12:24:54 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTIyagcIARIDTEdBcgcIARIDREFMQAFIAXABmAEC&tfu=EgIIAQ",
+        "raw_html_file": "https://serpapi.com/searches/VtKpHC974qTmr46tlIQISQ/6a216e9673d2244993e1f8e3.html",
+        "prettify_html_file": "https://serpapi.com/searches/VtKpHC974qTmr46tlIQISQ/6a216e9673d2244993e1f8e3.prettify",
+        "total_time_taken": 1.38
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "fr",
+        "gl": "us",
+        "type": "2",
+        "departure_id": "LGA",
+        "arrival_id": "DAL",
+        "outbound_date": "2026-06-22",
+        "currency": "EUR"
+    },
+    "best_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-22 10:30"
+                    },
+                    "arrival_airport": {
+                        "name": "William P. Hobby Airport",
+                        "id": "HOU",
+                        "time": "2026-06-22 13:20"
+                    },
+                    "duration": 230,
+                    "airplane": "Boeing 737-700 (Scimitar Winglets) Pax",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 1711",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 209 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "William P. Hobby Airport",
+                        "id": "HOU",
+                        "time": "2026-06-22 15:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-22 16:10"
+                    },
+                    "duration": 70,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 36",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 64 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 100,
+                    "name": "William P. Hobby Airport",
+                    "id": "HOU"
+                }
+            ],
+            "total_duration": 400,
+            "carbon_emissions": {
+                "this_flight": 274000,
+                "typical_for_this_route": 260000,
+                "difference_percent": 5
+            },
+            "price": 188,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJWmpFM05VZFhiM1p3YUVGQlFURmhjbmRDUnkwdExTMHRMUzB0ZVd4dE5pMXVNVUZCUVVGQlIyOW9ZbkJqUlcwdE5rRkJFZ3RYVGpFM01URjhWMDR6TmhvTENMeVNBUkFDR2dORlZWSTRISEM3cWdFPSIsW1siTEdBIiwiMjAyNi0wNi0yMiIsIkhPVSIsbnVsbCwiV04iLCIxNzExIl0sWyJIT1UiLCIyMDI2LTA2LTIyIiwiREFMIixudWxsLCJXTiIsIjM2Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-22 20:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-22 22:45"
+                    },
+                    "duration": 225,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 4650",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 151 kg"
+                    ]
+                }
+            ],
+            "total_duration": 225,
+            "carbon_emissions": {
+                "this_flight": 152000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -42
+            },
+            "price": 231,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJWmpFM05VZFhiM1p3YUVGQlFURmhjbmRDUnkwdExTMHRMUzB0ZVd4dE5pMXVNVUZCUVVGQlIyOW9ZbkJqUlcwdE5rRkJFZ1pYVGpRMk5UQWFDd2lYdEFFUUFob0RSVlZTT0J4dzJkRUIiLFtbIkxHQSIsIjIwMjYtMDYtMjIiLCJEQUwiLG51bGwsIldOIiwiNDY1MCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-22 06:05"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-22 08:35"
+                    },
+                    "duration": 210,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 2341",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 173 kg"
+                    ]
+                }
+            ],
+            "total_duration": 210,
+            "carbon_emissions": {
+                "this_flight": 173000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -33
+            },
+            "price": 248,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJWmpFM05VZFhiM1p3YUVGQlFURmhjbmRDUnkwdExTMHRMUzB0ZVd4dE5pMXVNVUZCUVVGQlIyOW9ZbkJqUlcwdE5rRkJFZ1pYVGpJek5ERWFDd2pOd1FFUUFob0RSVlZTT0J4d3FPRUIiLFtbIkxHQSIsIjIwMjYtMDYtMjIiLCJEQUwiLG51bGwsIldOIiwiMjM0MSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-22 12:35"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-22 15:10"
+                    },
+                    "duration": 215,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 4570",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 173 kg"
+                    ]
+                }
+            ],
+            "total_duration": 215,
+            "carbon_emissions": {
+                "this_flight": 173000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -33
+            },
+            "price": 248,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJWmpFM05VZFhiM1p3YUVGQlFURmhjbmRDUnkwdExTMHRMUzB0ZVd4dE5pMXVNVUZCUVVGQlIyOW9ZbkJqUlcwdE5rRkJFZ1pYVGpRMU56QWFDd2pOd1FFUUFob0RSVlZTT0J4d3FPRUIiLFtbIkxHQSIsIjIwMjYtMDYtMjIiLCJEQUwiLG51bGwsIldOIiwiNDU3MCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-22 09:35"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-22 12:15"
+                    },
+                    "duration": 220,
+                    "airplane": "Boeing 737-700 (Scimitar Winglets) Pax",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 2451",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 201 kg"
+                    ]
+                }
+            ],
+            "total_duration": 220,
+            "carbon_emissions": {
+                "this_flight": 201000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -23
+            },
+            "price": 270,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJWmpFM05VZFhiM1p3YUVGQlFURmhjbmRDUnkwdExTMHRMUzB0ZVd4dE5pMXVNVUZCUVVGQlIyOW9ZbkJqUlcwdE5rRkJFZ1pYVGpJME5URWFDd2l4MGdFUUFob0RSVlZTT0J4dzdQUUIiLFtbIkxHQSIsIjIwMjYtMDYtMjIiLCJEQUwiLG51bGwsIldOIiwiMjQ1MSJdXV0="
+        }
+    ],
+    "other_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-22 08:30"
+                    },
+                    "arrival_airport": {
+                        "name": "William P. Hobby Airport",
+                        "id": "HOU",
+                        "time": "2026-06-22 11:15"
+                    },
+                    "duration": 225,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 4572",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 157 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "William P. Hobby Airport",
+                        "id": "HOU",
+                        "time": "2026-06-22 13:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-22 14:40"
+                    },
+                    "duration": 70,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 30",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 64 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 135,
+                    "name": "William P. Hobby Airport",
+                    "id": "HOU"
+                }
+            ],
+            "total_duration": 430,
+            "carbon_emissions": {
+                "this_flight": 222000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -15
+            },
+            "price": 240,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJWmpFM05VZFhiM1p3YUVGQlFURmhjbmRDUnkwdExTMHRMUzB0ZVd4dE5pMXVNVUZCUVVGQlIyOW9ZbkJqUlcwdE5rRkJFZ3RYVGpRMU56SjhWMDR6TUJvTENPRzZBUkFDR2dORlZWSTRISEN0MlFFPSIsW1siTEdBIiwiMjAyNi0wNi0yMiIsIkhPVSIsbnVsbCwiV04iLCI0NTcyIl0sWyJIT1UiLCIyMDI2LTA2LTIyIiwiREFMIixudWxsLCJXTiIsIjMwIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-22 15:40"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-22 18:00"
+                    },
+                    "duration": 200,
+                    "airplane": "Boeing 737-700 (Scimitar Winglets) Pax",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 4970",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 181 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-22 19:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-22 20:55"
+                    },
+                    "duration": 90,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 2540",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 86 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 85,
+                    "name": "Aéroport international de Kansas City",
+                    "id": "MCI"
+                }
+            ],
+            "total_duration": 375,
+            "carbon_emissions": {
+                "this_flight": 268000,
+                "typical_for_this_route": 260000,
+                "difference_percent": 3
+            },
+            "price": 240,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJWmpFM05VZFhiM1p3YUVGQlFURmhjbmRDUnkwdExTMHRMUzB0ZVd4dE5pMXVNVUZCUVVGQlIyOW9ZbkJqUlcwdE5rRkJFZzFYVGpRNU56QjhWMDR5TlRRd0dnc0k0Ym9CRUFJYUEwVlZVamdjY0szWkFRPT0iLFtbIkxHQSIsIjIwMjYtMDYtMjIiLCJNQ0kiLG51bGwsIldOIiwiNDk3MCJdLFsiTUNJIiwiMjAyNi0wNi0yMiIsIkRBTCIsbnVsbCwiV04iLCIyNTQwIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-22 16:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-22 19:35"
+                    },
+                    "duration": 245,
+                    "airplane": "Boeing 737-700 (Scimitar Winglets) Pax",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 4401",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 201 kg"
+                    ]
+                }
+            ],
+            "total_duration": 245,
+            "carbon_emissions": {
+                "this_flight": 201000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -23
+            },
+            "price": 270,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJWmpFM05VZFhiM1p3YUVGQlFURmhjbmRDUnkwdExTMHRMUzB0ZVd4dE5pMXVNVUZCUVVGQlIyOW9ZbkJqUlcwdE5rRkJFZ1pYVGpRME1ERWFDd2l4MGdFUUFob0RSVlZTT0J4dzdQUUIiLFtbIkxHQSIsIjIwMjYtMDYtMjIiLCJEQUwiLG51bGwsIldOIiwiNDQwMSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-22 17:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-22 19:50"
+                    },
+                    "duration": 170,
+                    "airplane": "Airbus A321",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 968",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 120 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-22 21:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-22 22:34"
+                    },
+                    "duration": 139,
+                    "airplane": "Boeing 717",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 1104",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Carbon emissions estimate: 147 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 85,
+                    "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                    "id": "ATL"
+                }
+            ],
+            "total_duration": 394,
+            "carbon_emissions": {
+                "this_flight": 268000,
+                "typical_for_this_route": 260000,
+                "difference_percent": 3
+            },
+            "price": 506,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJWmpFM05VZFhiM1p3YUVGQlFURmhjbmRDUnkwdExTMHRMUzB0ZVd4dE5pMXVNVUZCUVVGQlIyOW9ZbkJqUlcwdE5rRkJFZ3hFVERrMk9IeEVUREV4TURRYUN3anRpZ01RQWhvRFJWVlNPQnh3eE1zRCIsW1siTEdBIiwiMjAyNi0wNi0yMiIsIkFUTCIsbnVsbCwiREwiLCI5NjgiXSxbIkFUTCIsIjIwMjYtMDYtMjIiLCJEQUwiLG51bGwsIkRMIiwiMTEwNCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-22 06:59"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-22 09:20"
+                    },
+                    "duration": 141,
+                    "airplane": "Airbus A321",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 342",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 120 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-22 10:12"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-22 11:32"
+                    },
+                    "duration": 140,
+                    "airplane": "Boeing 717",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 1115",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Carbon emissions estimate: 147 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 52,
+                    "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                    "id": "ATL"
+                }
+            ],
+            "total_duration": 333,
+            "carbon_emissions": {
+                "this_flight": 268000,
+                "typical_for_this_route": 260000,
+                "difference_percent": 3
+            },
+            "price": 807,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJWmpFM05VZFhiM1p3YUVGQlFURmhjbmRDUnkwdExTMHRMUzB0ZVd4dE5pMXVNVUZCUVVGQlIyOW9ZbkJqUlcwdE5rRkJFZ3hFVERNME1ueEVUREV4TVRVYUN3am45UVFRQWhvRFJWVlNPQnh3L2R3RiIsW1siTEdBIiwiMjAyNi0wNi0yMiIsIkFUTCIsbnVsbCwiREwiLCIzNDIiXSxbIkFUTCIsIjIwMjYtMDYtMjIiLCJEQUwiLG51bGwsIkRMIiwiMTExNSJdXV0="
+        }
+    ],
+    "price_insights": {
+        "lowest_price": 188,
+        "price_level": "typical",
+        "typical_price_range": [
+            105,
+            210
+        ],
+        "price_history": [
+            [
+                1775275200,
+                194
+            ],
+            [
+                1775361600,
+                194
+            ],
+            [
+                1775448000,
+                195
+            ],
+            [
+                1775534400,
+                194
+            ],
+            [
+                1775620800,
+                192
+            ],
+            [
+                1775707200,
+                192
+            ],
+            [
+                1775793600,
+                192
+            ],
+            [
+                1775880000,
+                191
+            ],
+            [
+                1775966400,
+                191
+            ],
+            [
+                1776052800,
+                192
+            ],
+            [
+                1776139200,
+                190
+            ],
+            [
+                1776225600,
+                190
+            ],
+            [
+                1776312000,
+                190
+            ],
+            [
+                1776398400,
+                199
+            ],
+            [
+                1776484800,
+                200
+            ],
+            [
+                1776571200,
+                200
+            ],
+            [
+                1776657600,
+                200
+            ],
+            [
+                1776744000,
+                199
+            ],
+            [
+                1776830400,
+                200
+            ],
+            [
+                1776916800,
+                191
+            ],
+            [
+                1777003200,
+                192
+            ],
+            [
+                1777089600,
+                200
+            ],
+            [
+                1777176000,
+                200
+            ],
+            [
+                1777262400,
+                201
+            ],
+            [
+                1777348800,
+                200
+            ],
+            [
+                1777435200,
+                201
+            ],
+            [
+                1777521600,
+                201
+            ],
+            [
+                1777608000,
+                209
+            ],
+            [
+                1777694400,
+                209
+            ],
+            [
+                1777780800,
+                209
+            ],
+            [
+                1777867200,
+                209
+            ],
+            [
+                1777953600,
+                210
+            ],
+            [
+                1778040000,
+                209
+            ],
+            [
+                1778126400,
+                209
+            ],
+            [
+                1778212800,
+                209
+            ],
+            [
+                1778299200,
+                208
+            ],
+            [
+                1778385600,
+                208
+            ],
+            [
+                1778472000,
+                208
+            ],
+            [
+                1778558400,
+                208
+            ],
+            [
+                1778644800,
+                209
+            ],
+            [
+                1778731200,
+                209
+            ],
+            [
+                1778817600,
+                210
+            ],
+            [
+                1778904000,
+                211
+            ],
+            [
+                1778990400,
+                211
+            ],
+            [
+                1779076800,
+                115
+            ],
+            [
+                1779163200,
+                111
+            ],
+            [
+                1779249600,
+                111
+            ],
+            [
+                1779336000,
+                111
+            ],
+            [
+                1779422400,
+                111
+            ],
+            [
+                1779508800,
+                120
+            ],
+            [
+                1779595200,
+                124
+            ],
+            [
+                1779681600,
+                124
+            ],
+            [
+                1779768000,
+                124
+            ],
+            [
+                1779854400,
+                124
+            ],
+            [
+                1779940800,
+                124
+            ],
+            [
+                1780027200,
+                124
+            ],
+            [
+                1780113600,
+                149
+            ],
+            [
+                1780200000,
+                166
+            ],
+            [
+                1780286400,
+                154
+            ],
+            [
+                1780372800,
+                188
+            ],
+            [
+                1780459200,
+                188
+            ],
+            [
+                1780545600,
+                188
+            ]
+        ]
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "LGA",
+                        "name": "Aeroport international de La Guardia"
+                    },
+                    "city": "New York",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRa1dwH1NZQk4dsbPiyA9Vrq2RX75jXSZ-OkHn7NkLHl-11HercqDXoZ4p2cDxJkH6vca2degawrCzHEQ",
+                    "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQEaUa9NsdPWGpAUGkTApkZDT_4M6_6V8wTcC0v1b1wJAJX-BuMSiipXbsoznGgcI1xLOc5QiTcR_xovexgjdOz0gqQe0tRQ9h0bUkZ07Q"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "DAL",
+                        "name": "Aéroport de Dallas Love Field"
+                    },
+                    "city": "Dallas",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS61zSeEE0f0RSedvAIvzJKv1B7Tojcnx1pR5ipb9l389QDa2V23R4cRbmgVZVCgrVsZ6Ewme_WpDRgmw",
+                    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT4Hg7sSdARNWUKEIVKbquvgGkx76RuLbHy7uH51pecZu-z7-Wi9ya5fpf-YmM63--MKoWu7HUM3Q1O7mQoRBSlNeNSfgHP5Y2tO11niU"
+                }
+            ]
+        }
+    ]
+}

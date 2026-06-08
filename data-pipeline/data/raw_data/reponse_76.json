@@ -1,0 +1,905 @@
+{
+    "search_metadata": {
+        "id": "6a216e89acb3e45b1c26d6b3",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/wGMZZGH89Y8q8PGBDoZnTg/6a216e89acb3e45b1c26d6b3.json",
+        "created_at": "2026-06-04 12:24:41 UTC",
+        "processed_at": "2026-06-04 12:24:41 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTIyagcIARIDSkZLcgcIARIDREZXQAFIAXABmAEC&tfu=EgIIAQ",
+        "raw_html_file": "https://serpapi.com/searches/wGMZZGH89Y8q8PGBDoZnTg/6a216e89acb3e45b1c26d6b3.html",
+        "prettify_html_file": "https://serpapi.com/searches/wGMZZGH89Y8q8PGBDoZnTg/6a216e89acb3e45b1c26d6b3.prettify",
+        "total_time_taken": 0.83
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "fr",
+        "gl": "us",
+        "type": "2",
+        "departure_id": "JFK",
+        "arrival_id": "DFW",
+        "outbound_date": "2026-06-22",
+        "currency": "EUR"
+    },
+    "best_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-22 13:05"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-22 15:51"
+                    },
+                    "duration": 166,
+                    "airplane": "Airbus A321neo",
+                    "airline": "Frontier",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+                    "travel_class": "Economy",
+                    "flight_number": "F9 4731",
+                    "legroom": "71 cm",
+                    "extensions": [
+                        "Below average legroom (71 cm)",
+                        "Carbon emissions estimate: 85 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-22 21:11"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-22 22:50"
+                    },
+                    "duration": 159,
+                    "airplane": "Airbus A321",
+                    "airline": "Frontier",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+                    "travel_class": "Economy",
+                    "flight_number": "F9 3097",
+                    "legroom": "71 cm",
+                    "extensions": [
+                        "Below average legroom (71 cm)",
+                        "Carbon emissions estimate: 104 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 320,
+                    "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                    "id": "ATL"
+                }
+            ],
+            "total_duration": 645,
+            "carbon_emissions": {
+                "this_flight": 190000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -17
+            },
+            "price": 181,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZVVOUFpIQXlXazA0UmtsQlFtY3dUa0ZDUnkwdExTMHRMUzB0Y0dwaWNIUXhNa0ZCUVVGQlIyOW9ZbTl2UTNCTVp6aEJFZzFHT1RRM016RjhSamt6TURrM0dnc0lybzBCRUFJYUEwVlZVamdjY01La0FRPT0iLFtbIkpGSyIsIjIwMjYtMDYtMjIiLCJBVEwiLG51bGwsIkY5IiwiNDczMSJdLFsiQVRMIiwiMjAyNi0wNi0yMiIsIkRGVyIsbnVsbCwiRjkiLCIzMDk3Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-22 17:59"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-22 21:03"
+                    },
+                    "duration": 244,
+                    "airplane": "Airbus A220-100 Passenger",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 496",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 249 kg"
+                    ]
+                }
+            ],
+            "total_duration": 244,
+            "carbon_emissions": {
+                "this_flight": 249000,
+                "typical_for_this_route": 229000,
+                "difference_percent": 9
+            },
+            "price": 283,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZVVOUFpIQXlXazA0UmtsQlFtY3dUa0ZDUnkwdExTMHRMUzB0Y0dwaWNIUXhNa0ZCUVVGQlIyOW9ZbTl2UTNCTVp6aEJFZ1ZFVERRNU5ob0xDTHJjQVJBQ0dnTkZWVkk0SEhESmdBST0iLFtbIkpGSyIsIjIwMjYtMDYtMjIiLCJERlciLG51bGwsIkRMIiwiNDk2Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-22 08:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-22 11:15"
+                    },
+                    "duration": 240,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2234",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 179 kg"
+                    ]
+                }
+            ],
+            "total_duration": 240,
+            "carbon_emissions": {
+                "this_flight": 180000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -21
+            },
+            "price": 330,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZVVOUFpIQXlXazA0UmtsQlFtY3dUa0ZDUnkwdExTMHRMUzB0Y0dwaWNIUXhNa0ZCUVVGQlIyOW9ZbTl2UTNCTVp6aEJFZ1pCUVRJeU16UWFDd2l3Z1FJUUFob0RSVlZTT0J4d3hhc0MiLFtbIkpGSyIsIjIwMjYtMDYtMjIiLCJERlciLG51bGwsIkFBIiwiMjIzNCJdXV0="
+        }
+    ],
+    "other_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-22 07:59"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Charlotte/Douglas",
+                        "id": "CLT",
+                        "time": "2026-06-22 10:09"
+                    },
+                    "duration": 130,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1444",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 92 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Charlotte/Douglas",
+                        "id": "CLT",
+                        "time": "2026-06-22 11:56"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Louis Armstrong de La Nouvelle-Orléans",
+                        "id": "MSY",
+                        "time": "2026-06-22 13:00"
+                    },
+                    "duration": 124,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2170",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 121 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Louis Armstrong de La Nouvelle-Orléans",
+                        "id": "MSY",
+                        "time": "2026-06-22 18:01"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-22 19:55"
+                    },
+                    "duration": 114,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2194",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 86 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 107,
+                    "name": "Aéroport international de Charlotte/Douglas",
+                    "id": "CLT"
+                },
+                {
+                    "duration": 301,
+                    "name": "Aéroport international Louis Armstrong de La Nouvelle-Orléans",
+                    "id": "MSY"
+                }
+            ],
+            "total_duration": 776,
+            "carbon_emissions": {
+                "this_flight": 301000,
+                "typical_for_this_route": 229000,
+                "difference_percent": 31
+            },
+            "price": 294,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZVVOUFpIQXlXazA0UmtsQlFtY3dUa0ZDUnkwdExTMHRMUzB0Y0dwaWNIUXhNa0ZCUVVGQlIyOW9ZbTl2UTNCTVp6aEJFaFJCUVRFME5EUjhRVUV5TVRjd2ZFRkJNakU1TkJvTENQM2tBUkFDR2dORlZWSTRISEMraWdJPSIsW1siSkZLIiwiMjAyNi0wNi0yMiIsIkNMVCIsbnVsbCwiQUEiLCIxNDQ0Il0sWyJDTFQiLCIyMDI2LTA2LTIyIiwiTVNZIixudWxsLCJBQSIsIjIxNzAiXSxbIk1TWSIsIjIwMjYtMDYtMjIiLCJERlciLG51bGwsIkFBIiwiMjE5NCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-22 06:49"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-22 09:50"
+                    },
+                    "duration": 241,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 813",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 152 kg"
+                    ]
+                }
+            ],
+            "total_duration": 241,
+            "carbon_emissions": {
+                "this_flight": 153000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -33
+            },
+            "price": 330,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZVVOUFpIQXlXazA0UmtsQlFtY3dUa0ZDUnkwdExTMHRMUzB0Y0dwaWNIUXhNa0ZCUVVGQlIyOW9ZbTl2UTNCTVp6aEJFZ1ZCUVRneE14b0xDTENCQWhBQ0dnTkZWVkk0SEhERnF3ST0iLFtbIkpGSyIsIjIwMjYtMDYtMjIiLCJERlciLG51bGwsIkFBIiwiODEzIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-22 11:29"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-22 14:28"
+                    },
+                    "duration": 239,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2049",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 179 kg"
+                    ]
+                }
+            ],
+            "total_duration": 239,
+            "carbon_emissions": {
+                "this_flight": 180000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -21
+            },
+            "price": 330,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZVVOUFpIQXlXazA0UmtsQlFtY3dUa0ZDUnkwdExTMHRMUzB0Y0dwaWNIUXhNa0ZCUVVGQlIyOW9ZbTl2UTNCTVp6aEJFZ1pCUVRJd05Ea2FDd2l3Z1FJUUFob0RSVlZTT0J4d3hhc0MiLFtbIkpGSyIsIjIwMjYtMDYtMjIiLCJERlciLG51bGwsIkFBIiwiMjA0OSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-22 14:43"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-22 17:50"
+                    },
+                    "duration": 247,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1953",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 179 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "total_duration": 247,
+            "carbon_emissions": {
+                "this_flight": 180000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -21
+            },
+            "price": 330,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZVVOUFpIQXlXazA0UmtsQlFtY3dUa0ZDUnkwdExTMHRMUzB0Y0dwaWNIUXhNa0ZCUVVGQlIyOW9ZbTl2UTNCTVp6aEJFZ1pCUVRFNU5UTWFDd2l3Z1FJUUFob0RSVlZTT0J4d3hhc0MiLFtbIkpGSyIsIjIwMjYtMDYtMjIiLCJERlciLG51bGwsIkFBIiwiMTk1MyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-22 17:33"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-22 20:51"
+                    },
+                    "duration": 258,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 606",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 179 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "total_duration": 258,
+            "carbon_emissions": {
+                "this_flight": 180000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -21
+            },
+            "price": 330,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZVVOUFpIQXlXazA0UmtsQlFtY3dUa0ZDUnkwdExTMHRMUzB0Y0dwaWNIUXhNa0ZCUVVGQlIyOW9ZbTl2UTNCTVp6aEJFZ1ZCUVRZd05ob0xDTENCQWhBQ0dnTkZWVkk0SEhERnF3ST0iLFtbIkpGSyIsIjIwMjYtMDYtMjIiLCJERlciLG51bGwsIkFBIiwiNjA2Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-22 08:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Austin-Bergstrom",
+                        "id": "AUS",
+                        "time": "2026-06-22 11:48"
+                    },
+                    "duration": 258,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 763",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 196 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Austin-Bergstrom",
+                        "id": "AUS",
+                        "time": "2026-06-22 12:43"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-22 13:57"
+                    },
+                    "duration": 74,
+                    "airplane": "Airbus A320",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1402",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 61 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 55,
+                    "name": "Aéroport international Austin-Bergstrom",
+                    "id": "AUS"
+                }
+            ],
+            "total_duration": 387,
+            "carbon_emissions": {
+                "this_flight": 259000,
+                "typical_for_this_route": 229000,
+                "difference_percent": 13
+            },
+            "price": 370,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZVVOUFpIQXlXazA0UmtsQlFtY3dUa0ZDUnkwdExTMHRMUzB0Y0dwaWNIUXhNa0ZCUVVGQlIyOW9ZbTl2UTNCTVp6aEJFZ3hCUVRjMk0zeEJRVEUwTURJYUN3amxvQUlRQWhvRFJWVlNPQnh3ak5BQyIsW1siSkZLIiwiMjAyNi0wNi0yMiIsIkFVUyIsbnVsbCwiQUEiLCI3NjMiXSxbIkFVUyIsIjIwMjYtMDYtMjIiLCJERlciLG51bGwsIkFBIiwiMTQwMiJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-22 12:29"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Cleveland-Hopkins",
+                        "id": "CLE",
+                        "time": "2026-06-22 14:25"
+                    },
+                    "duration": 116,
+                    "airplane": "Embraer 175",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 4453",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 107 kg"
+                    ],
+                    "plane_and_crew_by": "Republic Airways as American Eagle"
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Cleveland-Hopkins",
+                        "id": "CLE",
+                        "time": "2026-06-22 15:24"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-22 17:23"
+                    },
+                    "duration": 179,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2818",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 163 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 59,
+                    "name": "Aéroport international de Cleveland-Hopkins",
+                    "id": "CLE"
+                }
+            ],
+            "total_duration": 354,
+            "carbon_emissions": {
+                "this_flight": 271000,
+                "typical_for_this_route": 229000,
+                "difference_percent": 18
+            },
+            "price": 370,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZVVOUFpIQXlXazA0UmtsQlFtY3dUa0ZDUnkwdExTMHRMUzB0Y0dwaWNIUXhNa0ZCUVVGQlIyOW9ZbTl2UTNCTVp6aEJFZzFCUVRRME5UTjhRVUV5T0RFNEdnc0k1YUFDRUFJYUEwVlZVamdjY0l6UUFnPT0iLFtbIkpGSyIsIjIwMjYtMDYtMjIiLCJDTEUiLG51bGwsIkFBIiwiNDQ1MyJdLFsiQ0xFIiwiMjAyNi0wNi0yMiIsIkRGVyIsbnVsbCwiQUEiLCIyODE4Il1dXQ=="
+        }
+    ],
+    "price_insights": {
+        "lowest_price": 181,
+        "price_level": "typical",
+        "typical_price_range": [
+            115,
+            255
+        ],
+        "price_history": [
+            [
+                1775361600,
+                188
+            ],
+            [
+                1775448000,
+                187
+            ],
+            [
+                1775534400,
+                185
+            ],
+            [
+                1775620800,
+                185
+            ],
+            [
+                1775707200,
+                185
+            ],
+            [
+                1775793600,
+                184
+            ],
+            [
+                1775880000,
+                184
+            ],
+            [
+                1775966400,
+                184
+            ],
+            [
+                1776052800,
+                184
+            ],
+            [
+                1776139200,
+                183
+            ],
+            [
+                1776225600,
+                183
+            ],
+            [
+                1776312000,
+                267
+            ],
+            [
+                1776398400,
+                268
+            ],
+            [
+                1776484800,
+                268
+            ],
+            [
+                1776571200,
+                268
+            ],
+            [
+                1776657600,
+                268
+            ],
+            [
+                1776744000,
+                268
+            ],
+            [
+                1776830400,
+                269
+            ],
+            [
+                1776916800,
+                269
+            ],
+            [
+                1777003200,
+                269
+            ],
+            [
+                1777089600,
+                269
+            ],
+            [
+                1777176000,
+                269
+            ],
+            [
+                1777262400,
+                269
+            ],
+            [
+                1777348800,
+                269
+            ],
+            [
+                1777435200,
+                269
+            ],
+            [
+                1777521600,
+                269
+            ],
+            [
+                1777608000,
+                252
+            ],
+            [
+                1777694400,
+                252
+            ],
+            [
+                1777780800,
+                161
+            ],
+            [
+                1777867200,
+                161
+            ],
+            [
+                1777953600,
+                161
+            ],
+            [
+                1778040000,
+                169
+            ],
+            [
+                1778126400,
+                232
+            ],
+            [
+                1778212800,
+                227
+            ],
+            [
+                1778299200,
+                227
+            ],
+            [
+                1778385600,
+                231
+            ],
+            [
+                1778472000,
+                227
+            ],
+            [
+                1778558400,
+                232
+            ],
+            [
+                1778644800,
+                228
+            ],
+            [
+                1778731200,
+                161
+            ],
+            [
+                1778817600,
+                162
+            ],
+            [
+                1778904000,
+                162
+            ],
+            [
+                1778990400,
+                162
+            ],
+            [
+                1779076800,
+                162
+            ],
+            [
+                1779163200,
+                162
+            ],
+            [
+                1779249600,
+                162
+            ],
+            [
+                1779336000,
+                162
+            ],
+            [
+                1779422400,
+                162
+            ],
+            [
+                1779508800,
+                205
+            ],
+            [
+                1779595200,
+                180
+            ],
+            [
+                1779681600,
+                180
+            ],
+            [
+                1779768000,
+                199
+            ],
+            [
+                1779854400,
+                162
+            ],
+            [
+                1779940800,
+                162
+            ],
+            [
+                1780027200,
+                162
+            ],
+            [
+                1780113600,
+                198
+            ],
+            [
+                1780200000,
+                170
+            ],
+            [
+                1780286400,
+                170
+            ],
+            [
+                1780372800,
+                239
+            ],
+            [
+                1780459200,
+                182
+            ],
+            [
+                1780545600,
+                181
+            ]
+        ]
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "JFK",
+                        "name": "Aéroport international John F. Kennedy"
+                    },
+                    "city": "New York",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRa1dwH1NZQk4dsbPiyA9Vrq2RX75jXSZ-OkHn7NkLHl-11HercqDXoZ4p2cDxJkH6vca2degawrCzHEQ",
+                    "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQEaUa9NsdPWGpAUGkTApkZDT_4M6_6V8wTcC0v1b1wJAJX-BuMSiipXbsoznGgcI1xLOc5QiTcR_xovexgjdOz0gqQe0tRQ9h0bUkZ07Q"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "DFW",
+                        "name": "Aéroport international de Dallas-Fort Worth"
+                    },
+                    "city": "Dallas",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS61zSeEE0f0RSedvAIvzJKv1B7Tojcnx1pR5ipb9l389QDa2V23R4cRbmgVZVCgrVsZ6Ewme_WpDRgmw",
+                    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT4Hg7sSdARNWUKEIVKbquvgGkx76RuLbHy7uH51pecZu-z7-Wi9ya5fpf-YmM63--MKoWu7HUM3Q1O7mQoRBSlNeNSfgHP5Y2tO11niU"
+                }
+            ]
+        }
+    ]
+}

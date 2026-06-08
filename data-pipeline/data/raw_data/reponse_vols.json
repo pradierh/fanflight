@@ -1,0 +1,1573 @@
+{
+    "search_metadata": {
+        "id": "69f0ea5d0e4be0421cee3535",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/wxY_Ta9lBaljc15TRVFV6g/69f0ea5d0e4be0421cee3535.json",
+        "created_at": "2026-04-28 17:11:57 UTC",
+        "processed_at": "2026-04-28 17:11:57 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA1LTIwagcIARIDQ0RHcgcIARIDSkZLGh4SCjIwMjYtMDUtMjdqBwgBEgNKRktyBwgBEgNDREdAAUgBcAGYAQE&tfu=EgIIAQ",
+        "raw_html_file": "https://serpapi.com/searches/wxY_Ta9lBaljc15TRVFV6g/69f0ea5d0e4be0421cee3535.html",
+        "prettify_html_file": "https://serpapi.com/searches/wxY_Ta9lBaljc15TRVFV6g/69f0ea5d0e4be0421cee3535.prettify",
+        "total_time_taken": 1.27
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "fr",
+        "gl": "us",
+        "departure_id": "CDG",
+        "arrival_id": "JFK",
+        "outbound_date": "2026-05-20",
+        "return_date": "2026-05-27",
+        "currency": "EUR"
+    },
+    "best_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 09:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 11:40"
+                    },
+                    "duration": 490,
+                    "airplane": "Boeing 767",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 267",
+                    "ticket_also_sold_by": [
+                        "Virgin Atlantic",
+                        "Air France"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 316 kg"
+                    ]
+                }
+            ],
+            "total_duration": 490,
+            "carbon_emissions": {
+                "this_flight": 317000,
+                "typical_for_this_route": 371000,
+                "difference_percent": -15
+            },
+            "price": 10000,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ1ZFVERJMk54b0xDTDZGQXhBQ0dnTkZWVkk0SEhDYnlBTT0iLFtbIkNERyIsIjIwMjYtMDUtMjAiLCJKRksiLG51bGwsIkRMIiwiMjY3Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 08:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 10:40"
+                    },
+                    "duration": 490,
+                    "airplane": "Boeing 777",
+                    "airline": "Air France",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AF.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AF 2",
+                    "ticket_also_sold_by": [
+                        "Delta"
+                    ],
+                    "legroom": "81 cm",
+                    "extensions": [
+                        "Above average legroom (81 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 378 kg"
+                    ]
+                }
+            ],
+            "total_duration": 490,
+            "carbon_emissions": {
+                "this_flight": 379000,
+                "typical_for_this_route": 371000,
+                "difference_percent": 2
+            },
+            "price": 499,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AF.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ05CUmpJYUN3amloUU1RQWhvRFJWVlNPQnh3eHNnRCIsW1siQ0RHIiwiMjAyNi0wNS0yMCIsIkpGSyIsbnVsbCwiQUYiLCIyIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 12:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 14:30"
+                    },
+                    "duration": 495,
+                    "airplane": "Boeing 777",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 43",
+                    "ticket_also_sold_by": [
+                        "Finnair",
+                        "Iberia"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 378 kg"
+                    ]
+                }
+            ],
+            "total_duration": 495,
+            "carbon_emissions": {
+                "this_flight": 378000,
+                "typical_for_this_route": 371000,
+                "difference_percent": 2
+            },
+            "price": 512,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ1JCUVRRekdnc0l1bzhERUFJYUEwVlZVamdjY1BMVEF3PT0iLFtbIkNERyIsIjIwMjYtMDUtMjAiLCJKRksiLG51bGwsIkFBIiwiNDMiXV1d"
+        }
+    ],
+    "other_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 07:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Francfort",
+                        "id": "FRA",
+                        "time": "2026-05-20 08:45"
+                    },
+                    "duration": 75,
+                    "airplane": "Airbus A320",
+                    "airline": "Lufthansa",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/LH.png",
+                    "travel_class": "Economy",
+                    "flight_number": "LH 1051",
+                    "ticket_also_sold_by": [
+                        "United"
+                    ],
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Carbon emissions estimate: 64 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Francfort",
+                        "id": "FRA",
+                        "time": "2026-05-20 10:55"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 13:35"
+                    },
+                    "duration": 520,
+                    "airplane": "Airbus A340",
+                    "airline": "Lufthansa",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/LH.png",
+                    "travel_class": "Economy",
+                    "flight_number": "LH 400",
+                    "ticket_also_sold_by": [
+                        "United"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 438 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 130,
+                    "name": "Aéroport de Francfort",
+                    "id": "FRA"
+                }
+            ],
+            "total_duration": 725,
+            "carbon_emissions": {
+                "this_flight": 503000,
+                "typical_for_this_route": 371000,
+                "difference_percent": 36
+            },
+            "price": 489,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/LH.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ3hNU0RFd05URjhURWcwTURBYUN3akUvUUlRQWhvRFJWVlNPQnh3ODc0RCIsW1siQ0RHIiwiMjAyNi0wNS0yMCIsIkZSQSIsbnVsbCwiTEgiLCIxMDUxIl0sWyJGUkEiLCIyMDI2LTA1LTIwIiwiSkZLIixudWxsLCJMSCIsIjQwMCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 14:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Francfort",
+                        "id": "FRA",
+                        "time": "2026-05-20 15:40"
+                    },
+                    "duration": 75,
+                    "airplane": "Airbus A319",
+                    "airline": "Lufthansa",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/LH.png",
+                    "travel_class": "Economy",
+                    "flight_number": "LH 1035",
+                    "ticket_also_sold_by": [
+                        "United"
+                    ],
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "Carbon emissions estimate: 74 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Francfort",
+                        "id": "FRA",
+                        "time": "2026-05-20 17:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 20:05"
+                    },
+                    "duration": 530,
+                    "airplane": "Airbus A330",
+                    "airline": "Lufthansa",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/LH.png",
+                    "travel_class": "Economy",
+                    "flight_number": "LH 404",
+                    "ticket_also_sold_by": [
+                        "United"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 346 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 95,
+                    "name": "Aéroport de Francfort",
+                    "id": "FRA"
+                }
+            ],
+            "total_duration": 700,
+            "carbon_emissions": {
+                "this_flight": 421000,
+                "typical_for_this_route": 371000,
+                "difference_percent": 13
+            },
+            "price": 489,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/LH.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ3hNU0RFd016VjhURWcwTURRYUN3akUvUUlRQWhvRFJWVlNPQnh3ODc0RCIsW1siQ0RHIiwiMjAyNi0wNS0yMCIsIkZSQSIsbnVsbCwiTEgiLCIxMDM1Il0sWyJGUkEiLCIyMDI2LTA1LTIwIiwiSkZLIixudWxsLCJMSCIsIjQwNCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 07:10"
+                    },
+                    "arrival_airport": {
+                        "name": "Amsterdam Airport Schiphol",
+                        "id": "AMS",
+                        "time": "2026-05-20 08:35"
+                    },
+                    "duration": 85,
+                    "airplane": "Airbus A320",
+                    "airline": "Air France",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AF.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AF 1240",
+                    "ticket_also_sold_by": [
+                        "Delta"
+                    ],
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat USB outlet",
+                        "Carbon emissions estimate: 58 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Amsterdam Airport Schiphol",
+                        "id": "AMS",
+                        "time": "2026-05-20 10:10"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 12:24"
+                    },
+                    "duration": 494,
+                    "airplane": "Airbus A330",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 47",
+                    "ticket_also_sold_by": [
+                        "Air France"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 332 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 95,
+                    "name": "Amsterdam Airport Schiphol",
+                    "id": "AMS"
+                }
+            ],
+            "total_duration": 674,
+            "carbon_emissions": {
+                "this_flight": 391000,
+                "typical_for_this_route": 371000,
+                "difference_percent": 5
+            },
+            "price": 489,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ3RCUmpFeU5EQjhSRXcwTnhvTENPdjlBaEFDR2dORlZWSTRISENodndNPSIsW1siQ0RHIiwiMjAyNi0wNS0yMCIsIkFNUyIsbnVsbCwiQUYiLCIxMjQwIl0sWyJBTVMiLCIyMDI2LTA1LTIwIiwiSkZLIixudWxsLCJETCIsIjQ3Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 12:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Amsterdam Airport Schiphol",
+                        "id": "AMS",
+                        "time": "2026-05-20 13:40"
+                    },
+                    "duration": 85,
+                    "airplane": "Airbus A320",
+                    "airline": "Air France",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AF.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AF 1740",
+                    "ticket_also_sold_by": [
+                        "Delta",
+                        "KLM"
+                    ],
+                    "legroom": "74 cm",
+                    "extensions": [
+                        "Below average legroom (74 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat USB outlet",
+                        "Carbon emissions estimate: 58 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Amsterdam Airport Schiphol",
+                        "id": "AMS",
+                        "time": "2026-05-20 15:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 17:05"
+                    },
+                    "duration": 485,
+                    "airplane": "Boeing 777",
+                    "airline": "KLM",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/KL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "KL 645",
+                    "ticket_also_sold_by": [
+                        "Delta",
+                        "Air France"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat USB outlet",
+                        "On-demand video",
+                        "Carbon emissions estimate: 357 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 80,
+                    "name": "Amsterdam Airport Schiphol",
+                    "id": "AMS"
+                }
+            ],
+            "total_duration": 650,
+            "carbon_emissions": {
+                "this_flight": 416000,
+                "typical_for_this_route": 371000,
+                "difference_percent": 12
+            },
+            "price": 490,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ3hCUmpFM05EQjhTMHcyTkRVYUN3aVQvZ0lRQWhvRFJWVlNPQnh3MEw4RCIsW1siQ0RHIiwiMjAyNi0wNS0yMCIsIkFNUyIsbnVsbCwiQUYiLCIxNzQwIl0sWyJBTVMiLCIyMDI2LTA1LTIwIiwiSkZLIixudWxsLCJLTCIsIjY0NSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 10:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Amsterdam Airport Schiphol",
+                        "id": "AMS",
+                        "time": "2026-05-20 11:30"
+                    },
+                    "duration": 75,
+                    "airplane": "Boeing 737",
+                    "airline": "KLM",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/KL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "KL 1406",
+                    "ticket_also_sold_by": [
+                        "Delta",
+                        "Air France"
+                    ],
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Carbon emissions estimate: 60 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Amsterdam Airport Schiphol",
+                        "id": "AMS",
+                        "time": "2026-05-20 12:35"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 14:35"
+                    },
+                    "duration": 480,
+                    "airplane": "Boeing 787-10",
+                    "airline": "KLM",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/KL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "KL 641",
+                    "ticket_also_sold_by": [
+                        "Delta",
+                        "Air France"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat USB outlet",
+                        "On-demand video",
+                        "Carbon emissions estimate: 259 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 65,
+                    "name": "Amsterdam Airport Schiphol",
+                    "id": "AMS"
+                }
+            ],
+            "total_duration": 620,
+            "carbon_emissions": {
+                "this_flight": 320000,
+                "typical_for_this_route": 371000,
+                "difference_percent": -14
+            },
+            "price": 491,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/KL.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ3hMVERFME1EWjhTMHcyTkRFYUN3aXkvd0lRQWhvRFJWVlNPQnh3aXNFRCIsW1siQ0RHIiwiMjAyNi0wNS0yMCIsIkFNUyIsbnVsbCwiS0wiLCIxNDA2Il0sWyJBTVMiLCIyMDI2LTA1LTIwIiwiSkZLIixudWxsLCJLTCIsIjY0MSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 14:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Amsterdam Airport Schiphol",
+                        "id": "AMS",
+                        "time": "2026-05-20 15:45"
+                    },
+                    "duration": 75,
+                    "airplane": "Boeing 737",
+                    "airline": "KLM",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/KL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "KL 1408",
+                    "ticket_also_sold_by": [
+                        "Delta",
+                        "Air France"
+                    ],
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "In-seat USB outlet",
+                        "Carbon emissions estimate: 50 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Amsterdam Airport Schiphol",
+                        "id": "AMS",
+                        "time": "2026-05-20 17:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 19:15"
+                    },
+                    "duration": 480,
+                    "airplane": "Boeing 787-10",
+                    "airline": "KLM",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/KL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "KL 643",
+                    "ticket_also_sold_by": [
+                        "Delta",
+                        "Air France"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat USB outlet",
+                        "On-demand video",
+                        "Carbon emissions estimate: 259 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 90,
+                    "name": "Amsterdam Airport Schiphol",
+                    "id": "AMS"
+                }
+            ],
+            "total_duration": 645,
+            "carbon_emissions": {
+                "this_flight": 310000,
+                "typical_for_this_route": 371000,
+                "difference_percent": -16
+            },
+            "price": 491,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/KL.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ3hMVERFME1EaDhTMHcyTkRNYUN3aXkvd0lRQWhvRFJWVlNPQnh3aXNFRCIsW1siQ0RHIiwiMjAyNi0wNS0yMCIsIkFNUyIsbnVsbCwiS0wiLCIxNDA4Il0sWyJBTVMiLCIyMDI2LTA1LTIwIiwiSkZLIixudWxsLCJLTCIsIjY0MyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 06:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Zurich",
+                        "id": "ZRH",
+                        "time": "2026-05-20 08:00"
+                    },
+                    "duration": 75,
+                    "airplane": "Airbus A220-300 Passenger",
+                    "airline": "SWISS",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/LX.png",
+                    "travel_class": "Economy",
+                    "flight_number": "LX 647",
+                    "ticket_also_sold_by": [
+                        "United"
+                    ],
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Carbon emissions estimate: 66 kg"
+                    ],
+                    "plane_and_crew_by": "Air Baltic"
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Zurich",
+                        "id": "ZRH",
+                        "time": "2026-05-20 10:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 12:50"
+                    },
+                    "duration": 530,
+                    "airplane": "Airbus A330",
+                    "airline": "SWISS",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/LX.png",
+                    "travel_class": "Economy",
+                    "flight_number": "LX 16",
+                    "ticket_also_sold_by": [
+                        "United"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat USB outlet",
+                        "On-demand video",
+                        "Carbon emissions estimate: 293 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 120,
+                    "name": "Aéroport international de Zurich",
+                    "id": "ZRH"
+                }
+            ],
+            "total_duration": 725,
+            "carbon_emissions": {
+                "this_flight": 360000,
+                "typical_for_this_route": 371000,
+                "difference_percent": -3
+            },
+            "price": 493,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/LX.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ3BNV0RZME4zeE1XREUyR2dzSTZJQURFQUlhQTBWVlVqZ2NjTi9DQXc9PSIsW1siQ0RHIiwiMjAyNi0wNS0yMCIsIlpSSCIsbnVsbCwiTFgiLCI2NDciXSxbIlpSSCIsIjIwMjYtMDUtMjAiLCJKRksiLG51bGwsIkxYIiwiMTYiXV1d"
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 09:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Zurich",
+                        "id": "ZRH",
+                        "time": "2026-05-20 11:05"
+                    },
+                    "duration": 80,
+                    "airplane": "Airbus A220-300 Passenger",
+                    "airline": "SWISS",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/LX.png",
+                    "travel_class": "Economy",
+                    "flight_number": "LX 633",
+                    "legroom": "74 cm",
+                    "extensions": [
+                        "Below average legroom (74 cm)",
+                        "Carbon emissions estimate: 68 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Zurich",
+                        "id": "ZRH",
+                        "time": "2026-05-20 13:20"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 16:35"
+                    },
+                    "duration": 555,
+                    "airplane": "Airbus A330",
+                    "airline": "SWISS",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/LX.png",
+                    "travel_class": "Economy",
+                    "flight_number": "LX 14",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat USB outlet",
+                        "On-demand video",
+                        "Carbon emissions estimate: 293 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 135,
+                    "name": "Aéroport international de Zurich",
+                    "id": "ZRH"
+                }
+            ],
+            "total_duration": 770,
+            "carbon_emissions": {
+                "this_flight": 361000,
+                "typical_for_this_route": 371000,
+                "difference_percent": -3
+            },
+            "price": 493,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/LX.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ3BNV0RZek0zeE1XREUwR2dzSTZJQURFQUlhQTBWVlVqZ2NjTi9DQXc9PSIsW1siQ0RHIiwiMjAyNi0wNS0yMCIsIlpSSCIsbnVsbCwiTFgiLCI2MzMiXSxbIlpSSCIsIjIwMjYtMDUtMjAiLCJKRksiLG51bGwsIkxYIiwiMTQiXV1d"
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 09:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport Franz-Josef-Strauss de Munich",
+                        "id": "MUC",
+                        "time": "2026-05-20 10:30"
+                    },
+                    "duration": 90,
+                    "airplane": "Airbus A320neo",
+                    "airline": "Lufthansa City Airlines",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/VL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "VL 2227",
+                    "ticket_also_sold_by": [
+                        "Lufthansa"
+                    ],
+                    "legroom": "74 cm",
+                    "extensions": [
+                        "Below average legroom (74 cm)",
+                        "In-seat USB outlet",
+                        "Carbon emissions estimate: 70 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport Franz-Josef-Strauss de Munich",
+                        "id": "MUC",
+                        "time": "2026-05-20 12:10"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 15:00"
+                    },
+                    "duration": 530,
+                    "airplane": "Airbus A350",
+                    "airline": "Lufthansa",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/LH.png",
+                    "travel_class": "Economy",
+                    "flight_number": "LH 410",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat USB outlet",
+                        "On-demand video",
+                        "Carbon emissions estimate: 431 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 100,
+                    "name": "Aéroport Franz-Josef-Strauss de Munich",
+                    "id": "MUC"
+                }
+            ],
+            "total_duration": 720,
+            "carbon_emissions": {
+                "this_flight": 502000,
+                "typical_for_this_route": 371000,
+                "difference_percent": 35
+            },
+            "price": 497,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ3hXVERJeU1qZDhURWcwTVRBYUN3anRnd01RQWhvRFJWVlNPQnh3cDhZRCIsW1siQ0RHIiwiMjAyNi0wNS0yMCIsIk1VQyIsbnVsbCwiVkwiLCIyMjI3Il0sWyJNVUMiLCIyMDI2LTA1LTIwIiwiSkZLIixudWxsLCJMSCIsIjQxMCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 14:40"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 17:02"
+                    },
+                    "duration": 502,
+                    "airplane": "Boeing 767",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 265",
+                    "ticket_also_sold_by": [
+                        "Virgin Atlantic",
+                        "Air France"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 316 kg"
+                    ]
+                }
+            ],
+            "total_duration": 502,
+            "carbon_emissions": {
+                "this_flight": 317000,
+                "typical_for_this_route": 371000,
+                "difference_percent": -15
+            },
+            "price": 499,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ1ZFVERJMk5Sb0xDTDZGQXhBQ0dnTkZWVkk0SEhDYnlBTT0iLFtbIkNERyIsIjIwMjYtMDUtMjAiLCJKRksiLG51bGwsIkRMIiwiMjY1Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 10:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 12:40"
+                    },
+                    "duration": 490,
+                    "airplane": "Boeing 777",
+                    "airline": "Air France",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AF.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AF 4",
+                    "ticket_also_sold_by": [
+                        "Delta"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat USB outlet",
+                        "On-demand video",
+                        "Carbon emissions estimate: 357 kg"
+                    ]
+                }
+            ],
+            "total_duration": 490,
+            "carbon_emissions": {
+                "this_flight": 357000,
+                "typical_for_this_route": 371000,
+                "difference_percent": -4
+            },
+            "price": 499,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AF.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ05CUmpRYUN3amloUU1RQWhvRFJWVlNPQnh3eHNnRCIsW1siQ0RHIiwiMjAyNi0wNS0yMCIsIkpGSyIsbnVsbCwiQUYiLCI0Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 13:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 15:50"
+                    },
+                    "duration": 500,
+                    "airplane": "Boeing 777",
+                    "airline": "Air France",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AF.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AF 6",
+                    "ticket_also_sold_by": [
+                        "Delta"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat USB outlet",
+                        "On-demand video",
+                        "Carbon emissions estimate: 357 kg"
+                    ]
+                }
+            ],
+            "total_duration": 500,
+            "carbon_emissions": {
+                "this_flight": 357000,
+                "typical_for_this_route": 371000,
+                "difference_percent": -4
+            },
+            "price": 499,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AF.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ05CUmpZYUN3amloUU1RQWhvRFJWVlNPQnh3eHNnRCIsW1siQ0RHIiwiMjAyNi0wNS0yMCIsIkpGSyIsbnVsbCwiQUYiLCI2Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 16:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 18:45"
+                    },
+                    "duration": 495,
+                    "airplane": "Boeing 777",
+                    "airline": "Air France",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AF.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AF 8",
+                    "ticket_also_sold_by": [
+                        "Delta"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat USB outlet",
+                        "On-demand video",
+                        "Carbon emissions estimate: 357 kg"
+                    ]
+                }
+            ],
+            "total_duration": 495,
+            "carbon_emissions": {
+                "this_flight": 357000,
+                "typical_for_this_route": 371000,
+                "difference_percent": -4
+            },
+            "price": 499,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AF.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ05CUmpnYUN3amloUU1RQWhvRFJWVlNPQnh3eHNnRCIsW1siQ0RHIiwiMjAyNi0wNS0yMCIsIkpGSyIsbnVsbCwiQUYiLCI4Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 18:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 20:45"
+                    },
+                    "duration": 495,
+                    "airplane": "Boeing 777",
+                    "airline": "Air France",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AF.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AF 10",
+                    "ticket_also_sold_by": [
+                        "Delta"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 337 kg"
+                    ]
+                }
+            ],
+            "total_duration": 495,
+            "carbon_emissions": {
+                "this_flight": 338000,
+                "typical_for_this_route": 371000,
+                "difference_percent": -9
+            },
+            "price": 499,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AF.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ1JCUmpFd0dnc0k0b1VERUFJYUEwVlZVamdjY01iSUF3PT0iLFtbIkNERyIsIjIwMjYtMDUtMjAiLCJKRksiLG51bGwsIkFGIiwiMTAiXV1d"
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 20:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 22:40"
+                    },
+                    "duration": 490,
+                    "airplane": "Airbus A350",
+                    "airline": "Air France",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AF.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AF 12",
+                    "ticket_also_sold_by": [
+                        "Delta"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat USB outlet",
+                        "On-demand video",
+                        "Carbon emissions estimate: 313 kg"
+                    ]
+                }
+            ],
+            "total_duration": 490,
+            "carbon_emissions": {
+                "this_flight": 313000,
+                "typical_for_this_route": 371000,
+                "difference_percent": -16
+            },
+            "price": 499,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AF.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ1JCUmpFeUdnc0k0b1VERUFJYUEwVlZVamdjY01iSUF3PT0iLFtbIkNERyIsIjIwMjYtMDUtMjAiLCJKRksiLG51bGwsIkFGIiwiMTIiXV1d"
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Paris-Charles de Gaulle",
+                        "id": "CDG",
+                        "time": "2026-05-20 12:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-05-20 15:11"
+                    },
+                    "duration": 526,
+                    "airplane": "Airbus A321neo",
+                    "airline": "JetBlue",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/B6.png",
+                    "travel_class": "Economy",
+                    "flight_number": "B6 1408",
+                    "legroom": "81 cm",
+                    "extensions": [
+                        "Above average legroom (81 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 535 kg"
+                    ]
+                }
+            ],
+            "total_duration": 526,
+            "carbon_emissions": {
+                "this_flight": 536000,
+                "typical_for_this_route": 371000,
+                "difference_percent": 44
+            },
+            "price": 923,
+            "type": "Round trip",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/B6.png",
+            "extensions": [
+                "Checked baggage for a fee",
+                "Full refund for cancellations",
+                "Free change, possible fare difference",
+                "Bag and fare conditions depend on the return flight"
+            ],
+            "departure_token": "WyJDalJJTVZkVlFpMW1kMWhIWmsxQlFVRXdZbmRDUnkwdExTMHRMUzB0TFhSc2NtZ3hNRUZCUVVGQlIyNTNObXd3VEhweVUwRkJFZ1pDTmpFME1EZ2FDd2lEMFFVUUFob0RSVlZTT0J4d3g4d0ciLFtbIkNERyIsIjIwMjYtMDUtMjAiLCJKRksiLG51bGwsIkI2IiwiMTQwOCJdXV0="
+        }
+    ],
+    "price_insights": {
+        "lowest_price": 489,
+        "price_level": "typical",
+        "typical_price_range": [
+            430,
+            590
+        ],
+        "price_history": [
+            [
+                1772146800,
+                438
+            ],
+            [
+                1772233200,
+                438
+            ],
+            [
+                1772319600,
+                438
+            ],
+            [
+                1772406000,
+                438
+            ],
+            [
+                1772492400,
+                438
+            ],
+            [
+                1772578800,
+                438
+            ],
+            [
+                1772665200,
+                438
+            ],
+            [
+                1772751600,
+                450
+            ],
+            [
+                1772838000,
+                450
+            ],
+            [
+                1772924400,
+                451
+            ],
+            [
+                1773010800,
+                455
+            ],
+            [
+                1773097200,
+                455
+            ],
+            [
+                1773183600,
+                469
+            ],
+            [
+                1773270000,
+                469
+            ],
+            [
+                1773356400,
+                489
+            ],
+            [
+                1773442800,
+                489
+            ],
+            [
+                1773529200,
+                490
+            ],
+            [
+                1773615600,
+                490
+            ],
+            [
+                1773702000,
+                490
+            ],
+            [
+                1773788400,
+                490
+            ],
+            [
+                1773874800,
+                490
+            ],
+            [
+                1773961200,
+                490
+            ],
+            [
+                1774047600,
+                490
+            ],
+            [
+                1774134000,
+                490
+            ],
+            [
+                1774220400,
+                490
+            ],
+            [
+                1774306800,
+                489
+            ],
+            [
+                1774393200,
+                489
+            ],
+            [
+                1774479600,
+                489
+            ],
+            [
+                1774566000,
+                489
+            ],
+            [
+                1774652400,
+                489
+            ],
+            [
+                1774738800,
+                489
+            ],
+            [
+                1774821600,
+                489
+            ],
+            [
+                1774908000,
+                489
+            ],
+            [
+                1774994400,
+                490
+            ],
+            [
+                1775080800,
+                490
+            ],
+            [
+                1775167200,
+                489
+            ],
+            [
+                1775253600,
+                489
+            ],
+            [
+                1775340000,
+                487
+            ],
+            [
+                1775426400,
+                487
+            ],
+            [
+                1775512800,
+                456
+            ],
+            [
+                1775599200,
+                493
+            ],
+            [
+                1775685600,
+                493
+            ],
+            [
+                1775772000,
+                497
+            ],
+            [
+                1775858400,
+                497
+            ],
+            [
+                1775944800,
+                499
+            ],
+            [
+                1776031200,
+                449
+            ],
+            [
+                1776117600,
+                449
+            ],
+            [
+                1776204000,
+                456
+            ],
+            [
+                1776290400,
+                461
+            ],
+            [
+                1776376800,
+                456
+            ],
+            [
+                1776463200,
+                488
+            ],
+            [
+                1776549600,
+                486
+            ],
+            [
+                1776636000,
+                486
+            ],
+            [
+                1776722400,
+                449
+            ],
+            [
+                1776808800,
+                449
+            ],
+            [
+                1776895200,
+                449
+            ],
+            [
+                1776981600,
+                486
+            ],
+            [
+                1777068000,
+                486
+            ],
+            [
+                1777154400,
+                486
+            ],
+            [
+                1777240800,
+                486
+            ],
+            [
+                1777327200,
+                489
+            ]
+        ]
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "CDG",
+                        "name": "Aéroport de Paris-Charles de Gaulle"
+                    },
+                    "city": "Paris",
+                    "country": "France",
+                    "country_code": "FR",
+                    "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQGx8ii2KbSDdbdzfKye5oDN2bwBA6audqI7XUEf2iMRZezpn_ZbQe1ZIuvUSH-8XOMe958umDwSsAF1w",
+                    "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSyQJ-woNs0iO22mPSkmRUM5gcsTbbYeypQ6BBTeFxXr90mqTxZl57Fdq2CDuLn4w7cKZ8TT9_zZhOpF57rIpA7yWKQnqKvkKIf9Y-qJDo"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "JFK",
+                        "name": "Aéroport international John F. Kennedy"
+                    },
+                    "city": "New York",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRa1dwH1NZQk4dsbPiyA9Vrq2RX75jXSZ-OkHn7NkLHl-11HercqDXoZ4p2cDxJkH6vca2degawrCzHEQ",
+                    "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQEaUa9NsdPWGpAUGkTApkZDT_4M6_6V8wTcC0v1b1wJAJX-BuMSiipXbsoznGgcI1xLOc5QiTcR_xovexgjdOz0gqQe0tRQ9h0bUkZ07Q"
+                }
+            ]
+        },
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "JFK",
+                        "name": "Aéroport international John F. Kennedy"
+                    },
+                    "city": "New York",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRa1dwH1NZQk4dsbPiyA9Vrq2RX75jXSZ-OkHn7NkLHl-11HercqDXoZ4p2cDxJkH6vca2degawrCzHEQ",
+                    "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQEaUa9NsdPWGpAUGkTApkZDT_4M6_6V8wTcC0v1b1wJAJX-BuMSiipXbsoznGgcI1xLOc5QiTcR_xovexgjdOz0gqQe0tRQ9h0bUkZ07Q"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "CDG",
+                        "name": "Aéroport de Paris-Charles de Gaulle"
+                    },
+                    "city": "Paris",
+                    "country": "France",
+                    "country_code": "FR",
+                    "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQGx8ii2KbSDdbdzfKye5oDN2bwBA6audqI7XUEf2iMRZezpn_ZbQe1ZIuvUSH-8XOMe958umDwSsAF1w",
+                    "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSyQJ-woNs0iO22mPSkmRUM5gcsTbbYeypQ6BBTeFxXr90mqTxZl57Fdq2CDuLn4w7cKZ8TT9_zZhOpF57rIpA7yWKQnqKvkKIf9Y-qJDo"
+                }
+            ]
+        }
+    ]
+}

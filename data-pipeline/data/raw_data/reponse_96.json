@@ -1,0 +1,702 @@
+{
+    "search_metadata": {
+        "id": "6a217125bc3f0b73f0d70860",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/70nJvqcgwAbOJWXJLcex9w/6a217125bc3f0b73f0d70860.json",
+        "created_at": "2026-06-04 12:35:49 UTC",
+        "processed_at": "2026-06-04 12:35:49 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTIxagcIARIDSkZLcgcIARIDU0VBQAFIAXABmAEC&tfu=EgIIAQ",
+        "raw_html_file": "https://serpapi.com/searches/70nJvqcgwAbOJWXJLcex9w/6a217125bc3f0b73f0d70860.html",
+        "prettify_html_file": "https://serpapi.com/searches/70nJvqcgwAbOJWXJLcex9w/6a217125bc3f0b73f0d70860.prettify",
+        "total_time_taken": 0.58
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "fr",
+        "gl": "us",
+        "type": "2",
+        "departure_id": "JFK",
+        "arrival_id": "SEA",
+        "outbound_date": "2026-06-21",
+        "currency": "EUR"
+    },
+    "best_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-21 07:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-21 10:16"
+                    },
+                    "duration": 376,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 21",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 283 kg"
+                    ]
+                }
+            ],
+            "total_duration": 376,
+            "carbon_emissions": {
+                "this_flight": 283000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -20
+            },
+            "price": 274,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJUmtSVmEwOXpXV1J4YXpSQlFqaEtlRUZDUnkwdExTMHRMUzB0TFMxMmQyNXRORUZCUVVGQlIyOW9ZMU5aUkZKUFVXdEJFZ1JCVXpJeEdnc0kzOVVCRUFJYUEwVlZVamdjY09INEFRPT0iLFtbIkpGSyIsIjIwMjYtMDYtMjEiLCJTRUEiLG51bGwsIkFTIiwiMjEiXV1d"
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-21 17:38"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-21 21:08"
+                    },
+                    "duration": 390,
+                    "airplane": "Airbus A321",
+                    "airline": "JetBlue",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/B6.png",
+                    "travel_class": "Economy",
+                    "flight_number": "B6 263",
+                    "legroom": "81 cm",
+                    "extensions": [
+                        "Above average legroom (81 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 333 kg"
+                    ]
+                }
+            ],
+            "total_duration": 390,
+            "carbon_emissions": {
+                "this_flight": 334000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -6
+            },
+            "price": 321,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/B6.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJUmtSVmEwOXpXV1J4YXpSQlFqaEtlRUZDUnkwdExTMHRMUzB0TFMxMmQyNXRORUZCUVVGQlIyOW9ZMU5aUkZKUFVXdEJFZ1ZDTmpJMk14b0xDTlg2QVJBQ0dnTkZWVkk0SEhEZG93ST0iLFtbIkpGSyIsIjIwMjYtMDYtMjEiLCJTRUEiLG51bGwsIkI2IiwiMjYzIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-21 20:23"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-21 23:55"
+                    },
+                    "duration": 392,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 17",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 283 kg"
+                    ]
+                }
+            ],
+            "total_duration": 392,
+            "carbon_emissions": {
+                "this_flight": 283000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -20
+            },
+            "price": 321,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJUmtSVmEwOXpXV1J4YXpSQlFqaEtlRUZDUnkwdExTMHRMUzB0TFMxMmQyNXRORUZCUVVGQlIyOW9ZMU5aUkZKUFVXdEJFZ1JCVXpFM0dnc0kxZm9CRUFJYUEwVlZVamdjY04yakFnPT0iLFtbIkpGSyIsIjIwMjYtMDYtMjEiLCJTRUEiLG51bGwsIkFTIiwiMTciXV1d"
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-21 07:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-21 10:05"
+                    },
+                    "duration": 365,
+                    "airplane": "Airbus A321neo",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 699",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 246 kg"
+                    ]
+                }
+            ],
+            "total_duration": 365,
+            "carbon_emissions": {
+                "this_flight": 246000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -31
+            },
+            "price": 334,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJUmtSVmEwOXpXV1J4YXpSQlFqaEtlRUZDUnkwdExTMHRMUzB0TFMxMmQyNXRORUZCUVVGQlIyOW9ZMU5aUkZKUFVXdEJFZ1ZFVERZNU9Sb0xDTjJFQWhBQ0dnTkZWVkk0SEhDNHJ3ST0iLFtbIkpGSyIsIjIwMjYtMDYtMjEiLCJTRUEiLG51bGwsIkRMIiwiNjk5Il1dXQ=="
+        }
+    ],
+    "other_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-21 13:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-21 16:19"
+                    },
+                    "duration": 379,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 23",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 283 kg"
+                    ]
+                }
+            ],
+            "total_duration": 379,
+            "carbon_emissions": {
+                "this_flight": 283000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -20
+            },
+            "price": 455,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJUmtSVmEwOXpXV1J4YXpSQlFqaEtlRUZDUnkwdExTMHRMUzB0TFMxMmQyNXRORUZCUVVGQlIyOW9ZMU5aUkZKUFVXdEJFZ1JCVXpJekdnc0kyK0lDRUFJYUEwVlZVamdjY09tY0F3PT0iLFtbIkpGSyIsIjIwMjYtMDYtMjEiLCJTRUEiLG51bGwsIkFTIiwiMjMiXV1d"
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-21 16:29"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-21 20:09"
+                    },
+                    "duration": 400,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 31",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 288 kg"
+                    ]
+                }
+            ],
+            "total_duration": 400,
+            "carbon_emissions": {
+                "this_flight": 289000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -19
+            },
+            "price": 455,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJUmtSVmEwOXpXV1J4YXpSQlFqaEtlRUZDUnkwdExTMHRMUzB0TFMxMmQyNXRORUZCUVVGQlIyOW9ZMU5aUkZKUFVXdEJFZ1JCVXpNeEdnc0kyK0lDRUFJYUEwVlZVamdjY09tY0F3PT0iLFtbIkpGSyIsIjIwMjYtMDYtMjEiLCJTRUEiLG51bGwsIkFTIiwiMzEiXV1d"
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-21 11:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-21 14:50"
+                    },
+                    "duration": 380,
+                    "airplane": "Airbus A321neo",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 1719",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 246 kg"
+                    ]
+                }
+            ],
+            "total_duration": 380,
+            "carbon_emissions": {
+                "this_flight": 246000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -31
+            },
+            "price": 480,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJUmtSVmEwOXpXV1J4YXpSQlFqaEtlRUZDUnkwdExTMHRMUzB0TFMxMmQyNXRORUZCUVVGQlIyOW9ZMU5aUkZKUFVXdEJFZ1pFVERFM01Ua2FDd2p0OWdJUUFob0RSVlZTT0J4d29iUUQiLFtbIkpGSyIsIjIwMjYtMDYtMjEiLCJTRUEiLG51bGwsIkRMIiwiMTcxOSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-21 16:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-21 20:19"
+                    },
+                    "duration": 389,
+                    "airplane": "Airbus A321neo",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 740",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 246 kg"
+                    ]
+                }
+            ],
+            "total_duration": 389,
+            "carbon_emissions": {
+                "this_flight": 246000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -31
+            },
+            "price": 480,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJUmtSVmEwOXpXV1J4YXpSQlFqaEtlRUZDUnkwdExTMHRMUzB0TFMxMmQyNXRORUZCUVVGQlIyOW9ZMU5aUkZKUFVXdEJFZ1ZFVERjME1Cb0xDTzMyQWhBQ0dnTkZWVkk0SEhDaHRBTT0iLFtbIkpGSyIsIjIwMjYtMDYtMjEiLCJTRUEiLG51bGwsIkRMIiwiNzQwIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-21 19:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-21 23:08"
+                    },
+                    "duration": 398,
+                    "airplane": "Airbus A321neo",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 688",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 246 kg"
+                    ]
+                }
+            ],
+            "total_duration": 398,
+            "carbon_emissions": {
+                "this_flight": 246000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -31
+            },
+            "price": 480,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJUmtSVmEwOXpXV1J4YXpSQlFqaEtlRUZDUnkwdExTMHRMUzB0TFMxMmQyNXRORUZCUVVGQlIyOW9ZMU5aUkZKUFVXdEJFZ1ZFVERZNE9Cb0xDTzMyQWhBQ0dnTkZWVkk0SEhDaHRBTT0iLFtbIkpGSyIsIjIwMjYtMDYtMjEiLCJTRUEiLG51bGwsIkRMIiwiNjg4Il1dXQ=="
+        }
+    ],
+    "price_insights": {
+        "lowest_price": 274,
+        "price_level": "high",
+        "typical_price_range": [
+            135,
+            260
+        ],
+        "price_history": [
+            [
+                1775275200,
+                147
+            ],
+            [
+                1775361600,
+                147
+            ],
+            [
+                1775448000,
+                147
+            ],
+            [
+                1775534400,
+                146
+            ],
+            [
+                1775620800,
+                144
+            ],
+            [
+                1775707200,
+                152
+            ],
+            [
+                1775793600,
+                144
+            ],
+            [
+                1775880000,
+                144
+            ],
+            [
+                1775966400,
+                144
+            ],
+            [
+                1776052800,
+                145
+            ],
+            [
+                1776139200,
+                143
+            ],
+            [
+                1776225600,
+                143
+            ],
+            [
+                1776312000,
+                143
+            ],
+            [
+                1776398400,
+                186
+            ],
+            [
+                1776484800,
+                186
+            ],
+            [
+                1776571200,
+                233
+            ],
+            [
+                1776657600,
+                238
+            ],
+            [
+                1776744000,
+                186
+            ],
+            [
+                1776830400,
+                186
+            ],
+            [
+                1776916800,
+                238
+            ],
+            [
+                1777003200,
+                170
+            ],
+            [
+                1777089600,
+                187
+            ],
+            [
+                1777176000,
+                187
+            ],
+            [
+                1777262400,
+                187
+            ],
+            [
+                1777348800,
+                183
+            ],
+            [
+                1777435200,
+                143
+            ],
+            [
+                1777521600,
+                169
+            ],
+            [
+                1777608000,
+                183
+            ],
+            [
+                1777694400,
+                183
+            ],
+            [
+                1777780800,
+                183
+            ],
+            [
+                1777867200,
+                183
+            ],
+            [
+                1777953600,
+                187
+            ],
+            [
+                1778040000,
+                161
+            ],
+            [
+                1778126400,
+                186
+            ],
+            [
+                1778212800,
+                187
+            ],
+            [
+                1778299200,
+                186
+            ],
+            [
+                1778385600,
+                220
+            ],
+            [
+                1778472000,
+                212
+            ],
+            [
+                1778558400,
+                211
+            ],
+            [
+                1778644800,
+                221
+            ],
+            [
+                1778731200,
+                255
+            ],
+            [
+                1778817600,
+                214
+            ],
+            [
+                1778904000,
+                244
+            ],
+            [
+                1778990400,
+                244
+            ],
+            [
+                1779076800,
+                240
+            ],
+            [
+                1779163200,
+                184
+            ],
+            [
+                1779249600,
+                245
+            ],
+            [
+                1779336000,
+                244
+            ],
+            [
+                1779422400,
+                223
+            ],
+            [
+                1779508800,
+                214
+            ],
+            [
+                1779595200,
+                215
+            ],
+            [
+                1779681600,
+                223
+            ],
+            [
+                1779768000,
+                223
+            ],
+            [
+                1779854400,
+                214
+            ],
+            [
+                1779940800,
+                215
+            ],
+            [
+                1780027200,
+                214
+            ],
+            [
+                1780113600,
+                214
+            ],
+            [
+                1780200000,
+                213
+            ],
+            [
+                1780286400,
+                222
+            ],
+            [
+                1780372800,
+                227
+            ],
+            [
+                1780459200,
+                274
+            ],
+            [
+                1780545600,
+                274
+            ]
+        ]
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "JFK",
+                        "name": "Aéroport international John F. Kennedy"
+                    },
+                    "city": "New York",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRa1dwH1NZQk4dsbPiyA9Vrq2RX75jXSZ-OkHn7NkLHl-11HercqDXoZ4p2cDxJkH6vca2degawrCzHEQ",
+                    "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQEaUa9NsdPWGpAUGkTApkZDT_4M6_6V8wTcC0v1b1wJAJX-BuMSiipXbsoznGgcI1xLOc5QiTcR_xovexgjdOz0gqQe0tRQ9h0bUkZ07Q"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "SEA",
+                        "name": "Aéroport international de Seattle-Tacoma"
+                    },
+                    "city": "Seattle",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSSAiBpSv2yUgizRXFmwGP3MTh6M7DGi6u5WgjN5zbRJ9jD42_UzeQNdCTyuPiU5fj8jF1Podav6__a_A",
+                    "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSY5I5L6loeputAIHRWtjOdGurjvRa1ioycHdq2XPS_Io8MuYXvN2ZiixmnVQBWQ_fjPP1A9o9y9-o-yeukkA0ZTCtpBvF4MXtRITUgCs8"
+                }
+            ]
+        }
+    ]
+}

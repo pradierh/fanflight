@@ -1,0 +1,1402 @@
+{
+    "search_metadata": {
+        "id": "6a21822b2ddc431181ddf2f5",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/szJEsY0sZUkwTtGYkoFzCw/6a21822b2ddc431181ddf2f5.json",
+        "created_at": "2026-06-04 13:48:27 UTC",
+        "processed_at": "2026-06-04 13:48:27 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTE5agcIARIDT0FLcgcIARIDTUNJQAFIAXABmAEC&tfu=EgIIAQ",
+        "raw_html_file": "https://serpapi.com/searches/szJEsY0sZUkwTtGYkoFzCw/6a21822b2ddc431181ddf2f5.html",
+        "prettify_html_file": "https://serpapi.com/searches/szJEsY0sZUkwTtGYkoFzCw/6a21822b2ddc431181ddf2f5.prettify",
+        "total_time_taken": 0.63
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "fr",
+        "gl": "us",
+        "type": "2",
+        "departure_id": "OAK",
+        "arrival_id": "MCI",
+        "outbound_date": "2026-06-19",
+        "currency": "EUR"
+    },
+    "best_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 14:55"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-19 17:00"
+                    },
+                    "duration": 125,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 1464",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 114 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-19 18:27"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-19 23:59"
+                    },
+                    "duration": 212,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 564",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 171 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 87,
+                    "name": "Aéroport international de Seattle-Tacoma",
+                    "id": "SEA"
+                }
+            ],
+            "total_duration": 424,
+            "carbon_emissions": {
+                "this_flight": 286000,
+                "typical_for_this_route": 256000,
+                "difference_percent": 12
+            },
+            "price": 296,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZDNZdFEyNDBlamRaUVdkQlFrdHZRM2RDUnkwdExTMHRMUzB0TFhsc1pXc3hNRUZCUVVGQlIyOW9aMmx6U0dWUWNXOUJFZ3hCVXpFME5qUjhRVk0xTmpRYUN3aU81d0VRQWhvRFJWVlNPQnh3OVl3QyIsW1siT0FLIiwiMjAyNi0wNi0xOSIsIlNFQSIsbnVsbCwiQVMiLCIxNDY0Il0sWyJTRUEiLCIyMDI2LTA2LTE5IiwiTUNJIixudWxsLCJBUyIsIjU2NCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 13:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-19 16:50"
+                    },
+                    "duration": 145,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 3043",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 124 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-19 17:55"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-19 20:45"
+                    },
+                    "duration": 110,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 4305",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 83 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 65,
+                    "name": "Aéroport international de Denver",
+                    "id": "DEN"
+                }
+            ],
+            "total_duration": 320,
+            "carbon_emissions": {
+                "this_flight": 208000,
+                "typical_for_this_route": 256000,
+                "difference_percent": -19
+            },
+            "price": 357,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZDNZdFEyNDBlamRaUVdkQlFrdHZRM2RDUnkwdExTMHRMUzB0TFhsc1pXc3hNRUZCUVVGQlIyOW9aMmx6U0dWUWNXOUJFZzFYVGpNd05ETjhWMDQwTXpBMUdnc0k1SllDRUFJYUEwVlZVamdjY0xIRUFnPT0iLFtbIk9BSyIsIjIwMjYtMDYtMTkiLCJERU4iLG51bGwsIldOIiwiMzA0MyJdLFsiREVOIiwiMjAyNi0wNi0xOSIsIk1DSSIsbnVsbCwiV04iLCI0MzA1Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 16:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport International Harry Reid",
+                        "id": "LAS",
+                        "time": "2026-06-19 18:20"
+                    },
+                    "duration": 95,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 4539",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 76 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport International Harry Reid",
+                        "id": "LAS",
+                        "time": "2026-06-19 19:10"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-19 23:55"
+                    },
+                    "duration": 165,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 2266",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 145 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 50,
+                    "name": "Aéroport International Harry Reid",
+                    "id": "LAS"
+                }
+            ],
+            "total_duration": 310,
+            "carbon_emissions": {
+                "this_flight": 222000,
+                "typical_for_this_route": 256000,
+                "difference_percent": -13
+            },
+            "price": 357,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZDNZdFEyNDBlamRaUVdkQlFrdHZRM2RDUnkwdExTMHRMUzB0TFhsc1pXc3hNRUZCUVVGQlIyOW9aMmx6U0dWUWNXOUJFZzFYVGpRMU16bDhWMDR5TWpZMkdnc0k1SllDRUFJYUEwVlZVamdjY0xIRUFnPT0iLFtbIk9BSyIsIjIwMjYtMDYtMTkiLCJMQVMiLG51bGwsIldOIiwiNDUzOSJdLFsiTEFTIiwiMjAyNi0wNi0xOSIsIk1DSSIsbnVsbCwiV04iLCIyMjY2Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 18:10"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport International Harry Reid",
+                        "id": "LAS",
+                        "time": "2026-06-19 19:45"
+                    },
+                    "duration": 95,
+                    "airplane": "Boeing 737-700 (Scimitar Winglets) Pax",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 4693",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 100 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport International Harry Reid",
+                        "id": "LAS",
+                        "time": "2026-06-19 20:55"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-20 01:40"
+                    },
+                    "duration": 165,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 2267",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 166 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 70,
+                    "name": "Aéroport International Harry Reid",
+                    "id": "LAS"
+                }
+            ],
+            "total_duration": 330,
+            "carbon_emissions": {
+                "this_flight": 267000,
+                "typical_for_this_route": 256000,
+                "difference_percent": 4
+            },
+            "price": 357,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZDNZdFEyNDBlamRaUVdkQlFrdHZRM2RDUnkwdExTMHRMUzB0TFhsc1pXc3hNRUZCUVVGQlIyOW9aMmx6U0dWUWNXOUJFZzFYVGpRMk9UTjhWMDR5TWpZM0dnc0k1SllDRUFJYUEwVlZVamdjY0xIRUFnPT0iLFtbIk9BSyIsIjIwMjYtMDYtMTkiLCJMQVMiLG51bGwsIldOIiwiNDY5MyJdLFsiTEFTIiwiMjAyNi0wNi0xOSIsIk1DSSIsbnVsbCwiV04iLCIyMjY3Il1dXQ=="
+        }
+    ],
+    "other_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 20:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport International Harry Reid",
+                        "id": "LAS",
+                        "time": "2026-06-19 21:50"
+                    },
+                    "duration": 95,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 5051",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 85 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport International Harry Reid",
+                        "id": "LAS",
+                        "time": "2026-06-19 22:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-20 05:45"
+                    },
+                    "duration": 235,
+                    "airplane": "Boeing 737-700 (Scimitar Winglets) Pax",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 2179",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 247 kg"
+                    ],
+                    "overnight": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-20 09:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-20 10:55"
+                    },
+                    "duration": 130,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 265",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 113 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 60,
+                    "name": "Aéroport International Harry Reid",
+                    "id": "LAS"
+                },
+                {
+                    "duration": 240,
+                    "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                    "id": "ATL"
+                }
+            ],
+            "total_duration": 760,
+            "carbon_emissions": {
+                "this_flight": 446000,
+                "typical_for_this_route": 256000,
+                "difference_percent": 74
+            },
+            "price": 274,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZDNZdFEyNDBlamRaUVdkQlFrdHZRM2RDUnkwdExTMHRMUzB0TFhsc1pXc3hNRUZCUVVGQlIyOW9aMmx6U0dWUWNXOUJFaE5YVGpVd05URjhWMDR5TVRjNWZGZE9NalkxR2dzSTdkVUJFQUlhQTBWVlVqZ2NjT3Y0QVE9PSIsW1siT0FLIiwiMjAyNi0wNi0xOSIsIkxBUyIsbnVsbCwiV04iLCI1MDUxIl0sWyJMQVMiLCIyMDI2LTA2LTE5IiwiQVRMIixudWxsLCJXTiIsIjIxNzkiXSxbIkFUTCIsIjIwMjYtMDYtMjAiLCJNQ0kiLG51bGwsIldOIiwiMjY1Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 17:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Los Angeles",
+                        "id": "LAX",
+                        "time": "2026-06-19 18:55"
+                    },
+                    "duration": 85,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 4229",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 75 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Los Angeles",
+                        "id": "LAX",
+                        "time": "2026-06-19 20:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-20 01:35"
+                    },
+                    "duration": 190,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 2408",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 156 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 90,
+                    "name": "Aéroport international de Los Angeles",
+                    "id": "LAX"
+                }
+            ],
+            "total_duration": 365,
+            "carbon_emissions": {
+                "this_flight": 232000,
+                "typical_for_this_route": 256000,
+                "difference_percent": -9
+            },
+            "price": 357,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZDNZdFEyNDBlamRaUVdkQlFrdHZRM2RDUnkwdExTMHRMUzB0TFhsc1pXc3hNRUZCUVVGQlIyOW9aMmx6U0dWUWNXOUJFZzFYVGpReU1qbDhWMDR5TkRBNEdnc0k1SllDRUFJYUEwVlZVamdjY0xIRUFnPT0iLFtbIk9BSyIsIjIwMjYtMDYtMTkiLCJMQVgiLG51bGwsIldOIiwiNDIyOSJdLFsiTEFYIiwiMjAyNi0wNi0xOSIsIk1DSSIsbnVsbCwiV04iLCIyNDA4Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 05:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-19 09:15"
+                    },
+                    "duration": 150,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 3041",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 124 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-19 11:10"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-19 13:45"
+                    },
+                    "duration": 95,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 1586",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 83 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 115,
+                    "name": "Aéroport international de Denver",
+                    "id": "DEN"
+                }
+            ],
+            "total_duration": 360,
+            "carbon_emissions": {
+                "this_flight": 208000,
+                "typical_for_this_route": 256000,
+                "difference_percent": -19
+            },
+            "price": 383,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZDNZdFEyNDBlamRaUVdkQlFrdHZRM2RDUnkwdExTMHRMUzB0TFhsc1pXc3hNRUZCUVVGQlIyOW9aMmx6U0dWUWNXOUJFZzFYVGpNd05ERjhWMDR4TlRnMkdnc0k5cW9DRUFJYUEwVlZVamdjY09uYkFnPT0iLFtbIk9BSyIsIjIwMjYtMDYtMTkiLCJERU4iLG51bGwsIldOIiwiMzA0MSJdLFsiREVOIiwiMjAyNi0wNi0xOSIsIk1DSSIsbnVsbCwiV04iLCIxNTg2Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 07:35"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport International Harry Reid",
+                        "id": "LAS",
+                        "time": "2026-06-19 09:05"
+                    },
+                    "duration": 90,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 4348",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 76 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport International Harry Reid",
+                        "id": "LAS",
+                        "time": "2026-06-19 10:05"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-19 14:55"
+                    },
+                    "duration": 170,
+                    "airplane": "Boeing 737-700 (Scimitar Winglets) Pax",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 786",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 193 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 60,
+                    "name": "Aéroport International Harry Reid",
+                    "id": "LAS"
+                }
+            ],
+            "total_duration": 320,
+            "carbon_emissions": {
+                "this_flight": 270000,
+                "typical_for_this_route": 256000,
+                "difference_percent": 5
+            },
+            "price": 383,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZDNZdFEyNDBlamRaUVdkQlFrdHZRM2RDUnkwdExTMHRMUzB0TFhsc1pXc3hNRUZCUVVGQlIyOW9aMmx6U0dWUWNXOUJFZ3hYVGpRek5EaDhWMDQzT0RZYUN3ajJxZ0lRQWhvRFJWVlNPQnh3NmRzQyIsW1siT0FLIiwiMjAyNi0wNi0xOSIsIkxBUyIsbnVsbCwiV04iLCI0MzQ4Il0sWyJMQVMiLCIyMDI2LTA2LTE5IiwiTUNJIixudWxsLCJXTiIsIjc4NiJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 12:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport International Harry Reid",
+                        "id": "LAS",
+                        "time": "2026-06-19 13:50"
+                    },
+                    "duration": 95,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 2205",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 76 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport International Harry Reid",
+                        "id": "LAS",
+                        "time": "2026-06-19 15:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-19 19:45"
+                    },
+                    "duration": 165,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 3079",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 166 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 70,
+                    "name": "Aéroport International Harry Reid",
+                    "id": "LAS"
+                }
+            ],
+            "total_duration": 330,
+            "carbon_emissions": {
+                "this_flight": 242000,
+                "typical_for_this_route": 256000,
+                "difference_percent": -5
+            },
+            "price": 383,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZDNZdFEyNDBlamRaUVdkQlFrdHZRM2RDUnkwdExTMHRMUzB0TFhsc1pXc3hNRUZCUVVGQlIyOW9aMmx6U0dWUWNXOUJFZzFYVGpJeU1EVjhWMDR6TURjNUdnc0k5cW9DRUFJYUEwVlZVamdjY09uYkFnPT0iLFtbIk9BSyIsIjIwMjYtMDYtMTkiLCJMQVMiLG51bGwsIldOIiwiMjIwNSJdLFsiTEFTIiwiMjAyNi0wNi0xOSIsIk1DSSIsbnVsbCwiV04iLCIzMDc5Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 14:55"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-19 18:20"
+                    },
+                    "duration": 145,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 3044",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 124 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-19 20:40"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-19 23:20"
+                    },
+                    "duration": 100,
+                    "airplane": "Boeing 737-700 (Scimitar Winglets) Pax",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 4758",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 109 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 140,
+                    "name": "Aéroport international de Denver",
+                    "id": "DEN"
+                }
+            ],
+            "total_duration": 385,
+            "carbon_emissions": {
+                "this_flight": 235000,
+                "typical_for_this_route": 256000,
+                "difference_percent": -8
+            },
+            "price": 383,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZDNZdFEyNDBlamRaUVdkQlFrdHZRM2RDUnkwdExTMHRMUzB0TFhsc1pXc3hNRUZCUVVGQlIyOW9aMmx6U0dWUWNXOUJFZzFYVGpNd05EUjhWMDQwTnpVNEdnc0k5cW9DRUFJYUEwVlZVamdjY09uYkFnPT0iLFtbIk9BSyIsIjIwMjYtMDYtMTkiLCJERU4iLG51bGwsIldOIiwiMzA0NCJdLFsiREVOIiwiMjAyNi0wNi0xOSIsIk1DSSIsbnVsbCwiV04iLCI0NzU4Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 05:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-19 09:15"
+                    },
+                    "duration": 150,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 3041",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 124 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-19 10:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-19 12:45"
+                    },
+                    "duration": 105,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 3114",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 93 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 45,
+                    "name": "Aéroport international de Denver",
+                    "id": "DEN"
+                }
+            ],
+            "total_duration": 300,
+            "carbon_emissions": {
+                "this_flight": 219000,
+                "typical_for_this_route": 256000,
+                "difference_percent": -14
+            },
+            "price": 420,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZDNZdFEyNDBlamRaUVdkQlFrdHZRM2RDUnkwdExTMHRMUzB0TFhsc1pXc3hNRUZCUVVGQlIyOW9aMmx6U0dWUWNXOUJFZzFYVGpNd05ERjhWMDR6TVRFMEdnc0k1Y2NDRUFJYUEwVlZVamdjY0xUOUFnPT0iLFtbIk9BSyIsIjIwMjYtMDYtMTkiLCJERU4iLG51bGwsIldOIiwiMzA0MSJdLFsiREVOIiwiMjAyNi0wNi0xOSIsIk1DSSIsbnVsbCwiV04iLCIzMTE0Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 08:20"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-19 11:45"
+                    },
+                    "duration": 145,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 3042",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 124 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-19 12:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-19 15:05"
+                    },
+                    "duration": 95,
+                    "airplane": "Boeing 737-700 (Scimitar Winglets) Pax",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 351",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 109 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 45,
+                    "name": "Aéroport international de Denver",
+                    "id": "DEN"
+                }
+            ],
+            "total_duration": 285,
+            "carbon_emissions": {
+                "this_flight": 235000,
+                "typical_for_this_route": 256000,
+                "difference_percent": -8
+            },
+            "price": 420,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZDNZdFEyNDBlamRaUVdkQlFrdHZRM2RDUnkwdExTMHRMUzB0TFhsc1pXc3hNRUZCUVVGQlIyOW9aMmx6U0dWUWNXOUJFZ3hYVGpNd05ESjhWMDR6TlRFYUN3amx4d0lRQWhvRFJWVlNPQnh3dFAwQyIsW1siT0FLIiwiMjAyNi0wNi0xOSIsIkRFTiIsbnVsbCwiV04iLCIzMDQyIl0sWyJERU4iLCIyMDI2LTA2LTE5IiwiTUNJIixudWxsLCJXTiIsIjM1MSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 17:03"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Salt Lake City",
+                        "id": "SLC",
+                        "time": "2026-06-19 20:00"
+                    },
+                    "duration": 117,
+                    "airplane": "Embraer 175",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 3903",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Carbon emissions estimate: 134 kg"
+                    ],
+                    "plane_and_crew_by": "SkyWest DBA Delta Connection"
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Salt Lake City",
+                        "id": "SLC",
+                        "time": "2026-06-19 20:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-20 00:18"
+                    },
+                    "duration": 148,
+                    "airplane": "Boeing 737",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 2993",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 143 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 50,
+                    "name": "Aéroport international de Salt Lake City",
+                    "id": "SLC"
+                }
+            ],
+            "total_duration": 315,
+            "carbon_emissions": {
+                "this_flight": 278000,
+                "typical_for_this_route": 256000,
+                "difference_percent": 9
+            },
+            "price": 462,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZDNZdFEyNDBlamRaUVdkQlFrdHZRM2RDUnkwdExTMHRMUzB0TFhsc1pXc3hNRUZCUVVGQlIyOW9aMmx6U0dWUWNXOUJFZzFFVERNNU1ETjhSRXd5T1Rrekdnc0kyZWdDRUFJYUEwVlZVamdjY05takF3PT0iLFtbIk9BSyIsIjIwMjYtMDYtMTkiLCJTTEMiLG51bGwsIkRMIiwiMzkwMyJdLFsiU0xDIiwiMjAyNi0wNi0xOSIsIk1DSSIsbnVsbCwiREwiLCIyOTkzIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 10:22"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-19 12:26"
+                    },
+                    "duration": 124,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 705",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 105 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-19 13:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-19 19:01"
+                    },
+                    "duration": 211,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 497",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 199 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 64,
+                    "name": "Aéroport international de Seattle-Tacoma",
+                    "id": "SEA"
+                }
+            ],
+            "total_duration": 399,
+            "carbon_emissions": {
+                "this_flight": 305000,
+                "typical_for_this_route": 256000,
+                "difference_percent": 19
+            },
+            "price": 505,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJZDNZdFEyNDBlamRaUVdkQlFrdHZRM2RDUnkwdExTMHRMUzB0TFhsc1pXc3hNRUZCUVVGQlIyOW9aMmx6U0dWUWNXOUJFZ3RCVXpjd05YeEJVelE1TnhvTENLS0tBeEFDR2dORlZWSTRISERoeWdNPSIsW1siT0FLIiwiMjAyNi0wNi0xOSIsIlNFQSIsbnVsbCwiQVMiLCI3MDUiXSxbIlNFQSIsIjIwMjYtMDYtMTkiLCJNQ0kiLG51bGwsIkFTIiwiNDk3Il1dXQ=="
+        }
+    ],
+    "price_insights": {
+        "lowest_price": 274,
+        "price_level": "high",
+        "typical_price_range": [
+            145,
+            260
+        ],
+        "price_history": [
+            [
+                1775372400,
+                152
+            ],
+            [
+                1775458800,
+                152
+            ],
+            [
+                1775545200,
+                160
+            ],
+            [
+                1775631600,
+                158
+            ],
+            [
+                1775718000,
+                158
+            ],
+            [
+                1775804400,
+                150
+            ],
+            [
+                1775890800,
+                149
+            ],
+            [
+                1775977200,
+                149
+            ],
+            [
+                1776063600,
+                150
+            ],
+            [
+                1776150000,
+                149
+            ],
+            [
+                1776236400,
+                148
+            ],
+            [
+                1776322800,
+                177
+            ],
+            [
+                1776409200,
+                148
+            ],
+            [
+                1776495600,
+                148
+            ],
+            [
+                1776582000,
+                148
+            ],
+            [
+                1776668400,
+                149
+            ],
+            [
+                1776754800,
+                148
+            ],
+            [
+                1776841200,
+                149
+            ],
+            [
+                1776927600,
+                149
+            ],
+            [
+                1777014000,
+                150
+            ],
+            [
+                1777100400,
+                149
+            ],
+            [
+                1777186800,
+                149
+            ],
+            [
+                1777273200,
+                149
+            ],
+            [
+                1777359600,
+                149
+            ],
+            [
+                1777446000,
+                149
+            ],
+            [
+                1777532400,
+                179
+            ],
+            [
+                1777618800,
+                178
+            ],
+            [
+                1777705200,
+                178
+            ],
+            [
+                1777791600,
+                149
+            ],
+            [
+                1777878000,
+                149
+            ],
+            [
+                1777964400,
+                149
+            ],
+            [
+                1778050800,
+                149
+            ],
+            [
+                1778137200,
+                149
+            ],
+            [
+                1778223600,
+                154
+            ],
+            [
+                1778310000,
+                153
+            ],
+            [
+                1778396400,
+                182
+            ],
+            [
+                1778482800,
+                149
+            ],
+            [
+                1778569200,
+                148
+            ],
+            [
+                1778655600,
+                149
+            ],
+            [
+                1778742000,
+                178
+            ],
+            [
+                1778828400,
+                179
+            ],
+            [
+                1778914800,
+                180
+            ],
+            [
+                1779001200,
+                180
+            ],
+            [
+                1779087600,
+                179
+            ],
+            [
+                1779174000,
+                179
+            ],
+            [
+                1779260400,
+                180
+            ],
+            [
+                1779346800,
+                180
+            ],
+            [
+                1779433200,
+                180
+            ],
+            [
+                1779519600,
+                219
+            ],
+            [
+                1779606000,
+                180
+            ],
+            [
+                1779692400,
+                179
+            ],
+            [
+                1779778800,
+                179
+            ],
+            [
+                1779865200,
+                179
+            ],
+            [
+                1779951600,
+                180
+            ],
+            [
+                1780038000,
+                179
+            ],
+            [
+                1780124400,
+                184
+            ],
+            [
+                1780210800,
+                180
+            ],
+            [
+                1780297200,
+                180
+            ],
+            [
+                1780383600,
+                274
+            ],
+            [
+                1780470000,
+                275
+            ],
+            [
+                1780556400,
+                274
+            ]
+        ]
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "OAK",
+                        "name": "Aéroport international d'Oakland"
+                    },
+                    "city": "Oakland",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV2Bb7WL6M85lvFSy_stt7U62uJvzYE1ZfaHnG7uDU0iaoJkXYRg6Ol5cJPNAnsNN-TZkzUabm_olJpQ",
+                    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2j1_Hx2juzwv1lWZpWIKgSQdJgGmw2mhoLCU_-CquZQJtiascbZBC5KcipHoqmEdQPm2MFNhdu5eB6QwuJ_SOebLqhVt9woPlBYofwug"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "MCI",
+                        "name": "Aéroport international de Kansas City"
+                    },
+                    "city": "Kansas City",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRoBovD1qp5ktiNUerhhAat62QvAlvG6BXbWC9itc-ZPeTZvi96GJDpAqnn03Iz23CjeohtT0hJJ6IDdw",
+                    "thumbnail": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQIYn_HZZebFrUzpZ_b1aRtCOd890pBSMT5aqqJTEMwwguHmfnjz2gjOG4eILAf7gAkQ_hJF-_NGFakNP3s1vNwBn7iHwer0DDPRiBoxmM"
+                }
+            ]
+        }
+    ]
+}

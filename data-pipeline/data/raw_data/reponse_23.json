@@ -1,0 +1,1063 @@
+{
+    "search_metadata": {
+        "id": "6a217a2d31a601534573e9c7",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/o6f3wrbqcB3_4Sr3wwJAsg/6a217a2d31a601534573e9c7.json",
+        "created_at": "2026-06-04 13:14:21 UTC",
+        "processed_at": "2026-06-04 13:14:21 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTI3agcIARIDU0pDcgcIARIDR0RMQAFIAXABmAEC&tfu=EgIIAQ",
+        "raw_html_file": "https://serpapi.com/searches/o6f3wrbqcB3_4Sr3wwJAsg/6a217a2d31a601534573e9c7.html",
+        "prettify_html_file": "https://serpapi.com/searches/o6f3wrbqcB3_4Sr3wwJAsg/6a217a2d31a601534573e9c7.prettify",
+        "total_time_taken": 0.89
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "fr",
+        "gl": "us",
+        "type": "2",
+        "departure_id": "SJC",
+        "arrival_id": "GDL",
+        "outbound_date": "2026-06-27",
+        "currency": "EUR"
+    },
+    "best_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-27 07:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Los Angeles",
+                        "id": "LAX",
+                        "time": "2026-06-27 08:27"
+                    },
+                    "duration": 87,
+                    "airplane": "Airbus A319",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 1654",
+                    "ticket_also_sold_by": [
+                        "Aeromexico"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 73 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Los Angeles",
+                        "id": "LAX",
+                        "time": "2026-06-27 09:55"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Guadalajara",
+                        "id": "GDL",
+                        "time": "2026-06-27 14:14"
+                    },
+                    "duration": 199,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Aeromexico",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AM.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AM 785",
+                    "ticket_also_sold_by": [
+                        "Delta"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 144 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 88,
+                    "name": "Aéroport international de Los Angeles",
+                    "id": "LAX"
+                }
+            ],
+            "total_duration": 374,
+            "carbon_emissions": {
+                "this_flight": 218000,
+                "typical_for_this_route": 276000,
+                "difference_percent": -21
+            },
+            "price": 272,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "booking_token": "WyJDalJJTjJWT1ZEQmhhbWRWWDNOQlJHNTFVSGRDUnkwdExTMHRMUzB0TFc5cmIyUXlNVUZCUVVGQlIyOW9aV2swU21OMWMzRkJFZ3hFVERFMk5UUjhRVTAzT0RVYUN3ajYwd0VRQWhvRFJWVlNPQnh3MXZZQiIsW1siU0pDIiwiMjAyNi0wNi0yNyIsIkxBWCIsbnVsbCwiREwiLCIxNjU0Il0sWyJMQVgiLCIyMDI2LTA2LTI3IiwiR0RMIixudWxsLCJBTSIsIjc4NSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-27 11:49"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-27 17:30"
+                    },
+                    "duration": 221,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2572",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 187 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-27 20:34"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Guadalajara",
+                        "id": "GDL",
+                        "time": "2026-06-27 22:13"
+                    },
+                    "duration": 159,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2063",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 132 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 184,
+                    "name": "Aéroport international de Dallas-Fort Worth",
+                    "id": "DFW"
+                }
+            ],
+            "total_duration": 564,
+            "carbon_emissions": {
+                "this_flight": 320000,
+                "typical_for_this_route": 276000,
+                "difference_percent": 16
+            },
+            "price": 340,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "booking_token": "WyJDalJJTjJWT1ZEQmhhbWRWWDNOQlJHNTFVSGRDUnkwdExTMHRMUzB0TFc5cmIyUXlNVUZCUVVGQlIyOW9aV2swU21OMWMzRkJFZzFCUVRJMU56SjhRVUV5TURZekdnc0kvb2dDRUFJYUEwVlZVamdjY0xLMEFnPT0iLFtbIlNKQyIsIjIwMjYtMDYtMjciLCJERlciLG51bGwsIkFBIiwiMjU3MiJdLFsiREZXIiwiMjAyNi0wNi0yNyIsIkdETCIsbnVsbCwiQUEiLCIyMDYzIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-27 11:27"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Guadalajara",
+                        "id": "GDL",
+                        "time": "2026-06-27 16:10"
+                    },
+                    "duration": 223,
+                    "airplane": "Airbus A321neo",
+                    "airline": "Volaris",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/Y4.png",
+                    "travel_class": "Economy",
+                    "flight_number": "Y4 1821",
+                    "ticket_also_sold_by": [
+                        "Frontier"
+                    ],
+                    "legroom": "71 cm",
+                    "extensions": [
+                        "Below average legroom (71 cm)",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 162 kg"
+                    ]
+                }
+            ],
+            "total_duration": 223,
+            "carbon_emissions": {
+                "this_flight": 162000,
+                "typical_for_this_route": 276000,
+                "difference_percent": -41
+            },
+            "price": 373,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/Y4.png",
+            "booking_token": "WyJDalJJTjJWT1ZEQmhhbWRWWDNOQlJHNTFVSGRDUnkwdExTMHRMUzB0TFc5cmIyUXlNVUZCUVVGQlIyOW9aV2swU21OMWMzRkJFZ1paTkRFNE1qRWFDd2lCb3dJUUFob0RSVlZTT0J4dzE5SUMiLFtbIlNKQyIsIjIwMjYtMDYtMjciLCJHREwiLG51bGwsIlk0IiwiMTgyMSJdXV0="
+        }
+    ],
+    "other_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-27 11:38"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Los Angeles",
+                        "id": "LAX",
+                        "time": "2026-06-27 13:00"
+                    },
+                    "duration": 82,
+                    "airplane": "Airbus A319",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 2965",
+                    "ticket_also_sold_by": [
+                        "Aeromexico"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 73 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Los Angeles",
+                        "id": "LAX",
+                        "time": "2026-06-27 18:29"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Mexico",
+                        "id": "MEX",
+                        "time": "2026-06-27 23:25"
+                    },
+                    "duration": 236,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Aeromexico",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AM.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AM 643",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 168 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Mexico",
+                        "id": "MEX",
+                        "time": "2026-06-28 07:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Guadalajara",
+                        "id": "GDL",
+                        "time": "2026-06-28 08:28"
+                    },
+                    "duration": 88,
+                    "airplane": "Boeing 737",
+                    "airline": "Aeromexico",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AM.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AM 204",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat USB outlet",
+                        "On-demand video",
+                        "Carbon emissions estimate: 65 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 329,
+                    "name": "Aéroport international de Los Angeles",
+                    "id": "LAX"
+                },
+                {
+                    "duration": 455,
+                    "name": "Aéroport international de Mexico",
+                    "id": "MEX",
+                    "overnight": true
+                }
+            ],
+            "total_duration": 1190,
+            "carbon_emissions": {
+                "this_flight": 307000,
+                "typical_for_this_route": 276000,
+                "difference_percent": 11
+            },
+            "price": 194,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "booking_token": "WyJDalJJTjJWT1ZEQmhhbWRWWDNOQlJHNTFVSGRDUnkwdExTMHRMUzB0TFc5cmIyUXlNVUZCUVVGQlIyOW9aV2swU21OMWMzRkJFaEpFVERJNU5qVjhRVTAyTkROOFFVMHlNRFFhQ3dqRmx3RVFBaG9EUlZWU09CeHdyN0FCIixbWyJTSkMiLCIyMDI2LTA2LTI3IiwiTEFYIixudWxsLCJETCIsIjI5NjUiXSxbIkxBWCIsIjIwMjYtMDYtMjciLCJNRVgiLG51bGwsIkFNIiwiNjQzIl0sWyJNRVgiLCIyMDI2LTA2LTI4IiwiR0RMIixudWxsLCJBTSIsIjIwNCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-27 16:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-27 19:38"
+                    },
+                    "duration": 158,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 1841",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 122 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-28 05:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport intercontinental George-Bush de Houston",
+                        "id": "IAH",
+                        "time": "2026-06-28 08:32"
+                    },
+                    "duration": 152,
+                    "airplane": "Airbus A321neo",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 320",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 108 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport intercontinental George-Bush de Houston",
+                        "id": "IAH",
+                        "time": "2026-06-28 09:55"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Guadalajara",
+                        "id": "GDL",
+                        "time": "2026-06-28 11:25"
+                    },
+                    "duration": 150,
+                    "airplane": "Boeing 737",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 2346",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 152 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 562,
+                    "name": "Aéroport international de Denver",
+                    "id": "DEN",
+                    "overnight": true
+                },
+                {
+                    "duration": 83,
+                    "name": "Aéroport intercontinental George-Bush de Houston",
+                    "id": "IAH"
+                }
+            ],
+            "total_duration": 1105,
+            "carbon_emissions": {
+                "this_flight": 384000,
+                "typical_for_this_route": 276000,
+                "difference_percent": 39
+            },
+            "price": 237,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "booking_token": "WyJDalJJTjJWT1ZEQmhhbWRWWDNOQlJHNTFVSGRDUnkwdExTMHRMUzB0TFc5cmIyUXlNVUZCUVVGQlIyOW9aV2swU21OMWMzRkJFaE5WUVRFNE5ERjhWVUV6TWpCOFZVRXlNelEyR2dzSTY3Z0JFQUlhQTBWVlVqZ2NjSS9YQVE9PSIsW1siU0pDIiwiMjAyNi0wNi0yNyIsIkRFTiIsbnVsbCwiVUEiLCIxODQxIl0sWyJERU4iLCIyMDI2LTA2LTI4IiwiSUFIIixudWxsLCJVQSIsIjMyMCJdLFsiSUFIIiwiMjAyNi0wNi0yOCIsIkdETCIsbnVsbCwiVUEiLCIyMzQ2Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-27 20:19"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Los Angeles",
+                        "id": "LAX",
+                        "time": "2026-06-27 21:55"
+                    },
+                    "duration": 96,
+                    "airplane": "Embraer 175",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 3883",
+                    "ticket_also_sold_by": [
+                        "Aeromexico"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Carbon emissions estimate: 82 kg"
+                    ],
+                    "plane_and_crew_by": "SkyWest DBA Delta Connection"
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Los Angeles",
+                        "id": "LAX",
+                        "time": "2026-06-27 23:55"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Mexico",
+                        "id": "MEX",
+                        "time": "2026-06-28 04:55"
+                    },
+                    "duration": 240,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Aeromexico",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AM.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AM 619",
+                    "ticket_also_sold_by": [
+                        "Delta"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 168 kg"
+                    ],
+                    "overnight": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Mexico",
+                        "id": "MEX",
+                        "time": "2026-06-28 07:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Guadalajara",
+                        "id": "GDL",
+                        "time": "2026-06-28 08:28"
+                    },
+                    "duration": 88,
+                    "airplane": "Boeing 737",
+                    "airline": "Aeromexico",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AM.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AM 204",
+                    "ticket_also_sold_by": [
+                        "Delta"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat USB outlet",
+                        "On-demand video",
+                        "Carbon emissions estimate: 65 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 120,
+                    "name": "Aéroport international de Los Angeles",
+                    "id": "LAX"
+                },
+                {
+                    "duration": 125,
+                    "name": "Aéroport international de Mexico",
+                    "id": "MEX",
+                    "overnight": true
+                }
+            ],
+            "total_duration": 669,
+            "carbon_emissions": {
+                "this_flight": 316000,
+                "typical_for_this_route": 276000,
+                "difference_percent": 14
+            },
+            "price": 272,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "booking_token": "WyJDalJJTjJWT1ZEQmhhbWRWWDNOQlJHNTFVSGRDUnkwdExTMHRMUzB0TFc5cmIyUXlNVUZCUVVGQlIyOW9aV2swU21OMWMzRkJFaEpFVERNNE9ETjhRVTAyTVRsOFFVMHlNRFFhQ3dqNjB3RVFBaG9EUlZWU09CeHcxdllCIixbWyJTSkMiLCIyMDI2LTA2LTI3IiwiTEFYIixudWxsLCJETCIsIjM4ODMiXSxbIkxBWCIsIjIwMjYtMDYtMjciLCJNRVgiLG51bGwsIkFNIiwiNjE5Il0sWyJNRVgiLCIyMDI2LTA2LTI4IiwiR0RMIixudWxsLCJBTSIsIjIwNCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-27 06:01"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-27 11:47"
+                    },
+                    "duration": 226,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1019",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 159 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-27 20:34"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Guadalajara",
+                        "id": "GDL",
+                        "time": "2026-06-27 22:13"
+                    },
+                    "duration": 159,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2063",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 132 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 527,
+                    "name": "Aéroport international de Dallas-Fort Worth",
+                    "id": "DFW"
+                }
+            ],
+            "total_duration": 912,
+            "carbon_emissions": {
+                "this_flight": 291000,
+                "typical_for_this_route": 276000,
+                "difference_percent": 5
+            },
+            "price": 322,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "booking_token": "WyJDalJJTjJWT1ZEQmhhbWRWWDNOQlJHNTFVSGRDUnkwdExTMHRMUzB0TFc5cmIyUXlNVUZCUVVGQlIyOW9aV2swU21OMWMzRkJFZzFCUVRFd01UbDhRVUV5TURZekdnc0l5UHNCRUFJYUEwVlZVamdjY09Pa0FnPT0iLFtbIlNKQyIsIjIwMjYtMDYtMjciLCJERlciLG51bGwsIkFBIiwiMTAxOSJdLFsiREZXIiwiMjAyNi0wNi0yNyIsIkdETCIsbnVsbCwiQUEiLCIyMDYzIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-27 06:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Salt Lake City",
+                        "id": "SLC",
+                        "time": "2026-06-27 08:55"
+                    },
+                    "duration": 115,
+                    "airplane": "Airbus A220-100 Passenger",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 1314",
+                    "ticket_also_sold_by": [
+                        "Aeromexico"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 129 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Salt Lake City",
+                        "id": "SLC",
+                        "time": "2026-06-27 09:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Guadalajara",
+                        "id": "GDL",
+                        "time": "2026-06-27 13:23"
+                    },
+                    "duration": 233,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Aeromexico",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AM.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AM 793",
+                    "ticket_also_sold_by": [
+                        "Delta"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 175 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 35,
+                    "name": "Aéroport international de Salt Lake City",
+                    "id": "SLC"
+                }
+            ],
+            "total_duration": 383,
+            "carbon_emissions": {
+                "this_flight": 305000,
+                "typical_for_this_route": 276000,
+                "difference_percent": 11
+            },
+            "price": 400,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "booking_token": "WyJDalJJTjJWT1ZEQmhhbWRWWDNOQlJHNTFVSGRDUnkwdExTMHRMUzB0TFc5cmIyUXlNVUZCUVVGQlIyOW9aV2swU21OMWMzRkJFZ3hFVERFek1UUjhRVTAzT1RNYUN3ajl0d0lRQWhvRFJWVlNPQnh3aStzQyIsW1siU0pDIiwiMjAyNi0wNi0yNyIsIlNMQyIsbnVsbCwiREwiLCIxMzE0Il0sWyJTTEMiLCIyMDI2LTA2LTI3IiwiR0RMIixudWxsLCJBTSIsIjc5MyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-27 06:01"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Phoenix-Sky Harbor",
+                        "id": "PHX",
+                        "time": "2026-06-27 08:05"
+                    },
+                    "duration": 124,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1694",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 94 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Phoenix-Sky Harbor",
+                        "id": "PHX",
+                        "time": "2026-06-27 08:35"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Guadalajara",
+                        "id": "GDL",
+                        "time": "2026-06-27 12:48"
+                    },
+                    "duration": 193,
+                    "airplane": "Embraer 175",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 4906",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 201 kg"
+                    ],
+                    "plane_and_crew_by": "SkyWest Airlines as American Eagle"
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 30,
+                    "name": "Aéroport de Phoenix-Sky Harbor",
+                    "id": "PHX"
+                }
+            ],
+            "total_duration": 347,
+            "carbon_emissions": {
+                "this_flight": 296000,
+                "typical_for_this_route": 276000,
+                "difference_percent": 7
+            },
+            "price": 426,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "booking_token": "WyJDalJJTjJWT1ZEQmhhbWRWWDNOQlJHNTFVSGRDUnkwdExTMHRMUzB0TFc5cmIyUXlNVUZCUVVGQlIyOW9aV2swU21OMWMzRkJFZzFCUVRFMk9UUjhRVUUwT1RBMkdnc0lqOHdDRUFJYUEwVlZVamdjY01PQ0F3PT0iLFtbIlNKQyIsIjIwMjYtMDYtMjciLCJQSFgiLG51bGwsIkFBIiwiMTY5NCJdLFsiUEhYIiwiMjAyNi0wNi0yNyIsIkdETCIsbnVsbCwiQUEiLCI0OTA2Il1dXQ=="
+        }
+    ],
+    "price_insights": {
+        "lowest_price": 194,
+        "price_level": "typical",
+        "typical_price_range": [
+            135,
+            220
+        ],
+        "price_history": [
+            [
+                1775286000,
+                191
+            ],
+            [
+                1775372400,
+                191
+            ],
+            [
+                1775458800,
+                143
+            ],
+            [
+                1775545200,
+                142
+            ],
+            [
+                1775631600,
+                158
+            ],
+            [
+                1775718000,
+                171
+            ],
+            [
+                1775804400,
+                170
+            ],
+            [
+                1775890800,
+                170
+            ],
+            [
+                1775977200,
+                170
+            ],
+            [
+                1776063600,
+                171
+            ],
+            [
+                1776150000,
+                135
+            ],
+            [
+                1776236400,
+                135
+            ],
+            [
+                1776322800,
+                186
+            ],
+            [
+                1776409200,
+                144
+            ],
+            [
+                1776495600,
+                144
+            ],
+            [
+                1776582000,
+                183
+            ],
+            [
+                1776668400,
+                183
+            ],
+            [
+                1776754800,
+                156
+            ],
+            [
+                1776841200,
+                157
+            ],
+            [
+                1776927600,
+                150
+            ],
+            [
+                1777014000,
+                150
+            ],
+            [
+                1777100400,
+                161
+            ],
+            [
+                1777186800,
+                188
+            ],
+            [
+                1777273200,
+                162
+            ],
+            [
+                1777359600,
+                161
+            ],
+            [
+                1777446000,
+                174
+            ],
+            [
+                1777532400,
+                166
+            ],
+            [
+                1777618800,
+                165
+            ],
+            [
+                1777705200,
+                166
+            ],
+            [
+                1777791600,
+                165
+            ],
+            [
+                1777878000,
+                154
+            ],
+            [
+                1777964400,
+                145
+            ],
+            [
+                1778050800,
+                144
+            ],
+            [
+                1778137200,
+                165
+            ],
+            [
+                1778223600,
+                165
+            ],
+            [
+                1778310000,
+                187
+            ],
+            [
+                1778396400,
+                187
+            ],
+            [
+                1778482800,
+                165
+            ],
+            [
+                1778569200,
+                144
+            ],
+            [
+                1778655600,
+                144
+            ],
+            [
+                1778742000,
+                166
+            ],
+            [
+                1778828400,
+                180
+            ],
+            [
+                1778914800,
+                180
+            ],
+            [
+                1779001200,
+                180
+            ],
+            [
+                1779087600,
+                180
+            ],
+            [
+                1779174000,
+                180
+            ],
+            [
+                1779260400,
+                180
+            ],
+            [
+                1779346800,
+                180
+            ],
+            [
+                1779433200,
+                194
+            ],
+            [
+                1779519600,
+                194
+            ],
+            [
+                1779606000,
+                194
+            ],
+            [
+                1779692400,
+                193
+            ],
+            [
+                1779778800,
+                194
+            ],
+            [
+                1779865200,
+                194
+            ],
+            [
+                1779951600,
+                194
+            ],
+            [
+                1780038000,
+                236
+            ],
+            [
+                1780124400,
+                194
+            ],
+            [
+                1780210800,
+                194
+            ],
+            [
+                1780297200,
+                194
+            ],
+            [
+                1780383600,
+                194
+            ],
+            [
+                1780470000,
+                229
+            ],
+            [
+                1780556400,
+                194
+            ]
+        ]
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "SJC",
+                        "name": "Aéroport international de San José"
+                    },
+                    "city": "San José",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDWZ-_7jgZlhKjGRKPjts1pPkdG9TP5F6pbo4QdRoc6MtbnSCGL0E_pvQyrc-vqJhqOZA1dl-DRk5gmQ",
+                    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaZiJ5nhZCjP2lX6bxn1oToCCrkBEB-LWoti3VTMC2DirDJ1dvG87L5J5jZ-34yNuA9yvj8yPenGPgdPjRLUsWvsGOhouCNpHXW8Pik1A"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "GDL",
+                        "name": "Aéroport international de Guadalajara"
+                    },
+                    "city": "Guadalajara",
+                    "country": "Mexique",
+                    "country_code": "MX",
+                    "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQQW4_ZFOhJgfvfVa15o84tpq8RmzUwgtxEYso2B1qaH1W5rcXIakD1bWhnsLU-5L15ViDxg9E9yQu1Vw",
+                    "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcScPyrCzgDCQvt-Qw2uwM8FxkvUn6n-j9HrfMJpE9bY0HR4S0rRUqF6RUQje8UaK-diAGch8EYJwQahSsqXPdUR6L_VTqHlO969qAUgvgs"
+                }
+            ]
+        }
+    ]
+}

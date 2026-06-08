@@ -1,0 +1,857 @@
+{
+    "search_metadata": {
+        "id": "6a216e84b4ab72f51b722949",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/706TZOb72Wnq0Wa07X_2zQ/6a216e84b4ab72f51b722949.json",
+        "created_at": "2026-06-04 12:24:36 UTC",
+        "processed_at": "2026-06-04 12:24:36 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTIzagcIARIDRVdScgcIARIDREZXQAFIAXABmAEC&tfu=EgIIAQ",
+        "raw_html_file": "https://serpapi.com/searches/706TZOb72Wnq0Wa07X_2zQ/6a216e84b4ab72f51b722949.html",
+        "prettify_html_file": "https://serpapi.com/searches/706TZOb72Wnq0Wa07X_2zQ/6a216e84b4ab72f51b722949.prettify",
+        "total_time_taken": 0.63
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "fr",
+        "gl": "us",
+        "type": "2",
+        "departure_id": "EWR",
+        "arrival_id": "DFW",
+        "outbound_date": "2026-06-23",
+        "currency": "EUR"
+    },
+    "best_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-23 13:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 16:23"
+                    },
+                    "duration": 233,
+                    "airplane": "Airbus A320neo",
+                    "airline": "Frontier",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+                    "travel_class": "Economy",
+                    "flight_number": "F9 2471",
+                    "legroom": "71 cm",
+                    "extensions": [
+                        "Below average legroom (71 cm)",
+                        "Carbon emissions estimate: 154 kg"
+                    ]
+                }
+            ],
+            "total_duration": 233,
+            "carbon_emissions": {
+                "this_flight": 154000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -33
+            },
+            "price": 129,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVkVoSmVVSmFNWEZHZDNOQlJHVTFSRUZDUnkwdExTMHRMUzB0YjJ0aWFHVXhNa0ZCUVVGQlIyOW9ZbTlWUTFjeVpYVkJFZ1pHT1RJME56RWFDZ2lDWkJBQ0dnTkZWVkk0SEhDemRBPT0iLFtbIkVXUiIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkY5IiwiMjQ3MSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-23 05:58"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-23 08:46"
+                    },
+                    "duration": 168,
+                    "airplane": "Airbus A320neo",
+                    "airline": "Frontier",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+                    "travel_class": "Economy",
+                    "flight_number": "F9 4601",
+                    "legroom": "71 cm",
+                    "extensions": [
+                        "Below average legroom (71 cm)",
+                        "Carbon emissions estimate: 93 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-23 10:51"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 12:26"
+                    },
+                    "duration": 155,
+                    "airplane": "Airbus A320neo",
+                    "airline": "Frontier",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+                    "travel_class": "Economy",
+                    "flight_number": "F9 3021",
+                    "legroom": "71 cm",
+                    "extensions": [
+                        "Below average legroom (71 cm)",
+                        "Carbon emissions estimate: 88 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 125,
+                    "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                    "id": "ATL"
+                }
+            ],
+            "total_duration": 448,
+            "carbon_emissions": {
+                "this_flight": 181000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -21
+            },
+            "price": 134,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVkVoSmVVSmFNWEZHZDNOQlJHVTFSRUZDUnkwdExTMHRMUzB0YjJ0aWFHVXhNa0ZCUVVGQlIyOW9ZbTlWUTFjeVpYVkJFZzFHT1RRMk1ERjhSamt6TURJeEdnb0loV2dRQWhvRFJWVlNPQnh3aTNrPSIsW1siRVdSIiwiMjAyNi0wNi0yMyIsIkFUTCIsbnVsbCwiRjkiLCI0NjAxIl0sWyJBVEwiLCIyMDI2LTA2LTIzIiwiREZXIixudWxsLCJGOSIsIjMwMjEiXV1d"
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-23 15:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 18:28"
+                    },
+                    "duration": 238,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 1590",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 150 kg"
+                    ]
+                }
+            ],
+            "total_duration": 238,
+            "carbon_emissions": {
+                "this_flight": 151000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -34
+            },
+            "price": 162,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVkVoSmVVSmFNWEZHZDNOQlJHVTFSRUZDUnkwdExTMHRMUzB0YjJ0aWFHVXhNa0ZCUVVGQlIyOW9ZbTlWUTFjeVpYVkJFZ1pWUVRFMU9UQWFDZ2k5ZmhBQ0dnTkZWVkk0SEhDWmt3RT0iLFtbIkVXUiIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIlVBIiwiMTU5MCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-23 09:06"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 11:54"
+                    },
+                    "duration": 228,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 454",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 150 kg"
+                    ]
+                }
+            ],
+            "total_duration": 228,
+            "carbon_emissions": {
+                "this_flight": 151000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -34
+            },
+            "price": 192,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVkVoSmVVSmFNWEZHZDNOQlJHVTFSRUZDUnkwdExTMHRMUzB0YjJ0aWFHVXhNa0ZCUVVGQlIyOW9ZbTlWUTFjeVpYVkJFZ1ZWUVRRMU5Cb0xDUHlWQVJBQ0dnTkZWVkk0SEhERnJnRT0iLFtbIkVXUiIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIlVBIiwiNDU0Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-23 13:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 15:48"
+                    },
+                    "duration": 228,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 2330",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 150 kg"
+                    ]
+                }
+            ],
+            "total_duration": 228,
+            "carbon_emissions": {
+                "this_flight": 151000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -34
+            },
+            "price": 192,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVkVoSmVVSmFNWEZHZDNOQlJHVTFSRUZDUnkwdExTMHRMUzB0YjJ0aWFHVXhNa0ZCUVVGQlIyOW9ZbTlWUTFjeVpYVkJFZ1pWUVRJek16QWFDd2o4bFFFUUFob0RSVlZTT0J4d3hhNEIiLFtbIkVXUiIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIlVBIiwiMjMzMCJdXV0="
+        }
+    ],
+    "other_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-23 06:40"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 09:25"
+                    },
+                    "duration": 225,
+                    "airplane": "Airbus A319",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 1494",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 210 kg"
+                    ]
+                }
+            ],
+            "total_duration": 225,
+            "carbon_emissions": {
+                "this_flight": 211000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -8
+            },
+            "price": 185,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVkVoSmVVSmFNWEZHZDNOQlJHVTFSRUZDUnkwdExTMHRMUzB0YjJ0aWFHVXhNa0ZCUVVGQlIyOW9ZbTlWUTFjeVpYVkJFZ1pWUVRFME9UUWFDd2psandFUUFob0RSVlZTT0J4d3JLY0IiLFtbIkVXUiIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIlVBIiwiMTQ5NCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-23 21:09"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 23:59"
+                    },
+                    "duration": 230,
+                    "airplane": "Boeing 737",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 1331",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 180 kg"
+                    ]
+                }
+            ],
+            "total_duration": 230,
+            "carbon_emissions": {
+                "this_flight": 181000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -21
+            },
+            "price": 185,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVkVoSmVVSmFNWEZHZDNOQlJHVTFSRUZDUnkwdExTMHRMUzB0YjJ0aWFHVXhNa0ZCUVVGQlIyOW9ZbTlWUTFjeVpYVkJFZ1pWUVRFek16RWFDd2psandFUUFob0RSVlZTT0J4d3JLY0IiLFtbIkVXUiIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIlVBIiwiMTMzMSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-23 18:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 21:44"
+                    },
+                    "duration": 234,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 2856",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 155 kg"
+                    ]
+                }
+            ],
+            "total_duration": 234,
+            "carbon_emissions": {
+                "this_flight": 156000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -32
+            },
+            "price": 231,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVkVoSmVVSmFNWEZHZDNOQlJHVTFSRUZDUnkwdExTMHRMUzB0YjJ0aWFHVXhNa0ZCUVVGQlIyOW9ZbTlWUTFjeVpYVkJFZ1pWUVRJNE5UWWFDd2lYdEFFUUFob0RSVlZTT0J4dzJkRUIiLFtbIkVXUiIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIlVBIiwiMjg1NiJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-23 05:47"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 08:40"
+                    },
+                    "duration": 233,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2728",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 175 kg"
+                    ]
+                }
+            ],
+            "total_duration": 233,
+            "carbon_emissions": {
+                "this_flight": 175000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -24
+            },
+            "price": 266,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVkVoSmVVSmFNWEZHZDNOQlJHVTFSRUZDUnkwdExTMHRMUzB0YjJ0aWFHVXhNa0ZCUVVGQlIyOW9ZbTlWUTFjeVpYVkJFZ1pCUVRJM01qZ2FDd2paendFUUFob0RSVlZTT0J4dzNQRUIiLFtbIkVXUiIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMjcyOCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-23 08:01"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 10:57"
+                    },
+                    "duration": 236,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1303",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 175 kg"
+                    ]
+                }
+            ],
+            "total_duration": 236,
+            "carbon_emissions": {
+                "this_flight": 175000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -24
+            },
+            "price": 266,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVkVoSmVVSmFNWEZHZDNOQlJHVTFSRUZDUnkwdExTMHRMUzB0YjJ0aWFHVXhNa0ZCUVVGQlIyOW9ZbTlWUTFjeVpYVkJFZ1pCUVRFek1ETWFDd2paendFUUFob0RSVlZTT0J4dzNQRUIiLFtbIkVXUiIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMTMwMyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-23 12:21"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 15:10"
+                    },
+                    "duration": 229,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1820",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 175 kg"
+                    ]
+                }
+            ],
+            "total_duration": 229,
+            "carbon_emissions": {
+                "this_flight": 175000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -24
+            },
+            "price": 266,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVkVoSmVVSmFNWEZHZDNOQlJHVTFSRUZDUnkwdExTMHRMUzB0YjJ0aWFHVXhNa0ZCUVVGQlIyOW9ZbTlWUTFjeVpYVkJFZ1pCUVRFNE1qQWFDd2paendFUUFob0RSVlZTT0J4dzNQRUIiLFtbIkVXUiIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMTgyMCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-23 17:26"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 20:29"
+                    },
+                    "duration": 243,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1810",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 175 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "total_duration": 243,
+            "carbon_emissions": {
+                "this_flight": 175000,
+                "typical_for_this_route": 229000,
+                "difference_percent": -24
+            },
+            "price": 266,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVkVoSmVVSmFNWEZHZDNOQlJHVTFSRUZDUnkwdExTMHRMUzB0YjJ0aWFHVXhNa0ZCUVVGQlIyOW9ZbTlWUTFjeVpYVkJFZ1pCUVRFNE1UQWFDd2paendFUUFob0RSVlZTT0J4dzNQRUIiLFtbIkVXUiIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMTgxMCJdXV0="
+        }
+    ],
+    "price_insights": {
+        "lowest_price": 129,
+        "price_level": "typical",
+        "typical_price_range": [
+            85,
+            155
+        ],
+        "price_history": [
+            [
+                1775275200,
+                89
+            ],
+            [
+                1775361600,
+                89
+            ],
+            [
+                1775448000,
+                89
+            ],
+            [
+                1775534400,
+                94
+            ],
+            [
+                1775620800,
+                93
+            ],
+            [
+                1775707200,
+                109
+            ],
+            [
+                1775793600,
+                108
+            ],
+            [
+                1775880000,
+                72
+            ],
+            [
+                1775966400,
+                93
+            ],
+            [
+                1776052800,
+                77
+            ],
+            [
+                1776139200,
+                76
+            ],
+            [
+                1776225600,
+                107
+            ],
+            [
+                1776312000,
+                92
+            ],
+            [
+                1776398400,
+                93
+            ],
+            [
+                1776484800,
+                108
+            ],
+            [
+                1776571200,
+                108
+            ],
+            [
+                1776657600,
+                105
+            ],
+            [
+                1776744000,
+                104
+            ],
+            [
+                1776830400,
+                108
+            ],
+            [
+                1776916800,
+                126
+            ],
+            [
+                1777003200,
+                93
+            ],
+            [
+                1777089600,
+                93
+            ],
+            [
+                1777176000,
+                93
+            ],
+            [
+                1777262400,
+                93
+            ],
+            [
+                1777348800,
+                93
+            ],
+            [
+                1777435200,
+                93
+            ],
+            [
+                1777521600,
+                93
+            ],
+            [
+                1777608000,
+                93
+            ],
+            [
+                1777694400,
+                101
+            ],
+            [
+                1777780800,
+                101
+            ],
+            [
+                1777867200,
+                93
+            ],
+            [
+                1777953600,
+                93
+            ],
+            [
+                1778040000,
+                101
+            ],
+            [
+                1778126400,
+                105
+            ],
+            [
+                1778212800,
+                101
+            ],
+            [
+                1778299200,
+                101
+            ],
+            [
+                1778385600,
+                101
+            ],
+            [
+                1778472000,
+                93
+            ],
+            [
+                1778558400,
+                101
+            ],
+            [
+                1778644800,
+                101
+            ],
+            [
+                1778731200,
+                101
+            ],
+            [
+                1778817600,
+                102
+            ],
+            [
+                1778904000,
+                102
+            ],
+            [
+                1778990400,
+                111
+            ],
+            [
+                1779076800,
+                111
+            ],
+            [
+                1779163200,
+                111
+            ],
+            [
+                1779249600,
+                103
+            ],
+            [
+                1779336000,
+                111
+            ],
+            [
+                1779422400,
+                137
+            ],
+            [
+                1779508800,
+                137
+            ],
+            [
+                1779595200,
+                137
+            ],
+            [
+                1779681600,
+                137
+            ],
+            [
+                1779768000,
+                137
+            ],
+            [
+                1779854400,
+                137
+            ],
+            [
+                1779940800,
+                131
+            ],
+            [
+                1780027200,
+                111
+            ],
+            [
+                1780113600,
+                111
+            ],
+            [
+                1780200000,
+                111
+            ],
+            [
+                1780286400,
+                111
+            ],
+            [
+                1780372800,
+                111
+            ],
+            [
+                1780459200,
+                111
+            ],
+            [
+                1780545600,
+                129
+            ]
+        ]
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "EWR",
+                        "name": "Aéroport international de Newark-Liberty"
+                    },
+                    "city": "Newark",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSVSHJRQUacgXbljJliEfJExMDrajiLyrcqBpTDrFTtTWEhRRBMAEO76FQqrFPU2swFT3Q3cWcbeO8Tw",
+                    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9KX68DZATrjpYLwlFuQnsmKfJm83iKCU4RTdjv2smpe3tVA1YxHO0Km6xxwD3wnL3-ZI3zci1P1l7bhflFCeqnfmxbEUMppLOK-BiaaQ"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "DFW",
+                        "name": "Aéroport international de Dallas-Fort Worth"
+                    },
+                    "city": "Dallas",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS61zSeEE0f0RSedvAIvzJKv1B7Tojcnx1pR5ipb9l389QDa2V23R4cRbmgVZVCgrVsZ6Ewme_WpDRgmw",
+                    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT4Hg7sSdARNWUKEIVKbquvgGkx76RuLbHy7uH51pecZu-z7-Wi9ya5fpf-YmM63--MKoWu7HUM3Q1O7mQoRBSlNeNSfgHP5Y2tO11niU"
+                }
+            ]
+        }
+    ]
+}

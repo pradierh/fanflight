@@ -1,0 +1,844 @@
+{
+    "search_metadata": {
+        "id": "6a217113ad9ecfd6d027626d",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/5IDOeeEG3FJfsb8PRZN8jg/6a217113ad9ecfd6d027626d.json",
+        "created_at": "2026-06-04 12:35:31 UTC",
+        "processed_at": "2026-06-04 12:35:31 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTIwagcIARIDRVdScgcIARIDU0VBQAFIAXABmAEC&tfu=EgIIAQ",
+        "raw_html_file": "https://serpapi.com/searches/5IDOeeEG3FJfsb8PRZN8jg/6a217113ad9ecfd6d027626d.html",
+        "prettify_html_file": "https://serpapi.com/searches/5IDOeeEG3FJfsb8PRZN8jg/6a217113ad9ecfd6d027626d.prettify",
+        "total_time_taken": 1.35
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "fr",
+        "gl": "us",
+        "type": "2",
+        "departure_id": "EWR",
+        "arrival_id": "SEA",
+        "outbound_date": "2026-06-20",
+        "currency": "EUR"
+    },
+    "best_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 07:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-20 10:35"
+                    },
+                    "duration": 370,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 299",
+                    "ticket_also_sold_by": [
+                        "American"
+                    ],
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 284 kg"
+                    ]
+                }
+            ],
+            "total_duration": 370,
+            "carbon_emissions": {
+                "this_flight": 284000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -20
+            },
+            "price": 184,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1RSVWFqTkhObmx1WlRCQlFrTldiVkZDUnkwdExTMHRMUzB0TFhscFltaHdPVUZCUVVGQlIyOW9ZMUpSUzA5MGJrbEJFZ1ZCVXpJNU9Sb0xDS0dQQVJBQ0dnTkZWVkk0SEhEZHBnRT0iLFtbIkVXUiIsIjIwMjYtMDYtMjAiLCJTRUEiLG51bGwsIkFTIiwiMjk5Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 17:27"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-20 19:20"
+                    },
+                    "duration": 173,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1936",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 109 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-20 22:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-21 00:41"
+                    },
+                    "duration": 281,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1459",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 233 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 160,
+                    "name": "Aéroport international O'Hare de Chicago",
+                    "id": "ORD"
+                }
+            ],
+            "total_duration": 614,
+            "carbon_emissions": {
+                "this_flight": 343000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -3
+            },
+            "price": 192,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1RSVWFqTkhObmx1WlRCQlFrTldiVkZDUnkwdExTMHRMUzB0TFhscFltaHdPVUZCUVVGQlIyOW9ZMUpSUzA5MGJrbEJFZzFCUVRFNU16WjhRVUV4TkRVNUdnc0k2NVVCRUFJYUEwVlZVamdjY0xHdUFRPT0iLFtbIkVXUiIsIjIwMjYtMDYtMjAiLCJPUkQiLG51bGwsIkFBIiwiMTkzNiJdLFsiT1JEIiwiMjAyNi0wNi0yMCIsIlNFQSIsbnVsbCwiQUEiLCIxNDU5Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 16:31"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-20 19:48"
+                    },
+                    "duration": 377,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 356",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 284 kg"
+                    ]
+                }
+            ],
+            "total_duration": 377,
+            "carbon_emissions": {
+                "this_flight": 284000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -20
+            },
+            "price": 223,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1RSVWFqTkhObmx1WlRCQlFrTldiVkZDUnkwdExTMHRMUzB0TFhscFltaHdPVUZCUVVGQlIyOW9ZMUpSUzA5MGJrbEJFZ1ZCVXpNMU5ob0xDTHV0QVJBQ0dnTkZWVkk0SEhEd3lRRT0iLFtbIkVXUiIsIjIwMjYtMDYtMjAiLCJTRUEiLG51bGwsIkFTIiwiMzU2Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 17:36"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-20 20:58"
+                    },
+                    "duration": 382,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 462",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 244 kg"
+                    ]
+                }
+            ],
+            "total_duration": 382,
+            "carbon_emissions": {
+                "this_flight": 244000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -31
+            },
+            "price": 223,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1RSVWFqTkhObmx1WlRCQlFrTldiVkZDUnkwdExTMHRMUzB0TFhscFltaHdPVUZCUVVGQlIyOW9ZMUpSUzA5MGJrbEJFZ1ZCVXpRMk1ob0xDTHV0QVJBQ0dnTkZWVkk0SEhEd3lRRT0iLFtbIkVXUiIsIjIwMjYtMDYtMjAiLCJTRUEiLG51bGwsIkFTIiwiNDYyIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 16:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-20 19:36"
+                    },
+                    "duration": 371,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 1741",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 240 kg"
+                    ]
+                }
+            ],
+            "total_duration": 371,
+            "carbon_emissions": {
+                "this_flight": 241000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -32
+            },
+            "price": 231,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1RSVWFqTkhObmx1WlRCQlFrTldiVkZDUnkwdExTMHRMUzB0TFhscFltaHdPVUZCUVVGQlIyOW9ZMUpSUzA5MGJrbEJFZ1pWUVRFM05ERWFDd2lYdEFFUUFob0RSVlZTT0J4dzJkRUIiLFtbIkVXUiIsIjIwMjYtMDYtMjAiLCJTRUEiLG51bGwsIlVBIiwiMTc0MSJdXV0="
+        }
+    ],
+    "other_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 06:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Washington-Dulles",
+                        "id": "IAD",
+                        "time": "2026-06-20 07:22"
+                    },
+                    "duration": 82,
+                    "airplane": "Boeing 737",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 504",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 59 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Washington-Dulles",
+                        "id": "IAD",
+                        "time": "2026-06-20 09:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-20 11:51"
+                    },
+                    "duration": 351,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 2101",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 237 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 98,
+                    "name": "Aéroport international de Washington-Dulles",
+                    "id": "IAD"
+                }
+            ],
+            "total_duration": 531,
+            "carbon_emissions": {
+                "this_flight": 296000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -17
+            },
+            "price": 222,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1RSVWFqTkhObmx1WlRCQlFrTldiVkZDUnkwdExTMHRMUzB0TFhscFltaHdPVUZCUVVGQlIyOW9ZMUpSUzA5MGJrbEJFZ3hWUVRVd05IeFZRVEl4TURFYUN3aVRyUUVRQWhvRFJWVlNPQnh3d3NrQiIsW1siRVdSIiwiMjAyNi0wNi0yMCIsIklBRCIsbnVsbCwiVUEiLCI1MDQiXSxbIklBRCIsIjIwMjYtMDYtMjAiLCJTRUEiLG51bGwsIlVBIiwiMjEwMSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 07:59"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-20 09:43"
+                    },
+                    "duration": 164,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 2488",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 90 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-20 13:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-20 16:09"
+                    },
+                    "duration": 279,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 1660",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 177 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 227,
+                    "name": "Aéroport international O'Hare de Chicago",
+                    "id": "ORD"
+                }
+            ],
+            "total_duration": 670,
+            "carbon_emissions": {
+                "this_flight": 267000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -25
+            },
+            "price": 222,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1RSVWFqTkhObmx1WlRCQlFrTldiVkZDUnkwdExTMHRMUzB0TFhscFltaHdPVUZCUVVGQlIyOW9ZMUpSUzA5MGJrbEJFZzFWUVRJME9EaDhWVUV4TmpZd0dnc0lrNjBCRUFJYUEwVlZVamdjY01MSkFRPT0iLFtbIkVXUiIsIjIwMjYtMDYtMjAiLCJPUkQiLG51bGwsIlVBIiwiMjQ4OCJdLFsiT1JEIiwiMjAyNi0wNi0yMCIsIlNFQSIsbnVsbCwiVUEiLCIxNjYwIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 20:40"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-20 23:58"
+                    },
+                    "duration": 378,
+                    "airplane": "Airbus A319",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 1796",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 339 kg"
+                    ]
+                }
+            ],
+            "total_duration": 378,
+            "carbon_emissions": {
+                "this_flight": 339000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -5
+            },
+            "price": 231,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1RSVWFqTkhObmx1WlRCQlFrTldiVkZDUnkwdExTMHRMUzB0TFhscFltaHdPVUZCUVVGQlIyOW9ZMUpSUzA5MGJrbEJFZ1pWUVRFM09UWWFDd2lYdEFFUUFob0RSVlZTT0J4dzJkRUIiLFtbIkVXUiIsIjIwMjYtMDYtMjAiLCJTRUEiLG51bGwsIlVBIiwiMTc5NiJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 09:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-20 12:43"
+                    },
+                    "duration": 373,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 230",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 289 kg"
+                    ]
+                }
+            ],
+            "total_duration": 373,
+            "carbon_emissions": {
+                "this_flight": 290000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -18
+            },
+            "price": 321,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1RSVWFqTkhObmx1WlRCQlFrTldiVkZDUnkwdExTMHRMUzB0TFhscFltaHdPVUZCUVVGQlIyOW9ZMUpSUzA5MGJrbEJFZ1ZCVXpJek1Cb0xDTlg2QVJBQ0dnTkZWVkk0SEhEZG93ST0iLFtbIkVXUiIsIjIwMjYtMDYtMjAiLCJTRUEiLG51bGwsIkFTIiwiMjMwIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 08:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-20 11:59"
+                    },
+                    "duration": 369,
+                    "airplane": "Airbus A319",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 1330",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 339 kg"
+                    ]
+                }
+            ],
+            "total_duration": 369,
+            "carbon_emissions": {
+                "this_flight": 339000,
+                "typical_for_this_route": 355000,
+                "difference_percent": -5
+            },
+            "price": 330,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1RSVWFqTkhObmx1WlRCQlFrTldiVkZDUnkwdExTMHRMUzB0TFhscFltaHdPVUZCUVVGQlIyOW9ZMUpSUzA5MGJrbEJFZ1pWUVRFek16QWFDd2l3Z1FJUUFob0RSVlZTT0J4d3hhc0MiLFtbIkVXUiIsIjIwMjYtMDYtMjAiLCJTRUEiLG51bGwsIlVBIiwiMTMzMCJdXV0="
+        }
+    ],
+    "price_insights": {
+        "lowest_price": 184,
+        "price_level": "typical",
+        "typical_price_range": [
+            120,
+            255
+        ],
+        "price_history": [
+            [
+                1775361600,
+                185
+            ],
+            [
+                1775448000,
+                185
+            ],
+            [
+                1775534400,
+                159
+            ],
+            [
+                1775620800,
+                174
+            ],
+            [
+                1775707200,
+                174
+            ],
+            [
+                1775793600,
+                174
+            ],
+            [
+                1775880000,
+                178
+            ],
+            [
+                1775966400,
+                178
+            ],
+            [
+                1776052800,
+                177
+            ],
+            [
+                1776139200,
+                177
+            ],
+            [
+                1776225600,
+                177
+            ],
+            [
+                1776312000,
+                156
+            ],
+            [
+                1776398400,
+                156
+            ],
+            [
+                1776484800,
+                177
+            ],
+            [
+                1776571200,
+                169
+            ],
+            [
+                1776657600,
+                206
+            ],
+            [
+                1776744000,
+                206
+            ],
+            [
+                1776830400,
+                198
+            ],
+            [
+                1776916800,
+                207
+            ],
+            [
+                1777003200,
+                161
+            ],
+            [
+                1777089600,
+                207
+            ],
+            [
+                1777176000,
+                207
+            ],
+            [
+                1777262400,
+                207
+            ],
+            [
+                1777348800,
+                178
+            ],
+            [
+                1777435200,
+                178
+            ],
+            [
+                1777521600,
+                178
+            ],
+            [
+                1777608000,
+                174
+            ],
+            [
+                1777694400,
+                178
+            ],
+            [
+                1777780800,
+                182
+            ],
+            [
+                1777867200,
+                182
+            ],
+            [
+                1777953600,
+                182
+            ],
+            [
+                1778040000,
+                181
+            ],
+            [
+                1778126400,
+                127
+            ],
+            [
+                1778212800,
+                127
+            ],
+            [
+                1778299200,
+                181
+            ],
+            [
+                1778385600,
+                182
+            ],
+            [
+                1778472000,
+                126
+            ],
+            [
+                1778558400,
+                126
+            ],
+            [
+                1778644800,
+                157
+            ],
+            [
+                1778731200,
+                158
+            ],
+            [
+                1778817600,
+                158
+            ],
+            [
+                1778904000,
+                162
+            ],
+            [
+                1778990400,
+                162
+            ],
+            [
+                1779076800,
+                133
+            ],
+            [
+                1779163200,
+                124
+            ],
+            [
+                1779249600,
+                124
+            ],
+            [
+                1779336000,
+                132
+            ],
+            [
+                1779422400,
+                142
+            ],
+            [
+                1779508800,
+                143
+            ],
+            [
+                1779595200,
+                143
+            ],
+            [
+                1779681600,
+                142
+            ],
+            [
+                1779768000,
+                124
+            ],
+            [
+                1779854400,
+                124
+            ],
+            [
+                1779940800,
+                124
+            ],
+            [
+                1780027200,
+                124
+            ],
+            [
+                1780113600,
+                128
+            ],
+            [
+                1780200000,
+                128
+            ],
+            [
+                1780286400,
+                136
+            ],
+            [
+                1780372800,
+                162
+            ],
+            [
+                1780459200,
+                146
+            ],
+            [
+                1780545600,
+                184
+            ]
+        ]
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "EWR",
+                        "name": "Aéroport international de Newark-Liberty"
+                    },
+                    "city": "Newark",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSVSHJRQUacgXbljJliEfJExMDrajiLyrcqBpTDrFTtTWEhRRBMAEO76FQqrFPU2swFT3Q3cWcbeO8Tw",
+                    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9KX68DZATrjpYLwlFuQnsmKfJm83iKCU4RTdjv2smpe3tVA1YxHO0Km6xxwD3wnL3-ZI3zci1P1l7bhflFCeqnfmxbEUMppLOK-BiaaQ"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "SEA",
+                        "name": "Aéroport international de Seattle-Tacoma"
+                    },
+                    "city": "Seattle",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSSAiBpSv2yUgizRXFmwGP3MTh6M7DGi6u5WgjN5zbRJ9jD42_UzeQNdCTyuPiU5fj8jF1Podav6__a_A",
+                    "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSY5I5L6loeputAIHRWtjOdGurjvRa1ioycHdq2XPS_Io8MuYXvN2ZiixmnVQBWQ_fjPP1A9o9y9-o-yeukkA0ZTCtpBvF4MXtRITUgCs8"
+                }
+            ]
+        }
+    ]
+}

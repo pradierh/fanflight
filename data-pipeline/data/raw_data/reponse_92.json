@@ -1,0 +1,57 @@
+{
+    "search_metadata": {
+        "id": "6a21711ba289714331087740",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/GG8CLLOpjCX80ewB_NrfHQ/6a21711ba289714331087740.json",
+        "created_at": "2026-06-04 12:35:39 UTC",
+        "processed_at": "2026-06-04 12:35:39 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTIwagcIARIDRVdScgcIARIDQkZJQAFIAXABmAEC&tfu=EgIIAQ",
+        "raw_html_file": "https://serpapi.com/searches/GG8CLLOpjCX80ewB_NrfHQ/6a21711ba289714331087740.html",
+        "prettify_html_file": "https://serpapi.com/searches/GG8CLLOpjCX80ewB_NrfHQ/6a21711ba289714331087740.prettify",
+        "total_time_taken": 1.62
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "fr",
+        "gl": "us",
+        "type": "2",
+        "departure_id": "EWR",
+        "arrival_id": "BFI",
+        "outbound_date": "2026-06-20",
+        "currency": "EUR"
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "EWR",
+                        "name": "Aéroport international de Newark-Liberty"
+                    },
+                    "city": "Newark",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSVSHJRQUacgXbljJliEfJExMDrajiLyrcqBpTDrFTtTWEhRRBMAEO76FQqrFPU2swFT3Q3cWcbeO8Tw",
+                    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9KX68DZATrjpYLwlFuQnsmKfJm83iKCU4RTdjv2smpe3tVA1YxHO0Km6xxwD3wnL3-ZI3zci1P1l7bhflFCeqnfmxbEUMppLOK-BiaaQ"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "BFI",
+                        "name": "Aéroport de Seattle-Comté de King [Boeing Field] (BFI)"
+                    },
+                    "city": "Seattle",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSSAiBpSv2yUgizRXFmwGP3MTh6M7DGi6u5WgjN5zbRJ9jD42_UzeQNdCTyuPiU5fj8jF1Podav6__a_A",
+                    "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSY5I5L6loeputAIHRWtjOdGurjvRa1ioycHdq2XPS_Io8MuYXvN2ZiixmnVQBWQ_fjPP1A9o9y9-o-yeukkA0ZTCtpBvF4MXtRITUgCs8"
+                }
+            ]
+        }
+    ],
+    "search_information": {
+        "flights_results_state": "Fully empty"
+    },
+    "error": "Google Flights hasn't returned any results for this query."
+}
