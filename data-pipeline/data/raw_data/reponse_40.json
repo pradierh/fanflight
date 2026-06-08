@@ -1,0 +1,1216 @@
+{
+    "search_metadata": {
+        "id": "6a21923b27c2b0aaa1426a92",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/XaC7HUyHgsl3HD8AEFJ7Kg/6a21923b27c2b0aaa1426a92.json",
+        "created_at": "2026-06-04 14:56:59 UTC",
+        "processed_at": "2026-06-04 14:56:59 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTE2agcIARIDQk9TcgcIARIDREFMQAFIAXABmAEC&tfu=EgIIAQ",
+        "raw_html_file": "https://serpapi.com/searches/XaC7HUyHgsl3HD8AEFJ7Kg/6a21923b27c2b0aaa1426a92.html",
+        "prettify_html_file": "https://serpapi.com/searches/XaC7HUyHgsl3HD8AEFJ7Kg/6a21923b27c2b0aaa1426a92.prettify",
+        "total_time_taken": 0.51
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "fr",
+        "gl": "us",
+        "type": "2",
+        "departure_id": "BOS",
+        "arrival_id": "DAL",
+        "outbound_date": "2026-06-16",
+        "currency": "EUR"
+    },
+    "best_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 17:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-16 20:50"
+                    },
+                    "duration": 245,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 737",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 192 kg"
+                    ]
+                }
+            ],
+            "total_duration": 245,
+            "carbon_emissions": {
+                "this_flight": 193000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -24
+            },
+            "price": 238,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFYZEVhMUZDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9hMnAzUVhkYVUydEJFZ1ZYVGpjek54b0xDTSs1QVJBQ0dnTkZWVkk0SEhENTF3RT0iLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJEQUwiLG51bGwsIldOIiwiNzM3Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 05:50"
+                    },
+                    "arrival_airport": {
+                        "name": "St. Louis Lambert International Airport",
+                        "id": "STL",
+                        "time": "2026-06-16 07:45"
+                    },
+                    "duration": 175,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 752",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 143 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "St. Louis Lambert International Airport",
+                        "id": "STL",
+                        "time": "2026-06-16 08:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-16 10:05"
+                    },
+                    "duration": 100,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 3790",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 88 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 40,
+                    "name": "St. Louis Lambert International Airport",
+                    "id": "STL"
+                }
+            ],
+            "total_duration": 315,
+            "carbon_emissions": {
+                "this_flight": 232000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -9
+            },
+            "price": 247,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFYZEVhMUZDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9hMnAzUVhkYVUydEJFZ3hYVGpjMU1ueFhUak0zT1RBYUN3aVp3QUVRQWhvRFJWVlNPQnh3ek44QiIsW1siQk9TIiwiMjAyNi0wNi0xNiIsIlNUTCIsbnVsbCwiV04iLCI3NTIiXSxbIlNUTCIsIjIwMjYtMDYtMTYiLCJEQUwiLG51bGwsIldOIiwiMzc5MCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 08:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Nashville International Airport",
+                        "id": "BNA",
+                        "time": "2026-06-16 10:25"
+                    },
+                    "duration": 160,
+                    "airplane": "Boeing 737-700 (Scimitar Winglets) Pax",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 724",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 156 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Nashville International Airport",
+                        "id": "BNA",
+                        "time": "2026-06-16 12:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-16 13:55"
+                    },
+                    "duration": 115,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 487",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 105 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 95,
+                    "name": "Nashville International Airport",
+                    "id": "BNA"
+                }
+            ],
+            "total_duration": 370,
+            "carbon_emissions": {
+                "this_flight": 263000,
+                "typical_for_this_route": 254000,
+                "difference_percent": 4
+            },
+            "price": 247,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFYZEVhMUZDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9hMnAzUVhkYVUydEJFZ3RYVGpjeU5IeFhUalE0TnhvTENKbkFBUkFDR2dORlZWSTRISERNM3dFPSIsW1siQk9TIiwiMjAyNi0wNi0xNiIsIkJOQSIsbnVsbCwiV04iLCI3MjQiXSxbIkJOQSIsIjIwMjYtMDYtMTYiLCJEQUwiLG51bGwsIldOIiwiNDg3Il1dXQ=="
+        }
+    ],
+    "other_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 07:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Midway de Chicago",
+                        "id": "MDW",
+                        "time": "2026-06-16 09:10"
+                    },
+                    "duration": 160,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 745",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 106 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Midway de Chicago",
+                        "id": "MDW",
+                        "time": "2026-06-16 11:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-16 13:45"
+                    },
+                    "duration": 135,
+                    "airplane": "Boeing 737-700 (Scimitar Winglets) Pax",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 1331",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 141 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 140,
+                    "name": "Aéroport international Midway de Chicago",
+                    "id": "MDW"
+                }
+            ],
+            "total_duration": 435,
+            "carbon_emissions": {
+                "this_flight": 248000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -2
+            },
+            "price": 247,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFYZEVhMUZDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9hMnAzUVhkYVUydEJFZ3hYVGpjME5YeFhUakV6TXpFYUN3aVp3QUVRQWhvRFJWVlNPQnh3ek44QiIsW1siQk9TIiwiMjAyNi0wNi0xNiIsIk1EVyIsbnVsbCwiV04iLCI3NDUiXSxbIk1EVyIsIjIwMjYtMDYtMTYiLCJEQUwiLG51bGwsIldOIiwiMTMzMSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 11:35"
+                    },
+                    "arrival_airport": {
+                        "name": "Baltimore/Washington International Thurgood Marshall Airport",
+                        "id": "BWI",
+                        "time": "2026-06-16 13:10"
+                    },
+                    "duration": 95,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 3038",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 66 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Baltimore/Washington International Thurgood Marshall Airport",
+                        "id": "BWI",
+                        "time": "2026-06-16 14:40"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-16 16:45"
+                    },
+                    "duration": 185,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 3553",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 141 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 90,
+                    "name": "Baltimore/Washington International Thurgood Marshall Airport",
+                    "id": "BWI"
+                }
+            ],
+            "total_duration": 370,
+            "carbon_emissions": {
+                "this_flight": 208000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -18
+            },
+            "price": 247,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFYZEVhMUZDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9hMnAzUVhkYVUydEJFZzFYVGpNd016aDhWMDR6TlRVekdnc0ltY0FCRUFJYUEwVlZVamdjY016ZkFRPT0iLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJCV0kiLG51bGwsIldOIiwiMzAzOCJdLFsiQldJIiwiMjAyNi0wNi0xNiIsIkRBTCIsbnVsbCwiV04iLCIzNTUzIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 14:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-16 16:35"
+                    },
+                    "duration": 200,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 743",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 181 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-16 17:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-16 19:25"
+                    },
+                    "duration": 95,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 1583",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 97 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 75,
+                    "name": "Aéroport international de Kansas City",
+                    "id": "MCI"
+                }
+            ],
+            "total_duration": 370,
+            "carbon_emissions": {
+                "this_flight": 279000,
+                "typical_for_this_route": 254000,
+                "difference_percent": 10
+            },
+            "price": 247,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFYZEVhMUZDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9hMnAzUVhkYVUydEJFZ3hYVGpjME0zeFhUakUxT0RNYUN3aVp3QUVRQWhvRFJWVlNPQnh3ek44QiIsW1siQk9TIiwiMjAyNi0wNi0xNiIsIk1DSSIsbnVsbCwiV04iLCI3NDMiXSxbIk1DSSIsIjIwMjYtMDYtMTYiLCJEQUwiLG51bGwsIldOIiwiMTU4MyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 14:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Nashville International Airport",
+                        "id": "BNA",
+                        "time": "2026-06-16 16:05"
+                    },
+                    "duration": 155,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 725",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 118 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Nashville International Airport",
+                        "id": "BNA",
+                        "time": "2026-06-16 17:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-16 19:40"
+                    },
+                    "duration": 115,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 489",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 93 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 100,
+                    "name": "Nashville International Airport",
+                    "id": "BNA"
+                }
+            ],
+            "total_duration": 370,
+            "carbon_emissions": {
+                "this_flight": 212000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -17
+            },
+            "price": 247,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFYZEVhMUZDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9hMnAzUVhkYVUydEJFZ3RYVGpjeU5YeFhUalE0T1JvTENKbkFBUkFDR2dORlZWSTRISERNM3dFPSIsW1siQk9TIiwiMjAyNi0wNi0xNiIsIkJOQSIsbnVsbCwiV04iLCI3MjUiXSxbIkJOQSIsIjIwMjYtMDYtMTYiLCJEQUwiLG51bGwsIldOIiwiNDg5Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 18:25"
+                    },
+                    "arrival_airport": {
+                        "name": "St. Louis Lambert International Airport",
+                        "id": "STL",
+                        "time": "2026-06-16 20:30"
+                    },
+                    "duration": 185,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 754",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 125 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "St. Louis Lambert International Airport",
+                        "id": "STL",
+                        "time": "2026-06-16 21:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-16 22:55"
+                    },
+                    "duration": 100,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 3904",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 88 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 45,
+                    "name": "St. Louis Lambert International Airport",
+                    "id": "STL"
+                }
+            ],
+            "total_duration": 330,
+            "carbon_emissions": {
+                "this_flight": 214000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -16
+            },
+            "price": 247,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFYZEVhMUZDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9hMnAzUVhkYVUydEJFZ3hYVGpjMU5IeFhUak01TURRYUN3aVp3QUVRQWhvRFJWVlNPQnh3ek44QiIsW1siQk9TIiwiMjAyNi0wNi0xNiIsIlNUTCIsbnVsbCwiV04iLCI3NTQiXSxbIlNUTCIsIjIwMjYtMDYtMTYiLCJEQUwiLG51bGwsIldOIiwiMzkwNCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 18:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Nashville International Airport",
+                        "id": "BNA",
+                        "time": "2026-06-16 20:40"
+                    },
+                    "duration": 170,
+                    "airplane": "Boeing 737-700 (Scimitar Winglets) Pax",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 2338",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 156 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Nashville International Airport",
+                        "id": "BNA",
+                        "time": "2026-06-16 21:35"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-16 23:30"
+                    },
+                    "duration": 115,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 3230",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 105 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 55,
+                    "name": "Nashville International Airport",
+                    "id": "BNA"
+                }
+            ],
+            "total_duration": 340,
+            "carbon_emissions": {
+                "this_flight": 263000,
+                "typical_for_this_route": 254000,
+                "difference_percent": 4
+            },
+            "price": 247,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFYZEVhMUZDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9hMnAzUVhkYVUydEJFZzFYVGpJek16aDhWMDR6TWpNd0dnc0ltY0FCRUFJYUEwVlZVamdjY016ZkFRPT0iLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJCTkEiLG51bGwsIldOIiwiMjMzOCJdLFsiQk5BIiwiMjAyNi0wNi0xNiIsIkRBTCIsbnVsbCwiV04iLCIzMjMwIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 08:55"
+                    },
+                    "arrival_airport": {
+                        "name": "Baltimore/Washington International Thurgood Marshall Airport",
+                        "id": "BWI",
+                        "time": "2026-06-16 10:30"
+                    },
+                    "duration": 95,
+                    "airplane": "Boeing 737-700 (Scimitar Winglets) Pax",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 732",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 88 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Baltimore/Washington International Thurgood Marshall Airport",
+                        "id": "BWI",
+                        "time": "2026-06-16 11:40"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Raleigh-Durham",
+                        "id": "RDU",
+                        "time": "2026-06-16 12:50"
+                    },
+                    "duration": 70,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 4442",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 60 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Raleigh-Durham",
+                        "id": "RDU",
+                        "time": "2026-06-16 13:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-16 15:35"
+                    },
+                    "duration": 165,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 936",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 141 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 70,
+                    "name": "Baltimore/Washington International Thurgood Marshall Airport",
+                    "id": "BWI"
+                },
+                {
+                    "duration": 60,
+                    "name": "Aéroport international de Raleigh-Durham",
+                    "id": "RDU"
+                }
+            ],
+            "total_duration": 460,
+            "carbon_emissions": {
+                "this_flight": 291000,
+                "typical_for_this_route": 254000,
+                "difference_percent": 15
+            },
+            "price": 251,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFYZEVhMUZDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9hMnAzUVhkYVUydEJFaEpYVGpjek1ueFhUalEwTkRKOFYwNDVNellhQ3dqaHd3RVFBaG9EUlZWU09CeHczK01CIixbWyJCT1MiLCIyMDI2LTA2LTE2IiwiQldJIixudWxsLCJXTiIsIjczMiJdLFsiQldJIiwiMjAyNi0wNi0xNiIsIlJEVSIsbnVsbCwiV04iLCI0NDQyIl0sWyJSRFUiLCIyMDI2LTA2LTE2IiwiREFMIixudWxsLCJXTiIsIjkzNiJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 16:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-16 19:29"
+                    },
+                    "duration": 179,
+                    "airplane": "Airbus A321",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 399",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 142 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-16 21:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-16 22:34"
+                    },
+                    "duration": 139,
+                    "airplane": "Boeing 717",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 1104",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Carbon emissions estimate: 147 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 106,
+                    "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                    "id": "ATL"
+                }
+            ],
+            "total_duration": 424,
+            "carbon_emissions": {
+                "this_flight": 290000,
+                "typical_for_this_route": 254000,
+                "difference_percent": 14
+            },
+            "price": 411,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFYZEVhMUZDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9hMnAzUVhkYVUydEJFZ3hFVERNNU9YeEVUREV4TURRYUN3aTh3QUlRQWhvRFJWVlNPQnh3NnZRQyIsW1siQk9TIiwiMjAyNi0wNi0xNiIsIkFUTCIsbnVsbCwiREwiLCIzOTkiXSxbIkFUTCIsIjIwMjYtMDYtMTYiLCJEQUwiLG51bGwsIkRMIiwiMTEwNCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 10:20"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-16 13:04"
+                    },
+                    "duration": 164,
+                    "airplane": "Airbus A321",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 385",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 142 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-16 13:59"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-16 15:12"
+                    },
+                    "duration": 133,
+                    "airplane": "Boeing 717",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 512",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Carbon emissions estimate: 147 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 55,
+                    "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                    "id": "ATL"
+                }
+            ],
+            "total_duration": 352,
+            "carbon_emissions": {
+                "this_flight": 290000,
+                "typical_for_this_route": 254000,
+                "difference_percent": 14
+            },
+            "price": 443,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFYZEVhMUZDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9hMnAzUVhkYVUydEJFZ3RFVERNNE5YeEVURFV4TWhvTENQM1pBaEFDR2dORlZWSTRISERBa2dNPSIsW1siQk9TIiwiMjAyNi0wNi0xNiIsIkFUTCIsbnVsbCwiREwiLCIzODUiXSxbIkFUTCIsIjIwMjYtMDYtMTYiLCJEQUwiLG51bGwsIkRMIiwiNTEyIl1dXQ=="
+        }
+    ],
+    "price_insights": {
+        "lowest_price": 238,
+        "price_level": "typical",
+        "typical_price_range": [
+            160,
+            250
+        ],
+        "price_history": [
+            [
+                1775361600,
+                173
+            ],
+            [
+                1775448000,
+                173
+            ],
+            [
+                1775534400,
+                172
+            ],
+            [
+                1775620800,
+                170
+            ],
+            [
+                1775707200,
+                170
+            ],
+            [
+                1775793600,
+                170
+            ],
+            [
+                1775880000,
+                169
+            ],
+            [
+                1775966400,
+                170
+            ],
+            [
+                1776052800,
+                170
+            ],
+            [
+                1776139200,
+                169
+            ],
+            [
+                1776225600,
+                168
+            ],
+            [
+                1776312000,
+                168
+            ],
+            [
+                1776398400,
+                169
+            ],
+            [
+                1776484800,
+                169
+            ],
+            [
+                1776571200,
+                169
+            ],
+            [
+                1776657600,
+                169
+            ],
+            [
+                1776744000,
+                169
+            ],
+            [
+                1776830400,
+                169
+            ],
+            [
+                1776916800,
+                170
+            ],
+            [
+                1777003200,
+                162
+            ],
+            [
+                1777089600,
+                161
+            ],
+            [
+                1777176000,
+                161
+            ],
+            [
+                1777262400,
+                161
+            ],
+            [
+                1777348800,
+                161
+            ],
+            [
+                1777435200,
+                161
+            ],
+            [
+                1777521600,
+                162
+            ],
+            [
+                1777608000,
+                161
+            ],
+            [
+                1777694400,
+                161
+            ],
+            [
+                1777780800,
+                161
+            ],
+            [
+                1777867200,
+                161
+            ],
+            [
+                1777953600,
+                161
+            ],
+            [
+                1778040000,
+                166
+            ],
+            [
+                1778126400,
+                166
+            ],
+            [
+                1778212800,
+                166
+            ],
+            [
+                1778299200,
+                165
+            ],
+            [
+                1778385600,
+                177
+            ],
+            [
+                1778472000,
+                169
+            ],
+            [
+                1778558400,
+                169
+            ],
+            [
+                1778644800,
+                170
+            ],
+            [
+                1778731200,
+                170
+            ],
+            [
+                1778817600,
+                171
+            ],
+            [
+                1778904000,
+                171
+            ],
+            [
+                1778990400,
+                171
+            ],
+            [
+                1779076800,
+                171
+            ],
+            [
+                1779163200,
+                210
+            ],
+            [
+                1779249600,
+                221
+            ],
+            [
+                1779336000,
+                206
+            ],
+            [
+                1779422400,
+                210
+            ],
+            [
+                1779508800,
+                226
+            ],
+            [
+                1779595200,
+                211
+            ],
+            [
+                1779681600,
+                215
+            ],
+            [
+                1779768000,
+                206
+            ],
+            [
+                1779854400,
+                210
+            ],
+            [
+                1779940800,
+                239
+            ],
+            [
+                1780027200,
+                238
+            ],
+            [
+                1780113600,
+                238
+            ],
+            [
+                1780200000,
+                237
+            ],
+            [
+                1780286400,
+                238
+            ],
+            [
+                1780372800,
+                238
+            ],
+            [
+                1780459200,
+                238
+            ],
+            [
+                1780545600,
+                238
+            ]
+        ]
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "BOS",
+                        "name": "Aéroport international de Boston Logan"
+                    },
+                    "city": "Boston",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTsThI_7VKLWvxDOugOLpVHze3RQP7rvr-KLjOZJ0PEf2xI8bEhumBB3ZjXe4HF-8srxAhSOe22Cjuc1g",
+                    "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTmyfqYldUKPJdrEh9tMEkjc-XwVb6VUgvvAhx1n4EUeXRSkCPp1-NQAofPisLnWMTcastf8G7m1fVavxIZ4tviHRyoXXRpqKgvkC8ja3w"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "DAL",
+                        "name": "Aéroport de Dallas Love Field"
+                    },
+                    "city": "Dallas",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS61zSeEE0f0RSedvAIvzJKv1B7Tojcnx1pR5ipb9l389QDa2V23R4cRbmgVZVCgrVsZ6Ewme_WpDRgmw",
+                    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT4Hg7sSdARNWUKEIVKbquvgGkx76RuLbHy7uH51pecZu-z7-Wi9ya5fpf-YmM63--MKoWu7HUM3Q1O7mQoRBSlNeNSfgHP5Y2tO11niU"
+                }
+            ]
+        }
+    ]
+}

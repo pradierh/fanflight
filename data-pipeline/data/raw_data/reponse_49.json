@@ -1,0 +1,991 @@
+{
+    "search_metadata": {
+        "id": "6a216a9b5fda0b9378fb1f26",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/G2HexNJOOYl6DnwdJFx3OA/6a216a9b5fda0b9378fb1f26.json",
+        "created_at": "2026-06-04 12:07:55 UTC",
+        "processed_at": "2026-06-04 12:07:55 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTE5agcIARIDRVdScgcIARIDT0FLQAFIAXABmAEC&tfu=EgIIAQ",
+        "raw_html_file": "https://serpapi.com/searches/G2HexNJOOYl6DnwdJFx3OA/6a216a9b5fda0b9378fb1f26.html",
+        "prettify_html_file": "https://serpapi.com/searches/G2HexNJOOYl6DnwdJFx3OA/6a216a9b5fda0b9378fb1f26.prettify",
+        "total_time_taken": 0.43
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "fr",
+        "gl": "us",
+        "type": "2",
+        "departure_id": "EWR",
+        "arrival_id": "OAK",
+        "outbound_date": "2026-06-19",
+        "currency": "EUR"
+    },
+    "best_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-19 18:29"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San Diego",
+                        "id": "SAN",
+                        "time": "2026-06-19 21:37"
+                    },
+                    "duration": 368,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 573",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 316 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de San Diego",
+                        "id": "SAN",
+                        "time": "2026-06-20 08:14"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-20 09:57"
+                    },
+                    "duration": 103,
+                    "airplane": "Embraer 175",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 3320",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 106 kg"
+                    ],
+                    "plane_and_crew_by": "SkyWest Airlines as Alaska SkyWest"
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 637,
+                    "name": "Aéroport international de San Diego",
+                    "id": "SAN",
+                    "overnight": true
+                }
+            ],
+            "total_duration": 1108,
+            "carbon_emissions": {
+                "this_flight": 423000,
+                "typical_for_this_route": 375000,
+                "difference_percent": 13
+            },
+            "price": 357,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVEdOVFQyVXRWMkZSUm1OQlJHdEJWVkZDUnkwdExTMHRMUzB0TFMxdmVXeHNOMEZCUVVGQlIyOW9ZWEJ6VDFOb1lUQkJFZ3hCVXpVM00zeEJVek16TWpBYUN3akJsZ0lRQWhvRFJWVlNPQnh3aWNRQyIsW1siRVdSIiwiMjAyNi0wNi0xOSIsIlNBTiIsbnVsbCwiQVMiLCI1NzMiXSxbIlNBTiIsIjIwMjYtMDYtMjAiLCJPQUsiLG51bGwsIkFTIiwiMzMyMCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-19 17:59"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Salt Lake City",
+                        "id": "SLC",
+                        "time": "2026-06-19 21:18"
+                    },
+                    "duration": 319,
+                    "airplane": "Airbus A321neo",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 2033",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 214 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Salt Lake City",
+                        "id": "SLC",
+                        "time": "2026-06-19 22:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 23:54"
+                    },
+                    "duration": 124,
+                    "airplane": "Embraer 175",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 3797",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Carbon emissions estimate: 133 kg"
+                    ],
+                    "plane_and_crew_by": "SkyWest DBA Delta Connection"
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 92,
+                    "name": "Aéroport international de Salt Lake City",
+                    "id": "SLC"
+                }
+            ],
+            "total_duration": 535,
+            "carbon_emissions": {
+                "this_flight": 349000,
+                "typical_for_this_route": 375000,
+                "difference_percent": -7
+            },
+            "price": 376,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVEdOVFQyVXRWMkZSUm1OQlJHdEJWVkZDUnkwdExTMHRMUzB0TFMxdmVXeHNOMEZCUVVGQlIyOW9ZWEJ6VDFOb1lUQkJFZzFFVERJd016TjhSRXd6TnprM0dnc0l4cVVDRUFJYUEwVlZVamdjY01uVkFnPT0iLFtbIkVXUiIsIjIwMjYtMDYtMTkiLCJTTEMiLG51bGwsIkRMIiwiMjAzMyJdLFsiU0xDIiwiMjAyNi0wNi0xOSIsIk9BSyIsbnVsbCwiREwiLCIzNzk3Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-19 07:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-19 10:35"
+                    },
+                    "duration": 370,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 299",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 244 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-19 11:41"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 13:59"
+                    },
+                    "duration": 138,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 1328",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 118 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 66,
+                    "name": "Aéroport international de Seattle-Tacoma",
+                    "id": "SEA"
+                }
+            ],
+            "total_duration": 574,
+            "carbon_emissions": {
+                "this_flight": 363000,
+                "typical_for_this_route": 375000,
+                "difference_percent": -3
+            },
+            "price": 455,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVEdOVFQyVXRWMkZSUm1OQlJHdEJWVkZDUnkwdExTMHRMUzB0TFMxdmVXeHNOMEZCUVVGQlIyOW9ZWEJ6VDFOb1lUQkJFZ3hCVXpJNU9YeEJVekV6TWpnYUN3aW80d0lRQWhvRFJWVlNPQnh3dUowRCIsW1siRVdSIiwiMjAyNi0wNi0xOSIsIlNFQSIsbnVsbCwiQVMiLCIyOTkiXSxbIlNFQSIsIjIwMjYtMDYtMTkiLCJPQUsiLG51bGwsIkFTIiwiMTMyOCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-19 07:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Salt Lake City",
+                        "id": "SLC",
+                        "time": "2026-06-19 10:13"
+                    },
+                    "duration": 298,
+                    "airplane": "Airbus A321neo",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 1009",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 214 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Salt Lake City",
+                        "id": "SLC",
+                        "time": "2026-06-19 10:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 11:53"
+                    },
+                    "duration": 128,
+                    "airplane": "Embraer 175",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 4134",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Carbon emissions estimate: 133 kg"
+                    ],
+                    "plane_and_crew_by": "SkyWest DBA Delta Connection"
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 32,
+                    "name": "Aéroport international de Salt Lake City",
+                    "id": "SLC"
+                }
+            ],
+            "total_duration": 458,
+            "carbon_emissions": {
+                "this_flight": 349000,
+                "typical_for_this_route": 375000,
+                "difference_percent": -7
+            },
+            "price": 540,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVEdOVFQyVXRWMkZSUm1OQlJHdEJWVkZDUnkwdExTMHRMUzB0TFMxdmVXeHNOMEZCUVVGQlIyOW9ZWEJ6VDFOb1lUQkJFZzFFVERFd01EbDhSRXcwTVRNMEdnc0lqcVVERUFJYUEwVlZVamdjY0lEcUF3PT0iLFtbIkVXUiIsIjIwMjYtMDYtMTkiLCJTTEMiLG51bGwsIkRMIiwiMTAwOSJdLFsiU0xDIiwiMjAyNi0wNi0xOSIsIk9BSyIsbnVsbCwiREwiLCI0MTM0Il1dXQ=="
+        }
+    ],
+    "other_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-19 17:36"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-19 20:58"
+                    },
+                    "duration": 382,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 462",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 244 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-20 07:12"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-20 09:26"
+                    },
+                    "duration": 134,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 533",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 108 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 614,
+                    "name": "Aéroport international de Seattle-Tacoma",
+                    "id": "SEA",
+                    "overnight": true
+                }
+            ],
+            "total_duration": 1130,
+            "carbon_emissions": {
+                "this_flight": 353000,
+                "typical_for_this_route": 375000,
+                "difference_percent": -6
+            },
+            "price": 458,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVEdOVFQyVXRWMkZSUm1OQlJHdEJWVkZDUnkwdExTMHRMUzB0TFMxdmVXeHNOMEZCUVVGQlIyOW9ZWEJ6VDFOb1lUQkJFZ3RCVXpRMk1ueEJVelV6TXhvTENJamxBaEFDR2dORlZWSTRISEM5bndNPSIsW1siRVdSIiwiMjAyNi0wNi0xOSIsIlNFQSIsbnVsbCwiQVMiLCI0NjIiXSxbIlNFQSIsIjIwMjYtMDYtMjAiLCJPQUsiLG51bGwsIkFTIiwiNTMzIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-19 10:42"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-19 12:24"
+                    },
+                    "duration": 162,
+                    "airplane": "Airbus A319",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 3170",
+                    "ticket_also_sold_by": [
+                        "Alaska"
+                    ],
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 130 kg"
+                    ],
+                    "plane_and_crew_by": "American Airlines"
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-19 14:12"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Portland",
+                        "id": "PDX",
+                        "time": "2026-06-19 16:47"
+                    },
+                    "duration": 275,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 325",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 182 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Portland",
+                        "id": "PDX",
+                        "time": "2026-06-19 17:33"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 19:23"
+                    },
+                    "duration": 110,
+                    "airplane": "Embraer 175",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 2082",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 126 kg"
+                    ],
+                    "plane_and_crew_by": "Horizon Air as Alaska Horizon"
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 108,
+                    "name": "Aéroport international O'Hare de Chicago",
+                    "id": "ORD"
+                },
+                {
+                    "duration": 46,
+                    "name": "Aéroport international de Portland",
+                    "id": "PDX"
+                }
+            ],
+            "total_duration": 701,
+            "carbon_emissions": {
+                "this_flight": 440000,
+                "typical_for_this_route": 375000,
+                "difference_percent": 17
+            },
+            "price": 635,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/multi.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVEdOVFQyVXRWMkZSUm1OQlJHdEJWVkZDUnkwdExTMHRMUzB0TFMxdmVXeHNOMEZCUVVGQlIyOW9ZWEJ6VDFOb1lUQkJFaE5CUVRNeE56QjhRVk16TWpWOFFWTXlNRGd5R2dzSTdPOERFQUlhQTBWVlVqZ2NjUHZBQkE9PSIsW1siRVdSIiwiMjAyNi0wNi0xOSIsIk9SRCIsbnVsbCwiQUEiLCIzMTcwIl0sWyJPUkQiLCIyMDI2LTA2LTE5IiwiUERYIixudWxsLCJBUyIsIjMyNSJdLFsiUERYIiwiMjAyNi0wNi0xOSIsIk9BSyIsbnVsbCwiQVMiLCIyMDgyIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-19 09:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-19 12:43"
+                    },
+                    "duration": 373,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 230",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 289 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Seattle-Tacoma",
+                        "id": "SEA",
+                        "time": "2026-06-19 17:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 19:33"
+                    },
+                    "duration": 128,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 706",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 118 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 282,
+                    "name": "Aéroport international de Seattle-Tacoma",
+                    "id": "SEA"
+                }
+            ],
+            "total_duration": 783,
+            "carbon_emissions": {
+                "this_flight": 408000,
+                "typical_for_this_route": 375000,
+                "difference_percent": 9
+            },
+            "price": 668,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVEdOVFQyVXRWMkZSUm1OQlJHdEJWVkZDUnkwdExTMHRMUzB0TFMxdmVXeHNOMEZCUVVGQlIyOW9ZWEJ6VDFOb1lUQkJFZ3RCVXpJek1IeEJVemN3TmhvTENNZUpCQkFDR2dORlZWSTRISER3M2dRPSIsW1siRVdSIiwiMjAyNi0wNi0xOSIsIlNFQSIsbnVsbCwiQVMiLCIyMzAiXSxbIlNFQSIsIjIwMjYtMDYtMTkiLCJPQUsiLG51bGwsIkFTIiwiNzA2Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-19 09:39"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport métropolitain de Détroit",
+                        "id": "DTW",
+                        "time": "2026-06-19 11:33"
+                    },
+                    "duration": 114,
+                    "airplane": "Airbus A319",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 2566",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 95 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport métropolitain de Détroit",
+                        "id": "DTW",
+                        "time": "2026-06-19 12:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Salt Lake City",
+                        "id": "SLC",
+                        "time": "2026-06-19 14:19"
+                    },
+                    "duration": 234,
+                    "airplane": "Boeing 737",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 935",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 191 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Salt Lake City",
+                        "id": "SLC",
+                        "time": "2026-06-19 15:20"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international d'Oakland",
+                        "id": "OAK",
+                        "time": "2026-06-19 16:23"
+                    },
+                    "duration": 123,
+                    "airplane": "Embraer 175",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 3903",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Carbon emissions estimate: 133 kg"
+                    ],
+                    "plane_and_crew_by": "SkyWest DBA Delta Connection"
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 52,
+                    "name": "Aéroport métropolitain de Détroit",
+                    "id": "DTW"
+                },
+                {
+                    "duration": 61,
+                    "name": "Aéroport international de Salt Lake City",
+                    "id": "SLC"
+                }
+            ],
+            "total_duration": 584,
+            "carbon_emissions": {
+                "this_flight": 421000,
+                "typical_for_this_route": 375000,
+                "difference_percent": 12
+            },
+            "price": 829,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVEdOVFQyVXRWMkZSUm1OQlJHdEJWVkZDUnkwdExTMHRMUzB0TFMxdmVXeHNOMEZCUVVGQlIyOW9ZWEJ6VDFOb1lUQkJFaE5FVERJMU5qWjhSRXc1TXpWOFJFd3pPVEF6R2dzSXlvY0ZFQUlhQTBWVlVqZ2NjTUx4QlE9PSIsW1siRVdSIiwiMjAyNi0wNi0xOSIsIkRUVyIsbnVsbCwiREwiLCIyNTY2Il0sWyJEVFciLCIyMDI2LTA2LTE5IiwiU0xDIixudWxsLCJETCIsIjkzNSJdLFsiU0xDIiwiMjAyNi0wNi0xOSIsIk9BSyIsbnVsbCwiREwiLCIzOTAzIl1dXQ=="
+        }
+    ],
+    "price_insights": {
+        "lowest_price": 357,
+        "price_level": "high",
+        "typical_price_range": [
+            165,
+            355
+        ],
+        "price_history": [
+            [
+                1775275200,
+                230
+            ],
+            [
+                1775361600,
+                230
+            ],
+            [
+                1775448000,
+                230
+            ],
+            [
+                1775534400,
+                229
+            ],
+            [
+                1775620800,
+                226
+            ],
+            [
+                1775707200,
+                227
+            ],
+            [
+                1775793600,
+                226
+            ],
+            [
+                1775880000,
+                225
+            ],
+            [
+                1775966400,
+                225
+            ],
+            [
+                1776052800,
+                243
+            ],
+            [
+                1776139200,
+                241
+            ],
+            [
+                1776225600,
+                240
+            ],
+            [
+                1776312000,
+                240
+            ],
+            [
+                1776398400,
+                241
+            ],
+            [
+                1776484800,
+                241
+            ],
+            [
+                1776571200,
+                241
+            ],
+            [
+                1776657600,
+                241
+            ],
+            [
+                1776744000,
+                295
+            ],
+            [
+                1776830400,
+                267
+            ],
+            [
+                1776916800,
+                242
+            ],
+            [
+                1777003200,
+                242
+            ],
+            [
+                1777089600,
+                242
+            ],
+            [
+                1777176000,
+                241
+            ],
+            [
+                1777262400,
+                242
+            ],
+            [
+                1777348800,
+                267
+            ],
+            [
+                1777435200,
+                296
+            ],
+            [
+                1777521600,
+                297
+            ],
+            [
+                1777608000,
+                296
+            ],
+            [
+                1777694400,
+                296
+            ],
+            [
+                1777780800,
+                296
+            ],
+            [
+                1777867200,
+                296
+            ],
+            [
+                1777953600,
+                297
+            ],
+            [
+                1778040000,
+                297
+            ],
+            [
+                1778126400,
+                300
+            ],
+            [
+                1778212800,
+                293
+            ],
+            [
+                1778299200,
+                284
+            ],
+            [
+                1778385600,
+                244
+            ],
+            [
+                1778472000,
+                285
+            ],
+            [
+                1778558400,
+                292
+            ],
+            [
+                1778644800,
+                293
+            ],
+            [
+                1778731200,
+                293
+            ],
+            [
+                1778817600,
+                295
+            ],
+            [
+                1778904000,
+                295
+            ],
+            [
+                1778990400,
+                295
+            ],
+            [
+                1779076800,
+                295
+            ],
+            [
+                1779163200,
+                295
+            ],
+            [
+                1779249600,
+                296
+            ],
+            [
+                1779336000,
+                296
+            ],
+            [
+                1779422400,
+                347
+            ],
+            [
+                1779508800,
+                347
+            ],
+            [
+                1779595200,
+                347
+            ],
+            [
+                1779681600,
+                346
+            ],
+            [
+                1779768000,
+                335
+            ],
+            [
+                1779854400,
+                292
+            ],
+            [
+                1779940800,
+                293
+            ],
+            [
+                1780027200,
+                292
+            ],
+            [
+                1780113600,
+                291
+            ],
+            [
+                1780200000,
+                319
+            ],
+            [
+                1780286400,
+                319
+            ],
+            [
+                1780372800,
+                320
+            ],
+            [
+                1780459200,
+                400
+            ],
+            [
+                1780545600,
+                357
+            ]
+        ]
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "EWR",
+                        "name": "Aéroport international de Newark-Liberty"
+                    },
+                    "city": "Newark",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSVSHJRQUacgXbljJliEfJExMDrajiLyrcqBpTDrFTtTWEhRRBMAEO76FQqrFPU2swFT3Q3cWcbeO8Tw",
+                    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9KX68DZATrjpYLwlFuQnsmKfJm83iKCU4RTdjv2smpe3tVA1YxHO0Km6xxwD3wnL3-ZI3zci1P1l7bhflFCeqnfmxbEUMppLOK-BiaaQ"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "OAK",
+                        "name": "Aéroport international d'Oakland"
+                    },
+                    "city": "Oakland",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV2Bb7WL6M85lvFSy_stt7U62uJvzYE1ZfaHnG7uDU0iaoJkXYRg6Ol5cJPNAnsNN-TZkzUabm_olJpQ",
+                    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2j1_Hx2juzwv1lWZpWIKgSQdJgGmw2mhoLCU_-CquZQJtiascbZBC5KcipHoqmEdQPm2MFNhdu5eB6QwuJ_SOebLqhVt9woPlBYofwug"
+                }
+            ]
+        }
+    ]
+}

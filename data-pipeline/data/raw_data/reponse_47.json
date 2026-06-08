@@ -1,0 +1,1337 @@
+{
+    "search_metadata": {
+        "id": "6a216a99dc74d039a4431173",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/62dGQZ9Bw3nO7xFtB-ib2Q/6a216a99dc74d039a4431173.json",
+        "created_at": "2026-06-04 12:07:53 UTC",
+        "processed_at": "2026-06-04 12:07:53 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTIwagcIARIDRVdScgcIARIDU0pDQAFIAXABmAEC&tfu=EgIIAQ",
+        "raw_html_file": "https://serpapi.com/searches/62dGQZ9Bw3nO7xFtB-ib2Q/6a216a99dc74d039a4431173.html",
+        "prettify_html_file": "https://serpapi.com/searches/62dGQZ9Bw3nO7xFtB-ib2Q/6a216a99dc74d039a4431173.prettify",
+        "total_time_taken": 0.85
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "fr",
+        "gl": "us",
+        "type": "2",
+        "departure_id": "EWR",
+        "arrival_id": "SJC",
+        "outbound_date": "2026-06-20",
+        "currency": "EUR"
+    },
+    "best_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 06:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-20 08:15"
+                    },
+                    "duration": 255,
+                    "airplane": "Airbus A321neo",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 670",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 170 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-20 11:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-20 13:24"
+                    },
+                    "duration": 159,
+                    "airplane": "Boeing 737",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 670",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 136 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 210,
+                    "name": "Aéroport international de Denver",
+                    "id": "DEN"
+                }
+            ],
+            "total_duration": 624,
+            "carbon_emissions": {
+                "this_flight": 307000,
+                "typical_for_this_route": 375000,
+                "difference_percent": -18
+            },
+            "price": 189,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFXZHdZbmRDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9ZWEJ2UTJkNlFrRkJFZ3RWUVRZM01IeFZRVFkzTUJvTENNS1RBUkFDR2dORlZWSTRISERUcXdFPSIsW1siRVdSIiwiMjAyNi0wNi0yMCIsIkRFTiIsbnVsbCwiVUEiLCI2NzAiXSxbIkRFTiIsIjIwMjYtMDYtMjAiLCJTSkMiLG51bGwsIlVBIiwiNjcwIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 15:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-20 17:54"
+                    },
+                    "duration": 149,
+                    "airplane": "Airbus A321",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 2312",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 116 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-20 19:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-20 21:42"
+                    },
+                    "duration": 297,
+                    "airplane": "Boeing 737",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 933",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 271 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 111,
+                    "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                    "id": "ATL"
+                }
+            ],
+            "total_duration": 557,
+            "carbon_emissions": {
+                "this_flight": 388000,
+                "typical_for_this_route": 375000,
+                "difference_percent": 3
+            },
+            "price": 215,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFXZHdZbmRDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9ZWEJ2UTJkNlFrRkJFZ3hFVERJek1USjhSRXc1TXpNYUN3aXBwd0VRQWhvRFJWVlNPQnh3MmNJQiIsW1siRVdSIiwiMjAyNi0wNi0yMCIsIkFUTCIsbnVsbCwiREwiLCIyMzEyIl0sWyJBVEwiLCIyMDI2LTA2LTIwIiwiU0pDIixudWxsLCJETCIsIjkzMyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 18:29"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San Diego",
+                        "id": "SAN",
+                        "time": "2026-06-20 21:37"
+                    },
+                    "duration": 368,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 573",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 316 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de San Diego",
+                        "id": "SAN",
+                        "time": "2026-06-20 22:24"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-20 23:54"
+                    },
+                    "duration": 90,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 1624",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 73 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 47,
+                    "name": "Aéroport international de San Diego",
+                    "id": "SAN"
+                }
+            ],
+            "total_duration": 505,
+            "carbon_emissions": {
+                "this_flight": 389000,
+                "typical_for_this_route": 375000,
+                "difference_percent": 4
+            },
+            "price": 289,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFXZHdZbmRDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9ZWEJ2UTJkNlFrRkJFZ3hCVXpVM00zeEJVekUyTWpRYUN3aUk0UUVRQWhvRFJWVlNPQnh3OFlVQyIsW1siRVdSIiwiMjAyNi0wNi0yMCIsIlNBTiIsbnVsbCwiQVMiLCI1NzMiXSxbIlNBTiIsIjIwMjYtMDYtMjAiLCJTSkMiLG51bGwsIkFTIiwiMTYyNCJdXV0="
+        }
+    ],
+    "other_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 06:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport intercontinental George-Bush de Houston",
+                        "id": "IAH",
+                        "time": "2026-06-20 08:41"
+                    },
+                    "duration": 221,
+                    "airplane": "Boeing 737",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 492",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 185 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport intercontinental George-Bush de Houston",
+                        "id": "IAH",
+                        "time": "2026-06-20 10:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-20 12:03"
+                    },
+                    "duration": 243,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 1882",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 185 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 79,
+                    "name": "Aéroport intercontinental George-Bush de Houston",
+                    "id": "IAH"
+                }
+            ],
+            "total_duration": 543,
+            "carbon_emissions": {
+                "this_flight": 371000,
+                "typical_for_this_route": 375000,
+                "difference_percent": -1
+            },
+            "price": 233,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFXZHdZbmRDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9ZWEJ2UTJkNlFrRkJFZ3hWUVRRNU1ueFZRVEU0T0RJYUN3amh0UUVRQWhvRFJWVlNPQnh3djlNQiIsW1siRVdSIiwiMjAyNi0wNi0yMCIsIklBSCIsbnVsbCwiVUEiLCI0OTIiXSxbIklBSCIsIjIwMjYtMDYtMjAiLCJTSkMiLG51bGwsIlVBIiwiMTg4MiJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 07:51"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-20 10:09"
+                    },
+                    "duration": 258,
+                    "airplane": "Airbus A321neo",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 1758",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 170 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-20 11:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-20 13:24"
+                    },
+                    "duration": 159,
+                    "airplane": "Boeing 737",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 670",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 136 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 96,
+                    "name": "Aéroport international de Denver",
+                    "id": "DEN"
+                }
+            ],
+            "total_duration": 513,
+            "carbon_emissions": {
+                "this_flight": 307000,
+                "typical_for_this_route": 375000,
+                "difference_percent": -18
+            },
+            "price": 240,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFXZHdZbmRDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9ZWEJ2UTJkNlFrRkJFZ3hWUVRFM05UaDhWVUUyTnpBYUN3am51Z0VRQWhvRFJWVlNPQnh3cjlrQiIsW1siRVdSIiwiMjAyNi0wNi0yMCIsIkRFTiIsbnVsbCwiVUEiLCIxNzU4Il0sWyJERU4iLCIyMDI2LTA2LTIwIiwiU0pDIixudWxsLCJVQSIsIjY3MCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 14:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-20 16:33"
+                    },
+                    "duration": 163,
+                    "airplane": "Boeing 757",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 2788",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 150 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-20 19:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-20 22:35"
+                    },
+                    "duration": 285,
+                    "airplane": "Airbus A319",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 481",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 277 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 197,
+                    "name": "Aéroport international O'Hare de Chicago",
+                    "id": "ORD"
+                }
+            ],
+            "total_duration": 645,
+            "carbon_emissions": {
+                "this_flight": 428000,
+                "typical_for_this_route": 375000,
+                "difference_percent": 14
+            },
+            "price": 245,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFXZHdZbmRDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9ZWEJ2UTJkNlFrRkJFZ3hWUVRJM09EaDhWVUUwT0RFYUN3anB2Z0VRQWhvRFJWVlNPQnh3aGQ0QiIsW1siRVdSIiwiMjAyNi0wNi0yMCIsIk9SRCIsbnVsbCwiVUEiLCIyNzg4Il0sWyJPUkQiLCIyMDI2LTA2LTIwIiwiU0pDIixudWxsLCJVQSIsIjQ4MSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 06:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Portland",
+                        "id": "PDX",
+                        "time": "2026-06-20 09:33"
+                    },
+                    "duration": 363,
+                    "airplane": "Boeing 737",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 1630",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 301 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Portland",
+                        "id": "PDX",
+                        "time": "2026-06-20 11:33"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-20 13:23"
+                    },
+                    "duration": 110,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "Alaska",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AS 1632",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 88 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 120,
+                    "name": "Aéroport international de Portland",
+                    "id": "PDX"
+                }
+            ],
+            "total_duration": 593,
+            "carbon_emissions": {
+                "this_flight": 390000,
+                "typical_for_this_route": 375000,
+                "difference_percent": 4
+            },
+            "price": 258,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFXZHdZbmRDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9ZWEJ2UTJkNlFrRkJFZzFCVXpFMk16QjhRVk14TmpNeUdnc0k4c2dCRUFJYUEwVlZVamdjY09IcEFRPT0iLFtbIkVXUiIsIjIwMjYtMDYtMjAiLCJQRFgiLG51bGwsIkFTIiwiMTYzMCJdLFsiUERYIiwiMjAyNi0wNi0yMCIsIlNKQyIsbnVsbCwiQVMiLCIxNjMyIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 16:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-20 18:34"
+                    },
+                    "duration": 169,
+                    "airplane": "Boeing 757",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 661",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 150 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-20 19:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-20 22:35"
+                    },
+                    "duration": 285,
+                    "airplane": "Airbus A319",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 481",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 277 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 76,
+                    "name": "Aéroport international O'Hare de Chicago",
+                    "id": "ORD"
+                }
+            ],
+            "total_duration": 530,
+            "carbon_emissions": {
+                "this_flight": 428000,
+                "typical_for_this_route": 375000,
+                "difference_percent": 14
+            },
+            "price": 281,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFXZHdZbmRDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9ZWEJ2UTJkNlFrRkJFZ3RWUVRZMk1YeFZRVFE0TVJvTENQdmFBUkFDR2dORlZWSTRISERrL2dFPSIsW1siRVdSIiwiMjAyNi0wNi0yMCIsIk9SRCIsbnVsbCwiVUEiLCI2NjEiXSxbIk9SRCIsIjIwMjYtMDYtMjAiLCJTSkMiLG51bGwsIlVBIiwiNDgxIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 14:40"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-20 16:58"
+                    },
+                    "duration": 258,
+                    "airplane": "Boeing 737",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 2605",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 205 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-20 19:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-20 21:10"
+                    },
+                    "duration": 160,
+                    "airplane": "Airbus A319",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 2745",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 159 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 152,
+                    "name": "Aéroport international de Denver",
+                    "id": "DEN"
+                }
+            ],
+            "total_duration": 570,
+            "carbon_emissions": {
+                "this_flight": 366000,
+                "typical_for_this_route": 375000,
+                "difference_percent": -2
+            },
+            "price": 302,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFXZHdZbmRDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9ZWEJ2UTJkNlFrRkJFZzFWUVRJMk1EVjhWVUV5TnpRMUdnc0l5ZXNCRUFJYUEwVlZVamdjY0k2U0FnPT0iLFtbIkVXUiIsIjIwMjYtMDYtMjAiLCJERU4iLG51bGwsIlVBIiwiMjYwNSJdLFsiREVOIiwiMjAyNi0wNi0yMCIsIlNKQyIsbnVsbCwiVUEiLCIyNzQ1Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 07:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Salt Lake City",
+                        "id": "SLC",
+                        "time": "2026-06-20 10:14"
+                    },
+                    "duration": 299,
+                    "airplane": "Airbus A321neo",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 1009",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 214 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Salt Lake City",
+                        "id": "SLC",
+                        "time": "2026-06-20 11:40"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-20 12:38"
+                    },
+                    "duration": 118,
+                    "airplane": "Airbus A220-100 Passenger",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 1254",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 127 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 86,
+                    "name": "Aéroport international de Salt Lake City",
+                    "id": "SLC"
+                }
+            ],
+            "total_duration": 503,
+            "carbon_emissions": {
+                "this_flight": 342000,
+                "typical_for_this_route": 375000,
+                "difference_percent": -9
+            },
+            "price": 318,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFXZHdZbmRDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9ZWEJ2UTJkNlFrRkJFZzFFVERFd01EbDhSRXd4TWpVMEdnc0k4dmNCRUFJYUEwVlZVamdjY0xtZ0FnPT0iLFtbIkVXUiIsIjIwMjYtMDYtMjAiLCJTTEMiLG51bGwsIkRMIiwiMTAwOSJdLFsiU0xDIiwiMjAyNi0wNi0yMCIsIlNKQyIsbnVsbCwiREwiLCIxMjU0Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 15:41"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-20 18:23"
+                    },
+                    "duration": 282,
+                    "airplane": "Boeing 757",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 2756",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 284 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-20 19:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-20 21:10"
+                    },
+                    "duration": 160,
+                    "airplane": "Airbus A319",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 2745",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 159 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 67,
+                    "name": "Aéroport international de Denver",
+                    "id": "DEN"
+                }
+            ],
+            "total_duration": 509,
+            "carbon_emissions": {
+                "this_flight": 444000,
+                "typical_for_this_route": 375000,
+                "difference_percent": 18
+            },
+            "price": 331,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFXZHdZbmRDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9ZWEJ2UTJkNlFrRkJFZzFWUVRJM05UWjhWVUV5TnpRMUdnc0l3SUlDRUFJYUEwVlZVamdjY09Xc0FnPT0iLFtbIkVXUiIsIjIwMjYtMDYtMjAiLCJERU4iLG51bGwsIlVBIiwiMjc1NiJdLFsiREVOIiwiMjAyNi0wNi0yMCIsIlNKQyIsbnVsbCwiVUEiLCIyNzQ1Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 06:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-20 08:36"
+                    },
+                    "duration": 166,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 3267",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 109 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-20 15:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-20 18:34"
+                    },
+                    "duration": 164,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2754",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 116 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-20 21:27"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-20 23:12"
+                    },
+                    "duration": 225,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1940",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 155 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 434,
+                    "name": "Aéroport international O'Hare de Chicago",
+                    "id": "ORD"
+                },
+                {
+                    "duration": 173,
+                    "name": "Aéroport international de Dallas-Fort Worth",
+                    "id": "DFW"
+                }
+            ],
+            "total_duration": 1162,
+            "carbon_emissions": {
+                "this_flight": 382000,
+                "typical_for_this_route": 375000,
+                "difference_percent": 2
+            },
+            "price": 367,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFXZHdZbmRDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9ZWEJ2UTJkNlFrRkJFaFJCUVRNeU5qZDhRVUV5TnpVMGZFRkJNVGswTUJvTENJeWVBaEFDR2dORlZWSTRISER6ekFJPSIsW1siRVdSIiwiMjAyNi0wNi0yMCIsIk9SRCIsbnVsbCwiQUEiLCIzMjY3Il0sWyJPUkQiLCIyMDI2LTA2LTIwIiwiREZXIixudWxsLCJBQSIsIjI3NTQiXSxbIkRGVyIsIjIwMjYtMDYtMjAiLCJTSkMiLG51bGwsIkFBIiwiMTk0MCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Newark-Liberty",
+                        "id": "EWR",
+                        "time": "2026-06-20 07:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Phoenix-Sky Harbor",
+                        "id": "PHX",
+                        "time": "2026-06-20 09:35"
+                    },
+                    "duration": 320,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1282",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 284 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Phoenix-Sky Harbor",
+                        "id": "PHX",
+                        "time": "2026-06-20 10:05"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San José",
+                        "id": "SJC",
+                        "time": "2026-06-20 11:56"
+                    },
+                    "duration": 111,
+                    "airplane": "Airbus A319",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 3325",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 122 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 30,
+                    "name": "Aéroport de Phoenix-Sky Harbor",
+                    "id": "PHX"
+                }
+            ],
+            "total_duration": 461,
+            "carbon_emissions": {
+                "this_flight": 407000,
+                "typical_for_this_route": 375000,
+                "difference_percent": 9
+            },
+            "price": 424,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV1hodmFXeE1NMlJ4UVUxQlFXZHdZbmRDUnkwdExTMHRMUzB0TFhscFltZDNPVUZCUVVGQlIyOW9ZWEJ2UTJkNlFrRkJFZzFCUVRFeU9ESjhRVUV6TXpJMUdnc0lrc3NDRUFJYUEwVlZVamdjY0tpQkF3PT0iLFtbIkVXUiIsIjIwMjYtMDYtMjAiLCJQSFgiLG51bGwsIkFBIiwiMTI4MiJdLFsiUEhYIiwiMjAyNi0wNi0yMCIsIlNKQyIsbnVsbCwiQUEiLCIzMzI1Il1dXQ=="
+        }
+    ],
+    "price_insights": {
+        "lowest_price": 189,
+        "price_level": "typical",
+        "typical_price_range": [
+            130,
+            270
+        ],
+        "price_history": [
+            [
+                1775275200,
+                195
+            ],
+            [
+                1775361600,
+                217
+            ],
+            [
+                1775448000,
+                217
+            ],
+            [
+                1775534400,
+                195
+            ],
+            [
+                1775620800,
+                192
+            ],
+            [
+                1775707200,
+                193
+            ],
+            [
+                1775793600,
+                192
+            ],
+            [
+                1775880000,
+                170
+            ],
+            [
+                1775966400,
+                170
+            ],
+            [
+                1776052800,
+                193
+            ],
+            [
+                1776139200,
+                191
+            ],
+            [
+                1776225600,
+                233
+            ],
+            [
+                1776312000,
+                178
+            ],
+            [
+                1776398400,
+                178
+            ],
+            [
+                1776484800,
+                178
+            ],
+            [
+                1776571200,
+                233
+            ],
+            [
+                1776657600,
+                191
+            ],
+            [
+                1776744000,
+                178
+            ],
+            [
+                1776830400,
+                165
+            ],
+            [
+                1776916800,
+                166
+            ],
+            [
+                1777003200,
+                166
+            ],
+            [
+                1777089600,
+                179
+            ],
+            [
+                1777176000,
+                196
+            ],
+            [
+                1777262400,
+                196
+            ],
+            [
+                1777348800,
+                196
+            ],
+            [
+                1777435200,
+                196
+            ],
+            [
+                1777521600,
+                222
+            ],
+            [
+                1777608000,
+                221
+            ],
+            [
+                1777694400,
+                222
+            ],
+            [
+                1777780800,
+                222
+            ],
+            [
+                1777867200,
+                222
+            ],
+            [
+                1777953600,
+                166
+            ],
+            [
+                1778040000,
+                166
+            ],
+            [
+                1778126400,
+                165
+            ],
+            [
+                1778212800,
+                170
+            ],
+            [
+                1778299200,
+                169
+            ],
+            [
+                1778385600,
+                169
+            ],
+            [
+                1778472000,
+                169
+            ],
+            [
+                1778558400,
+                229
+            ],
+            [
+                1778644800,
+                234
+            ],
+            [
+                1778731200,
+                235
+            ],
+            [
+                1778817600,
+                236
+            ],
+            [
+                1778904000,
+                241
+            ],
+            [
+                1778990400,
+                241
+            ],
+            [
+                1779076800,
+                236
+            ],
+            [
+                1779163200,
+                193
+            ],
+            [
+                1779249600,
+                206
+            ],
+            [
+                1779336000,
+                159
+            ],
+            [
+                1779422400,
+                159
+            ],
+            [
+                1779508800,
+                159
+            ],
+            [
+                1779595200,
+                159
+            ],
+            [
+                1779681600,
+                158
+            ],
+            [
+                1779768000,
+                158
+            ],
+            [
+                1779854400,
+                181
+            ],
+            [
+                1779940800,
+                151
+            ],
+            [
+                1780027200,
+                171
+            ],
+            [
+                1780113600,
+                171
+            ],
+            [
+                1780200000,
+                171
+            ],
+            [
+                1780286400,
+                189
+            ],
+            [
+                1780372800,
+                189
+            ],
+            [
+                1780459200,
+                236
+            ],
+            [
+                1780545600,
+                189
+            ]
+        ]
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "EWR",
+                        "name": "Aéroport international de Newark-Liberty"
+                    },
+                    "city": "Newark",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSVSHJRQUacgXbljJliEfJExMDrajiLyrcqBpTDrFTtTWEhRRBMAEO76FQqrFPU2swFT3Q3cWcbeO8Tw",
+                    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9KX68DZATrjpYLwlFuQnsmKfJm83iKCU4RTdjv2smpe3tVA1YxHO0Km6xxwD3wnL3-ZI3zci1P1l7bhflFCeqnfmxbEUMppLOK-BiaaQ"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "SJC",
+                        "name": "Aéroport international de San José"
+                    },
+                    "city": "San José",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDWZ-_7jgZlhKjGRKPjts1pPkdG9TP5F6pbo4QdRoc6MtbnSCGL0E_pvQyrc-vqJhqOZA1dl-DRk5gmQ",
+                    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaZiJ5nhZCjP2lX6bxn1oToCCrkBEB-LWoti3VTMC2DirDJ1dvG87L5J5jZ-34yNuA9yvj8yPenGPgdPjRLUsWvsGOhouCNpHXW8Pik1A"
+                }
+            ]
+        }
+    ]
+}

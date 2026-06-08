@@ -1,0 +1,1234 @@
+{
+    "search_metadata": {
+        "id": "6a2192396561a6c64c07b673",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/LW4bgEC10go28lQozeuIkw/6a2192396561a6c64c07b673.json",
+        "created_at": "2026-06-04 14:56:57 UTC",
+        "processed_at": "2026-06-04 14:56:57 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTE2agcIARIDQk9TcgcIARIDREZXQAFIAXABmAEC&tfu=EgIIAQ",
+        "raw_html_file": "https://serpapi.com/searches/LW4bgEC10go28lQozeuIkw/6a2192396561a6c64c07b673.html",
+        "prettify_html_file": "https://serpapi.com/searches/LW4bgEC10go28lQozeuIkw/6a2192396561a6c64c07b673.prettify",
+        "total_time_taken": 0.5
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "fr",
+        "gl": "us",
+        "type": "2",
+        "departure_id": "BOS",
+        "arrival_id": "DFW",
+        "outbound_date": "2026-06-16",
+        "currency": "EUR"
+    },
+    "best_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 06:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-16 09:06"
+                    },
+                    "duration": 186,
+                    "airplane": "Airbus A321neo",
+                    "airline": "Frontier",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+                    "travel_class": "Economy",
+                    "flight_number": "F9 3085",
+                    "legroom": "71 cm",
+                    "extensions": [
+                        "Below average legroom (71 cm)",
+                        "Carbon emissions estimate: 104 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-16 10:51"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-16 12:26"
+                    },
+                    "duration": 155,
+                    "airplane": "Airbus A320neo",
+                    "airline": "Frontier",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+                    "travel_class": "Economy",
+                    "flight_number": "F9 3021",
+                    "legroom": "71 cm",
+                    "extensions": [
+                        "Below average legroom (71 cm)",
+                        "Carbon emissions estimate: 88 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 105,
+                    "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                    "id": "ATL"
+                }
+            ],
+            "total_duration": 446,
+            "carbon_emissions": {
+                "this_flight": 192000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -24
+            },
+            "price": 182,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZzFHT1RNd09EVjhSamt6TURJeEdnc0kySTBCRUFJYUEwVlZVamdjY091a0FRPT0iLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJBVEwiLG51bGwsIkY5IiwiMzA4NSJdLFsiQVRMIiwiMjAyNi0wNi0xNiIsIkRGVyIsbnVsbCwiRjkiLCIzMDIxIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 09:10"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-16 12:18"
+                    },
+                    "duration": 188,
+                    "airplane": "Airbus A321neo",
+                    "airline": "Frontier",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+                    "travel_class": "Economy",
+                    "flight_number": "F9 3511",
+                    "legroom": "71 cm",
+                    "extensions": [
+                        "Below average legroom (71 cm)",
+                        "Carbon emissions estimate: 104 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-16 14:39"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-16 16:09"
+                    },
+                    "duration": 150,
+                    "airplane": "Airbus A320neo",
+                    "airline": "Frontier",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+                    "travel_class": "Economy",
+                    "flight_number": "F9 1269",
+                    "legroom": "71 cm",
+                    "extensions": [
+                        "Below average legroom (71 cm)",
+                        "Carbon emissions estimate: 88 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 141,
+                    "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                    "id": "ATL"
+                }
+            ],
+            "total_duration": 479,
+            "carbon_emissions": {
+                "this_flight": 192000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -24
+            },
+            "price": 199,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZzFHT1RNMU1URjhSamt4TWpZNUdnc0lqNXNCRUFJYUEwVlZVamdjY0x1MEFRPT0iLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJBVEwiLG51bGwsIkY5IiwiMzUxMSJdLFsiQVRMIiwiMjAyNi0wNi0xNiIsIkRGVyIsbnVsbCwiRjkiLCIxMjY5Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 14:27"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-16 17:49"
+                    },
+                    "duration": 262,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 820",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 217 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "total_duration": 262,
+            "carbon_emissions": {
+                "this_flight": 218000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -14
+            },
+            "price": 394,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZ1ZCUVRneU1Cb0xDSld6QWhBQ0dnTkZWVkk0SEhDdDVRST0iLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJERlciLG51bGwsIkFBIiwiODIwIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 18:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-16 22:07"
+                    },
+                    "duration": 257,
+                    "airplane": "Airbus A319",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 2305",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 229 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "total_duration": 257,
+            "carbon_emissions": {
+                "this_flight": 230000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -9
+            },
+            "price": 402,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZ1pFVERJek1EVWFDd2p4dVFJUUFob0RSVlZTT0J4d2xlMEMiLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJERlciLG51bGwsIkRMIiwiMjMwNSJdXV0="
+        }
+    ],
+    "other_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 20:20"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-16 22:20"
+                    },
+                    "duration": 180,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 2229",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 105 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-17 07:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-17 09:58"
+                    },
+                    "duration": 163,
+                    "airplane": "Boeing 737",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 539",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 125 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 535,
+                    "name": "Aéroport international O'Hare de Chicago",
+                    "id": "ORD",
+                    "overnight": true
+                }
+            ],
+            "total_duration": 878,
+            "carbon_emissions": {
+                "this_flight": 232000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -9
+            },
+            "price": 258,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZ3hWUVRJeU1qbDhWVUUxTXprYUN3aXJ5UUVRQWhvRFJWVlNPQnh3bmVvQiIsW1siQk9TIiwiMjAyNi0wNi0xNiIsIk9SRCIsbnVsbCwiVUEiLCIyMjI5Il0sWyJPUkQiLCIyMDI2LTA2LTE3IiwiREZXIixudWxsLCJVQSIsIjUzOSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 05:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-16 06:58"
+                    },
+                    "duration": 178,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 3324",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 126 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-16 11:43"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-16 14:20"
+                    },
+                    "duration": 157,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 3264",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 116 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 285,
+                    "name": "Aéroport international O'Hare de Chicago",
+                    "id": "ORD"
+                }
+            ],
+            "total_duration": 620,
+            "carbon_emissions": {
+                "this_flight": 242000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -5
+            },
+            "price": 267,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZzFCUVRNek1qUjhRVUV6TWpZMEdnc0loOUFCRUFJYUEwVlZVamdjY0lieUFRPT0iLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJPUkQiLG51bGwsIkFBIiwiMzMyNCJdLFsiT1JEIiwiMjAyNi0wNi0xNiIsIkRGVyIsbnVsbCwiQUEiLCIzMjY0Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 06:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-16 09:23"
+                    },
+                    "duration": 263,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2527",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 217 kg"
+                    ]
+                }
+            ],
+            "total_duration": 263,
+            "carbon_emissions": {
+                "this_flight": 218000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -14
+            },
+            "price": 394,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZ1pCUVRJMU1qY2FDd2lWc3dJUUFob0RSVlZTT0J4d3JlVUMiLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJERlciLG51bGwsIkFBIiwiMjUyNyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 07:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-16 10:23"
+                    },
+                    "duration": 263,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2555",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 217 kg"
+                    ]
+                }
+            ],
+            "total_duration": 263,
+            "carbon_emissions": {
+                "this_flight": 218000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -14
+            },
+            "price": 394,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZ1pCUVRJMU5UVWFDd2lWc3dJUUFob0RSVlZTT0J4d3JlVUMiLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJERlciLG51bGwsIkFBIiwiMjU1NSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 08:01"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-16 11:24"
+                    },
+                    "duration": 263,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 701",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 168 kg"
+                    ]
+                }
+            ],
+            "total_duration": 263,
+            "carbon_emissions": {
+                "this_flight": 169000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -33
+            },
+            "price": 394,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZ1ZCUVRjd01Sb0xDSld6QWhBQ0dnTkZWVkk0SEhDdDVRST0iLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJERlciLG51bGwsIkFBIiwiNzAxIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 12:41"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-16 16:06"
+                    },
+                    "duration": 265,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 909",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 199 kg"
+                    ]
+                }
+            ],
+            "total_duration": 265,
+            "carbon_emissions": {
+                "this_flight": 199000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -22
+            },
+            "price": 394,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZ1ZCUVRrd09Sb0xDSld6QWhBQ0dnTkZWVkk0SEhDdDVRST0iLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJERlciLG51bGwsIkFBIiwiOTA5Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 07:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-16 10:24"
+                    },
+                    "duration": 249,
+                    "airplane": "Boeing 737",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 760",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 216 kg"
+                    ]
+                }
+            ],
+            "total_duration": 249,
+            "carbon_emissions": {
+                "this_flight": 217000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -15
+            },
+            "price": 402,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZ1ZFVERjMk1Cb0xDUEc1QWhBQ0dnTkZWVkk0SEhDVjdRST0iLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJERlciLG51bGwsIkRMIiwiNzYwIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 09:50"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-16 11:43"
+                    },
+                    "duration": 173,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 1349",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 105 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-16 12:22"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-16 15:03"
+                    },
+                    "duration": 161,
+                    "airplane": "Boeing 737",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 758",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 125 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 39,
+                    "name": "Aéroport international O'Hare de Chicago",
+                    "id": "ORD"
+                }
+            ],
+            "total_duration": 373,
+            "carbon_emissions": {
+                "this_flight": 232000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -9
+            },
+            "price": 411,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZ3hWUVRFek5EbDhWVUUzTlRnYUN3aTh3QUlRQWhvRFJWVlNPQnh3NnZRQyIsW1siQk9TIiwiMjAyNi0wNi0xNiIsIk9SRCIsbnVsbCwiVUEiLCIxMzQ5Il0sWyJPUkQiLCIyMDI2LTA2LTE2IiwiREZXIixudWxsLCJVQSIsIjc1OCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 10:35"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-16 12:28"
+                    },
+                    "duration": 173,
+                    "airplane": "Boeing 737MAX 9 Passenger",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 503",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 105 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-16 13:05"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-16 15:48"
+                    },
+                    "duration": 163,
+                    "airplane": "Boeing 737",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 2290",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 125 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 37,
+                    "name": "Aéroport international O'Hare de Chicago",
+                    "id": "ORD"
+                }
+            ],
+            "total_duration": 373,
+            "carbon_emissions": {
+                "this_flight": 232000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -9
+            },
+            "price": 411,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZ3hWUVRVd00zeFZRVEl5T1RBYUN3aTh3QUlRQWhvRFJWVlNPQnh3NnZRQyIsW1siQk9TIiwiMjAyNi0wNi0xNiIsIk9SRCIsbnVsbCwiVUEiLCI1MDMiXSxbIk9SRCIsIjIwMjYtMDYtMTYiLCJERlciLG51bGwsIlVBIiwiMjI5MCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 09:01"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-16 12:23"
+                    },
+                    "duration": 262,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 479",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 199 kg"
+                    ]
+                }
+            ],
+            "total_duration": 262,
+            "carbon_emissions": {
+                "this_flight": 199000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -22
+            },
+            "price": 429,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZ1ZCUVRRM09Sb0xDTm5PQWhBQ0dnTkZWVkk0SEhDd2hRTT0iLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJERlciLG51bGwsIkFBIiwiNDc5Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 16:06"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-16 19:34"
+                    },
+                    "duration": 268,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1595",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 217 kg"
+                    ]
+                }
+            ],
+            "total_duration": 268,
+            "carbon_emissions": {
+                "this_flight": 218000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -14
+            },
+            "price": 429,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZ1pCUVRFMU9UVWFDd2paemdJUUFob0RSVlZTT0J4d3NJVUQiLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJERlciLG51bGwsIkFBIiwiMTU5NSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 17:57"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-16 21:20"
+                    },
+                    "duration": 263,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1577",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 217 kg"
+                    ]
+                }
+            ],
+            "total_duration": 263,
+            "carbon_emissions": {
+                "this_flight": 218000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -14
+            },
+            "price": 429,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZ1pCUVRFMU56Y2FDd2paemdJUUFob0RSVlZTT0J4d3NJVUQiLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJERlciLG51bGwsIkFBIiwiMTU3NyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Boston Logan",
+                        "id": "BOS",
+                        "time": "2026-06-16 12:05"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-16 15:15"
+                    },
+                    "duration": 250,
+                    "airplane": "Airbus A220-300 Passenger",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 303",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 240 kg"
+                    ]
+                }
+            ],
+            "total_duration": 250,
+            "carbon_emissions": {
+                "this_flight": 241000,
+                "typical_for_this_route": 254000,
+                "difference_percent": -5
+            },
+            "price": 435,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVVRnME9YVXpVRXRRUW5kQlJFUXhWbEZDUnkwdExTMHRMUzB0TFc5NVlYVXlNMEZCUVVGQlIyOW9hMnByVEd0UVNEQkJFZ1ZFVERNd014b0xDTFBUQWhBQ0dnTkZWVkk0SEhEdGlnTT0iLFtbIkJPUyIsIjIwMjYtMDYtMTYiLCJERlciLG51bGwsIkRMIiwiMzAzIl1dXQ=="
+        }
+    ],
+    "price_insights": {
+        "lowest_price": 182,
+        "price_level": "high",
+        "typical_price_range": [
+            95,
+            180
+        ],
+        "price_history": [
+            [
+                1775361600,
+                109
+            ],
+            [
+                1775448000,
+                109
+            ],
+            [
+                1775534400,
+                109
+            ],
+            [
+                1775620800,
+                148
+            ],
+            [
+                1775707200,
+                149
+            ],
+            [
+                1775793600,
+                122
+            ],
+            [
+                1775880000,
+                122
+            ],
+            [
+                1775966400,
+                122
+            ],
+            [
+                1776052800,
+                122
+            ],
+            [
+                1776139200,
+                121
+            ],
+            [
+                1776225600,
+                121
+            ],
+            [
+                1776312000,
+                121
+            ],
+            [
+                1776398400,
+                121
+            ],
+            [
+                1776484800,
+                121
+            ],
+            [
+                1776571200,
+                130
+            ],
+            [
+                1776657600,
+                130
+            ],
+            [
+                1776744000,
+                124
+            ],
+            [
+                1776830400,
+                124
+            ],
+            [
+                1776916800,
+                124
+            ],
+            [
+                1777003200,
+                125
+            ],
+            [
+                1777089600,
+                107
+            ],
+            [
+                1777176000,
+                90
+            ],
+            [
+                1777262400,
+                90
+            ],
+            [
+                1777348800,
+                107
+            ],
+            [
+                1777435200,
+                107
+            ],
+            [
+                1777521600,
+                107
+            ],
+            [
+                1777608000,
+                124
+            ],
+            [
+                1777694400,
+                129
+            ],
+            [
+                1777780800,
+                124
+            ],
+            [
+                1777867200,
+                107
+            ],
+            [
+                1777953600,
+                107
+            ],
+            [
+                1778040000,
+                107
+            ],
+            [
+                1778126400,
+                107
+            ],
+            [
+                1778212800,
+                112
+            ],
+            [
+                1778299200,
+                111
+            ],
+            [
+                1778385600,
+                111
+            ],
+            [
+                1778472000,
+                107
+            ],
+            [
+                1778558400,
+                124
+            ],
+            [
+                1778644800,
+                124
+            ],
+            [
+                1778731200,
+                116
+            ],
+            [
+                1778817600,
+                116
+            ],
+            [
+                1778904000,
+                117
+            ],
+            [
+                1778990400,
+                151
+            ],
+            [
+                1779076800,
+                151
+            ],
+            [
+                1779163200,
+                151
+            ],
+            [
+                1779249600,
+                154
+            ],
+            [
+                1779336000,
+                154
+            ],
+            [
+                1779422400,
+                134
+            ],
+            [
+                1779508800,
+                134
+            ],
+            [
+                1779595200,
+                134
+            ],
+            [
+                1779681600,
+                134
+            ],
+            [
+                1779768000,
+                134
+            ],
+            [
+                1779854400,
+                134
+            ],
+            [
+                1779940800,
+                152
+            ],
+            [
+                1780027200,
+                151
+            ],
+            [
+                1780113600,
+                151
+            ],
+            [
+                1780200000,
+                168
+            ],
+            [
+                1780286400,
+                151
+            ],
+            [
+                1780372800,
+                151
+            ],
+            [
+                1780459200,
+                151
+            ],
+            [
+                1780545600,
+                182
+            ]
+        ]
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "BOS",
+                        "name": "Aéroport international de Boston Logan"
+                    },
+                    "city": "Boston",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTsThI_7VKLWvxDOugOLpVHze3RQP7rvr-KLjOZJ0PEf2xI8bEhumBB3ZjXe4HF-8srxAhSOe22Cjuc1g",
+                    "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTmyfqYldUKPJdrEh9tMEkjc-XwVb6VUgvvAhx1n4EUeXRSkCPp1-NQAofPisLnWMTcastf8G7m1fVavxIZ4tviHRyoXXRpqKgvkC8ja3w"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "DFW",
+                        "name": "Aéroport international de Dallas-Fort Worth"
+                    },
+                    "city": "Dallas",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS61zSeEE0f0RSedvAIvzJKv1B7Tojcnx1pR5ipb9l389QDa2V23R4cRbmgVZVCgrVsZ6Ewme_WpDRgmw",
+                    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT4Hg7sSdARNWUKEIVKbquvgGkx76RuLbHy7uH51pecZu-z7-Wi9ya5fpf-YmM63--MKoWu7HUM3Q1O7mQoRBSlNeNSfgHP5Y2tO11niU"
+                }
+            ]
+        }
+    ]
+}

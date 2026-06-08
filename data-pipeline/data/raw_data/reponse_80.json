@@ -1,0 +1,614 @@
+{
+    "search_metadata": {
+        "id": "6a216e8f7d6e70e4e77a4da0",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/fGTJIsZ5msRu3fApTxyhUA/6a216e8f7d6e70e4e77a4da0.json",
+        "created_at": "2026-06-04 12:24:47 UTC",
+        "processed_at": "2026-06-04 12:24:47 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTIzagcIARIDSkZLcgcIARIDREFMQAFIAXABmAEC&tfu=EgIIAQ",
+        "raw_html_file": "https://serpapi.com/searches/fGTJIsZ5msRu3fApTxyhUA/6a216e8f7d6e70e4e77a4da0.html",
+        "prettify_html_file": "https://serpapi.com/searches/fGTJIsZ5msRu3fApTxyhUA/6a216e8f7d6e70e4e77a4da0.prettify",
+        "total_time_taken": 0.66
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "fr",
+        "gl": "us",
+        "type": "2",
+        "departure_id": "JFK",
+        "arrival_id": "DAL",
+        "outbound_date": "2026-06-23",
+        "currency": "EUR"
+    },
+    "other_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-23 08:40"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-23 11:14"
+                    },
+                    "duration": 154,
+                    "airplane": "Boeing 737",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 2227",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 114 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-23 13:59"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-23 15:12"
+                    },
+                    "duration": 133,
+                    "airplane": "Boeing 717",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 512",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Carbon emissions estimate: 147 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 165,
+                    "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                    "id": "ATL"
+                }
+            ],
+            "total_duration": 452,
+            "carbon_emissions": {
+                "this_flight": 262000,
+                "typical_for_this_route": 229000,
+                "difference_percent": 14
+            },
+            "price": 368,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVWkxb1RrbzJSV0poZDBsQlFqRnhTbmRDUnkwdExTMHRMUzB0TFhaMGRtc3hOVUZCUVVGQlIyOW9ZbkJCUmtNd2NGRkJFZ3hFVERJeU1qZDhSRXcxTVRJYUN3aTVud0lRQWhvRFJWVlNPQnh3eE00QyIsW1siSkZLIiwiMjAyNi0wNi0yMyIsIkFUTCIsbnVsbCwiREwiLCIyMjI3Il0sWyJBVEwiLCIyMDI2LTA2LTIzIiwiREFMIixudWxsLCJETCIsIjUxMiJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-23 13:10"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-23 15:45"
+                    },
+                    "duration": 155,
+                    "airplane": "Boeing 737",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 2342",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 114 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-23 16:38"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-23 17:55"
+                    },
+                    "duration": 137,
+                    "airplane": "Boeing 717",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 2780",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Carbon emissions estimate: 147 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 53,
+                    "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                    "id": "ATL"
+                }
+            ],
+            "total_duration": 345,
+            "carbon_emissions": {
+                "this_flight": 262000,
+                "typical_for_this_route": 229000,
+                "difference_percent": 14
+            },
+            "price": 368,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVWkxb1RrbzJSV0poZDBsQlFqRnhTbmRDUnkwdExTMHRMUzB0TFhaMGRtc3hOVUZCUVVGQlIyOW9ZbkJCUmtNd2NGRkJFZzFFVERJek5ESjhSRXd5Tnpnd0dnc0l1WjhDRUFJYUEwVlZVamdjY01UT0FnPT0iLFtbIkpGSyIsIjIwMjYtMDYtMjMiLCJBVEwiLG51bGwsIkRMIiwiMjM0MiJdLFsiQVRMIiwiMjAyNi0wNi0yMyIsIkRBTCIsbnVsbCwiREwiLCIyNzgwIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-23 17:40"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-23 20:34"
+                    },
+                    "duration": 174,
+                    "airplane": "Boeing 737",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 2293",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 114 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-23 21:15"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-23 22:34"
+                    },
+                    "duration": 139,
+                    "airplane": "Boeing 717",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 1104",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Carbon emissions estimate: 147 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 41,
+                    "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                    "id": "ATL"
+                }
+            ],
+            "total_duration": 354,
+            "carbon_emissions": {
+                "this_flight": 262000,
+                "typical_for_this_route": 229000,
+                "difference_percent": 14
+            },
+            "price": 368,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVWkxb1RrbzJSV0poZDBsQlFqRnhTbmRDUnkwdExTMHRMUzB0TFhaMGRtc3hOVUZCUVVGQlIyOW9ZbkJCUmtNd2NGRkJFZzFFVERJeU9UTjhSRXd4TVRBMEdnc0l1WjhDRUFJYUEwVlZVamdjY01UT0FnPT0iLFtbIkpGSyIsIjIwMjYtMDYtMjMiLCJBVEwiLG51bGwsIkRMIiwiMjI5MyJdLFsiQVRMIiwiMjAyNi0wNi0yMyIsIkRBTCIsbnVsbCwiREwiLCIxMTA0Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international John F. Kennedy",
+                        "id": "JFK",
+                        "time": "2026-06-23 06:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-23 08:24"
+                    },
+                    "duration": 144,
+                    "airplane": "Boeing 757",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 2286",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 154 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                        "id": "ATL",
+                        "time": "2026-06-23 10:12"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Dallas Love Field",
+                        "id": "DAL",
+                        "time": "2026-06-23 11:32"
+                    },
+                    "duration": 140,
+                    "airplane": "Boeing 717",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 1115",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "Carbon emissions estimate: 147 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 108,
+                    "name": "Aéroport international Hartsfield-Jackson d'Atlanta",
+                    "id": "ATL"
+                }
+            ],
+            "total_duration": 392,
+            "carbon_emissions": {
+                "this_flight": 302000,
+                "typical_for_this_route": 229000,
+                "difference_percent": 32
+            },
+            "price": 467,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJVWkxb1RrbzJSV0poZDBsQlFqRnhTbmRDUnkwdExTMHRMUzB0TFhaMGRtc3hOVUZCUVVGQlIyOW9ZbkJCUmtNd2NGRkJFZzFFVERJeU9EWjhSRXd4TVRFMUdnc0kwK3dDRUFJYUEwVlZVamdjY0xHb0F3PT0iLFtbIkpGSyIsIjIwMjYtMDYtMjMiLCJBVEwiLG51bGwsIkRMIiwiMjI4NiJdLFsiQVRMIiwiMjAyNi0wNi0yMyIsIkRBTCIsbnVsbCwiREwiLCIxMTE1Il1dXQ=="
+        }
+    ],
+    "price_insights": {
+        "lowest_price": 368,
+        "price_level": "typical",
+        "typical_price_range": [
+            260,
+            395
+        ],
+        "price_history": [
+            [
+                1775275200,
+                333
+            ],
+            [
+                1775361600,
+                333
+            ],
+            [
+                1775448000,
+                333
+            ],
+            [
+                1775534400,
+                341
+            ],
+            [
+                1775620800,
+                307
+            ],
+            [
+                1775707200,
+                308
+            ],
+            [
+                1775793600,
+                307
+            ],
+            [
+                1775880000,
+                306
+            ],
+            [
+                1775966400,
+                306
+            ],
+            [
+                1776052800,
+                307
+            ],
+            [
+                1776139200,
+                305
+            ],
+            [
+                1776225600,
+                291
+            ],
+            [
+                1776312000,
+                291
+            ],
+            [
+                1776398400,
+                292
+            ],
+            [
+                1776484800,
+                292
+            ],
+            [
+                1776571200,
+                292
+            ],
+            [
+                1776657600,
+                293
+            ],
+            [
+                1776744000,
+                292
+            ],
+            [
+                1776830400,
+                293
+            ],
+            [
+                1776916800,
+                294
+            ],
+            [
+                1777003200,
+                311
+            ],
+            [
+                1777089600,
+                293
+            ],
+            [
+                1777176000,
+                293
+            ],
+            [
+                1777262400,
+                294
+            ],
+            [
+                1777348800,
+                293
+            ],
+            [
+                1777435200,
+                293
+            ],
+            [
+                1777521600,
+                294
+            ],
+            [
+                1777608000,
+                293
+            ],
+            [
+                1777694400,
+                293
+            ],
+            [
+                1777780800,
+                293
+            ],
+            [
+                1777867200,
+                293
+            ],
+            [
+                1777953600,
+                294
+            ],
+            [
+                1778040000,
+                293
+            ],
+            [
+                1778126400,
+                293
+            ],
+            [
+                1778212800,
+                293
+            ],
+            [
+                1778299200,
+                292
+            ],
+            [
+                1778385600,
+                292
+            ],
+            [
+                1778472000,
+                292
+            ],
+            [
+                1778558400,
+                292
+            ],
+            [
+                1778644800,
+                293
+            ],
+            [
+                1778731200,
+                294
+            ],
+            [
+                1778817600,
+                295
+            ],
+            [
+                1778904000,
+                296
+            ],
+            [
+                1778990400,
+                296
+            ],
+            [
+                1779076800,
+                296
+            ],
+            [
+                1779163200,
+                295
+            ],
+            [
+                1779249600,
+                296
+            ],
+            [
+                1779336000,
+                292
+            ],
+            [
+                1779422400,
+                292
+            ],
+            [
+                1779508800,
+                292
+            ],
+            [
+                1779595200,
+                339
+            ],
+            [
+                1779681600,
+                330
+            ],
+            [
+                1779768000,
+                343
+            ],
+            [
+                1779854400,
+                222
+            ],
+            [
+                1779940800,
+                223
+            ],
+            [
+                1780027200,
+                222
+            ],
+            [
+                1780113600,
+                222
+            ],
+            [
+                1780200000,
+                222
+            ],
+            [
+                1780286400,
+                222
+            ],
+            [
+                1780372800,
+                222
+            ],
+            [
+                1780459200,
+                283
+            ],
+            [
+                1780545600,
+                368
+            ]
+        ]
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "JFK",
+                        "name": "Aéroport international John F. Kennedy"
+                    },
+                    "city": "New York",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRa1dwH1NZQk4dsbPiyA9Vrq2RX75jXSZ-OkHn7NkLHl-11HercqDXoZ4p2cDxJkH6vca2degawrCzHEQ",
+                    "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQEaUa9NsdPWGpAUGkTApkZDT_4M6_6V8wTcC0v1b1wJAJX-BuMSiipXbsoznGgcI1xLOc5QiTcR_xovexgjdOz0gqQe0tRQ9h0bUkZ07Q"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "DAL",
+                        "name": "Aéroport de Dallas Love Field"
+                    },
+                    "city": "Dallas",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS61zSeEE0f0RSedvAIvzJKv1B7Tojcnx1pR5ipb9l389QDa2V23R4cRbmgVZVCgrVsZ6Ewme_WpDRgmw",
+                    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT4Hg7sSdARNWUKEIVKbquvgGkx76RuLbHy7uH51pecZu-z7-Wi9ya5fpf-YmM63--MKoWu7HUM3Q1O7mQoRBSlNeNSfgHP5Y2tO11niU"
+                }
+            ]
+        }
+    ]
+}

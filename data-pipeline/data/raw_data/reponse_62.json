@@ -1,0 +1,1333 @@
+{
+    "search_metadata": {
+        "id": "6a216aadf5c2f85a251e0355",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/6jr8xz2bAOaguxRap4YKNA/6a216aadf5c2f85a251e0355.json",
+        "created_at": "2026-06-04 12:08:13 UTC",
+        "processed_at": "2026-06-04 12:08:13 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTIwagcIARIDTEdBcgcIARIDU0ZPQAFIAXABmAEC&tfu=EgIIAQ",
+        "raw_html_file": "https://serpapi.com/searches/6jr8xz2bAOaguxRap4YKNA/6a216aadf5c2f85a251e0355.html",
+        "prettify_html_file": "https://serpapi.com/searches/6jr8xz2bAOaguxRap4YKNA/6a216aadf5c2f85a251e0355.prettify",
+        "total_time_taken": 0.89
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "fr",
+        "gl": "us",
+        "type": "2",
+        "departure_id": "LGA",
+        "arrival_id": "SFO",
+        "outbound_date": "2026-06-20",
+        "currency": "EUR"
+    },
+    "best_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-20 19:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-20 21:12"
+                    },
+                    "duration": 167,
+                    "airplane": "Boeing 737",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 2780",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 112 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international O'Hare de Chicago",
+                        "id": "ORD",
+                        "time": "2026-06-20 21:48"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San Francisco",
+                        "id": "SFO",
+                        "time": "2026-06-21 00:45"
+                    },
+                    "duration": 297,
+                    "airplane": "Airbus A321neo",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 2106",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 185 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 36,
+                    "name": "Aéroport international O'Hare de Chicago",
+                    "id": "ORD"
+                }
+            ],
+            "total_duration": 500,
+            "carbon_emissions": {
+                "this_flight": 298000,
+                "typical_for_this_route": 380000,
+                "difference_percent": -22
+            },
+            "price": 162,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV2xvd1NWWXhkVGxYVlhkQlFraFVRbmRDUnkwdExTMHRMUzB0TFMxNWJHZDJNa0ZCUVVGQlIyOW9ZWEUwUjFSNk16QkJFZzFWUVRJM09EQjhWVUV5TVRBMkdnb0lyMzRRQWhvRFJWVlNPQnh3aFpNQiIsW1siTEdBIiwiMjAyNi0wNi0yMCIsIk9SRCIsbnVsbCwiVUEiLCIyNzgwIl0sWyJPUkQiLCIyMDI2LTA2LTIwIiwiU0ZPIixudWxsLCJVQSIsIjIxMDYiXV1d"
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-20 19:28"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Washington-Dulles",
+                        "id": "IAD",
+                        "time": "2026-06-20 20:55"
+                    },
+                    "duration": 87,
+                    "airplane": "Embraer 175",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 6244",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 131 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true,
+                    "plane_and_crew_by": "Mesa Airlines DBA United Express"
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Washington-Dulles",
+                        "id": "IAD",
+                        "time": "2026-06-20 22:21"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San Francisco",
+                        "id": "SFO",
+                        "time": "2026-06-21 01:15"
+                    },
+                    "duration": 354,
+                    "airplane": "Boeing 737",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 367",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 294 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 86,
+                    "name": "Aéroport international de Washington-Dulles",
+                    "id": "IAD"
+                }
+            ],
+            "total_duration": 527,
+            "carbon_emissions": {
+                "this_flight": 425000,
+                "typical_for_this_route": 380000,
+                "difference_percent": 12
+            },
+            "price": 191,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV2xvd1NWWXhkVGxYVlhkQlFraFVRbmRDUnkwdExTMHRMUzB0TFMxNWJHZDJNa0ZCUVVGQlIyOW9ZWEUwUjFSNk16QkJFZ3hWUVRZeU5EUjhWVUV6TmpjYUN3amZsQUVRQWhvRFJWVlNPQnh3aXEwQiIsW1siTEdBIiwiMjAyNi0wNi0yMCIsIklBRCIsbnVsbCwiVUEiLCI2MjQ0Il0sWyJJQUQiLCIyMDI2LTA2LTIwIiwiU0ZPIixudWxsLCJVQSIsIjM2NyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-20 06:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-20 09:30"
+                    },
+                    "duration": 240,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1597",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 193 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-20 11:09"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San Francisco",
+                        "id": "SFO",
+                        "time": "2026-06-20 12:58"
+                    },
+                    "duration": 229,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1602",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 197 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 99,
+                    "name": "Aéroport international de Dallas-Fort Worth",
+                    "id": "DFW"
+                }
+            ],
+            "total_duration": 568,
+            "carbon_emissions": {
+                "this_flight": 391000,
+                "typical_for_this_route": 380000,
+                "difference_percent": 3
+            },
+            "price": 235,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV2xvd1NWWXhkVGxYVlhkQlFraFVRbmRDUnkwdExTMHRMUzB0TFMxNWJHZDJNa0ZCUVVGQlIyOW9ZWEUwUjFSNk16QkJFZzFCUVRFMU9UZDhRVUV4TmpBeUdnc0l0N2NCRUFJYUEwVlZVamdjY0xqVkFRPT0iLFtbIkxHQSIsIjIwMjYtMDYtMjAiLCJERlciLG51bGwsIkFBIiwiMTU5NyJdLFsiREZXIiwiMjAyNi0wNi0yMCIsIlNGTyIsbnVsbCwiQUEiLCIxNjAyIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-20 13:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-20 15:15"
+                    },
+                    "duration": 255,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 2455",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 175 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-20 17:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San Francisco",
+                        "id": "SFO",
+                        "time": "2026-06-20 19:00"
+                    },
+                    "duration": 155,
+                    "airplane": "Boeing 737-700 (Scimitar Winglets) Pax",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 3558",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 152 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 130,
+                    "name": "Aéroport international de Denver",
+                    "id": "DEN"
+                }
+            ],
+            "total_duration": 540,
+            "carbon_emissions": {
+                "this_flight": 329000,
+                "typical_for_this_route": 380000,
+                "difference_percent": -13
+            },
+            "price": 257,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV2xvd1NWWXhkVGxYVlhkQlFraFVRbmRDUnkwdExTMHRMUzB0TFMxNWJHZDJNa0ZCUVVGQlIyOW9ZWEUwUjFSNk16QkJFZzFYVGpJME5UVjhWMDR6TlRVNEdnc0luTWdCRUFJYUEwVlZVamdjY1Azb0FRPT0iLFtbIkxHQSIsIjIwMjYtMDYtMjAiLCJERU4iLG51bGwsIldOIiwiMjQ1NSJdLFsiREVOIiwiMjAyNi0wNi0yMCIsIlNGTyIsbnVsbCwiV04iLCIzNTU4Il1dXQ=="
+        }
+    ],
+    "other_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-20 14:20"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-20 16:30"
+                    },
+                    "duration": 190,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 4970",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 155 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Kansas City",
+                        "id": "MCI",
+                        "time": "2026-06-20 19:20"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport de Phoenix-Sky Harbor",
+                        "id": "PHX",
+                        "time": "2026-06-20 20:05"
+                    },
+                    "duration": 165,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 2290",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 135 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport de Phoenix-Sky Harbor",
+                        "id": "PHX",
+                        "time": "2026-06-20 22:35"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San Francisco",
+                        "id": "SFO",
+                        "time": "2026-06-21 00:35"
+                    },
+                    "duration": 120,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 3812",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 100 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 170,
+                    "name": "Aéroport international de Kansas City",
+                    "id": "MCI"
+                },
+                {
+                    "duration": 150,
+                    "name": "Aéroport de Phoenix-Sky Harbor",
+                    "id": "PHX"
+                }
+            ],
+            "total_duration": 795,
+            "carbon_emissions": {
+                "this_flight": 391000,
+                "typical_for_this_route": 380000,
+                "difference_percent": 3
+            },
+            "price": 234,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV2xvd1NWWXhkVGxYVlhkQlFraFVRbmRDUnkwdExTMHRMUzB0TFMxNWJHZDJNa0ZCUVVGQlIyOW9ZWEUwUjFSNk16QkJFaFJYVGpRNU56QjhWMDR5TWprd2ZGZE9Nemd4TWhvTENLVzJBUkFDR2dORlZWSTRISENPMUFFPSIsW1siTEdBIiwiMjAyNi0wNi0yMCIsIk1DSSIsbnVsbCwiV04iLCI0OTcwIl0sWyJNQ0kiLCIyMDI2LTA2LTIwIiwiUEhYIixudWxsLCJXTiIsIjIyOTAiXSxbIlBIWCIsIjIwMjYtMDYtMjAiLCJTRk8iLG51bGwsIldOIiwiMzgxMiJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-20 15:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-20 18:12"
+                    },
+                    "duration": 252,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1043",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 193 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-20 19:12"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San Francisco",
+                        "id": "SFO",
+                        "time": "2026-06-20 21:01"
+                    },
+                    "duration": 229,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1430",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 197 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 60,
+                    "name": "Aéroport international de Dallas-Fort Worth",
+                    "id": "DFW"
+                }
+            ],
+            "total_duration": 541,
+            "carbon_emissions": {
+                "this_flight": 391000,
+                "typical_for_this_route": 380000,
+                "difference_percent": 3
+            },
+            "price": 235,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV2xvd1NWWXhkVGxYVlhkQlFraFVRbmRDUnkwdExTMHRMUzB0TFMxNWJHZDJNa0ZCUVVGQlIyOW9ZWEUwUjFSNk16QkJFZzFCUVRFd05ETjhRVUV4TkRNd0dnc0l0N2NCRUFJYUEwVlZVamdjY0xqVkFRPT0iLFtbIkxHQSIsIjIwMjYtMDYtMjAiLCJERlciLG51bGwsIkFBIiwiMTA0MyJdLFsiREZXIiwiMjAyNi0wNi0yMCIsIlNGTyIsbnVsbCwiQUEiLCIxNDMwIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-20 17:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Charlotte/Douglas",
+                        "id": "CLT",
+                        "time": "2026-06-20 19:17"
+                    },
+                    "duration": 137,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1320",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 94 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Charlotte/Douglas",
+                        "id": "CLT",
+                        "time": "2026-06-20 20:18"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San Francisco",
+                        "id": "SFO",
+                        "time": "2026-06-20 22:49"
+                    },
+                    "duration": 331,
+                    "airplane": "Airbus A321neo",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1580",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 237 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 61,
+                    "name": "Aéroport international de Charlotte/Douglas",
+                    "id": "CLT"
+                }
+            ],
+            "total_duration": 529,
+            "carbon_emissions": {
+                "this_flight": 332000,
+                "typical_for_this_route": 380000,
+                "difference_percent": -13
+            },
+            "price": 235,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV2xvd1NWWXhkVGxYVlhkQlFraFVRbmRDUnkwdExTMHRMUzB0TFMxNWJHZDJNa0ZCUVVGQlIyOW9ZWEUwUjFSNk16QkJFZzFCUVRFek1qQjhRVUV4TlRnd0dnc0l0N2NCRUFJYUEwVlZVamdjY0xqVkFRPT0iLFtbIkxHQSIsIjIwMjYtMDYtMjAiLCJDTFQiLG51bGwsIkFBIiwiMTMyMCJdLFsiQ0xUIiwiMjAyNi0wNi0yMCIsIlNGTyIsbnVsbCwiQUEiLCIxNTgwIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-20 15:56"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-20 18:45"
+                    },
+                    "duration": 229,
+                    "airplane": "Airbus A321neo",
+                    "airline": "Frontier",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+                    "travel_class": "Economy",
+                    "flight_number": "F9 3863",
+                    "legroom": "71 cm",
+                    "extensions": [
+                        "Below average legroom (71 cm)",
+                        "Carbon emissions estimate: 136 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-20 20:59"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San Francisco",
+                        "id": "SFO",
+                        "time": "2026-06-20 23:02"
+                    },
+                    "duration": 243,
+                    "airplane": "Airbus A320neo",
+                    "airline": "Frontier",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+                    "travel_class": "Economy",
+                    "flight_number": "F9 3999",
+                    "legroom": "71 cm",
+                    "extensions": [
+                        "Below average legroom (71 cm)",
+                        "Carbon emissions estimate: 147 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 134,
+                    "name": "Aéroport international de Dallas-Fort Worth",
+                    "id": "DFW"
+                }
+            ],
+            "total_duration": 606,
+            "carbon_emissions": {
+                "this_flight": 284000,
+                "typical_for_this_route": 380000,
+                "difference_percent": -25
+            },
+            "price": 242,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV2xvd1NWWXhkVGxYVlhkQlFraFVRbmRDUnkwdExTMHRMUzB0TFMxNWJHZDJNa0ZCUVVGQlIyOW9ZWEUwUjFSNk16QkJFZzFHT1RNNE5qTjhSamt6T1RrNUdnc0kxTHdCRUFJYUEwVlZVamdjY01MYkFRPT0iLFtbIkxHQSIsIjIwMjYtMDYtMjAiLCJERlciLG51bGwsIkY5IiwiMzg2MyJdLFsiREZXIiwiMjAyNi0wNi0yMCIsIlNGTyIsbnVsbCwiRjkiLCIzOTk5Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-20 15:55"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Fort Lauderdale-Hollywood",
+                        "id": "FLL",
+                        "time": "2026-06-20 19:05"
+                    },
+                    "duration": 190,
+                    "airplane": "Airbus A320",
+                    "airline": "JetBlue",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/B6.png",
+                    "travel_class": "Economy",
+                    "flight_number": "B6 471",
+                    "legroom": "81 cm",
+                    "extensions": [
+                        "Above average legroom (81 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 162 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Fort Lauderdale-Hollywood",
+                        "id": "FLL",
+                        "time": "2026-06-20 20:59"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San Francisco",
+                        "id": "SFO",
+                        "time": "2026-06-20 23:54"
+                    },
+                    "duration": 355,
+                    "airplane": "Airbus A320",
+                    "airline": "JetBlue",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/B6.png",
+                    "travel_class": "Economy",
+                    "flight_number": "B6 277",
+                    "legroom": "84 cm",
+                    "extensions": [
+                        "Above average legroom (84 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 415 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 114,
+                    "name": "Aéroport international de Fort Lauderdale-Hollywood",
+                    "id": "FLL"
+                }
+            ],
+            "total_duration": 659,
+            "carbon_emissions": {
+                "this_flight": 577000,
+                "typical_for_this_route": 380000,
+                "difference_percent": 52
+            },
+            "price": 252,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/B6.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV2xvd1NWWXhkVGxYVlhkQlFraFVRbmRDUnkwdExTMHRMUzB0TFMxNWJHZDJNa0ZCUVVGQlIyOW9ZWEUwUjFSNk16QkJFZ3RDTmpRM01YeENOakkzTnhvTENKbkVBUkFDR2dORlZWSTRISENsNUFFPSIsW1siTEdBIiwiMjAyNi0wNi0yMCIsIkZMTCIsbnVsbCwiQjYiLCI0NzEiXSxbIkZMTCIsIjIwMjYtMDYtMjAiLCJTRk8iLG51bGwsIkI2IiwiMjc3Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-20 17:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-20 19:40"
+                    },
+                    "duration": 280,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 2456",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 201 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-20 20:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San Francisco",
+                        "id": "SFO",
+                        "time": "2026-06-20 22:25"
+                    },
+                    "duration": 160,
+                    "airplane": "Boeing 737",
+                    "airline": "Southwest",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+                    "travel_class": "Economy",
+                    "flight_number": "WN 4303",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat USB outlet",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 130 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 65,
+                    "name": "Aéroport international de Denver",
+                    "id": "DEN"
+                }
+            ],
+            "total_duration": 505,
+            "carbon_emissions": {
+                "this_flight": 332000,
+                "typical_for_this_route": 380000,
+                "difference_percent": -13
+            },
+            "price": 289,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/WN.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV2xvd1NWWXhkVGxYVlhkQlFraFVRbmRDUnkwdExTMHRMUzB0TFMxNWJHZDJNa0ZCUVVGQlIyOW9ZWEUwUjFSNk16QkJFZzFYVGpJME5UWjhWMDQwTXpBekdnc0kzdUVCRUFJYUEwVlZVamdjY05XR0FnPT0iLFtbIkxHQSIsIjIwMjYtMDYtMjAiLCJERU4iLG51bGwsIldOIiwiMjQ1NiJdLFsiREVOIiwiMjAyNi0wNi0yMCIsIlNGTyIsbnVsbCwiV04iLCI0MzAzIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-20 08:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-20 10:13"
+                    },
+                    "duration": 253,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 1707",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 178 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Denver",
+                        "id": "DEN",
+                        "time": "2026-06-20 11:20"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San Francisco",
+                        "id": "SFO",
+                        "time": "2026-06-20 13:04"
+                    },
+                    "duration": 164,
+                    "airplane": "Airbus A321neo",
+                    "airline": "United",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "UA 1561",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Wi-Fi for a fee",
+                        "In-seat power & USB outlets",
+                        "On-demand video",
+                        "Carbon emissions estimate: 109 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 67,
+                    "name": "Aéroport international de Denver",
+                    "id": "DEN"
+                }
+            ],
+            "total_duration": 484,
+            "carbon_emissions": {
+                "this_flight": 288000,
+                "typical_for_this_route": 380000,
+                "difference_percent": -24
+            },
+            "price": 417,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/UA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV2xvd1NWWXhkVGxYVlhkQlFraFVRbmRDUnkwdExTMHRMUzB0TFMxNWJHZDJNa0ZCUVVGQlIyOW9ZWEUwUjFSNk16QkJFZzFWUVRFM01EZDhWVUV4TlRZeEdnc0lvY1VDRUFJYUEwVlZVamdjY0x6NkFnPT0iLFtbIkxHQSIsIjIwMjYtMDYtMjAiLCJERU4iLG51bGwsIlVBIiwiMTcwNyJdLFsiREVOIiwiMjAyNi0wNi0yMCIsIlNGTyIsbnVsbCwiVUEiLCIxNTYxIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-20 06:05"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport métropolitain de Détroit",
+                        "id": "DTW",
+                        "time": "2026-06-20 07:54"
+                    },
+                    "duration": 109,
+                    "airplane": "Airbus A321",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 1231",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 91 kg"
+                    ]
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport métropolitain de Détroit",
+                        "id": "DTW",
+                        "time": "2026-06-20 08:48"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San Francisco",
+                        "id": "SFO",
+                        "time": "2026-06-20 10:45"
+                    },
+                    "duration": 297,
+                    "airplane": "Boeing 757",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 361",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 352 kg"
+                    ]
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 54,
+                    "name": "Aéroport métropolitain de Détroit",
+                    "id": "DTW"
+                }
+            ],
+            "total_duration": 460,
+            "carbon_emissions": {
+                "this_flight": 444000,
+                "typical_for_this_route": 380000,
+                "difference_percent": 17
+            },
+            "price": 523,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV2xvd1NWWXhkVGxYVlhkQlFraFVRbmRDUnkwdExTMHRMUzB0TFMxNWJHZDJNa0ZCUVVGQlIyOW9ZWEUwUjFSNk16QkJFZ3hFVERFeU16RjhSRXd6TmpFYUN3aXVtQU1RQWhvRFJWVlNPQnh3bGRzRCIsW1siTEdBIiwiMjAyNi0wNi0yMCIsIkRUVyIsbnVsbCwiREwiLCIxMjMxIl0sWyJEVFciLCIyMDI2LTA2LTIwIiwiU0ZPIixudWxsLCJETCIsIjM2MSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-20 14:31"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Charlotte/Douglas",
+                        "id": "CLT",
+                        "time": "2026-06-20 16:54"
+                    },
+                    "duration": 143,
+                    "airplane": "Airbus A320",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2033",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 105 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                },
+                {
+                    "departure_airport": {
+                        "name": "Aéroport international de Charlotte/Douglas",
+                        "id": "CLT",
+                        "time": "2026-06-20 17:25"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de San Francisco",
+                        "id": "SFO",
+                        "time": "2026-06-20 19:56"
+                    },
+                    "duration": 331,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2556",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 301 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "layovers": [
+                {
+                    "duration": 31,
+                    "name": "Aéroport international de Charlotte/Douglas",
+                    "id": "CLT"
+                }
+            ],
+            "total_duration": 505,
+            "carbon_emissions": {
+                "this_flight": 407000,
+                "typical_for_this_route": 380000,
+                "difference_percent": 7
+            },
+            "price": 533,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJV2xvd1NWWXhkVGxYVlhkQlFraFVRbmRDUnkwdExTMHRMUzB0TFMxNWJHZDJNa0ZCUVVGQlIyOW9ZWEUwUjFSNk16QkJFZzFCUVRJd016TjhRVUV5TlRVMkdnc0kzNThERUFJYUEwVlZVamdjY09IakF3PT0iLFtbIkxHQSIsIjIwMjYtMDYtMjAiLCJDTFQiLG51bGwsIkFBIiwiMjAzMyJdLFsiQ0xUIiwiMjAyNi0wNi0yMCIsIlNGTyIsbnVsbCwiQUEiLCIyNTU2Il1dXQ=="
+        }
+    ],
+    "price_insights": {
+        "lowest_price": 162,
+        "price_level": "typical",
+        "typical_price_range": [
+            125,
+            230
+        ],
+        "price_history": [
+            [
+                1775361600,
+                131
+            ],
+            [
+                1775448000,
+                147
+            ],
+            [
+                1775534400,
+                131
+            ],
+            [
+                1775620800,
+                129
+            ],
+            [
+                1775707200,
+                128
+            ],
+            [
+                1775793600,
+                128
+            ],
+            [
+                1775880000,
+                129
+            ],
+            [
+                1775966400,
+                157
+            ],
+            [
+                1776052800,
+                149
+            ],
+            [
+                1776139200,
+                139
+            ],
+            [
+                1776225600,
+                138
+            ],
+            [
+                1776312000,
+                138
+            ],
+            [
+                1776398400,
+                140
+            ],
+            [
+                1776484800,
+                140
+            ],
+            [
+                1776571200,
+                142
+            ],
+            [
+                1776657600,
+                129
+            ],
+            [
+                1776744000,
+                128
+            ],
+            [
+                1776830400,
+                129
+            ],
+            [
+                1776916800,
+                185
+            ],
+            [
+                1777003200,
+                193
+            ],
+            [
+                1777089600,
+                192
+            ],
+            [
+                1777176000,
+                174
+            ],
+            [
+                1777262400,
+                200
+            ],
+            [
+                1777348800,
+                199
+            ],
+            [
+                1777435200,
+                180
+            ],
+            [
+                1777521600,
+                180
+            ],
+            [
+                1777608000,
+                123
+            ],
+            [
+                1777694400,
+                123
+            ],
+            [
+                1777780800,
+                123
+            ],
+            [
+                1777867200,
+                132
+            ],
+            [
+                1777953600,
+                132
+            ],
+            [
+                1778040000,
+                188
+            ],
+            [
+                1778126400,
+                195
+            ],
+            [
+                1778212800,
+                202
+            ],
+            [
+                1778299200,
+                153
+            ],
+            [
+                1778385600,
+                154
+            ],
+            [
+                1778472000,
+                131
+            ],
+            [
+                1778558400,
+                131
+            ],
+            [
+                1778644800,
+                131
+            ],
+            [
+                1778731200,
+                131
+            ],
+            [
+                1778817600,
+                154
+            ],
+            [
+                1778904000,
+                158
+            ],
+            [
+                1778990400,
+                189
+            ],
+            [
+                1779076800,
+                193
+            ],
+            [
+                1779163200,
+                191
+            ],
+            [
+                1779249600,
+                190
+            ],
+            [
+                1779336000,
+                132
+            ],
+            [
+                1779422400,
+                191
+            ],
+            [
+                1779508800,
+                166
+            ],
+            [
+                1779595200,
+                148
+            ],
+            [
+                1779681600,
+                148
+            ],
+            [
+                1779768000,
+                165
+            ],
+            [
+                1779854400,
+                183
+            ],
+            [
+                1779940800,
+                185
+            ],
+            [
+                1780027200,
+                185
+            ],
+            [
+                1780113600,
+                185
+            ],
+            [
+                1780200000,
+                185
+            ],
+            [
+                1780286400,
+                165
+            ],
+            [
+                1780372800,
+                165
+            ],
+            [
+                1780459200,
+                163
+            ],
+            [
+                1780545600,
+                162
+            ]
+        ]
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "LGA",
+                        "name": "Aeroport international de La Guardia"
+                    },
+                    "city": "New York",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRa1dwH1NZQk4dsbPiyA9Vrq2RX75jXSZ-OkHn7NkLHl-11HercqDXoZ4p2cDxJkH6vca2degawrCzHEQ",
+                    "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQEaUa9NsdPWGpAUGkTApkZDT_4M6_6V8wTcC0v1b1wJAJX-BuMSiipXbsoznGgcI1xLOc5QiTcR_xovexgjdOz0gqQe0tRQ9h0bUkZ07Q"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "SFO",
+                        "name": "Aéroport international de San Francisco"
+                    },
+                    "city": "San Francisco",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQhLXJKshv7iRU8OcvmRyc3ZHyoSy8ZfBGcntDNb8iTixSq8i7XIcn9tZMPIcM6-rm7kKcu2VQS3BKoYw",
+                    "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRbcxCKTUaj5vz8PrFeUUBVCm8J3fXiMRJpnz4UfNsPeLOkP1EZK9sez1dEX--y-VLxpPAaVB5zo1hzXliHeLl3l0VFwrWrVz7UCQpkzCY"
+                }
+            ]
+        }
+    ]
+}

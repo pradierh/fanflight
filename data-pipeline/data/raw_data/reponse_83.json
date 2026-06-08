@@ -1,0 +1,1135 @@
+{
+    "search_metadata": {
+        "id": "6a216e943a9206738e4a041b",
+        "status": "Success",
+        "json_endpoint": "https://serpapi.com/searches/91utVxNEdAvHtMTdOfRnYg/6a216e943a9206738e4a041b.json",
+        "created_at": "2026-06-04 12:24:52 UTC",
+        "processed_at": "2026-06-04 12:24:52 UTC",
+        "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTIzagcIARIDTEdBcgcIARIDREZXQAFIAXABmAEC&tfu=EgIIAQ",
+        "raw_html_file": "https://serpapi.com/searches/91utVxNEdAvHtMTdOfRnYg/6a216e943a9206738e4a041b.html",
+        "prettify_html_file": "https://serpapi.com/searches/91utVxNEdAvHtMTdOfRnYg/6a216e943a9206738e4a041b.prettify",
+        "total_time_taken": 0.71
+    },
+    "search_parameters": {
+        "engine": "google_flights",
+        "hl": "fr",
+        "gl": "us",
+        "type": "2",
+        "departure_id": "LGA",
+        "arrival_id": "DFW",
+        "outbound_date": "2026-06-23",
+        "currency": "EUR"
+    },
+    "best_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 22:45"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-24 01:31"
+                    },
+                    "duration": 226,
+                    "airplane": "Airbus A320neo",
+                    "airline": "Frontier",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+                    "travel_class": "Economy",
+                    "flight_number": "F9 3423",
+                    "legroom": "71 cm",
+                    "extensions": [
+                        "Below average legroom (71 cm)",
+                        "Carbon emissions estimate: 148 kg"
+                    ]
+                }
+            ],
+            "total_duration": 226,
+            "carbon_emissions": {
+                "this_flight": 148000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -43
+            },
+            "price": 81,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/F9.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1pHT1RNME1qTWFDZ2lNUHhBQ0dnTkZWVkk0SEhDM1NRPT0iLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkY5IiwiMzQyMyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 06:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 09:30"
+                    },
+                    "duration": 240,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1597",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 193 kg"
+                    ]
+                }
+            ],
+            "total_duration": 240,
+            "carbon_emissions": {
+                "this_flight": 193000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -26
+            },
+            "price": 119,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1pCUVRFMU9UY2FDZ2owWEJBQ0dnTkZWVkk0SEhDUWJBPT0iLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMTU5NyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 07:05"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 09:47"
+                    },
+                    "duration": 222,
+                    "airplane": "Boeing 737",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 873",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 197 kg"
+                    ]
+                }
+            ],
+            "total_duration": 222,
+            "carbon_emissions": {
+                "this_flight": 198000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -24
+            },
+            "price": 128,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1ZFVERnM014b0tDTkJqRUFJYUEwVlZVamdjY1BseiIsW1siTEdBIiwiMjAyNi0wNi0yMyIsIkRGVyIsbnVsbCwiREwiLCI4NzMiXV1d"
+        }
+    ],
+    "other_flights": [
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 07:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 10:30"
+                    },
+                    "duration": 240,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 3289",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 193 kg"
+                    ]
+                }
+            ],
+            "total_duration": 240,
+            "carbon_emissions": {
+                "this_flight": 193000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -26
+            },
+            "price": 119,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1pCUVRNeU9Ea2FDZ2owWEJBQ0dnTkZWVkk0SEhDUWJBPT0iLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMzI4OSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 09:30"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 12:17"
+                    },
+                    "duration": 227,
+                    "airplane": "Boeing 737",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 856",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 197 kg"
+                    ]
+                }
+            ],
+            "total_duration": 227,
+            "carbon_emissions": {
+                "this_flight": 198000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -24
+            },
+            "price": 145,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1ZFVERnMU5ob0tDSVp4RUFJYUEwVlZVamdjY01pREFRPT0iLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkRMIiwiODU2Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 12:29"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 15:18"
+                    },
+                    "duration": 229,
+                    "airplane": "Boeing 737",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 869",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 197 kg"
+                    ]
+                }
+            ],
+            "total_duration": 229,
+            "carbon_emissions": {
+                "this_flight": 198000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -24
+            },
+            "price": 171,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1ZFVERnMk9Sb0xDSmlGQVJBQ0dnTkZWVkk0SEhDQm13RT0iLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkRMIiwiODY5Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 15:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 18:04"
+                    },
+                    "duration": 244,
+                    "airplane": "Boeing 737",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 846",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 197 kg"
+                    ]
+                }
+            ],
+            "total_duration": 244,
+            "carbon_emissions": {
+                "this_flight": 198000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -24
+            },
+            "price": 171,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1ZFVERnME5ob0xDSmlGQVJBQ0dnTkZWVkk0SEhDQm13RT0iLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkRMIiwiODQ2Il1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 08:34"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 11:31"
+                    },
+                    "duration": 237,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1987",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 193 kg"
+                    ]
+                }
+            ],
+            "total_duration": 237,
+            "carbon_emissions": {
+                "this_flight": 193000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -26
+            },
+            "price": 180,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1pCUVRFNU9EY2FDd2p5aXdFUUFob0RSVlZTT0J4dzU2SUIiLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMTk4NyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 11:08"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 14:05"
+                    },
+                    "duration": 237,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1166",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 176 kg"
+                    ]
+                }
+            ],
+            "total_duration": 237,
+            "carbon_emissions": {
+                "this_flight": 177000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -32
+            },
+            "price": 180,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1pCUVRFeE5qWWFDd2p5aXdFUUFob0RSVlZTT0J4dzU2SUIiLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMTE2NiJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 13:59"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 17:11"
+                    },
+                    "duration": 252,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1056",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 193 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "total_duration": 252,
+            "carbon_emissions": {
+                "this_flight": 193000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -26
+            },
+            "price": 180,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1pCUVRFd05UWWFDd2p5aXdFUUFob0RSVlZTT0J4dzU2SUIiLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMTA1NiJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 15:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 18:12"
+                    },
+                    "duration": 252,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1043",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 193 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "total_duration": 252,
+            "carbon_emissions": {
+                "this_flight": 193000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -26
+            },
+            "price": 180,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1pCUVRFd05ETWFDd2p5aXdFUUFob0RSVlZTT0J4dzU2SUIiLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMTA0MyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 16:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 19:09"
+                    },
+                    "duration": 249,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1608",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 176 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "total_duration": 249,
+            "carbon_emissions": {
+                "this_flight": 177000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -32
+            },
+            "price": 180,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1pCUVRFMk1EZ2FDd2p5aXdFUUFob0RSVlZTT0J4dzU2SUIiLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMTYwOCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 18:55"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 21:50"
+                    },
+                    "duration": 235,
+                    "airplane": "Boeing 737",
+                    "airline": "Delta",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+                    "travel_class": "Economy",
+                    "flight_number": "DL 352",
+                    "legroom": "79 cm",
+                    "extensions": [
+                        "Average legroom (79 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Live TV",
+                        "Carbon emissions estimate: 197 kg"
+                    ]
+                }
+            ],
+            "total_duration": 235,
+            "carbon_emissions": {
+                "this_flight": 198000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -24
+            },
+            "price": 223,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1ZFVERNMU1ob0xDTHV0QVJBQ0dnTkZWVkk0SEhEd3lRRT0iLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkRMIiwiMzUyIl1dXQ=="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 09:47"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 12:46"
+                    },
+                    "duration": 239,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 3068",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 150 kg"
+                    ]
+                }
+            ],
+            "total_duration": 239,
+            "carbon_emissions": {
+                "this_flight": 150000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -42
+            },
+            "price": 287,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1pCUVRNd05qZ2FDd2pvM3dFUUFob0RSVlZTT0J4d3ZZUUMiLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMzA2OCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 12:56"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 15:50"
+                    },
+                    "duration": 234,
+                    "airplane": "Boeing 737MAX 8 Passenger",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1609",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 150 kg"
+                    ]
+                }
+            ],
+            "total_duration": 234,
+            "carbon_emissions": {
+                "this_flight": 150000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -42
+            },
+            "price": 287,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1pCUVRFMk1Ea2FDd2pvM3dFUUFob0RSVlZTT0J4d3ZZUUMiLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMTYwOSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 17:01"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 20:13"
+                    },
+                    "duration": 252,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 3103",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 193 kg"
+                    ]
+                }
+            ],
+            "total_duration": 252,
+            "carbon_emissions": {
+                "this_flight": 193000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -26
+            },
+            "price": 287,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1pCUVRNeE1ETWFDd2pvM3dFUUFob0RSVlZTT0J4d3ZZUUMiLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMzEwMyJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 18:00"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 21:10"
+                    },
+                    "duration": 250,
+                    "airplane": "Airbus A321",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 2388",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 193 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "total_duration": 250,
+            "carbon_emissions": {
+                "this_flight": 193000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -26
+            },
+            "price": 287,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1pCUVRJek9EZ2FDd2pvM3dFUUFob0RSVlZTT0J4d3ZZUUMiLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMjM4OCJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 18:46"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 21:48"
+                    },
+                    "duration": 242,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 1571",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 176 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "total_duration": 242,
+            "carbon_emissions": {
+                "this_flight": 177000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -32
+            },
+            "price": 287,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1pCUVRFMU56RWFDd2pvM3dFUUFob0RSVlZTT0J4d3ZZUUMiLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMTU3MSJdXV0="
+        },
+        {
+            "flights": [
+                {
+                    "departure_airport": {
+                        "name": "Aeroport international de La Guardia",
+                        "id": "LGA",
+                        "time": "2026-06-23 20:20"
+                    },
+                    "arrival_airport": {
+                        "name": "Aéroport international de Dallas-Fort Worth",
+                        "id": "DFW",
+                        "time": "2026-06-23 23:21"
+                    },
+                    "duration": 241,
+                    "airplane": "Boeing 737",
+                    "airline": "American",
+                    "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+                    "travel_class": "Economy",
+                    "flight_number": "AA 3323",
+                    "legroom": "76 cm",
+                    "extensions": [
+                        "Average legroom (76 cm)",
+                        "Free Wi-Fi",
+                        "In-seat power & USB outlets",
+                        "Stream media to your device",
+                        "Carbon emissions estimate: 176 kg"
+                    ],
+                    "often_delayed_by_over_30_min": true
+                }
+            ],
+            "total_duration": 241,
+            "carbon_emissions": {
+                "this_flight": 177000,
+                "typical_for_this_route": 260000,
+                "difference_percent": -32
+            },
+            "price": 314,
+            "type": "One way",
+            "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+            "extensions": [
+                "Checked baggage for a fee"
+            ],
+            "booking_token": "WyJDalJJYTBkM2FHNTZkbEpWYWpCQlEzZFJVbWRDUnkwdExTMHRMUzB0TFc5clltdHNOa0ZCUVVGQlIyOW9ZbkJSVERscE4zbEJFZ1pCUVRNek1qTWFDd2lsOVFFUUFob0RSVlZTT0J4d3ZKMEMiLFtbIkxHQSIsIjIwMjYtMDYtMjMiLCJERlciLG51bGwsIkFBIiwiMzMyMyJdXV0="
+        }
+    ],
+    "price_insights": {
+        "lowest_price": 81,
+        "price_level": "typical",
+        "typical_price_range": [
+            70,
+            150
+        ],
+        "price_history": [
+            [
+                1775275200,
+                76
+            ],
+            [
+                1775361600,
+                76
+            ],
+            [
+                1775448000,
+                85
+            ],
+            [
+                1775534400,
+                76
+            ],
+            [
+                1775620800,
+                55
+            ],
+            [
+                1775707200,
+                57
+            ],
+            [
+                1775793600,
+                81
+            ],
+            [
+                1775880000,
+                81
+            ],
+            [
+                1775966400,
+                81
+            ],
+            [
+                1776052800,
+                81
+            ],
+            [
+                1776139200,
+                51
+            ],
+            [
+                1776225600,
+                51
+            ],
+            [
+                1776312000,
+                51
+            ],
+            [
+                1776398400,
+                59
+            ],
+            [
+                1776484800,
+                59
+            ],
+            [
+                1776571200,
+                59
+            ],
+            [
+                1776657600,
+                59
+            ],
+            [
+                1776744000,
+                68
+            ],
+            [
+                1776830400,
+                72
+            ],
+            [
+                1776916800,
+                77
+            ],
+            [
+                1777003200,
+                77
+            ],
+            [
+                1777089600,
+                85
+            ],
+            [
+                1777176000,
+                85
+            ],
+            [
+                1777262400,
+                85
+            ],
+            [
+                1777348800,
+                81
+            ],
+            [
+                1777435200,
+                95
+            ],
+            [
+                1777521600,
+                93
+            ],
+            [
+                1777608000,
+                93
+            ],
+            [
+                1777694400,
+                93
+            ],
+            [
+                1777780800,
+                93
+            ],
+            [
+                1777867200,
+                38
+            ],
+            [
+                1777953600,
+                38
+            ],
+            [
+                1778040000,
+                93
+            ],
+            [
+                1778126400,
+                93
+            ],
+            [
+                1778212800,
+                93
+            ],
+            [
+                1778299200,
+                102
+            ],
+            [
+                1778385600,
+                102
+            ],
+            [
+                1778472000,
+                93
+            ],
+            [
+                1778558400,
+                93
+            ],
+            [
+                1778644800,
+                93
+            ],
+            [
+                1778731200,
+                93
+            ],
+            [
+                1778817600,
+                94
+            ],
+            [
+                1778904000,
+                102
+            ],
+            [
+                1778990400,
+                102
+            ],
+            [
+                1779076800,
+                47
+            ],
+            [
+                1779163200,
+                102
+            ],
+            [
+                1779249600,
+                103
+            ],
+            [
+                1779336000,
+                102
+            ],
+            [
+                1779422400,
+                81
+            ],
+            [
+                1779508800,
+                81
+            ],
+            [
+                1779595200,
+                81
+            ],
+            [
+                1779681600,
+                81
+            ],
+            [
+                1779768000,
+                81
+            ],
+            [
+                1779854400,
+                102
+            ],
+            [
+                1779940800,
+                103
+            ],
+            [
+                1780027200,
+                81
+            ],
+            [
+                1780113600,
+                73
+            ],
+            [
+                1780200000,
+                111
+            ],
+            [
+                1780286400,
+                111
+            ],
+            [
+                1780372800,
+                111
+            ],
+            [
+                1780459200,
+                111
+            ],
+            [
+                1780545600,
+                81
+            ]
+        ]
+    },
+    "airports": [
+        {
+            "departure": [
+                {
+                    "airport": {
+                        "id": "LGA",
+                        "name": "Aeroport international de La Guardia"
+                    },
+                    "city": "New York",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRa1dwH1NZQk4dsbPiyA9Vrq2RX75jXSZ-OkHn7NkLHl-11HercqDXoZ4p2cDxJkH6vca2degawrCzHEQ",
+                    "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQEaUa9NsdPWGpAUGkTApkZDT_4M6_6V8wTcC0v1b1wJAJX-BuMSiipXbsoznGgcI1xLOc5QiTcR_xovexgjdOz0gqQe0tRQ9h0bUkZ07Q"
+                }
+            ],
+            "arrival": [
+                {
+                    "airport": {
+                        "id": "DFW",
+                        "name": "Aéroport international de Dallas-Fort Worth"
+                    },
+                    "city": "Dallas",
+                    "country": "États-Unis",
+                    "country_code": "US",
+                    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS61zSeEE0f0RSedvAIvzJKv1B7Tojcnx1pR5ipb9l389QDa2V23R4cRbmgVZVCgrVsZ6Ewme_WpDRgmw",
+                    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT4Hg7sSdARNWUKEIVKbquvgGkx76RuLbHy7uH51pecZu-z7-Wi9ya5fpf-YmM63--MKoWu7HUM3Q1O7mQoRBSlNeNSfgHP5Y2tO11niU"
+                }
+            ]
+        }
+    ]
+}
