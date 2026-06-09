@@ -1,0 +1,111 @@
+name: Build and deploy frontend
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - "frontend/**"
+      - ".github/workflows/frontend-deploy.yml"
+  workflow_dispatch:
+
+env:
+  DOCKER_IMAGE: tezzosyris666/fanflight-frontend
+  EC2_HOST: 35.181.62.34
+  EC2_USER: ubuntu
+
+jobs:
+  build-and-push:
+    name: Build and push Docker image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push frontend image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile
+          push: true
+          tags: |
+            ${{ env.DOCKER_IMAGE }}:latest
+            ${{ env.DOCKER_IMAGE }}:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy-ec2:
+    name: Deploy compose on EC2
+    runs-on: ubuntu-latest
+    needs: build-and-push
+
+    steps:
+      - name: Configure SSH key
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "${{ secrets.RSA }}" > ~/.ssh/fanflight_ec2.pem
+          chmod 600 ~/.ssh/fanflight_ec2.pem
+          ssh-keyscan -H "${EC2_HOST}" >> ~/.ssh/known_hosts
+
+      - name: Create production compose file
+        run: |
+          cat > fanflight-compose.yml <<EOF
+          name: fanflight
+
+          services:
+            frontend:
+              image: ${DOCKER_IMAGE}:latest
+              container_name: fanflight_frontend
+              restart: unless-stopped
+              ports:
+                - "80:3000"
+              environment:
+                NODE_ENV: production
+              labels:
+                - "com.centurylinklabs.watchtower.enable=true"
+
+            watchtower:
+              image: containrrr/watchtower:latest
+              container_name: fanflight_watchtower
+              restart: unless-stopped
+              command: --interval 60 --cleanup --label-enable
+              volumes:
+                - /var/run/docker.sock:/var/run/docker.sock
+          EOF
+
+      - name: Copy compose file to EC2
+        run: |
+          scp -i ~/.ssh/fanflight_ec2.pem fanflight-compose.yml \
+            "${EC2_USER}@${EC2_HOST}:/tmp/fanflight-compose.yml"
+
+      - name: Start or update services on EC2
+        run: |
+          ssh -i ~/.ssh/fanflight_ec2.pem "${EC2_USER}@${EC2_HOST}" 'bash -s' <<'REMOTE'
+          set -euo pipefail
+
+          if ! command -v docker >/dev/null 2>&1 || ! sudo docker compose version >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y ca-certificates curl
+            curl -fsSL https://get.docker.com | sudo sh
+          fi
+
+          sudo systemctl enable --now docker
+          sudo mkdir -p /opt/fanflight
+          sudo mv /tmp/fanflight-compose.yml /opt/fanflight/docker-compose.yml
+
+          cd /opt/fanflight
+          sudo docker compose pull frontend
+          sudo docker compose up -d
+          sudo docker image prune -f
+          REMOTE
