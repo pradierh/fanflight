@@ -21,7 +21,7 @@ flags = {
     'Australie': ('AUS', '🇦🇺'),
     'Autriche': ('AUT', '🇦🇹'),
     'Belgique': ('BEL', '🇧🇪'),
-    'Bosnie-et-Herzégovine': ('BIH', '🇧🇦'),
+    'Bosnie-Herzégovine': ('BIH', '🇧🇦'),
     'Brésil': ('BRA', '🇧🇷'),
     'Canada': ('CAN', '🇨🇦'),
     'Cap-Vert': ('CPV', '🇨🇻'),
@@ -29,7 +29,7 @@ flags = {
     "Côte d'Ivoire": ('CIV', '🇨🇮'),
     'Croatie': ('CRO', '🇭🇷'),
     'Curaçao': ('CUW', '🇨🇼'),
-    'Écosse': ('SCO', '🏴󠁧󠁢󠁳󠁣󠁴󠁿'),
+    'Ecosse': ('SCO', '🏴󠁧󠁢󠁳󠁣󠁴󠁿'),
     'Égypte': ('EGY', '🇪🇬'),
     'Équateur': ('ECU', '🇪🇨'),
     'Espagne': ('ESP', '🇪🇸'),
@@ -91,7 +91,7 @@ world_cup_data = {
         "matchs": [
             ["2026-06-12 21:00:00", "États-Unis", "Paraguay", "Phase de Groupe"],
             ["2026-06-15 21:00:00", "Iran", "Nouvelle-Zélande", "Phase de Groupe"],
-            ["2026-06-18 15:00:00", "Suisse", "Bosnie-et-Herzégovine", "Phase de Groupe"],
+            ["2026-06-18 15:00:00", "Suisse", "Bosnie-Herzégovine", "Phase de Groupe"],
             ["2026-06-21 15:00:00", "Belgique", "Iran", "Phase de Groupe"],
             ["2026-06-25 22:00:00", "Turquie", "États-Unis", "Phase de Groupe"]
         ]
@@ -137,7 +137,7 @@ world_cup_data = {
         "matchs": [
             ["2026-06-15 18:00:00", "Arabie Saoudite", "Uruguay", "Phase de Groupe"],
             ["2026-06-21 18:00:00", "Uruguay", "Cap-Vert", "Phase de Groupe"],
-            ["2026-06-24 18:00:00", "Écosse", "Brésil", "Phase de Groupe"],
+            ["2026-06-24 18:00:00", "Ecosse", "Brésil", "Phase de Groupe"],
             ["2026-06-27 19:30:00", "Colombie", "Portugal", "Phase de Groupe"]
         ]
     },
@@ -180,7 +180,7 @@ world_cup_data = {
         "matchs": [
             ["2026-06-15 15:00:00", "Belgique", "Égypte", "Phase de Groupe"],
             ["2026-06-19 15:00:00", "États-Unis", "Australie", "Phase de Groupe"],
-            ["2026-06-24 15:00:00", "Bosnie-et-Herzégovine", "Qatar", "Phase de Groupe"],
+            ["2026-06-24 15:00:00", "Bosnie-Herzégovine", "Qatar", "Phase de Groupe"],
             ["2026-06-26 23:00:00", "Égypte", "Iran", "Phase de Groupe"]
         ]
     },
@@ -191,9 +191,9 @@ world_cup_data = {
             ("BOS", "Boston Logan Intl")
         ],
         "matchs": [
-            ["2026-06-13 21:00:00", "Haïti", "Écosse", "Phase de Groupe"],
+            ["2026-06-13 21:00:00", "Haïti", "Ecosse", "Phase de Groupe"],
             ["2026-06-16 18:00:00", "Irak", "Norvège", "Phase de Groupe"],
-            ["2026-06-19 18:00:00", "Écosse", "Maroc", "Phase de Groupe"],
+            ["2026-06-19 18:00:00", "Ecosse", "Maroc", "Phase de Groupe"],
             ["2026-06-23 16:00:00", "Angleterre", "Ghana", "Phase de Groupe"],
             ["2026-06-26 15:00:00", "Norvège", "France", "Phase de Groupe"]
         ]
@@ -233,7 +233,7 @@ world_cup_data = {
             ("YTZ", "Billy Bishop Toronto City")
         ],
         "matchs": [
-            ["2026-06-12 15:00:00", "Canada", "Bosnie-et-Herzégovine", "Phase de Groupe"],
+            ["2026-06-12 15:00:00", "Canada", "Bosnie-Herzégovine", "Phase de Groupe"],
             ["2026-06-17 19:00:00", "Ghana", "Panama", "Phase de Groupe"],
             ["2026-06-20 16:00:00", "Allemagne", "Côte d'Ivoire", "Phase de Groupe"],
             ["2026-06-23 19:00:00", "Panama", "Croatie", "Phase de Groupe"],
