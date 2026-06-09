@@ -28,6 +28,14 @@ RSA=<contenu complet de la cle privee RSA pour l'EC2>
 ```
 
 Le secret `RSA` doit contenir toute la cle privee, avec les lignes `-----BEGIN ...-----` et `-----END ...-----`.
+Si la cle est collee sur une seule ligne avec des `\n` litteraux, le workflow la reconvertit automatiquement en cle multiligne.
+
+Si l'etape `Configure SSH key` echoue sur `ssh-keygen -y`, alors le secret `RSA` ne contient probablement pas la bonne cle privee. A verifier :
+
+- utiliser la cle privee, pas la cle `.pub` ;
+- garder les lignes `-----BEGIN OPENSSH PRIVATE KEY-----` ou `-----BEGIN RSA PRIVATE KEY-----` ;
+- ne pas ajouter de guillemets autour de la cle dans GitHub Secrets ;
+- si la cle locale a une passphrase, creer une cle sans passphrase pour GitHub Actions ou utiliser une autre strategie SSH.
 
 ## Fonctionnement
 
