@@ -31,12 +31,22 @@ cursor.execute('''
                ''')
 
 cursor.execute('''
+    CREATE TABLE IF NOT EXISTS DIM_TEAM (
+        ID_TEAM SERIAL PRIMARY KEY,
+        TEAM_NAME VARCHAR(50) NOT NULL UNIQUE,
+        TEAM_CODE VARCHAR(3) NOT NULL,
+        FLAG_EMOJI VARCHAR(10) DEFAULT '🏳️'
+    );
+''')
+
+
+cursor.execute('''
                
     CREATE TABLE IF NOT EXISTS FACT_MATCHS (
     MATCH_ID SERIAL PRIMARY KEY,
     MATCH_DATE TIMESTAMP NOT NULL,
-    TEAM_A VARCHAR(30) NOT NULL,
-    TEAM_B VARCHAR(30) NOT NULL,
+    ID_TEAM_A INTEGER REFERENCES DIM_TEAM(ID_TEAM),
+    ID_TEAM_B INTEGER REFERENCES DIM_TEAM(ID_TEAM),
     STAGE VARCHAR(30) NOT NULL,
     ID_CITY INTEGER REFERENCES DIM_CITY(ID_CITY),
     CONSTRAINT unique_match_per_location_time UNIQUE (MATCH_DATE, ID_CITY)
@@ -80,7 +90,7 @@ cursor.execute('''
     airline_logo TEXT,
     type VARCHAR(20),
     is_best BOOLEAN,
-    pos INTEGER
+    pos INTEGER,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
