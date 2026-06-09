@@ -11,9 +11,61 @@ conn = psycopg2.connect(
 
 cursor = conn.cursor()
 
+flags = {
+    'Afrique du Sud': ('RSA', '🇿🇦'),
+    'Algérie': ('ALG', '🇩🇿'),
+    'Allemagne': ('GER', '🇩🇪'),
+    'Angleterre': ('ENG', '🏴󠁧󠁢󠁥󠁮󠁧󠁿'),
+    'Arabie Saoudite': ('KSA', '🇸🇦'),
+    'Argentine': ('ARG', '🇦🇷'),
+    'Australie': ('AUS', '🇦🇺'),
+    'Autriche': ('AUT', '🇦🇹'),
+    'Belgique': ('BEL', '🇧🇪'),
+    'Bosnie-Herzégovine': ('BIH', '🇧🇦'),
+    'Brésil': ('BRA', '🇧🇷'),
+    'Canada': ('CAN', '🇨🇦'),
+    'Cap-Vert': ('CPV', '🇨🇻'),
+    'Colombie': ('COL', '🇨🇴'),
+    "Côte d'Ivoire": ('CIV', '🇨🇮'),
+    'Croatie': ('CRO', '🇭🇷'),
+    'Curaçao': ('CUW', '🇨🇼'),
+    'Ecosse': ('SCO', '🏴󠁧󠁢󠁳󠁣󠁴󠁿'),
+    'Égypte': ('EGY', '🇪🇬'),
+    'Équateur': ('ECU', '🇪🇨'),
+    'Espagne': ('ESP', '🇪🇸'),
+    'États-Unis': ('USA', '🇺🇸'),
+    'France': ('FRA', '🇫🇷'),
+    'Ghana': ('GHA', '🇬🇭'),
+    'Haïti': ('HAI', '🇭🇹'),
+    'Irak': ('IRQ', '🇮🇶'),
+    'Iran': ('IRN', '🇮🇷'),
+    'Japon': ('JPN', '🇯🇵'),
+    'Jordanie': ('JOR', '🇯🇴'),
+    'Maroc': ('MAR', '🇲🇦'),
+    'Mexique': ('MEX', '🇲🇽'),
+    'Norvège': ('NOR', '🇳🇴'),
+    'Nouvelle-Zélande': ('NZL', '🇳🇿'),
+    'Ouzbékistan': ('UZB', '🇺🇿'),
+    'Panama': ('PAN', '🇵🇦'),
+    'Paraguay': ('PAR', '🇵🇾'),
+    'Pays-Bas': ('NED', '🇳🇱'),
+    'Portugal': ('POR', '🇵🇹'),
+    'Qatar': ('QAT', '🇶🇦'),
+    'RD Congo': ('COD', '🇨🇩'),
+    'République de Corée': ('KOR', '🇰🇷'),
+    'Sénégal': ('SEN', '🇸🇳'),
+    'Suède': ('SWE', '🇸🇪'),
+    'Suisse': ('SUI', '🇨🇭'),
+    'Tchéquie': ('CZE', '🇨🇿'),
+    'Tunisie': ('TUN', '🇹🇳'),
+    'Turquie': ('TUR', '🇹🇷'),
+    'Uruguay': ('URU', '🇺🇾'),
+}
+
 world_cup_data = {
     "New York": {
         "pays": "USA",
+        "flag": '🇺🇸',
         "airports": [
             ("EWR", "Newark Liberty Intl"),
             ("JFK", "John F. Kennedy Intl"),
@@ -24,11 +76,12 @@ world_cup_data = {
             ["2026-06-16 15:00:00", "France", "Sénégal", "Phase de Groupe"],
             ["2026-06-22 20:00:00", "Norvège", "Sénégal", "Phase de Groupe"],
             ["2026-06-25 16:00:00", "Équateur", "Allemagne", "Phase de Groupe"],
-            ["2026-06-27 17:00:00", "Panamá", "Angleterre", "Phase de Groupe"]
+            ["2026-06-27 17:00:00", "Panama", "Angleterre", "Phase de Groupe"]
         ]
     },
     "Los Angeles": {
         "pays": "USA",
+        "flag": '🇺🇸',
         "airports": [
             ("LAX", "Los Angeles Intl"),
             ("BUR", "Hollywood Burbank"),
@@ -37,14 +90,15 @@ world_cup_data = {
         ],
         "matchs": [
             ["2026-06-12 21:00:00", "États-Unis", "Paraguay", "Phase de Groupe"],
-            ["2026-06-15 21:00:00", "RI Iran", "Nouvelle-Zélande", "Phase de Groupe"],
-            ["2026-06-18 15:00:00", "Suisse", "Bosnie-et-Herzégovine", "Phase de Groupe"],
-            ["2026-06-21 15:00:00", "Belgique", "RI Iran", "Phase de Groupe"],
+            ["2026-06-15 21:00:00", "Iran", "Nouvelle-Zélande", "Phase de Groupe"],
+            ["2026-06-18 15:00:00", "Suisse", "Bosnie-Herzégovine", "Phase de Groupe"],
+            ["2026-06-21 15:00:00", "Belgique", "Iran", "Phase de Groupe"],
             ["2026-06-25 22:00:00", "Turquie", "États-Unis", "Phase de Groupe"]
         ]
     },
     "San Francisco": {
         "pays": "USA",
+        "flag": '🇺🇸',
         "airports": [
             ("SFO", "San Francisco Intl"),
             ("SJC", "San Jose Mineta Intl"),
@@ -60,6 +114,7 @@ world_cup_data = {
     },
     "Dallas": {
         "pays": "USA",
+        "flag": '🇺🇸',
         "airports": [
             ("DFW", "Dallas/Fort Worth Intl"),
             ("DAL", "Dallas Love Field")
@@ -74,6 +129,7 @@ world_cup_data = {
     },
     "Miami": {
         "pays": "USA",
+        "flag": '🇺🇸',
         "airports": [
             ("MIA", "Miami Intl"),
             ("FLL", "Fort Lauderdale-Hollywood")
@@ -81,12 +137,13 @@ world_cup_data = {
         "matchs": [
             ["2026-06-15 18:00:00", "Arabie Saoudite", "Uruguay", "Phase de Groupe"],
             ["2026-06-21 18:00:00", "Uruguay", "Cap-Vert", "Phase de Groupe"],
-            ["2026-06-24 18:00:00", "Écosse", "Brésil", "Phase de Groupe"],
+            ["2026-06-24 18:00:00", "Ecosse", "Brésil", "Phase de Groupe"],
             ["2026-06-27 19:30:00", "Colombie", "Portugal", "Phase de Groupe"]
         ]
     },
     "Houston": {
         "pays": "USA",
+        "flag": '🇺🇸',
         "airports": [
             ("IAH", "George Bush Intercontinental"),
             ("HOU", "William P. Hobby Airport")
@@ -101,6 +158,7 @@ world_cup_data = {
     },
     "Atlanta": {
         "pays": "USA",
+        "flag": '🇺🇸',
         "airports": [
             ("ATL", "Hartsfield-Jackson Atlanta")
         ],
@@ -114,6 +172,7 @@ world_cup_data = {
     },
     "Seattle": {
         "pays": "USA",
+        "flag": '🇺🇸',
         "airports": [
             ("SEA", "Seattle-Tacoma Intl"),
             ("BFI", "Boeing Field")
@@ -121,25 +180,27 @@ world_cup_data = {
         "matchs": [
             ["2026-06-15 15:00:00", "Belgique", "Égypte", "Phase de Groupe"],
             ["2026-06-19 15:00:00", "États-Unis", "Australie", "Phase de Groupe"],
-            ["2026-06-24 15:00:00", "Bosnie-et-Herzégovine", "Qatar", "Phase de Groupe"],
-            ["2026-06-26 23:00:00", "Égypte", "RI Iran", "Phase de Groupe"]
+            ["2026-06-24 15:00:00", "Bosnie-Herzégovine", "Qatar", "Phase de Groupe"],
+            ["2026-06-26 23:00:00", "Égypte", "Iran", "Phase de Groupe"]
         ]
     },
     "Boston": {
         "pays": "USA",
+        "flag": '🇺🇸',
         "airports": [
             ("BOS", "Boston Logan Intl")
         ],
         "matchs": [
-            ["2026-06-13 21:00:00", "Haïti", "Écosse", "Phase de Groupe"],
+            ["2026-06-13 21:00:00", "Haïti", "Ecosse", "Phase de Groupe"],
             ["2026-06-16 18:00:00", "Irak", "Norvège", "Phase de Groupe"],
-            ["2026-06-19 18:00:00", "Écosse", "Maroc", "Phase de Groupe"],
+            ["2026-06-19 18:00:00", "Ecosse", "Maroc", "Phase de Groupe"],
             ["2026-06-23 16:00:00", "Angleterre", "Ghana", "Phase de Groupe"],
             ["2026-06-26 15:00:00", "Norvège", "France", "Phase de Groupe"]
         ]
     },
     "Philadelphie": {
         "pays": "USA",
+        "flag": '🇺🇸',
         "airports": [
             ("PHL", "Philadelphia Intl")
         ],
@@ -153,6 +214,7 @@ world_cup_data = {
     },
     "Kansas City": {
         "pays": "USA",
+        "flag": '🇺🇸',
         "airports": [
             ("MCI", "Kansas City Intl")
         ],
@@ -164,21 +226,23 @@ world_cup_data = {
         ]
     },
     "Toronto": {
-        "pays": "Canada",
+        "pays": "CAN",
+        "flag": '🇨🇦',
         "airports": [
             ("YYZ", "Toronto Pearson Intl"),
             ("YTZ", "Billy Bishop Toronto City")
         ],
         "matchs": [
-            ["2026-06-12 15:00:00", "Canada", "Bosnie-et-Herzégovine", "Phase de Groupe"],
-            ["2026-06-17 19:00:00", "Ghana", "Panamá", "Phase de Groupe"],
+            ["2026-06-12 15:00:00", "Canada", "Bosnie-Herzégovine", "Phase de Groupe"],
+            ["2026-06-17 19:00:00", "Ghana", "Panama", "Phase de Groupe"],
             ["2026-06-20 16:00:00", "Allemagne", "Côte d'Ivoire", "Phase de Groupe"],
-            ["2026-06-23 19:00:00", "Panamá", "Croatie", "Phase de Groupe"],
+            ["2026-06-23 19:00:00", "Panama", "Croatie", "Phase de Groupe"],
             ["2026-06-26 15:00:00", "Sénégal", "Irak", "Phase de Groupe"]
         ]
     },
     "Vancouver": {
-        "pays": "Canada",
+        "pays": "CAN",
+        "flag": '🇨🇦',
         "airports": [
             ("YVR", "Vancouver Intl")
         ],
@@ -191,7 +255,8 @@ world_cup_data = {
         ]
     },
     "Mexico City": {
-        "pays": "Mexique",
+        "pays": "MEX",
+        "flag": '🇲🇽'
         "airports": [
             ("MEX", "Benito Juárez Intl"),
             ("NLU", "Felipe Ángeles Intl")
@@ -203,7 +268,8 @@ world_cup_data = {
         ]
     },
     "Monterrey": {
-        "pays": "Mexique",
+        "pays": "MEX",
+        "flag": '🇲🇽'
         "airports": [
             ("MTY", "Monterrey Intl")
         ],
@@ -214,7 +280,8 @@ world_cup_data = {
         ]
     },
     "Guadalajara": {
-        "pays": "Mexique",
+        "pays": "MEX",
+        "flag": '🇲🇽'
         "airports": [
             ("GDL", "Miguel Hidalgo y Costilla Intl")
         ],
@@ -226,6 +293,16 @@ world_cup_data = {
         ]
     }
 }
+
+for team_name, (code,flag) in flags.items():
+    cursor.execute('''
+                   INSERT INTO DIM_TEAM (TEAM_NAME, TEAM_CODE, FLAG_EMOJI)
+                   VALUES (%s, %s, %s)
+                   ON CONFLICT (TEAM_NAME) DO NOTHING;
+                   ''',
+                   (team_name, code, flag)
+                   )
+
 
 
 for city, infos in world_cup_data.items():
@@ -256,13 +333,20 @@ for city, infos in world_cup_data.items():
                     (iata, airport_name, id_city)
                     )
     for matchs in infos['matchs']:
+
+        cursor.execute("SELECT ID_TEAM FROM DIM_TEAM WHERE TEAM_NAME = %s", (matchs[1],))
+        id_team_a= cursor.fetchone()[0]
+        
+        cursor.execute("SELECT ID_TEAM FROM DIM_TEAM WHERE TEAM_NAME = %s", (matchs[2],))
+        id_team_b = cursor.fetchone()[0]
+
         cursor.execute('''
-                    INSERT INTO FACT_MATCHS (MATCH_DATE, TEAM_A, TEAM_B, STAGE, ID_CITY)
+                    INSERT INTO FACT_MATCHS (MATCH_DATE, ID_TEAM_A, ID_TEAM_B, STAGE, ID_CITY)
                     VALUES (%s, %s, %s, %s, %s)
                     ON CONFLICT ON CONSTRAINT unique_match_per_location_time 
-                    DO UPDATE SET TEAM_A = EXCLUDED.TEAM_A, TEAM_B = EXCLUDED.TEAM_B, STAGE = EXCLUDED.STAGE;
+                    DO UPDATE SET ID_TEAM_A = EXCLUDED.ID_TEAM_A, ID_TEAM_B = EXCLUDED.ID_TEAM_B, STAGE = EXCLUDED.STAGE;
                     ''',
-                    (matchs[0], matchs[1], matchs[2], matchs[3], id_city)
+                    (matchs[0], id_team_a, id_team_b, matchs[3], id_city)
                     )
         
 
