@@ -1,4 +1,4 @@
-name: Build and deploy frontend
+name: Build and deploy application
 
 on:
   push:
@@ -7,17 +7,22 @@ on:
       - master
     paths:
       - "frontend/**"
+      - "API/**"
+      - "data-pipeline/spark/**"
       - ".github/workflows/frontend-deploy.yml"
   workflow_dispatch:
 
 env:
-  DOCKER_IMAGE: tezzosyris666/fanflight-frontend
+  DOCKERHUB_NAMESPACE: tezzosyris666
+  FRONTEND_IMAGE: tezzosyris666/fanflight-frontend
+  BACKEND_API_IMAGE: tezzosyris666/fanflight-backend-api
+  SPARK_IMAGE: tezzosyris666/fanflight-spark
   EC2_HOST: 35.181.62.34
   EC2_USER: ubuntu
 
 jobs:
   build-and-push:
-    name: Build and push Docker image
+    name: Build and push Docker images
     runs-on: ubuntu-latest
 
     steps:
@@ -40,10 +45,34 @@ jobs:
           file: ./frontend/Dockerfile
           push: true
           tags: |
-            ${{ env.DOCKER_IMAGE }}:latest
-            ${{ env.DOCKER_IMAGE }}:${{ github.sha }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+            ${{ env.FRONTEND_IMAGE }}:latest
+            ${{ env.FRONTEND_IMAGE }}:${{ github.sha }}
+          cache-from: type=gha,scope=frontend
+          cache-to: type=gha,mode=max,scope=frontend
+
+      - name: Build and push backend API image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./API
+          file: ./API/Dockerfile
+          push: true
+          tags: |
+            ${{ env.BACKEND_API_IMAGE }}:latest
+            ${{ env.BACKEND_API_IMAGE }}:${{ github.sha }}
+          cache-from: type=gha,scope=backend-api
+          cache-to: type=gha,mode=max,scope=backend-api
+
+      - name: Build and push Spark image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./data-pipeline/spark
+          file: ./data-pipeline/spark/Dockerfile
+          push: true
+          tags: |
+            ${{ env.SPARK_IMAGE }}:latest
+            ${{ env.SPARK_IMAGE }}:${{ github.sha }}
+          cache-from: type=gha,scope=spark
+          cache-to: type=gha,mode=max,scope=spark
 
   deploy-ec2:
     name: Deploy compose on EC2
@@ -58,9 +87,14 @@ jobs:
           install -m 700 -d ~/.ssh
           python3 - <<'PY'
           import os
+          import sys
           from pathlib import Path
 
           key = os.environ["SSH_PRIVATE_KEY"].strip()
+          if not key:
+              print("Missing GitHub secret RSA. Add it in Settings > Secrets and variables > Actions.", file=sys.stderr)
+              sys.exit(1)
+
           if "\\n" in key and "\n" not in key:
               key = key.replace("\\n", "\n")
 
@@ -77,8 +111,82 @@ jobs:
           name: fanflight
 
           services:
+            db:
+              image: postgres:latest
+              container_name: postgres
+              restart: unless-stopped
+              ports:
+                - "5432:5432"
+              environment:
+                POSTGRES_DB: \${DB_NAME}
+                POSTGRES_USER: \${DB_USER}
+                POSTGRES_PASSWORD: \${DB_PASSWORD}
+              healthcheck:
+                test: ["CMD-SHELL", "pg_isready -U \${DB_USER} -d \${DB_NAME}"]
+                interval: 5s
+                timeout: 5s
+                retries: 5
+              volumes:
+                - postgres_db:/var/lib/postgresql/data
+
+            spark-master:
+              image: ${SPARK_IMAGE}:latest
+              container_name: spark-master
+              user: root
+              restart: unless-stopped
+              environment:
+                SPARK_MODE: master
+                SPARK_RPC_AUTHENTICATION_ENABLED: "no"
+              env_file:
+                - .env
+              ports:
+                - "8080:8080"
+                - "7077:7077"
+              command: >
+                bash -c "/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master &
+                sleep 5 &&
+                python3 /opt/spark/scripts/spark_listener.py"
+              working_dir: /opt/spark
+              labels:
+                - "com.centurylinklabs.watchtower.enable=true"
+
+            spark-worker:
+              image: ${SPARK_IMAGE}:latest
+              container_name: spark-worker
+              user: root
+              restart: unless-stopped
+              environment:
+                SPARK_MODE: worker
+                SPARK_MASTER_URL: spark://spark-master:7077
+                SPARK_RPC_AUTHENTICATION_ENABLED: "no"
+              env_file:
+                - .env
+              depends_on:
+                spark-master:
+                  condition: service_started
+              ports:
+                - "8081:8081"
+              command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+              working_dir: /opt/spark
+              labels:
+                - "com.centurylinklabs.watchtower.enable=true"
+
+            backend-api:
+              image: ${BACKEND_API_IMAGE}:latest
+              container_name: backend_api
+              restart: unless-stopped
+              ports:
+                - "8000:8000"
+              env_file:
+                - .env
+              depends_on:
+                db:
+                  condition: service_healthy
+              labels:
+                - "com.centurylinklabs.watchtower.enable=true"
+
             frontend:
-              image: ${DOCKER_IMAGE}:latest
+              image: ${FRONTEND_IMAGE}:latest
               container_name: fanflight_frontend
               restart: unless-stopped
               ports:
@@ -95,6 +203,9 @@ jobs:
               command: --interval 60 --cleanup --label-enable
               volumes:
                 - /var/run/docker.sock:/var/run/docker.sock
+
+          volumes:
+            postgres_db:
           EOF
 
       - name: Copy compose file to EC2
@@ -116,9 +227,19 @@ jobs:
           sudo systemctl enable --now docker
           sudo mkdir -p /opt/fanflight
           sudo mv /tmp/fanflight-compose.yml /opt/fanflight/docker-compose.yml
+          if [ ! -f /opt/fanflight/.env ]; then
+            sudo tee /opt/fanflight/.env >/dev/null <<'ENV'
+          DB_NAME=airline_data
+          DB_USER=root
+          DB_PASSWORD=password_test
+          DB_HOST=db
+          DB_PORT=5432
+          API_KEY_SERAPI=
+          ENV
+          fi
 
           cd /opt/fanflight
-          sudo docker compose pull frontend
+          sudo docker compose pull frontend backend-api spark-master spark-worker
           sudo docker compose up -d
           sudo docker image prune -f
           REMOTE
