@@ -150,3 +150,5 @@ http://35.181.62.34
 
 Il faut aussi que le security group AWS de l'EC2 autorise l'entree TCP `80` depuis Internet.
 Les autres ports exposes par le compose sont `8000` pour l'API, `8080` pour Spark master, `8081` pour Spark worker, `7077` pour Spark et `5432` pour Postgres. Ne les ouvrir dans AWS que si vous en avez vraiment besoin.
+
+Postgres est volontairement pinne sur `postgres:17`. Ne pas utiliser `postgres:latest` en production : un changement de version majeure peut rendre le volume existant incompatible sans migration `pg_upgrade`.

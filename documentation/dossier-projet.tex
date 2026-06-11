@@ -57,6 +57,8 @@ L'application est decoupee en services Docker.
   \item \textbf{watchtower} : service de production qui met a jour les conteneurs quand une nouvelle image Docker Hub est disponible.
 \end{itemize}
 
+L'image PostgreSQL est pinnee sur \texttt{postgres:17}. Il ne faut pas utiliser \texttt{postgres:latest} pour une base de donnees en production, car un changement de version majeure peut rendre le volume existant incompatible sans migration explicite avec \texttt{pg\_upgrade}.
+
 \section{Images Docker}
 
 Les images internes du projet sont publiees sur Docker Hub dans le namespace \texttt{tezzosyris666}.
