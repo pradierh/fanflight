@@ -1,0 +1,224 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\geometry{margin=2.5cm}
+
+\definecolor{codegray}{rgb}{0.95,0.95,0.95}
+\lstset{
+  backgroundcolor=\color{codegray},
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  columns=fullflexible
+}
+
+\title{FanFlight\\Dossier projet}
+\author{Equipe FanFlight}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Presentation du projet}
+
+FanFlight est une application de recherche de vols autour des matchs de la Coupe du Monde 2026.
+L'objectif est de proposer une experience simple pour choisir une ville de depart, consulter des matchs disponibles et visualiser des propositions de vols associees.
+
+Le projet regroupe plusieurs briques techniques :
+
+\begin{itemize}
+  \item un frontend Next.js pour l'interface utilisateur ;
+  \item une API FastAPI pour exposer les donnees de matchs et de vols ;
+  \item une base PostgreSQL pour stocker les donnees applicatives ;
+  \item un pipeline Spark pour transformer les donnees de vols ;
+  \item une chaine CI/CD GitHub Actions vers Docker Hub et une instance EC2.
+\end{itemize}
+
+\section{Architecture applicative}
+
+L'application est decoupee en services Docker.
+
+\begin{itemize}
+  \item \textbf{frontend} : application Next.js exposee en local sur le port \texttt{3000} et en production sur le port HTTP \texttt{80}.
+  \item \textbf{backend-api} : API FastAPI exposee sur le port \texttt{8000}.
+  \item \textbf{db} : base PostgreSQL utilisee par l'API et Spark.
+  \item \textbf{spark-master} : noeud Spark master, avec listener applicatif.
+  \item \textbf{spark-worker} : worker Spark connecte au master.
+  \item \textbf{watchtower} : service de production qui met a jour les conteneurs quand une nouvelle image Docker Hub est disponible.
+\end{itemize}
+
+\section{Images Docker}
+
+Les images internes du projet sont publiees sur Docker Hub dans le namespace \texttt{tezzosyris666}.
+
+\begin{lstlisting}
+tezzosyris666/fanflight-frontend
+tezzosyris666/fanflight-backend-api
+tezzosyris666/fanflight-spark
+\end{lstlisting}
+
+Chaque image est publiee avec deux tags :
+
+\begin{itemize}
+  \item \texttt{latest}, utilise par l'EC2 et Watchtower ;
+  \item \texttt{<git-sha>}, utilise pour retrouver une version precise.
+\end{itemize}
+
+\section{Configuration locale}
+
+Avant de lancer le projet en local, il faut creer un fichier d'environnement a partir du modele fourni.
+
+\begin{lstlisting}[language=bash]
+cp .env.example .env
+\end{lstlisting}
+
+Le fichier \texttt{.env.example} contient les variables minimales :
+
+\begin{lstlisting}
+DB_NAME=airline_data
+DB_USER=root
+DB_PASSWORD=password_test
+DB_HOST=db
+DB_PORT=5432
+API_KEY_SERAPI=
+\end{lstlisting}
+
+La variable \texttt{API\_KEY\_SERAPI} doit etre renseignee si les appels a l'API externe SerpAPI sont necessaires.
+
+\section{Lancement local}
+
+Le fichier \texttt{docker-compose.local.yml} permet de tester une configuration proche de la production, mais en buildant les images depuis le code local.
+Il lance PostgreSQL, Spark master, Spark worker, l'API et le frontend.
+
+\subsection{Demarrer tous les services}
+
+\begin{lstlisting}[language=bash]
+docker compose -f docker-compose.local.yml up --build
+\end{lstlisting}
+
+\subsection{Verifier les services}
+
+\begin{lstlisting}[language=bash]
+curl http://localhost:3000
+curl http://localhost:8000/docs
+docker compose -f docker-compose.local.yml ps
+\end{lstlisting}
+
+Les URLs utiles en local sont :
+
+\begin{itemize}
+  \item frontend : \url{http://localhost:3000}
+  \item documentation API FastAPI : \url{http://localhost:8000/docs}
+  \item Spark master : \url{http://localhost:8080}
+  \item Spark worker : \url{http://localhost:8081}
+\end{itemize}
+
+\subsection{Consulter les logs}
+
+\begin{lstlisting}[language=bash]
+docker compose -f docker-compose.local.yml logs -f db
+docker compose -f docker-compose.local.yml logs -f backend-api
+docker compose -f docker-compose.local.yml logs -f spark-master
+docker compose -f docker-compose.local.yml logs -f spark-worker
+\end{lstlisting}
+
+\subsection{Arreter et nettoyer}
+
+Pour arreter les conteneurs sans supprimer les donnees :
+
+\begin{lstlisting}[language=bash]
+docker compose -f docker-compose.local.yml down
+\end{lstlisting}
+
+Pour supprimer aussi la base PostgreSQL locale :
+
+\begin{lstlisting}[language=bash]
+docker compose -f docker-compose.local.yml down -v
+\end{lstlisting}
+
+\section{CI/CD}
+
+Le workflow GitHub Actions \texttt{.github/workflows/frontend-deploy.yml} se lance lors d'un push sur \texttt{main} ou \texttt{master} si les dossiers applicatifs sont modifies.
+
+Le pipeline execute les etapes suivantes :
+
+\begin{enumerate}
+  \item recuperation du code source ;
+  \item connexion a Docker Hub ;
+  \item build et push des images frontend, API et Spark ;
+  \item connexion SSH a l'instance EC2 ;
+  \item generation du fichier \texttt{/opt/fanflight/docker-compose.yml} ;
+  \item demarrage ou mise a jour des services avec Docker Compose.
+\end{enumerate}
+
+Les secrets GitHub requis sont :
+
+\begin{lstlisting}
+DOCKERHUB_USERNAME=tezzosyris666
+DOCKERHUB_TOKEN=<token Docker Hub>
+RSA=<cle privee SSH de l'EC2>
+\end{lstlisting}
+
+\section{Deploiement EC2}
+
+L'instance EC2 cible est accessible avec :
+
+\begin{lstlisting}[language=bash]
+ssh -i project.pem ubuntu@35.181.62.34
+\end{lstlisting}
+
+En production, les fichiers applicatifs sont stockes dans :
+
+\begin{lstlisting}
+/opt/fanflight/docker-compose.yml
+/opt/fanflight/.env
+\end{lstlisting}
+
+Le fichier \texttt{/opt/fanflight/.env} est conserve entre les deploiements.
+Il faut donc modifier ce fichier directement sur l'EC2 pour changer les variables de production.
+
+\section{Verification production}
+
+Apres un deploiement, les commandes utiles sont :
+
+\begin{lstlisting}[language=bash]
+ssh -i project.pem ubuntu@35.181.62.34
+cd /opt/fanflight
+sudo docker compose ps
+sudo docker logs fanflight_frontend
+sudo docker logs backend_api
+sudo docker logs spark-master
+sudo docker logs spark-worker
+sudo docker logs fanflight_watchtower
+\end{lstlisting}
+
+Le frontend est expose sur :
+
+\begin{lstlisting}
+http://35.181.62.34
+\end{lstlisting}
+
+Le security group AWS doit autoriser le port TCP \texttt{80} depuis Internet.
+Les autres ports exposes par Docker Compose ne doivent etre ouverts que si un besoin technique le justifie.
+
+\section{Points d'attention}
+
+\begin{itemize}
+  \item Les repositories Docker Hub doivent exister avant le premier push d'image.
+  \item Le secret GitHub \texttt{RSA} doit contenir la cle privee complete, sans guillemets.
+  \item Le test local doit etre lance avant un push en production.
+  \item En production, Watchtower met a jour les conteneurs qui suivent le tag \texttt{latest}.
+  \item Le volume PostgreSQL local peut etre supprime avec \texttt{docker compose -f docker-compose.local.yml down -v}.
+\end{itemize}
+
+\end{document}

@@ -123,9 +123,10 @@ jobs:
                 POSTGRES_PASSWORD: \${DB_PASSWORD}
               healthcheck:
                 test: ["CMD-SHELL", "pg_isready -U \${DB_USER} -d \${DB_NAME}"]
+                start_period: 30s
                 interval: 5s
                 timeout: 5s
-                retries: 5
+                retries: 20
               volumes:
                 - postgres_db:/var/lib/postgresql/data
 
@@ -139,6 +140,9 @@ jobs:
                 SPARK_RPC_AUTHENTICATION_ENABLED: "no"
               env_file:
                 - .env
+              depends_on:
+                db:
+                  condition: service_healthy
               ports:
                 - "8080:8080"
                 - "7077:7077"
@@ -240,6 +244,11 @@ jobs:
 
           cd /opt/fanflight
           sudo docker compose pull frontend backend-api spark-master spark-worker
-          sudo docker compose up -d
+          if ! sudo docker compose up -d; then
+            sudo docker compose ps
+            sudo docker logs postgres || true
+            sudo docker logs backend_api || true
+            exit 1
+          fi
           sudo docker image prune -f
           REMOTE

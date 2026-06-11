@@ -1,0 +1,93 @@
+name: fanflight-local
+
+services:
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      start_period: 30s
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - postgres_db_local:/var/lib/postgresql/data
+
+  spark-master:
+    image: ${SPARK_IMAGE:-tezzosyris666/fanflight-spark}:${IMAGE_TAG:-local}
+    build:
+      context: ./data-pipeline/spark
+      dockerfile: Dockerfile
+    user: root
+    restart: unless-stopped
+    environment:
+      SPARK_MODE: master
+      SPARK_RPC_AUTHENTICATION_ENABLED: "no"
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+    command: >
+      bash -c "/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master &
+      sleep 5 &&
+      python3 /opt/spark/scripts/spark_listener.py"
+    working_dir: /opt/spark
+
+  spark-worker:
+    image: ${SPARK_IMAGE:-tezzosyris666/fanflight-spark}:${IMAGE_TAG:-local}
+    build:
+      context: ./data-pipeline/spark
+      dockerfile: Dockerfile
+    user: root
+    restart: unless-stopped
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_RPC_AUTHENTICATION_ENABLED: "no"
+    env_file:
+      - .env
+    depends_on:
+      spark-master:
+        condition: service_started
+    ports:
+      - "8081:8081"
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    working_dir: /opt/spark
+
+  backend-api:
+    image: ${BACKEND_API_IMAGE:-tezzosyris666/fanflight-backend-api}:${IMAGE_TAG:-local}
+    build:
+      context: ./API
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    image: ${FRONTEND_IMAGE:-tezzosyris666/fanflight-frontend}:${IMAGE_TAG:-local}
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+
+volumes:
+  postgres_db_local:

@@ -90,6 +90,46 @@ cd /opt/fanflight
 sudo docker compose up -d
 ```
 
+## Test local avant prod
+
+Un compose local prod-like est disponible dans `docker-compose.local.yml`. Il build les memes images depuis le code local, lance Postgres, Spark master, Spark worker, API et frontend, mais sans Watchtower.
+
+Preparation :
+
+```bash
+cp .env.example .env
+```
+
+Adapter `.env` si besoin, notamment `API_KEY_SERAPI`.
+
+Lancer tout en local :
+
+```bash
+docker compose -f docker-compose.local.yml up --build
+```
+
+Tester les services :
+
+```bash
+curl http://localhost:3000
+curl http://localhost:8000/docs
+docker compose -f docker-compose.local.yml ps
+```
+
+Voir les logs utiles :
+
+```bash
+docker compose -f docker-compose.local.yml logs -f db
+docker compose -f docker-compose.local.yml logs -f backend-api
+docker compose -f docker-compose.local.yml logs -f spark-master
+```
+
+Nettoyer le test local, y compris la base locale :
+
+```bash
+docker compose -f docker-compose.local.yml down -v
+```
+
 ## Verifications sur l'EC2
 
 ```bash
