@@ -3,27 +3,26 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { City } from '@/types';
-import { HOST_CITIES } from '@/data/cities';
+
 
 interface CitySelectorProps {
   selectedCity: City | null;
   onSelectCity: (city: City) => void;
+  cities: City[];  // 
 }
 
-const countryFlags: Record<City['country'], string> = {
-  USA: '🇺🇸',
-  Mexico: '🇲🇽',
-  Canada: '🇨🇦',
-};
-
-export const CitySelector = ({ selectedCity, onSelectCity }: CitySelectorProps) => {
+export const CitySelector = ({
+  selectedCity,
+  onSelectCity,
+  cities
+}: CitySelectorProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredCity, setHoveredCity] = useState<City | null>(null);
 
   const groupedCities = {
-    USA: HOST_CITIES.filter(c => c.country === 'USA'),
-    Mexico: HOST_CITIES.filter(c => c.country === 'Mexico'),
-    Canada: HOST_CITIES.filter(c => c.country === 'Canada'),
+    USA: cities.filter(c => c.country === 'US'),
+    Mexico: cities.filter(c => c.country === 'MX'),
+    Canada: cities.filter(c => c.country === 'CA'),
   };
 
   return (
@@ -61,15 +60,15 @@ export const CitySelector = ({ selectedCity, onSelectCity }: CitySelectorProps) 
         >
           <div className="flex items-center gap-4">
             <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--wc-teal)] to-[var(--wc-teal-dark)] flex items-center justify-center text-2xl">
-              {selectedCity ? countryFlags[selectedCity.country] : '🌎'}
+              {selectedCity ? selectedCity.flag : '🌎'}
             </div>
             <div>
               <p className="text-white/50 text-sm mb-1">I live in</p>
               <p className="text-white text-xl font-semibold">
-                {selectedCity ? selectedCity.name : 'Select your city'}
+                {selectedCity ? selectedCity.city : 'Select your city'}
               </p>
               {selectedCity && (
-                <p className="text-white/40 text-sm">{selectedCity.airportCode}</p>
+                <p className="text-white/40 text-sm">{selectedCity.airport_codes.join(',')}</p>
               )}
             </div>
           </div>
@@ -95,13 +94,13 @@ export const CitySelector = ({ selectedCity, onSelectCity }: CitySelectorProps) 
                 {Object.entries(groupedCities).map(([country, cities]) => (
                   <div key={country} className="mb-4 last:mb-0">
                     <div className="flex items-center gap-2 px-3 py-2 text-white/50 text-sm font-medium">
-                      <span>{countryFlags[country as City['country']]}</span>
+                      <span>{cities[0]?.flag}</span>
                       <span>{country}</span>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
                       {cities.map((city) => (
                         <motion.button
-                          key={city.id}
+                          key={city.id_city}
                           whileHover={{ scale: 1.02, x: 4 }}
                           whileTap={{ scale: 0.98 }}
                           onHoverStart={() => setHoveredCity(city)}
@@ -111,20 +110,19 @@ export const CitySelector = ({ selectedCity, onSelectCity }: CitySelectorProps) 
                             setIsOpen(false);
                           }}
                           className={`p-3 rounded-xl text-left transition-all cursor-pointer ${
-                            selectedCity?.id === city.id
+                            selectedCity?.id_city === city.id_city
                               ? 'bg-[var(--wc-teal)]/20 border border-[var(--wc-teal)]/50'
-                              : hoveredCity?.id === city.id
+                              : hoveredCity?.id_city === city.id_city
                               ? 'bg-white/10'
                               : 'bg-transparent'
                           }`}
                         >
                           <div className="flex items-center justify-between">
                             <div>
-                              <p className="text-white font-medium">{city.name}</p>
-                              <p className="text-white/40 text-xs">{city.stadium}</p>
+                              <p className="text-white font-medium">{city.city}</p>
                             </div>
                             <span className="text-white/30 text-sm font-mono">
-                              {city.airportCode}
+                              {city.airport_codes.join(', ')}  
                             </span>
                           </div>
                         </motion.button>

@@ -14,7 +14,7 @@ cursor = conn.cursor()
 all_data = []
 
 # Lit tous les fichiers JSON sauvegardés
-for file in glob.glob("/app/data/reponse_*.json"):
+for file in glob.glob("/opt/data/raw_data/reponse_*.json"):
     with open(file) as f:
         all_data.append(json.load(f))
 

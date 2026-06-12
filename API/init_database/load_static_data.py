@@ -64,7 +64,7 @@ flags = {
 
 world_cup_data = {
     "New York": {
-        "pays": "USA",
+        "pays": "US",
         "flag": '🇺🇸',
         "airports": [
             ("EWR", "Newark Liberty Intl"),
@@ -80,7 +80,7 @@ world_cup_data = {
         ]
     },
     "Los Angeles": {
-        "pays": "USA",
+        "pays": "US",
         "flag": '🇺🇸',
         "airports": [
             ("LAX", "Los Angeles Intl"),
@@ -97,7 +97,7 @@ world_cup_data = {
         ]
     },
     "San Francisco": {
-        "pays": "USA",
+        "pays": "US",
         "flag": '🇺🇸',
         "airports": [
             ("SFO", "San Francisco Intl"),
@@ -113,7 +113,7 @@ world_cup_data = {
         ]
     },
     "Dallas": {
-        "pays": "USA",
+        "pays": "US",
         "flag": '🇺🇸',
         "airports": [
             ("DFW", "Dallas/Fort Worth Intl"),
@@ -128,7 +128,7 @@ world_cup_data = {
         ]
     },
     "Miami": {
-        "pays": "USA",
+        "pays": "US",
         "flag": '🇺🇸',
         "airports": [
             ("MIA", "Miami Intl"),
@@ -142,7 +142,7 @@ world_cup_data = {
         ]
     },
     "Houston": {
-        "pays": "USA",
+        "pays": "US",
         "flag": '🇺🇸',
         "airports": [
             ("IAH", "George Bush Intercontinental"),
@@ -157,7 +157,7 @@ world_cup_data = {
         ]
     },
     "Atlanta": {
-        "pays": "USA",
+        "pays": "US",
         "flag": '🇺🇸',
         "airports": [
             ("ATL", "Hartsfield-Jackson Atlanta")
@@ -171,7 +171,7 @@ world_cup_data = {
         ]
     },
     "Seattle": {
-        "pays": "USA",
+        "pays": "US",
         "flag": '🇺🇸',
         "airports": [
             ("SEA", "Seattle-Tacoma Intl"),
@@ -185,7 +185,7 @@ world_cup_data = {
         ]
     },
     "Boston": {
-        "pays": "USA",
+        "pays": "US",
         "flag": '🇺🇸',
         "airports": [
             ("BOS", "Boston Logan Intl")
@@ -199,7 +199,7 @@ world_cup_data = {
         ]
     },
     "Philadelphie": {
-        "pays": "USA",
+        "pays": "US",
         "flag": '🇺🇸',
         "airports": [
             ("PHL", "Philadelphia Intl")
@@ -213,7 +213,7 @@ world_cup_data = {
         ]
     },
     "Kansas City": {
-        "pays": "USA",
+        "pays": "US",
         "flag": '🇺🇸',
         "airports": [
             ("MCI", "Kansas City Intl")
@@ -226,7 +226,7 @@ world_cup_data = {
         ]
     },
     "Toronto": {
-        "pays": "CAN",
+        "pays": "CA",
         "flag": '🇨🇦',
         "airports": [
             ("YYZ", "Toronto Pearson Intl"),
@@ -241,7 +241,7 @@ world_cup_data = {
         ]
     },
     "Vancouver": {
-        "pays": "CAN",
+        "pays": "CA",
         "flag": '🇨🇦',
         "airports": [
             ("YVR", "Vancouver Intl")
@@ -255,8 +255,8 @@ world_cup_data = {
         ]
     },
     "Mexico City": {
-        "pays": "MEX",
-        "flag": '🇲🇽'
+        "pays": "MX",
+        "flag": '🇲🇽',
         "airports": [
             ("MEX", "Benito Juárez Intl"),
             ("NLU", "Felipe Ángeles Intl")
@@ -268,8 +268,8 @@ world_cup_data = {
         ]
     },
     "Monterrey": {
-        "pays": "MEX",
-        "flag": '🇲🇽'
+        "pays": "MX",
+        "flag": '🇲🇽',
         "airports": [
             ("MTY", "Monterrey Intl")
         ],
@@ -280,8 +280,8 @@ world_cup_data = {
         ]
     },
     "Guadalajara": {
-        "pays": "MEX",
-        "flag": '🇲🇽'
+        "pays": "MX",
+        "flag": '🇲🇽',
         "airports": [
             ("GDL", "Miguel Hidalgo y Costilla Intl")
         ],
@@ -296,7 +296,7 @@ world_cup_data = {
 
 for team_name, (code,flag) in flags.items():
     cursor.execute('''
-                   INSERT INTO DIM_TEAM (TEAM_NAME, TEAM_CODE, FLAG_EMOJI)
+                   INSERT INTO DIM_TEAM (TEAM_NAME, TEAM_CODE, FLAG)
                    VALUES (%s, %s, %s)
                    ON CONFLICT (TEAM_NAME) DO NOTHING;
                    ''',
@@ -308,11 +308,11 @@ for team_name, (code,flag) in flags.items():
 for city, infos in world_cup_data.items():
 
     cursor.execute('''
-                   INSERT INTO DIM_CITY (CITY, COUNTRY)
-                   VALUES (%s, %s)
+                   INSERT INTO DIM_CITY (CITY, COUNTRY, FLAG, IS_HOST_CITY)
+                   VALUES (%s, %s, %s, %s)
                    ON CONFLICT (CITY) DO NOTHING;
                    ''',
-                   (city, infos['pays'])
+                   (city, infos['pays'], infos['flag'], True )
                    )
     
 for city, infos in world_cup_data.items():
