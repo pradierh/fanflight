@@ -88,6 +88,7 @@ QUERY = """
 
     FROM fact_flight f
     LEFT JOIN fact_flight_weather w ON f.flight_sk = w.flight_sk
+    WHERE f.is_delayed IS NOT NULL
     ORDER BY f.departure_airport_time;
 """
 
@@ -126,26 +127,22 @@ def build():
 
     # Imputations simples pour les vols sans météo
     # (médiane pour les numériques, 0 pour le risque)
-    weather_defaults = {
-        "temperature_c": 20.0,
-        "precipitation_mm": 0.0,
-        "wind_speed_kmh": 10.0,
-        "visibility_m": 10000.0,
-        "snowfall_cm": 0.0,
-    }
-    for col, default in weather_defaults.items():
+    weather_cols = ["temperature_c", "precipitation_mm", "wind_speed_kmh", "visibility_m", "snowfall_cm"]
+    for col in weather_cols:
         median_val = df[col].median()
-        fill_value = median_val if pd.notna(median_val) else default
-        df[col] = df[col].fillna(fill_value)
+        df[col] = df[col].fillna(median_val)
     df["weather_code"] = df["weather_code"].fillna(0).astype(int)
 
-    # Encodage de l'airline (label encoding simple — XGBoost et PyTorch gèrent bien)
-    df["airline_code"] = df["airline"].astype("category").cat.codes
-    df["dep_airport_code"] = df["departure_airport_id"].astype("category").cat.codes
-    df["arr_airport_code"] = df["arrival_airport_id"].astype("category").cat.codes
+    # Encodage catégoriel via le mapping partagé (sorted unique -> code).
+    # IDENTIQUE à ce que feature_builder appliquera à l'inférence.
+    from feature_builder import build_category_mappings, encode_category
+    _mappings = build_category_mappings(df)
+    df["airline_code"]     = df["airline"].map(lambda v: encode_category(v, _mappings["airline"]))
+    df["dep_airport_code"] = df["departure_airport_id"].map(lambda v: encode_category(v, _mappings["departure_airport_id"]))
+    df["arr_airport_code"] = df["arrival_airport_id"].map(lambda v: encode_category(v, _mappings["arrival_airport_id"]))
 
     # Label en int
-    df["is_delayed"] = df["is_delayed"].fillna(False).astype(int)
+    df["is_delayed"] = df["is_delayed"].astype(int)
 
     # ------------------------------------------------------------------
     # Colonnes finales
@@ -171,20 +168,7 @@ def build():
     # Remplir les NaN restants (layover_duration peut être NULL pour vol direct)
     df_out["layover_duration"] = df_out["layover_duration"].fillna(0)
     df_out = df_out.dropna(subset=FEATURE_COLS + [LABEL_COL])
-    
-    # Force les colonnes numériques en float (évite les types Decimal/object
-    # venant de Postgres qui font échouer l'écriture parquet)
-    numeric_cols = [
-        "duration", "layover_duration", "total_journey_duration", "price",
-        "hour_of_day", "day_of_week", "pos",
-        "is_best", "is_overnight", "has_layover",
-        "airline_code", "dep_airport_code", "arr_airport_code",
-        "temperature_c", "precipitation_mm", "weather_code",
-        "wind_speed_kmh", "visibility_m", "snowfall_cm", "weather_risk_score",
-        "is_delayed",
-    ]
-    for col in numeric_cols:
-        df_out[col] = pd.to_numeric(df_out[col], errors="coerce").astype(float)
+
     log.info(f"Dataset final : {len(df_out)} lignes, {len(FEATURE_COLS)} features")
     log.info(f"Taux de retard : {df_out[LABEL_COL].mean():.1%}")
     log.info(f"Distribution label :\n{df_out[LABEL_COL].value_counts()}")
@@ -198,6 +182,18 @@ def build():
 
     log.info(f"Sauvegardé : {parquet_path}")
     log.info(f"Sauvegardé : {csv_path}")
+
+    # ------------------------------------------------------------------
+    # Sauvegarde des mappings d'encodage catégoriel.
+    # CRUCIAL : l'API d'inférence rechargera ce fichier pour encoder les
+    # compagnies/aéroports EXACTEMENT comme à l'entraînement.
+    # On le calcule depuis le df AVANT encodage (qui a encore les colonnes texte).
+    # ------------------------------------------------------------------
+    from feature_builder import build_category_mappings, save_mappings
+    mappings = build_category_mappings(df)  # df contient encore airline, departure_airport_id, etc.
+    mappings_path = OUTPUT_DIR / "category_mappings.json"
+    save_mappings(mappings, mappings_path)
+    log.info(f"Sauvegardé : {mappings_path}")
 
     return df_out
 

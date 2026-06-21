@@ -413,6 +413,29 @@ def main(data_path: Path):
         best_run_id = xgb_run_id if xgb_auc >= nn_auc else nn_run_id
         mlflow.log_param("best_model", best_model)
 
+        # ------------------------------------------------------------------
+        # Promotion du meilleur modèle en stage "Production" du registry.
+        # L'API d'inférence charge toujours models:/<nom>/Production,
+        # donc elle récupère automatiquement le gagnant sans config manuelle.
+        # ------------------------------------------------------------------
+        from mlflow.tracking import MlflowClient
+        client = MlflowClient()
+        best_registered_name = "flight_delay_xgboost" if best_model == "XGBoost" else "flight_delay_nn"
+
+        # Dernière version enregistrée de ce modèle
+        latest = client.get_latest_versions(best_registered_name, stages=["None"])
+        if latest:
+            version = latest[0].version
+            client.transition_model_version_stage(
+                name=best_registered_name,
+                version=version,
+                stage="Production",
+                archive_existing_versions=True,  # archive les anciennes Production
+            )
+            log.info(f"Modèle {best_registered_name} v{version} promu en Production.")
+            mlflow.log_param("production_model", best_registered_name)
+            mlflow.log_param("production_version", version)
+
         log.info(f"\nMeilleur modèle : {best_model} (AUC={max(xgb_auc, nn_auc):.4f})")
         log.info(f"Run parent : {parent_run.info.run_id}")
 
