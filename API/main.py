@@ -8,6 +8,7 @@ import requests
 import json
 
 # --- ML / inférence ---
+import mlflow.xgboost
 import mlflow
 import mlflow.pyfunc
 import numpy as np
@@ -54,11 +55,6 @@ def get_db_connection():
 
 @app.on_event("startup")
 def load_model():
-    """
-    Charge le meilleur modèle (stage Production) depuis le registry MLflow
-    et les mappings d'encodage. Si rien n'est dispo, l'API démarre quand même
-    mais renvoie les vols sans prédiction (champ delay_probability = null).
-    """
     global MODEL, MAPPINGS, MODEL_NAME
     mlflow.set_tracking_uri(MLFLOW_URI)
 
@@ -70,17 +66,34 @@ def load_model():
         print(f"[ML] Mappings introuvables ({e}) — prédictions désactivées.")
         MAPPINGS = None
 
-    # Modèle Production : on tente XGBoost puis NN
-    for uri, name in [(PROD_MODEL_XGB, "xgboost"), (PROD_MODEL_NN, "neural_network")]:
-        try:
-            MODEL = mlflow.pyfunc.load_model(uri)
-            MODEL_NAME = name
-            print(f"[ML] Modèle Production chargé : {name} ({uri})")
-            return
-        except Exception as e:
-            print(f"[ML] Pas de modèle Production pour {name} : {e}")
+    # Chargement direct du booster XGBoost (contourne le bug _estimator_type)
+    try:
+        import xgboost as xgb
+        from mlflow.tracking import MlflowClient
 
-    print("[ML] Aucun modèle Production disponible — l'API renvoie les vols sans score.")
+        client = MlflowClient()
+        # Récupère la dernière version du modèle xgboost (peu importe le stage)
+        versions = client.get_latest_versions("flight_delay_xgboost")
+        if not versions:
+            raise Exception("Aucune version de flight_delay_xgboost")
+        # Prend la version au numéro le plus élevé
+        latest = max(versions, key=lambda v: int(v.version))
+        run_id = latest.run_id
+
+        # Chemin local de l'artefact (le volume est partagé)
+        local_path = client.download_artifacts(run_id, "model/model.xgb")
+        print(f"[ML] Artefact téléchargé : {local_path}")
+
+        booster = xgb.Booster()
+        booster.load_model(local_path)
+        MODEL = booster
+        MODEL_NAME = "xgboost"
+        print(f"[ML] Booster XGBoost chargé (version {latest.version})")
+        return
+    except Exception as e:
+        print(f"[ML] Échec chargement booster XGBoost : {e}")
+
+    print("[ML] Aucun modèle disponible — l'API renvoie les vols sans score.")
     MODEL = None
 
 
@@ -133,10 +146,13 @@ def predict_delay(cursor, flights):
     # pyfunc.predict : selon le modèle, renvoie proba ou classe.
     # On passe par un DataFrame avec les bons noms de colonnes pour XGBoost.
     import pandas as pd
+    import xgboost as xgb
     X_df = pd.DataFrame(X, columns=FEATURE_COLS)
 
     try:
-        preds = MODEL.predict(X_df)
+        # Booster brut : prédit via DMatrix, renvoie directement la proba
+        dmatrix = xgb.DMatrix(X_df)
+        preds = MODEL.predict(dmatrix)
         preds = np.asarray(preds).ravel()
     except Exception as e:
         print(f"[ML] Erreur de prédiction : {e}")
