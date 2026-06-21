@@ -1,104 +1,144 @@
-# Pipeline ML — Prédiction de retard de vols
+# Fanflight — Prédiction de retard de vols (Coupe du Monde 2026)
 
-Prédit si un vol sera en retard (> 30 min) avec un score de probabilité,
-en s'appuyant sur les données Google Flights (champ `often_delayed_by_over_30_min`)
-enrichies par la météo historique (Open-Meteo).
+Système complet de data engineering + ML qui prédit, pour chaque vol amenant un
+supporter à un match, une **probabilité de retard** affichée dans le front.
 
-## Où placer les fichiers
+## Architecture en deux flux
+
+Le projet sépare proprement l'entraînement (passé observé) de l'inférence (futur prédit) :
+
+| Flux | Source | Rôle |
+|---|---|---|
+| **Entraînement** | BTS 2025 (vols US réels) | Apprendre les patterns de retard sur de vraies données |
+| **Application / Inférence** | SerpAPI (vols 2026) | Fournir les vols au front + prédire leur retard |
+
+- **Entraînement** : vols réellement effectués (mai-juin-juillet 2025, source BTS),
+  retard réellement observé (`ArrDelayMinutes > 15` OU vol annulé), météo réelle
+  du jour du vol (Open-Meteo). Cohérence temporelle complète.
+- **Inférence** : l'API charge le modèle entraîné et score en temps réel les vols
+  2026 renvoyés par SerpAPI.
+
+## Structure du projet
 
 ```
-project-root/
-├── docker-compose.yml              <- REMPLACE l'ancien
-├── .env                            <- ajoute API_KEY_SERAPI
+fanflight/
+├── docker-compose.yml
+├── .env
 ├── API/
+│   ├── main.py                  # API + chargement modèle + prédiction
+│   ├── feature_builder.py       # encodage features (partagé)
+│   ├── requirements.txt         # inclut mlflow, xgboost, pandas
 │   └── init_database/
-│       ├── init_db.py              <- REMPLACE (ajoute is_delayed, lat/lon, table météo)
-│       └── load_static_data.py     <- REMPLACE (ajoute les coordonnées aéroports)
+│       ├── init_db.py
+│       └── load_static_data.py
 └── data-pipeline/
+    ├── data/
+    │   ├── bts_raw/             # zips BTS téléchargés à la main
+    │   └── raw_data/           # cache réponses SerpAPI (replay_job)
     ├── spark/scripts/
-    │   ├── process_flight.py       <- PATCHE (voir patch_process_flight.py)
-    │   └── stg_to_fact.py          <- PATCHE (voir patch_process_flight.py)
-    └── ml/                         <- NOUVEAU DOSSIER
-        ├── Dockerfile              <- (Dockerfile.ml renommé en Dockerfile)
-        ├── requirements_ml.txt
-        ├── init_mlflow_db.py
-        ├── fetch_weather.py
+    │   ├── process_flight.py
+    │   ├── spark_listener.py
+    │   └── stg_to_fact.py
+    └── ml/
+        ├── feature_builder.py
         ├── build_training_set.py
         ├── train.py
-        └── drift_monitor.py
+        ├── drift_monitor.py
+        ├── fetch_weather.py
+        ├── init_mlflow_db.py
+        └── bts/
+            ├── download_bts.py
+            ├── enrich_bts_weather.py
+            ├── build_training_set_bts.py
+            └── feature_builder.py
 ```
 
-## Ordre d'exécution
+## Mise en route
 
 ### 1. Démarrer l'infra
 ```bash
-docker compose up --build -d
+docker compose up -d
+docker compose ps   # attendre que postgres soit healthy
 ```
-Cela lance : Postgres, Spark (master+worker), API FastAPI, MLflow, et le conteneur ML (dormant).
+Lance : Postgres, Spark (master+worker), API FastAPI, MLflow, conteneur ML (dormant).
 
 ### 2. Créer la base MLflow (une seule fois)
 ```bash
 docker compose run --rm ml python init_mlflow_db.py
+docker compose restart mlflow
 ```
-MLflow redémarre proprement ensuite. UI accessible sur http://localhost:5000
+UI MLflow : http://localhost:5000
 
-### 3. Alimenter FACT_FLIGHT
-Appelle l'API pour déclencher l'ingestion Spark sur quelques matchs :
+## Entraînement sur données réelles BTS
+
+### 3. Télécharger les données BTS (manuel)
+Le domaine transtats.bts.gov est bloqué par le réseau Docker. Télécharge à la main :
+- transtats.bts.gov/PREZIP/On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2025_5.zip
+- ...2025_6.zip
+- ...2025_7.zip
+
+Renommer en `bts_2025_5.zip`, `bts_2025_6.zip`, `bts_2025_7.zip`
+et placer dans `data-pipeline/data/bts_raw/`.
+
+### 4. Charger, enrichir, construire
 ```bash
-curl "http://localhost:8000/api/flights/1?departure_city=Miami"
-curl "http://localhost:8000/api/flights/2?departure_city=Dallas"
-# etc. — plus tu fais d'appels, plus ton dataset grandit
+docker compose run --rm ml python bts/download_bts.py --from-local
+docker compose run --rm ml python bts/enrich_bts_weather.py
+docker compose run --rm ml python bts/build_training_set_bts.py
 ```
 
-### 4. Enrichir avec la météo
-```bash
-docker compose run --rm ml python fetch_weather.py
-```
-
-### 5. Construire le dataset d'entraînement
-```bash
-docker compose run --rm ml python build_training_set.py
-```
-Génère `data-pipeline/data/training_set.parquet`
-
-### 6. Entraîner et comparer les modèles
+### 5. Entraîner (XGBoost + réseau de neurones)
 ```bash
 docker compose run --rm ml python train.py
 ```
-Entraîne XGBoost + réseau de neurones, log tout dans MLflow, versionne les modèles.
+Compare les deux modèles, versionne dans MLflow, promeut le meilleur en Production.
 
-### 7. Monitorer la dérive
+## Brancher l'API sur le modèle (serving)
+
+### 6. Rebuild l'API et tester
 ```bash
-# Avec un nouveau batch :
-docker compose run --rm ml python drift_monitor.py --current /opt/data/new_batch.parquet
+docker compose up -d --build backend-api
+curl "http://localhost:8000/health"          # model_loaded: true attendu
+curl "http://localhost:8000/api/flights/1?departure_city=Miami"
+```
+Chaque vol renvoyé contient `delay_probability`, `delay_prediction`, `model_used`.
 
-# Sans batch (simulation de dérive pour démo) :
+## Monitoring de dérive
+```bash
 docker compose run --rm ml python drift_monitor.py
 ```
+PSI + KS-test entre la référence et un nouveau batch (simulé si non fourni).
 
-## Points d'attention (à mentionner au rapport)
+## Résultats actuels (à citer dans le rapport)
 
-- **Volume de données** : avec ~268 legs, les scores (AUC ~0.97 en test) sont
-  optimistes et instables. La performance n'est fiable qu'avec plus de volume.
-  Multiplie les appels API pour grossir le dataset.
+- **Volume** : 628 704 vols réels BTS (vs 246 dans l'ancienne approche Google).
+- **Taux de retard observé** : 27,8 % (réaliste pour le domestique US estival).
+- **Performance** : XGBoost AUC = 0,728, réseau de neurones AUC = 0,713.
+  Scores fiables car calculés sur des dizaines de milliers de vols de test.
+- **Modèle retenu** : XGBoost (légèrement supérieur, classique sur le tabulaire),
+  promu en Production et servi par l'API.
 
-- **Label synthétique partiel** : `often_delayed_by_over_30_min` vient de Google
-  Flights — c'est une probabilité historique, pas un retard observé sur CE vol.
-  C'est honnête et défendable, mais à expliciter.
+## Limites assumées (transparence rapport)
 
-- **Météo en N-1** : les vols de juin 2026 utilisent la météo de juin 2025 à
-  l'aéroport de départ (approximation saisonnière). Documenté dans fetch_weather.py.
+- **Durée dérivée de la distance** : le BTS chargé ne contient pas le temps de
+  vol, on l'approxime via la distance. Documenté dans build_training_set_bts.py.
+- **Prix absent du BTS** : feature `price` neutralisée à l'entraînement
+  (constante). Le modèle s'appuie surtout sur l'heure, la compagnie, la météo.
+- **Vols directs uniquement** : le BTS ne couvre pas les correspondances, donc
+  `layover_duration`, `is_best`, `pos` = 0 à l'entraînement. À l'inférence, les
+  vols SerpAPI avec escale sont scorés segment par segment.
+- **Serving par volume partagé** : les artefacts MLflow sont partagés entre
+  conteneurs via volume. En production réelle, on servirait les artefacts en
+  HTTP via le serveur MLflow.
 
-- **Déséquilibre** : 34% de retards. Géré par `scale_pos_weight` (XGBoost) et
-  `pos_weight` dans la BCE (réseau de neurones). Pas de SMOTE nécessaire.
-
-## Features utilisées
+## Features utilisées (20)
 
 | Catégorie | Features |
 |---|---|
 | Vol | duration, layover_duration, total_journey_duration, price, pos, is_best |
-| Temporel | hour_of_day, day_of_week, is_overnight |
-| Catégoriel | airline, departure_airport_id, arrival_airport_id (label-encodés) |
+| Temporel | hour_of_day, day_of_week, is_overnight, has_layover |
+| Catégoriel | airline, departure_airport_id, arrival_airport_id (encodés via mapping sauvegardé) |
 | Météo | temperature_c, precipitation_mm, weather_code, wind_speed_kmh, visibility_m, snowfall_cm, weather_risk_score |
 
-Label : `is_delayed` (binaire)
+Label : `is_delayed` (binaire — retard arrivée > 15 min OU annulé)
+```
