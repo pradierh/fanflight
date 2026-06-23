@@ -73,7 +73,12 @@ services:
     depends_on:
       db:
         condition: service_healthy                # L'API attend que la base de données soit lancée
-                    
 
+  frontend:
+    build: ./frontend  # ← build depuis le Dockerfile
+    container_name: frontend
+    ports:
+      - "3000:3000"
+                    
 volumes:
   postgres_db:

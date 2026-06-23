@@ -2,8 +2,9 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 from pyspark.sql.types import ArrayType, StructType, StructField, IntegerType, StringType, BooleanType
 import os
-from stg_to_fact import stg_to_fact_flight
 import sys
+from stg_to_fact import stg_to_fact_flight
+
 
 job_id = sys.argv[1]
 
@@ -34,8 +35,6 @@ sample = df_raw.select("json_data").first()["json_data"]
 schema = schema_of_json(sample)
 
 df = df_raw.withColumn("parsed", from_json(col("json_data"), schema)).select(explode(col("parsed")).alias("response"))
-
-#df = spark.read.option("multiLine",True).json("/opt/spark/data/raw_data/lot_reponses_api.json")
 
 layover_schema = ArrayType(StructType([
     StructField("duration", IntegerType(), True),
@@ -82,11 +81,12 @@ df_detail_best_flight = df_detail_best_flight.withColumn("flight_sk",
 
 df_detail_best_flight = df_detail_best_flight.select(
                         "journey_sk",
-                        col("flight.departure_airport.id").alias("departure_airport_id"),
+                        col("flight.departure_airport.id").alias("departure_airport_code"),
                         col("flight.departure_airport.time").cast("timestamp").alias("departure_airport_time"),
-                        col("flight.arrival_airport.id").alias("arrival_airport_id"),
+                        col("flight.arrival_airport.id").alias("arrival_airport_code"),
                         col("flight.arrival_airport.time").cast("timestamp").alias("arrival_airport_time"),
                         col("flight.duration").alias("duration"),
+                        col("flight.flight_number"),
                         get(col("layovers"),col("pos")).getField("duration").alias("layover_duration"),
                         "total_journey_duration",
                         "price",
@@ -137,11 +137,12 @@ df_detail_other_flight = df_detail_other_flight.withColumn("flight_sk",
 
 df_detail_other_flight = df_detail_other_flight.select(
                         "journey_sk",
-                        col("flight.departure_airport.id").alias("departure_airport_id"),
+                        col("flight.departure_airport.id").alias("departure_airport_code"),
                         col("flight.departure_airport.time").cast("timestamp").alias("departure_airport_time"),
-                        col("flight.arrival_airport.id").alias("arrival_airport_id"),
+                        col("flight.arrival_airport.id").alias("arrival_airport_code"),
                         col("flight.arrival_airport.time").cast("timestamp").alias("arrival_airport_time"), #change le type en timestamp pour injestion en bd
                         col("flight.duration").alias("duration"),
+                        col("flight.flight_number"),
                         get(col("layovers"),col("pos")).getField("duration").alias("layover_duration"),
                         "total_journey_duration",
                         "price",
@@ -152,15 +153,14 @@ df_detail_other_flight = df_detail_other_flight.select(
                         "is_best",
                         "pos")
 
-df_detail_best_flight.show()
-df_detail_other_flight.show()
 
 
 df_final_to_load = df_detail_best_flight.unionByName(df_detail_other_flight)
 
+df_clean = df_final_to_load.dropDuplicates(["flight_sk"])
 
 try:
-    df_final_to_load.write.jdbc(
+    df_clean.write.jdbc(
         url=url,
         table="STG_FLIGHT",
         mode="overwrite",

@@ -1,0 +1,1014 @@
+{
+  "search_metadata": {
+    "id": "6a2294e36561a674c1d490e0",
+    "status": "Success",
+    "json_endpoint": "https://serpapi.com/searches/9BeLfGvtVYJ5DknHcQ3jvQ/6a2294e36561a674c1d490e0.json",
+    "created_at": "2026-06-05 09:20:35 UTC",
+    "processed_at": "2026-06-05 09:20:35 UTC",
+    "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTI0agcIARIDSkZLcgcIARIDU05BQAFIAXABmAEC&tfu=EgIIAQ",
+    "raw_html_file": "https://serpapi.com/searches/9BeLfGvtVYJ5DknHcQ3jvQ/6a2294e36561a674c1d490e0.html",
+    "prettify_html_file": "https://serpapi.com/searches/9BeLfGvtVYJ5DknHcQ3jvQ/6a2294e36561a674c1d490e0.prettify",
+    "total_time_taken": 1.01
+  },
+  "search_parameters": {
+    "engine": "google_flights",
+    "hl": "fr",
+    "gl": "us",
+    "type": "2",
+    "departure_id": "JFK",
+    "arrival_id": "SNA",
+    "outbound_date": "2026-06-24",
+    "currency": "EUR"
+  },
+  "best_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Aéroport international John F. Kennedy",
+            "id": "JFK",
+            "time": "2026-06-24 07:15"
+          },
+          "arrival_airport": {
+            "name": "Aéroport John-Wayne",
+            "id": "SNA",
+            "time": "2026-06-24 10:26"
+          },
+          "duration": 371,
+          "airplane": "Airbus A321 (Sharklets)",
+          "airline": "American",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+          "travel_class": "Economy",
+          "flight_number": "AA 2683",
+          "legroom": "79 cm",
+          "extensions": [
+            "Average legroom (79 cm)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "Stream media to your device",
+            "Carbon emissions estimate: 552 kg"
+          ]
+        }
+      ],
+      "total_duration": 371,
+      "carbon_emissions": {
+        "this_flight": 553000,
+        "typical_for_this_route": 336000,
+        "difference_percent": 65
+      },
+      "price": 347,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+      "extensions": [
+        "Checked baggage for a fee"
+      ],
+      "booking_token": "WyJDalJJWDJWZlN5MHhVRlF3V0RSQlJFbHNhR2RDUnkwdExTMHRkbmRpYlhjeE5pMXVNa0ZCUVVGQlIyOXBiRTlSUzJwTFRrbEJFZ1pCUVRJMk9ETWFDd2pvamdJUUFob0RSVlZTT0J4d2xMc0MiLFtbIkpGSyIsIjIwMjYtMDYtMjQiLCJTTkEiLG51bGwsIkFBIiwiMjY4MyJdXV0="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Aéroport international John F. Kennedy",
+            "id": "JFK",
+            "time": "2026-06-24 08:15"
+          },
+          "arrival_airport": {
+            "name": "Aéroport international de Dallas-Fort Worth",
+            "id": "DFW",
+            "time": "2026-06-24 11:15"
+          },
+          "duration": 240,
+          "airplane": "Boeing 737",
+          "airline": "American",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+          "travel_class": "Economy",
+          "flight_number": "AA 2234",
+          "legroom": "76 cm",
+          "extensions": [
+            "Average legroom (76 cm)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "Stream media to your device",
+            "Carbon emissions estimate: 179 kg"
+          ]
+        },
+        {
+          "departure_airport": {
+            "name": "Aéroport international de Dallas-Fort Worth",
+            "id": "DFW",
+            "time": "2026-06-24 12:23"
+          },
+          "arrival_airport": {
+            "name": "Aéroport John-Wayne",
+            "id": "SNA",
+            "time": "2026-06-24 13:38"
+          },
+          "duration": 195,
+          "airplane": "Boeing 737MAX 8 Passenger",
+          "airline": "American",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+          "travel_class": "Economy",
+          "flight_number": "AA 2684",
+          "legroom": "76 cm",
+          "extensions": [
+            "Average legroom (76 cm)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "Stream media to your device",
+            "Carbon emissions estimate: 133 kg"
+          ]
+        }
+      ],
+      "layovers": [
+        {
+          "duration": 68,
+          "name": "Aéroport international de Dallas-Fort Worth",
+          "id": "DFW"
+        }
+      ],
+      "total_duration": 503,
+      "carbon_emissions": {
+        "this_flight": 314000,
+        "typical_for_this_route": 336000,
+        "difference_percent": -7
+      },
+      "price": 356,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+      "extensions": [
+        "Checked baggage for a fee"
+      ],
+      "booking_token": "WyJDalJJWDJWZlN5MHhVRlF3V0RSQlJFbHNhR2RDUnkwdExTMHRkbmRpYlhjeE5pMXVNa0ZCUVVGQlIyOXBiRTlSUzJwTFRrbEJFZzFCUVRJeU16UjhRVUV5TmpnMEdnc0lzcFVDRUFJYUEwVlZVamdjY09qQ0FnPT0iLFtbIkpGSyIsIjIwMjYtMDYtMjQiLCJERlciLG51bGwsIkFBIiwiMjIzNCJdLFsiREZXIiwiMjAyNi0wNi0yNCIsIlNOQSIsbnVsbCwiQUEiLCIyNjg0Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Aéroport international John F. Kennedy",
+            "id": "JFK",
+            "time": "2026-06-24 07:35"
+          },
+          "arrival_airport": {
+            "name": "Aéroport John-Wayne",
+            "id": "SNA",
+            "time": "2026-06-24 10:32"
+          },
+          "duration": 357,
+          "airplane": "Boeing 757",
+          "airline": "Delta",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+          "travel_class": "Economy",
+          "flight_number": "DL 403",
+          "legroom": "79 cm",
+          "extensions": [
+            "Average legroom (79 cm)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "Live TV",
+            "Carbon emissions estimate: 442 kg"
+          ]
+        }
+      ],
+      "total_duration": 357,
+      "carbon_emissions": {
+        "this_flight": 442000,
+        "typical_for_this_route": 336000,
+        "difference_percent": 32
+      },
+      "price": 455,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/DL.png",
+      "extensions": [
+        "Checked baggage for a fee"
+      ],
+      "booking_token": "WyJDalJJWDJWZlN5MHhVRlF3V0RSQlJFbHNhR2RDUnkwdExTMHRkbmRpYlhjeE5pMXVNa0ZCUVVGQlIyOXBiRTlSUzJwTFRrbEJFZ1ZFVERRd014b0xDTjNpQWhBQ0dnTkZWVkk0SEhEb25BTT0iLFtbIkpGSyIsIjIwMjYtMDYtMjQiLCJTTkEiLG51bGwsIkRMIiwiNDAzIl1dXQ=="
+    }
+  ],
+  "other_flights": [
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Aéroport international John F. Kennedy",
+            "id": "JFK",
+            "time": "2026-06-24 09:29"
+          },
+          "arrival_airport": {
+            "name": "Aéroport de Phoenix-Sky Harbor",
+            "id": "PHX",
+            "time": "2026-06-24 11:54"
+          },
+          "duration": 325,
+          "airplane": "Boeing 737MAX 8 Passenger",
+          "airline": "American",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+          "travel_class": "Economy",
+          "flight_number": "AA 1769",
+          "legroom": "76 cm",
+          "extensions": [
+            "Average legroom (76 cm)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "Stream media to your device",
+            "Carbon emissions estimate: 215 kg"
+          ]
+        },
+        {
+          "departure_airport": {
+            "name": "Aéroport de Phoenix-Sky Harbor",
+            "id": "PHX",
+            "time": "2026-06-24 14:15"
+          },
+          "arrival_airport": {
+            "name": "Aéroport John-Wayne",
+            "id": "SNA",
+            "time": "2026-06-24 15:34"
+          },
+          "duration": 79,
+          "airplane": "Airbus A321neo",
+          "airline": "American",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+          "travel_class": "Economy",
+          "flight_number": "AA 2659",
+          "legroom": "76 cm",
+          "extensions": [
+            "Average legroom (76 cm)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "Stream media to your device",
+            "Carbon emissions estimate: 56 kg"
+          ],
+          "often_delayed_by_over_30_min": true
+        }
+      ],
+      "layovers": [
+        {
+          "duration": 141,
+          "name": "Aéroport de Phoenix-Sky Harbor",
+          "id": "PHX"
+        }
+      ],
+      "total_duration": 545,
+      "carbon_emissions": {
+        "this_flight": 272000,
+        "typical_for_this_route": 336000,
+        "difference_percent": -19
+      },
+      "price": 356,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+      "extensions": [
+        "Checked baggage for a fee"
+      ],
+      "booking_token": "WyJDalJJWDJWZlN5MHhVRlF3V0RSQlJFbHNhR2RDUnkwdExTMHRkbmRpYlhjeE5pMXVNa0ZCUVVGQlIyOXBiRTlSUzJwTFRrbEJFZzFCUVRFM05qbDhRVUV5TmpVNUdnc0lzcFVDRUFJYUEwVlZVamdjY09qQ0FnPT0iLFtbIkpGSyIsIjIwMjYtMDYtMjQiLCJQSFgiLG51bGwsIkFBIiwiMTc2OSJdLFsiUEhYIiwiMjAyNi0wNi0yNCIsIlNOQSIsbnVsbCwiQUEiLCIyNjU5Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Aéroport international John F. Kennedy",
+            "id": "JFK",
+            "time": "2026-06-24 12:42"
+          },
+          "arrival_airport": {
+            "name": "Aéroport de Phoenix-Sky Harbor",
+            "id": "PHX",
+            "time": "2026-06-24 15:05"
+          },
+          "duration": 323,
+          "airplane": "Boeing 737MAX 8 Passenger",
+          "airline": "American",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+          "travel_class": "Economy",
+          "flight_number": "AA 2829",
+          "legroom": "76 cm",
+          "extensions": [
+            "Average legroom (76 cm)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "Stream media to your device",
+            "Carbon emissions estimate: 215 kg"
+          ]
+        },
+        {
+          "departure_airport": {
+            "name": "Aéroport de Phoenix-Sky Harbor",
+            "id": "PHX",
+            "time": "2026-06-24 17:28"
+          },
+          "arrival_airport": {
+            "name": "Aéroport John-Wayne",
+            "id": "SNA",
+            "time": "2026-06-24 18:47"
+          },
+          "duration": 79,
+          "airplane": "Boeing 737MAX 8 Passenger",
+          "airline": "American",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+          "travel_class": "Economy",
+          "flight_number": "AA 2685",
+          "legroom": "76 cm",
+          "extensions": [
+            "Average legroom (76 cm)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "Stream media to your device",
+            "Carbon emissions estimate: 59 kg"
+          ],
+          "often_delayed_by_over_30_min": true
+        }
+      ],
+      "layovers": [
+        {
+          "duration": 143,
+          "name": "Aéroport de Phoenix-Sky Harbor",
+          "id": "PHX"
+        }
+      ],
+      "total_duration": 545,
+      "carbon_emissions": {
+        "this_flight": 275000,
+        "typical_for_this_route": 336000,
+        "difference_percent": -18
+      },
+      "price": 356,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+      "extensions": [
+        "Checked baggage for a fee"
+      ],
+      "booking_token": "WyJDalJJWDJWZlN5MHhVRlF3V0RSQlJFbHNhR2RDUnkwdExTMHRkbmRpYlhjeE5pMXVNa0ZCUVVGQlIyOXBiRTlSUzJwTFRrbEJFZzFCUVRJNE1qbDhRVUV5TmpnMUdnc0lzcFVDRUFJYUEwVlZVamdjY09qQ0FnPT0iLFtbIkpGSyIsIjIwMjYtMDYtMjQiLCJQSFgiLG51bGwsIkFBIiwiMjgyOSJdLFsiUEhYIiwiMjAyNi0wNi0yNCIsIlNOQSIsbnVsbCwiQUEiLCIyNjg1Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Aéroport international John F. Kennedy",
+            "id": "JFK",
+            "time": "2026-06-24 09:30"
+          },
+          "arrival_airport": {
+            "name": "Aéroport international de San Francisco",
+            "id": "SFO",
+            "time": "2026-06-24 12:52"
+          },
+          "duration": 382,
+          "airplane": "Boeing 737",
+          "airline": "Alaska",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+          "travel_class": "Economy",
+          "flight_number": "AS 227",
+          "legroom": "79 cm",
+          "extensions": [
+            "Average legroom (79 cm)",
+            "Wi-Fi for a fee",
+            "In-seat power & USB outlets",
+            "Stream media to your device",
+            "Carbon emissions estimate: 311 kg"
+          ]
+        },
+        {
+          "departure_airport": {
+            "name": "Aéroport international de San Francisco",
+            "id": "SFO",
+            "time": "2026-06-24 15:48"
+          },
+          "arrival_airport": {
+            "name": "Aéroport John-Wayne",
+            "id": "SNA",
+            "time": "2026-06-24 17:26"
+          },
+          "duration": 98,
+          "airplane": "Embraer 175",
+          "airline": "Alaska",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+          "travel_class": "Economy",
+          "flight_number": "AS 3494",
+          "legroom": "79 cm",
+          "extensions": [
+            "Average legroom (79 cm)",
+            "Free Wi-Fi",
+            "Stream media to your device",
+            "Carbon emissions estimate: 103 kg"
+          ],
+          "often_delayed_by_over_30_min": true,
+          "plane_and_crew_by": "SkyWest Airlines as Alaska SkyWest"
+        }
+      ],
+      "layovers": [
+        {
+          "duration": 176,
+          "name": "Aéroport international de San Francisco",
+          "id": "SFO"
+        }
+      ],
+      "total_duration": 656,
+      "carbon_emissions": {
+        "this_flight": 415000,
+        "typical_for_this_route": 336000,
+        "difference_percent": 24
+      },
+      "price": 424,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+      "extensions": [
+        "Checked baggage for a fee"
+      ],
+      "booking_token": "WyJDalJJWDJWZlN5MHhVRlF3V0RSQlJFbHNhR2RDUnkwdExTMHRkbmRpYlhjeE5pMXVNa0ZCUVVGQlIyOXBiRTlSUzJwTFRrbEJFZ3hCVXpJeU4zeEJVek0wT1RRYUN3aU55d0lRQWhvRFJWVlNPQnh3cVlFRCIsW1siSkZLIiwiMjAyNi0wNi0yNCIsIlNGTyIsbnVsbCwiQVMiLCIyMjciXSxbIlNGTyIsIjIwMjYtMDYtMjQiLCJTTkEiLG51bGwsIkFTIiwiMzQ5NCJdXV0="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Aéroport international John F. Kennedy",
+            "id": "JFK",
+            "time": "2026-06-24 17:20"
+          },
+          "arrival_airport": {
+            "name": "Aéroport de Phoenix-Sky Harbor",
+            "id": "PHX",
+            "time": "2026-06-24 19:55"
+          },
+          "duration": 335,
+          "airplane": "Boeing 737MAX 8 Passenger",
+          "airline": "American",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+          "travel_class": "Economy",
+          "flight_number": "AA 2339",
+          "legroom": "76 cm",
+          "extensions": [
+            "Average legroom (76 cm)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "Stream media to your device",
+            "Carbon emissions estimate: 215 kg"
+          ]
+        },
+        {
+          "departure_airport": {
+            "name": "Aéroport de Phoenix-Sky Harbor",
+            "id": "PHX",
+            "time": "2026-06-24 21:02"
+          },
+          "arrival_airport": {
+            "name": "Aéroport John-Wayne",
+            "id": "SNA",
+            "time": "2026-06-24 22:19"
+          },
+          "duration": 77,
+          "airplane": "Boeing 737MAX 8 Passenger",
+          "airline": "American",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+          "travel_class": "Economy",
+          "flight_number": "AA 2637",
+          "legroom": "76 cm",
+          "extensions": [
+            "Average legroom (76 cm)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "Stream media to your device",
+            "Carbon emissions estimate: 59 kg"
+          ]
+        }
+      ],
+      "layovers": [
+        {
+          "duration": 67,
+          "name": "Aéroport de Phoenix-Sky Harbor",
+          "id": "PHX"
+        }
+      ],
+      "total_duration": 479,
+      "carbon_emissions": {
+        "this_flight": 275000,
+        "typical_for_this_route": 336000,
+        "difference_percent": -18
+      },
+      "price": 475,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+      "extensions": [
+        "Checked baggage for a fee"
+      ],
+      "booking_token": "WyJDalJJWDJWZlN5MHhVRlF3V0RSQlJFbHNhR2RDUnkwdExTMHRkbmRpYlhjeE5pMXVNa0ZCUVVGQlIyOXBiRTlSUzJwTFRrbEJFZzFCUVRJek16bDhRVUV5TmpNM0dnc0kydklDRUFJYUEwVlZVamdjY0xTdkF3PT0iLFtbIkpGSyIsIjIwMjYtMDYtMjQiLCJQSFgiLG51bGwsIkFBIiwiMjMzOSJdLFsiUEhYIiwiMjAyNi0wNi0yNCIsIlNOQSIsbnVsbCwiQUEiLCIyNjM3Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Aéroport international John F. Kennedy",
+            "id": "JFK",
+            "time": "2026-06-24 11:29"
+          },
+          "arrival_airport": {
+            "name": "Aéroport international de Dallas-Fort Worth",
+            "id": "DFW",
+            "time": "2026-06-24 14:28"
+          },
+          "duration": 239,
+          "airplane": "Boeing 737",
+          "airline": "American",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+          "travel_class": "Economy",
+          "flight_number": "AA 2049",
+          "legroom": "76 cm",
+          "extensions": [
+            "Average legroom (76 cm)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "Stream media to your device",
+            "Carbon emissions estimate: 179 kg"
+          ]
+        },
+        {
+          "departure_airport": {
+            "name": "Aéroport international de Dallas-Fort Worth",
+            "id": "DFW",
+            "time": "2026-06-24 16:24"
+          },
+          "arrival_airport": {
+            "name": "Aéroport John-Wayne",
+            "id": "SNA",
+            "time": "2026-06-24 17:34"
+          },
+          "duration": 190,
+          "airplane": "Boeing 737MAX 8 Passenger",
+          "airline": "American",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+          "travel_class": "Economy",
+          "flight_number": "AA 2668",
+          "legroom": "76 cm",
+          "extensions": [
+            "Average legroom (76 cm)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "Stream media to your device",
+            "Carbon emissions estimate: 133 kg"
+          ],
+          "often_delayed_by_over_30_min": true
+        }
+      ],
+      "layovers": [
+        {
+          "duration": 116,
+          "name": "Aéroport international de Dallas-Fort Worth",
+          "id": "DFW"
+        }
+      ],
+      "total_duration": 545,
+      "carbon_emissions": {
+        "this_flight": 314000,
+        "typical_for_this_route": 336000,
+        "difference_percent": -7
+      },
+      "price": 496,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+      "extensions": [
+        "Checked baggage for a fee"
+      ],
+      "booking_token": "WyJDalJJWDJWZlN5MHhVRlF3V0RSQlJFbHNhR2RDUnkwdExTMHRkbmRpYlhjeE5pMXVNa0ZCUVVGQlIyOXBiRTlSUzJwTFRrbEJFZzFCUVRJd05EbDhRVUV5TmpZNEdnc0k2WUlERUFJYUEwVlZVamdjY0pYQ0F3PT0iLFtbIkpGSyIsIjIwMjYtMDYtMjQiLCJERlciLG51bGwsIkFBIiwiMjA0OSJdLFsiREZXIiwiMjAyNi0wNi0yNCIsIlNOQSIsbnVsbCwiQUEiLCIyNjY4Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Aéroport international John F. Kennedy",
+            "id": "JFK",
+            "time": "2026-06-24 11:30"
+          },
+          "arrival_airport": {
+            "name": "Aéroport international de San Francisco",
+            "id": "SFO",
+            "time": "2026-06-24 14:50"
+          },
+          "duration": 380,
+          "airplane": "Boeing 737",
+          "airline": "Alaska",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+          "travel_class": "Economy",
+          "flight_number": "AS 41",
+          "legroom": "79 cm",
+          "extensions": [
+            "Average legroom (79 cm)",
+            "Wi-Fi for a fee",
+            "In-seat power & USB outlets",
+            "Stream media to your device",
+            "Carbon emissions estimate: 311 kg"
+          ]
+        },
+        {
+          "departure_airport": {
+            "name": "Aéroport international de San Francisco",
+            "id": "SFO",
+            "time": "2026-06-24 15:48"
+          },
+          "arrival_airport": {
+            "name": "Aéroport John-Wayne",
+            "id": "SNA",
+            "time": "2026-06-24 17:26"
+          },
+          "duration": 98,
+          "airplane": "Embraer 175",
+          "airline": "Alaska",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+          "travel_class": "Economy",
+          "flight_number": "AS 3494",
+          "legroom": "79 cm",
+          "extensions": [
+            "Average legroom (79 cm)",
+            "Free Wi-Fi",
+            "Stream media to your device",
+            "Carbon emissions estimate: 103 kg"
+          ],
+          "often_delayed_by_over_30_min": true,
+          "plane_and_crew_by": "SkyWest Airlines as Alaska SkyWest"
+        }
+      ],
+      "layovers": [
+        {
+          "duration": 58,
+          "name": "Aéroport international de San Francisco",
+          "id": "SFO"
+        }
+      ],
+      "total_duration": 536,
+      "carbon_emissions": {
+        "this_flight": 415000,
+        "typical_for_this_route": 336000,
+        "difference_percent": 24
+      },
+      "price": 505,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AS.png",
+      "extensions": [
+        "Checked baggage for a fee"
+      ],
+      "booking_token": "WyJDalJJWDJWZlN5MHhVRlF3V0RSQlJFbHNhR2RDUnkwdExTMHRkbmRpYlhjeE5pMXVNa0ZCUVVGQlIyOXBiRTlSUzJwTFRrbEJFZ3RCVXpReGZFRlRNelE1TkJvTENKcUtBeEFDR2dORlZWSTRISERoeWdNPSIsW1siSkZLIiwiMjAyNi0wNi0yNCIsIlNGTyIsbnVsbCwiQVMiLCI0MSJdLFsiU0ZPIiwiMjAyNi0wNi0yNCIsIlNOQSIsbnVsbCwiQVMiLCIzNDk0Il1dXQ=="
+    },
+    {
+      "flights": [
+        {
+          "departure_airport": {
+            "name": "Aéroport international John F. Kennedy",
+            "id": "JFK",
+            "time": "2026-06-24 13:59"
+          },
+          "arrival_airport": {
+            "name": "Aéroport international O'Hare de Chicago",
+            "id": "ORD",
+            "time": "2026-06-24 15:55"
+          },
+          "duration": 176,
+          "airplane": "Boeing 737MAX 8 Passenger",
+          "airline": "American",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+          "travel_class": "Economy",
+          "flight_number": "AA 3321",
+          "legroom": "76 cm",
+          "extensions": [
+            "Average legroom (76 cm)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "Stream media to your device",
+            "Carbon emissions estimate: 100 kg"
+          ]
+        },
+        {
+          "departure_airport": {
+            "name": "Aéroport international O'Hare de Chicago",
+            "id": "ORD",
+            "time": "2026-06-24 17:04"
+          },
+          "arrival_airport": {
+            "name": "Aéroport John-Wayne",
+            "id": "SNA",
+            "time": "2026-06-24 19:37"
+          },
+          "duration": 273,
+          "airplane": "Boeing 737MAX 8 Passenger",
+          "airline": "American",
+          "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+          "travel_class": "Economy",
+          "flight_number": "AA 519",
+          "legroom": "76 cm",
+          "extensions": [
+            "Average legroom (76 cm)",
+            "Free Wi-Fi",
+            "In-seat power & USB outlets",
+            "Stream media to your device",
+            "Carbon emissions estimate: 179 kg"
+          ]
+        }
+      ],
+      "layovers": [
+        {
+          "duration": 69,
+          "name": "Aéroport international O'Hare de Chicago",
+          "id": "ORD"
+        }
+      ],
+      "total_duration": 518,
+      "carbon_emissions": {
+        "this_flight": 281000,
+        "typical_for_this_route": 336000,
+        "difference_percent": -16
+      },
+      "price": 517,
+      "type": "One way",
+      "airline_logo": "https://www.gstatic.com/flights/airline_logos/70px/AA.png",
+      "extensions": [
+        "Checked baggage for a fee"
+      ],
+      "booking_token": "WyJDalJJWDJWZlN5MHhVRlF3V0RSQlJFbHNhR2RDUnkwdExTMHRkbmRpYlhjeE5pMXVNa0ZCUVVGQlIyOXBiRTlSUzJwTFRrbEJFZ3hCUVRNek1qRjhRVUUxTVRrYUN3ak5rd01RQWhvRFJWVlNPQnh3MmRVRCIsW1siSkZLIiwiMjAyNi0wNi0yNCIsIk9SRCIsbnVsbCwiQUEiLCIzMzIxIl0sWyJPUkQiLCIyMDI2LTA2LTI0IiwiU05BIixudWxsLCJBQSIsIjUxOSJdXV0="
+    }
+  ],
+  "price_insights": {
+    "lowest_price": 347,
+    "price_level": "high",
+    "typical_price_range": [
+      175,
+      265
+    ],
+    "price_history": [
+      [
+        1775361600,
+        293
+      ],
+      [
+        1775448000,
+        260
+      ],
+      [
+        1775534400,
+        259
+      ],
+      [
+        1775620800,
+        256
+      ],
+      [
+        1775707200,
+        223
+      ],
+      [
+        1775793600,
+        222
+      ],
+      [
+        1775880000,
+        221
+      ],
+      [
+        1775966400,
+        221
+      ],
+      [
+        1776052800,
+        222
+      ],
+      [
+        1776139200,
+        221
+      ],
+      [
+        1776225600,
+        220
+      ],
+      [
+        1776312000,
+        220
+      ],
+      [
+        1776398400,
+        177
+      ],
+      [
+        1776484800,
+        178
+      ],
+      [
+        1776571200,
+        221
+      ],
+      [
+        1776657600,
+        221
+      ],
+      [
+        1776744000,
+        220
+      ],
+      [
+        1776830400,
+        221
+      ],
+      [
+        1776916800,
+        222
+      ],
+      [
+        1777003200,
+        179
+      ],
+      [
+        1777089600,
+        178
+      ],
+      [
+        1777176000,
+        178
+      ],
+      [
+        1777262400,
+        179
+      ],
+      [
+        1777348800,
+        178
+      ],
+      [
+        1777435200,
+        178
+      ],
+      [
+        1777521600,
+        179
+      ],
+      [
+        1777608000,
+        178
+      ],
+      [
+        1777694400,
+        178
+      ],
+      [
+        1777780800,
+        178
+      ],
+      [
+        1777867200,
+        178
+      ],
+      [
+        1777953600,
+        179
+      ],
+      [
+        1778040000,
+        187
+      ],
+      [
+        1778126400,
+        186
+      ],
+      [
+        1778212800,
+        187
+      ],
+      [
+        1778299200,
+        186
+      ],
+      [
+        1778385600,
+        194
+      ],
+      [
+        1778472000,
+        186
+      ],
+      [
+        1778558400,
+        186
+      ],
+      [
+        1778644800,
+        187
+      ],
+      [
+        1778731200,
+        196
+      ],
+      [
+        1778817600,
+        188
+      ],
+      [
+        1778904000,
+        188
+      ],
+      [
+        1778990400,
+        188
+      ],
+      [
+        1779076800,
+        188
+      ],
+      [
+        1779163200,
+        240
+      ],
+      [
+        1779249600,
+        232
+      ],
+      [
+        1779336000,
+        206
+      ],
+      [
+        1779422400,
+        189
+      ],
+      [
+        1779508800,
+        189
+      ],
+      [
+        1779595200,
+        189
+      ],
+      [
+        1779681600,
+        205
+      ],
+      [
+        1779768000,
+        180
+      ],
+      [
+        1779854400,
+        180
+      ],
+      [
+        1779940800,
+        180
+      ],
+      [
+        1780027200,
+        188
+      ],
+      [
+        1780113600,
+        188
+      ],
+      [
+        1780200000,
+        188
+      ],
+      [
+        1780286400,
+        188
+      ],
+      [
+        1780372800,
+        188
+      ],
+      [
+        1780459200,
+        188
+      ],
+      [
+        1780545600,
+        215
+      ],
+      [
+        1780632000,
+        347
+      ]
+    ]
+  },
+  "airports": [
+    {
+      "departure": [
+        {
+          "airport": {
+            "id": "JFK",
+            "name": "Aéroport international John F. Kennedy"
+          },
+          "city": "New York",
+          "country": "États-Unis",
+          "country_code": "US",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRa1dwH1NZQk4dsbPiyA9Vrq2RX75jXSZ-OkHn7NkLHl-11HercqDXoZ4p2cDxJkH6vca2degawrCzHEQ",
+          "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQEaUa9NsdPWGpAUGkTApkZDT_4M6_6V8wTcC0v1b1wJAJX-BuMSiipXbsoznGgcI1xLOc5QiTcR_xovexgjdOz0gqQe0tRQ9h0bUkZ07Q"
+        }
+      ],
+      "arrival": [
+        {
+          "airport": {
+            "id": "SNA",
+            "name": "Aéroport John-Wayne"
+          },
+          "city": "Santa Ana",
+          "country": "États-Unis",
+          "country_code": "US",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSDzkJF9JECdjXOfOn6joGfQFQyX-h6xNIKHQEkIglq1hgsXZYSSLSeqp7jIF8xUhBO3KC78H02G8G5FA",
+          "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ28oBUc_DWWdkUJBbHU8s-JuZrgZQ8QwUbuW1o_KP20_-pJaONE5By9dnstY_al5D6W_Us344OzHcYqPEQvQ799GQJMukTUHVSkyOh2Oc"
+        }
+      ]
+    }
+  ]
+}

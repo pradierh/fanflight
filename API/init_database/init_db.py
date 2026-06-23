@@ -16,8 +16,10 @@ cursor.execute('''
                
     CREATE TABLE IF NOT EXISTS DIM_CITY (
     ID_CITY SERIAL PRIMARY KEY,
-    CITY VARCHAR(30) NOT NULL UNIQUE,
-    COUNTRY VARCHAR(30) NOT NULL);
+    CITY VARCHAR(100) NOT NULL UNIQUE,
+    COUNTRY VARCHAR(30) NOT NULL,
+    FLAG VARCHAR(10) DEFAULT '🏳️',
+    IS_HOST_CITY BOOLEAN DEFAULT FALSE);
                ''')
 
 cursor.execute('''
@@ -25,7 +27,7 @@ cursor.execute('''
     CREATE TABLE IF NOT EXISTS DIM_AIRPORT(
     ID_AIRPORT SERIAL PRIMARY KEY,
     IATA_CODE VARCHAR(10) NOT NULL UNIQUE,
-    NAME VARCHAR(30) NOT NULL,
+    NAME VARCHAR(100) NOT NULL,
     ID_CITY INTEGER REFERENCES DIM_CITY(ID_CITY)
 );
                ''')
@@ -35,7 +37,7 @@ cursor.execute('''
         ID_TEAM SERIAL PRIMARY KEY,
         TEAM_NAME VARCHAR(50) NOT NULL UNIQUE,
         TEAM_CODE VARCHAR(3) NOT NULL,
-        FLAG_EMOJI VARCHAR(10) DEFAULT '🏳️'
+        FLAG VARCHAR(10) DEFAULT '🏳️'
     );
 ''')
 
@@ -57,11 +59,12 @@ cursor.execute('''
     CREATE TABLE IF NOT EXISTS STG_FLIGHT (
     journey_sk VARCHAR(32),
     flight_sk VARCHAR(32), 
-    departure_airport_id VARCHAR(10),
+    departure_airport_code VARCHAR(10),
     departure_airport_time TIMESTAMP,
-    arrival_airport_id VARCHAR(10),
+    arrival_airport_code VARCHAR(10),
     arrival_airport_time TIMESTAMP,
     duration INTEGER,
+    flight_number VARCHAR(12),
     layover_duration INTEGER,
     total_journey_duration INTEGER,
     price DECIMAL(10, 2),
@@ -78,11 +81,12 @@ cursor.execute('''
     CREATE TABLE IF NOT EXISTS FACT_FLIGHT (
     flight_sk VARCHAR(32) PRIMARY KEY,
     journey_sk VARCHAR(32), 
-    departure_airport_id VARCHAR(10),
+    departure_airport_code VARCHAR(10),
     departure_airport_time TIMESTAMP,
-    arrival_airport_id VARCHAR(10),
+    arrival_airport_code VARCHAR(10),
     arrival_airport_time TIMESTAMP,
     duration INTEGER,
+    flight_number VARCHAR(12),
     layover_duration INTEGER,
     total_journey_duration INTEGER,
     price DECIMAL(10, 2),
