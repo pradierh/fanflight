@@ -12,9 +12,11 @@ import pandas as pd
 
 app = FastAPI(title="API de Vols - Coupe du Monde 2026")
 
+origins = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"], # Autorise front Next.js
+    allow_origins=origins, # Autorise front Next.js
     allow_credentials=True,
     allow_methods=["*"], # Autorise tous les verbes (GET, POST, etc.)
     allow_headers=["*"], # Autorise tous les headers
@@ -292,7 +294,7 @@ def enrich_airports(cursor, conn):
     if not unknown_iata:
         return
     
-    airports_csv = pd.read_csv('/opt/data/airport-codes.csv')
+    airports_csv = pd.read_csv('/opt/data/raw_data/airport-codes.csv')
 
     for iata in unknown_iata:
         result = airports_csv[airports_csv['iata_code'] == iata]
@@ -484,11 +486,8 @@ def get_test():
 
     conn = get_db_connection()
     cursor = conn.cursor()
-
-    
-
          
-    query_test = """SELECT id, processed FROM flights_raw ORDER BY id DESC LIMIT 5;"""
+    query_test = """SELECT * from fact_flight;"""
     cursor.execute(query_test)
     return cursor.fetchall()
     

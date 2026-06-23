@@ -19,6 +19,7 @@ env:
   SPARK_IMAGE: tezzosyris666/fanflight-spark
   EC2_HOST: 35.181.62.34
   EC2_USER: ubuntu
+  
 
 jobs:
   build-and-push:
@@ -44,6 +45,8 @@ jobs:
           context: ./frontend
           file: ./frontend/Dockerfile
           push: true
+          build-args: |
+            NEXT_PUBLIC_API_URL=http://${{ env.EC2_HOST }}:8000
           tags: |
             ${{ env.FRONTEND_IMAGE }}:latest
             ${{ env.FRONTEND_IMAGE }}:${{ github.sha }}
@@ -177,6 +180,8 @@ jobs:
                 - "8000:8000"
               env_file:
                 - .env
+              volumes:
+                - /opt/fanflight/data:/opt/data
               depends_on:
                 db:
                   condition: service_healthy
@@ -233,6 +238,7 @@ jobs:
           DB_HOST=db
           DB_PORT=5432
           API_KEY_SERAPI=
+          CORS_ORIGINS=http://localhost:3000,http://35.181.62.34
           ENV
           fi
 
