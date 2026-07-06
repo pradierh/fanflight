@@ -1,7 +1,7 @@
 import os
 from datetime import timedelta
 import time
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 import psycopg2
 from psycopg2.extras import RealDictCursor
@@ -33,6 +33,31 @@ def get_db_connection():
         password=os.getenv("DB_PASSWORD", "password_test"),
         cursor_factory=RealDictCursor
     )
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+@app.get("/ready")
+def ready():
+    conn = None
+    cursor = None
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT 1 AS ok;")
+        cursor.fetchone()
+        return {"status": "ready", "database": "ok"}
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail=f"Database is not ready: {e}",
+        )
+    finally:
+        if cursor:
+            cursor.close()
+        if conn:
+            conn.close()
 
 def check_flight_db(cursor, departure_city, arrival_city, match_date_exact):
     flights_query = """

@@ -9,6 +9,7 @@ on:
       - "frontend/**"
       - "API/**"
       - "data-pipeline/spark/**"
+      - "monitoring/**"
       - ".github/workflows/frontend-deploy.yml"
   workflow_dispatch:
 
@@ -77,6 +78,9 @@ jobs:
     needs: build-and-push
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Configure SSH key
         env:
           SSH_PRIVATE_KEY: ${{ secrets.RSA }}
@@ -185,6 +189,12 @@ jobs:
               depends_on:
                 db:
                   condition: service_healthy
+              healthcheck:
+                test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready', timeout=5)\""]
+                start_period: 60s
+                interval: 15s
+                timeout: 5s
+                retries: 10
               labels:
                 - "com.centurylinklabs.watchtower.enable=true"
 
@@ -196,6 +206,12 @@ jobs:
                 - "80:3000"
               environment:
                 NODE_ENV: production
+              healthcheck:
+                test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/ >/dev/null || exit 1"]
+                start_period: 30s
+                interval: 15s
+                timeout: 5s
+                retries: 10
               labels:
                 - "com.centurylinklabs.watchtower.enable=true"
 
@@ -207,14 +223,100 @@ jobs:
               volumes:
                 - /var/run/docker.sock:/var/run/docker.sock
 
+            prometheus:
+              image: prom/prometheus:latest
+              container_name: fanflight_prometheus
+              restart: unless-stopped
+              ports:
+                - "127.0.0.1:9090:9090"
+              command:
+                - "--config.file=/etc/prometheus/prometheus.yml"
+                - "--storage.tsdb.path=/prometheus"
+                - "--web.enable-lifecycle"
+              volumes:
+                - /opt/fanflight/monitoring/prometheus:/etc/prometheus:ro
+                - prometheus_data:/prometheus
+              depends_on:
+                - blackbox-exporter
+                - node-exporter
+                - cadvisor
+                - postgres-exporter
+
+            blackbox-exporter:
+              image: prom/blackbox-exporter:latest
+              container_name: fanflight_blackbox_exporter
+              restart: unless-stopped
+              command:
+                - "--config.file=/etc/blackbox_exporter/blackbox.yml"
+              volumes:
+                - /opt/fanflight/monitoring/blackbox:/etc/blackbox_exporter:ro
+
+            node-exporter:
+              image: prom/node-exporter:latest
+              container_name: fanflight_node_exporter
+              restart: unless-stopped
+              pid: host
+              command:
+                - "--path.rootfs=/host"
+              volumes:
+                - /:/host:ro,rslave
+
+            cadvisor:
+              image: gcr.io/cadvisor/cadvisor:latest
+              container_name: fanflight_cadvisor
+              restart: unless-stopped
+              privileged: true
+              volumes:
+                - /:/rootfs:ro
+                - /var/run:/var/run:ro
+                - /sys:/sys:ro
+                - /var/lib/docker:/var/lib/docker:ro
+                - /dev/disk:/dev/disk:ro
+
+            postgres-exporter:
+              image: prometheuscommunity/postgres-exporter:latest
+              container_name: fanflight_postgres_exporter
+              restart: unless-stopped
+              environment:
+                DATA_SOURCE_NAME: postgresql://\${DB_USER}:\${DB_PASSWORD}@db:5432/\${DB_NAME}?sslmode=disable
+              depends_on:
+                db:
+                  condition: service_healthy
+
+            grafana:
+              image: grafana/grafana-oss:latest
+              container_name: fanflight_grafana
+              restart: unless-stopped
+              ports:
+                - "3001:3000"
+              environment:
+                GF_SECURITY_ADMIN_USER: \${GRAFANA_ADMIN_USER:-admin}
+                GF_SECURITY_ADMIN_PASSWORD: \${GRAFANA_ADMIN_PASSWORD:-fanflight-admin}
+                GF_USERS_ALLOW_SIGN_UP: "false"
+              volumes:
+                - grafana_data:/var/lib/grafana
+                - /opt/fanflight/monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+                - /opt/fanflight/monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
+              depends_on:
+                - prometheus
+
           volumes:
             postgres_db:
+            prometheus_data:
+            grafana_data:
           EOF
 
       - name: Copy compose file to EC2
         run: |
           scp -i ~/.ssh/fanflight_ec2.pem fanflight-compose.yml \
             "${EC2_USER}@${EC2_HOST}:/tmp/fanflight-compose.yml"
+
+      - name: Copy monitoring config to EC2
+        run: |
+          ssh -i ~/.ssh/fanflight_ec2.pem "${EC2_USER}@${EC2_HOST}" \
+            'rm -rf /tmp/fanflight-monitoring'
+          scp -i ~/.ssh/fanflight_ec2.pem -r monitoring \
+            "${EC2_USER}@${EC2_HOST}:/tmp/fanflight-monitoring"
 
       - name: Start or update services on EC2
         run: |
@@ -230,6 +332,9 @@ jobs:
           sudo systemctl enable --now docker
           sudo mkdir -p /opt/fanflight
           sudo mv /tmp/fanflight-compose.yml /opt/fanflight/docker-compose.yml
+          sudo mkdir -p /opt/fanflight/monitoring
+          sudo cp -R /tmp/fanflight-monitoring/. /opt/fanflight/monitoring/
+          sudo rm -rf /tmp/fanflight-monitoring
           if [ ! -f /opt/fanflight/.env ]; then
             sudo tee /opt/fanflight/.env >/dev/null <<'ENV'
           DB_NAME=airline_data
@@ -239,16 +344,42 @@ jobs:
           DB_PORT=5432
           API_KEY_SERAPI=
           CORS_ORIGINS=http://localhost:3000,http://35.181.62.34
+          GRAFANA_ADMIN_USER=admin
+          GRAFANA_ADMIN_PASSWORD=fanflight-admin
           ENV
           fi
 
           cd /opt/fanflight
-          sudo docker compose pull frontend backend-api spark-master spark-worker
+          sudo docker compose pull frontend backend-api spark-master spark-worker prometheus blackbox-exporter node-exporter cadvisor postgres-exporter grafana
           if ! sudo docker compose up -d; then
             sudo docker compose ps
             sudo docker logs postgres || true
             sudo docker logs backend_api || true
+            sudo docker logs fanflight_prometheus || true
+            sudo docker logs fanflight_grafana || true
             exit 1
           fi
+          for url in \
+            http://127.0.0.1/ \
+            http://127.0.0.1:8000/ready \
+            http://127.0.0.1:9090/-/ready \
+            http://127.0.0.1:3001/api/health
+          do
+            for attempt in $(seq 1 30); do
+              if curl -fsS --max-time 5 "$url" >/dev/null; then
+                echo "Health check passed: $url"
+                break
+              fi
+              if [ "$attempt" -eq 30 ]; then
+                echo "Health check failed: $url"
+                sudo docker compose ps
+                sudo docker logs backend_api || true
+                sudo docker logs fanflight_prometheus || true
+                sudo docker logs fanflight_grafana || true
+                exit 1
+              fi
+              sleep 5
+            done
+          done
           sudo docker image prune -f
           REMOTE
