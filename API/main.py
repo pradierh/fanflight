@@ -7,7 +7,7 @@ from psycopg2.extras import RealDictCursor
 import requests
 import json
 
-# --- ML / inférence ---
+# --- ML / inference ---
 import mlflow.xgboost
 import mlflow
 import mlflow.pyfunc
@@ -32,7 +32,14 @@ MAPPINGS_PATH    = DATA_DIR / "category_mappings.json"
 PROD_MODEL_XGB   = "models:/flight_delay_xgboost/Production"
 PROD_MODEL_NN    = "models:/flight_delay_nn/Production"
 
-# Variables globales chargées au démarrage
+# ------------------------------------------------------------------
+# Configuration meteo (prevision Open-Meteo)
+# ------------------------------------------------------------------
+FORECAST_URL         = "https://api.open-meteo.com/v1/forecast"
+FORECAST_HOURLY      = "temperature_2m,precipitation,weather_code,wind_speed_10m,visibility,snowfall"
+FORECAST_WINDOW_DAYS = 16  # limite de prevision Open-Meteo
+
+# Variables globales chargees au demarrage
 MODEL = None
 MAPPINGS = None
 MODEL_NAME = None
@@ -50,7 +57,7 @@ def get_db_connection():
 
 
 # ==================================================================
-# CHARGEMENT DU MODÈLE AU DÉMARRAGE
+# CHARGEMENT DU MODELE AU DEMARRAGE
 # ==================================================================
 
 @app.on_event("startup")
@@ -61,9 +68,9 @@ def load_model():
     # Mappings d'encodage
     try:
         MAPPINGS = load_mappings(MAPPINGS_PATH)
-        print(f"[ML] Mappings chargés depuis {MAPPINGS_PATH}")
+        print(f"[ML] Mappings charges depuis {MAPPINGS_PATH}")
     except Exception as e:
-        print(f"[ML] Mappings introuvables ({e}) — prédictions désactivées.")
+        print(f"[ML] Mappings introuvables ({e}) - predictions desactivees.")
         MAPPINGS = None
 
     # Chargement direct du booster XGBoost (contourne le bug _estimator_type)
@@ -72,41 +79,106 @@ def load_model():
         from mlflow.tracking import MlflowClient
 
         client = MlflowClient()
-        # Récupère la dernière version du modèle xgboost (peu importe le stage)
         versions = client.get_latest_versions("flight_delay_xgboost")
         if not versions:
             raise Exception("Aucune version de flight_delay_xgboost")
-        # Prend la version au numéro le plus élevé
         latest = max(versions, key=lambda v: int(v.version))
         run_id = latest.run_id
 
-        # Chemin local de l'artefact (le volume est partagé)
         local_path = client.download_artifacts(run_id, "model/model.xgb")
-        print(f"[ML] Artefact téléchargé : {local_path}")
+        print(f"[ML] Artefact telecharge : {local_path}")
 
         booster = xgb.Booster()
         booster.load_model(local_path)
         MODEL = booster
         MODEL_NAME = "xgboost"
-        print(f"[ML] Booster XGBoost chargé (version {latest.version})")
+        print(f"[ML] Booster XGBoost charge (version {latest.version})")
         return
     except Exception as e:
-        print(f"[ML] Échec chargement booster XGBoost : {e}")
+        print(f"[ML] Echec chargement booster XGBoost : {e}")
 
-    print("[ML] Aucun modèle disponible — l'API renvoie les vols sans score.")
+    print("[ML] Aucun modele disponible - l'API renvoie les vols sans score.")
     MODEL = None
 
 
 # ==================================================================
-# MÉTÉO POUR L'INFÉRENCE
+# METEO POUR L'INFERENCE
 # ==================================================================
+
+def get_airport_coords(cursor, iata_code):
+    """Coordonnees d'un aeroport depuis DIM_AIRPORT."""
+    cursor.execute(
+        "SELECT latitude, longitude FROM dim_airport WHERE iata_code = %s",
+        (iata_code,)
+    )
+    row = cursor.fetchone()
+    if row and row["latitude"] is not None:
+        return float(row["latitude"]), float(row["longitude"])
+    return None
+
+
+def fetch_forecast_weather(lat, lon, target_dt):
+    """
+    Recupere la prevision meteo reelle pour une date/heure de vol proche,
+    a l'aeroport d'arrivee. Retourne un dict meteo ou None si indisponible.
+    """
+    date_str = target_dt.strftime("%Y-%m-%d")
+    params = {
+        "latitude": lat,
+        "longitude": lon,
+        "start_date": date_str,
+        "end_date": date_str,
+        "hourly": FORECAST_HOURLY,
+        "timezone": "auto",
+    }
+    try:
+        resp = requests.get(FORECAST_URL, params=params, timeout=15)
+        resp.raise_for_status()
+        hourly = resp.json().get("hourly", {})
+        times = hourly.get("time", [])
+        target_hour = target_dt.hour
+        for i, t in enumerate(times):
+            hour = int(t.split("T")[1][:2]) if "T" in t else int(t.split(" ")[1][:2])
+            if hour == target_hour:
+                return {
+                    "temperature_c":    hourly.get("temperature_2m", [None])[i],
+                    "precipitation_mm": hourly.get("precipitation", [None])[i],
+                    "weather_code":     hourly.get("weather_code", [None])[i],
+                    "wind_speed_kmh":   hourly.get("wind_speed_10m", [None])[i],
+                    "visibility_m":     hourly.get("visibility", [None])[i],
+                    "snowfall_cm":      hourly.get("snowfall", [None])[i],
+                }
+        return None
+    except requests.exceptions.RequestException as e:
+        print(f"[ML] Prevision meteo indisponible : {e}")
+        return None
+
 
 def get_weather_for_inference(cursor, flight):
     """
-    Récupère la météo d'un vol pour la prédiction.
-    1) D'abord depuis FACT_FLIGHT_WEATHER (déjà enrichie par fetch_weather.py).
-    2) Sinon, valeurs par défaut neutres (le vol est quand même scoré).
+    Recupere la meteo d'un vol pour la prediction, avec strategie en cascade :
+    1) Si le vol est dans la fenetre de prevision (<= 16 jours), prevision REELLE
+       Open-Meteo a l'aeroport d'arrivee.
+    2) Sinon, repli sur FACT_FLIGHT_WEATHER (approximation saisonniere N-1).
+    3) Sinon, valeurs par defaut (gerees en aval par build_features_for_flight).
     """
+    dep_time = flight.get("departure_airport_time")
+    if isinstance(dep_time, str):
+        dep_time = datetime.fromisoformat(dep_time)
+
+    if dep_time is not None:
+        now = datetime.now(dep_time.tzinfo) if dep_time.tzinfo else datetime.now()
+        days_ahead = (dep_time - now).days
+
+        # 1) Vol proche -> prevision reelle a l'aeroport d'arrivee
+        if 0 <= days_ahead <= FORECAST_WINDOW_DAYS:
+            coords = get_airport_coords(cursor, flight["arrival_airport_id"])
+            if coords:
+                forecast = fetch_forecast_weather(coords[0], coords[1], dep_time)
+                if forecast and forecast.get("temperature_c") is not None:
+                    return forecast
+
+    # 2) Repli : meteo pre-enrichie en base
     cursor.execute(
         """
         SELECT temperature_c, precipitation_mm, weather_code,
@@ -119,13 +191,15 @@ def get_weather_for_inference(cursor, flight):
     row = cursor.fetchone()
     if row:
         return dict(row)
-    return None  # build_features_for_flight appliquera les défauts
+
+    # 3) Rien -> les defauts s'appliqueront
+    return None
 
 
 def predict_delay(cursor, flights):
     """
     Ajoute le champ 'delay_probability' (0..1) et 'delay_prediction' (bool)
-    à chaque vol. Si le modèle n'est pas chargé, met les champs à None.
+    a chaque vol. Si le modele n'est pas charge, met les champs a None.
     """
     if MODEL is None or MAPPINGS is None:
         for f in flights:
@@ -143,19 +217,17 @@ def predict_delay(cursor, flights):
 
     X = np.array(rows, dtype=np.float32)
 
-    # pyfunc.predict : selon le modèle, renvoie proba ou classe.
-    # On passe par un DataFrame avec les bons noms de colonnes pour XGBoost.
     import pandas as pd
     import xgboost as xgb
     X_df = pd.DataFrame(X, columns=FEATURE_COLS)
 
     try:
-        # Booster brut : prédit via DMatrix, renvoie directement la proba
+        # Booster brut : predit via DMatrix, renvoie directement la proba
         dmatrix = xgb.DMatrix(X_df)
         preds = MODEL.predict(dmatrix)
         preds = np.asarray(preds).ravel()
     except Exception as e:
-        print(f"[ML] Erreur de prédiction : {e}")
+        print(f"[ML] Erreur de prediction : {e}")
         for f in flights:
             f["delay_probability"] = None
             f["delay_prediction"] = None
@@ -164,7 +236,6 @@ def predict_delay(cursor, flights):
 
     for f, p in zip(flights, preds):
         prob = float(p)
-        # Si le modèle renvoie une classe 0/1 plutôt qu'une proba, on la garde telle quelle
         prob = max(0.0, min(1.0, prob))
         f["delay_probability"] = round(prob, 4)
         f["delay_prediction"] = bool(prob >= 0.5)
@@ -174,7 +245,7 @@ def predict_delay(cursor, flights):
 
 
 # ==================================================================
-# LOGIQUE EXISTANTE — recherche de vols
+# LOGIQUE EXISTANTE - recherche de vols
 # ==================================================================
 
 def check_flight_db(cursor, departure_city, arrival_city, match_date_exact):
@@ -217,6 +288,43 @@ def check_flight_db(cursor, departure_city, arrival_city, match_date_exact):
     return cursor.fetchall()
 
 
+# ------------------------------------------------------------------
+# REGISTRE DES TRAJETS DEJA INTERROGES (anti-gaspillage de quota API)
+# ------------------------------------------------------------------
+
+def route_already_queried(cursor, departure_city, arrival_city, match_id):
+    """
+    Retourne True si ce trajet (depart, arrivee, match) a deja ete interroge
+    aupres de SerpAPI. Dans ce cas, on ne rappelle jamais l'API.
+    """
+    cursor.execute(
+        """
+        SELECT 1 FROM queried_routes
+        WHERE LOWER(departure_city) = LOWER(%s)
+          AND LOWER(arrival_city)   = LOWER(%s)
+          AND match_id = %s
+        """,
+        (departure_city, arrival_city, match_id),
+    )
+    return cursor.fetchone() is not None
+
+
+def mark_route_queried(cursor, conn, departure_city, arrival_city, match_id, flights_found):
+    """
+    Enregistre le trajet comme interroge, quel que soit le nombre de vols trouves.
+    ON CONFLICT DO NOTHING : idempotent, jamais de doublon.
+    """
+    cursor.execute(
+        """
+        INSERT INTO queried_routes (departure_city, arrival_city, match_id, flights_found)
+        VALUES (%s, %s, %s, %s)
+        ON CONFLICT ON CONSTRAINT unique_route_query DO NOTHING
+        """,
+        (departure_city, arrival_city, match_id, flights_found),
+    )
+    conn.commit()
+
+
 def get_flights_api(cursor, conn, departure_city, arrival_city, match_date_exact):
     cursor.execute("""
         SELECT iata_code FROM dim_airport a
@@ -235,7 +343,7 @@ def get_flights_api(cursor, conn, departure_city, arrival_city, match_date_exact
     if not aeroports_depart or not aeroports_arrivee:
         raise HTTPException(
             status_code=400,
-            detail="Impossible de trouver les codes aéroports (IATA) pour ces villes dans le dictionnaire."
+            detail="Impossible de trouver les codes aeroports (IATA) pour ces villes dans le dictionnaire."
         )
 
     all_flights_raw = []
@@ -291,7 +399,17 @@ def wait_to_spark(cursor, job_id):
 
 
 @app.get("/api/flights/{match_id}")
-def get_flights(match_id: int, departure_city: str):
+def get_flights(match_id: int, departure_city: str, force: bool = False):
+    """
+    Renvoie les vols pour un match + la probabilite de retard de chaque vol.
+
+    Gestion du quota SerpAPI via le registre queried_routes :
+      - Si le trajet a deja ete interroge, on lit UNIQUEMENT la base (jamais l'API),
+        meme si la base est vide pour ce trajet.
+      - Sinon, on appelle l'API une fois puis on enregistre le trajet.
+      - Le parametre ?force=true permet de forcer un rappel API malgre le registre
+        (utile pour les tests ou un rafraichissement volontaire).
+    """
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
@@ -304,16 +422,31 @@ def get_flights(match_id: int, departure_city: str):
         """
         cursor.execute(match_query, (match_id,))
         match_info = cursor.fetchone()
+        if not match_info:
+            raise HTTPException(status_code=404, detail=f"Match {match_id} introuvable.")
+
         match_date_exact = match_info['match_date']
+        arrival_city = match_info['arrival_city']
 
-        vols = check_flight_db(cursor, departure_city, match_info['arrival_city'], match_date_exact)
+        already_queried = route_already_queried(cursor, departure_city, arrival_city, match_id)
 
-        if not vols:
-            job_id = get_flights_api(cursor, conn, departure_city, match_info['arrival_city'], match_date_exact)
-            wait_to_spark(cursor, job_id)
-            vols = check_flight_db(cursor, departure_city, match_info['arrival_city'], match_date_exact)
+        if already_queried and not force:
+            # Trajet deja interroge : lecture base uniquement, aucun appel API
+            print(f"[CACHE] Trajet deja interroge ({departure_city} -> {arrival_city}, match {match_id}). Lecture base.")
+            vols = check_flight_db(cursor, departure_city, arrival_city, match_date_exact)
+        else:
+            # Premier appel (ou force) : on regarde la base, puis l'API si besoin
+            vols = check_flight_db(cursor, departure_city, arrival_city, match_date_exact)
+            if not vols or force:
+                print(f"[API] Appel SerpAPI ({departure_city} -> {arrival_city}, match {match_id}).")
+                job_id = get_flights_api(cursor, conn, departure_city, arrival_city, match_date_exact)
+                wait_to_spark(cursor, job_id)
+                vols = check_flight_db(cursor, departure_city, arrival_city, match_date_exact)
 
-        # --- PRÉDICTION DU RETARD POUR CHAQUE VOL ---
+            # On enregistre le trajet comme interroge, quel que soit le resultat
+            mark_route_queried(cursor, conn, departure_city, arrival_city, match_id, len(vols))
+
+        # --- PREDICTION DU RETARD POUR CHAQUE VOL ---
         vols = predict_delay(cursor, vols)
 
         cursor.close()
@@ -323,14 +456,17 @@ def get_flights(match_id: int, departure_city: str):
             "meta": {
                 "match_id": match_id,
                 "departure_city": departure_city,
-                "destination_city": match_info['arrival_city'],
+                "destination_city": arrival_city,
                 "match_date_actual": match_date_exact.strftime("%Y-%m-%d %H:%M"),
                 "results_count": len(vols),
                 "model_used": MODEL_NAME,
+                "from_cache": already_queried and not force,
             },
             "flights": vols
         }
 
+    except HTTPException:
+        raise
     except Exception as e:
         import traceback
         traceback.print_exc()
@@ -339,7 +475,7 @@ def get_flights(match_id: int, departure_city: str):
 
 @app.get("/health")
 def health():
-    """Endpoint de vérification : indique si le modèle est chargé."""
+    """Endpoint de verification : indique si le modele est charge."""
     return {
         "status": "ok",
         "model_loaded": MODEL is not None,
