@@ -51,7 +51,7 @@ cursor.execute("""
 """)
 
 # ------------------------------------------------------------------
-# VOLS — staging + fait
+# VOLS - staging + fait
 # ------------------------------------------------------------------
 
 cursor.execute("""
@@ -99,9 +99,9 @@ cursor.execute("""
 """)
 
 # ------------------------------------------------------------------
-# MÉTÉO — enrichissement par vol (table séparée, jointure sur flight_sk)
-# Stocke les conditions météo à l'aéroport de départ à l'heure du vol.
-# Données historiques année N-1 via Open-Meteo archive API.
+# METEO - enrichissement par vol (table separee, jointure sur flight_sk)
+# Stocke les conditions meteo a l'aeroport de depart a l'heure du vol.
+# Donnees historiques annee N-1 via Open-Meteo archive API.
 # ------------------------------------------------------------------
 
 cursor.execute("""
@@ -133,8 +133,27 @@ cursor.execute("""
     );
 """)
 
+# ------------------------------------------------------------------
+# REGISTRE DES TRAJETS DEJA INTERROGES (anti-gaspillage de quota SerpAPI)
+# Trace chaque trajet (depart, arrivee, match) deja demande a l'API, meme
+# s'il n'a retourne aucun vol. Empeche de reconsommer le quota pour un
+# trajet deja interroge.
+# ------------------------------------------------------------------
+
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS QUERIED_ROUTES (
+        id             SERIAL PRIMARY KEY,
+        departure_city VARCHAR(50) NOT NULL,
+        arrival_city   VARCHAR(50) NOT NULL,
+        match_id       INTEGER     NOT NULL,
+        flights_found  INTEGER     DEFAULT 0,
+        queried_at     TIMESTAMP   DEFAULT CURRENT_TIMESTAMP,
+        CONSTRAINT unique_route_query UNIQUE (departure_city, arrival_city, match_id)
+    );
+""")
+
 conn.commit()
 cursor.close()
 conn.close()
 
-print("init_db OK — toutes les tables créées.")
+print("init_db OK - toutes les tables creees.")
