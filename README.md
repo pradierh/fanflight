@@ -117,7 +117,7 @@ docker compose run --rm ml python drift_monitor.py
 ```
 PSI et KS-test entre la reference et un nouveau batch (simule si non fourni).
 
-## Fonctionnement de la prediction (inference)
+## Fonctionnement de la prediction
 
 Au demarrage, l'API charge le meilleur modele depuis MLflow (chargement direct
 du booster XGBoost) et le fichier category_mappings.json (encodage des
@@ -162,7 +162,7 @@ s'il n'a retourne aucun vol.
 Le champ meta.from_cache dans la reponse indique si les donnees proviennent du
 cache.
 
-## Resultats actuels (a citer dans le rapport)
+## Resultats actuels 
 
 - Volume : 628 704 vols reels BTS (contre 246 dans l'ancienne approche Google).
 - Taux de retard observe : 27,8 % (realiste pour le domestique US estival).
@@ -181,7 +181,7 @@ cache.
 C'est le fonctionnement standard d'une classification binaire : on entraine sur
 des etiquettes oui/non, le modele produit une probabilite continue.
 
-## Limites assumees (transparence rapport)
+## Limites assumees 
 
 - Duree derivee de la distance : le BTS charge ne contient pas le temps de vol,
   on l'approxime via la distance. Documente dans build_training_set_bts.py.
