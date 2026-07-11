@@ -42,6 +42,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import seaborn as sns
+from feature_builder import FEATURE_COLS, LABEL_COL
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 log = logging.getLogger(__name__)
@@ -50,20 +51,10 @@ log = logging.getLogger(__name__)
 # Config
 # ------------------------------------------------------------------
 
-DATA_PATH   = Path(os.getenv("DATA_DIR", "/opt/spark/data")) / "training_set.parquet"
+DATA_PATH = Path(os.getenv("DATA_DIR", "/opt/data")) / "training_set.parquet"
 MLFLOW_URI  = os.getenv("MLFLOW_TRACKING_URI", "http://mlflow:5000")
 ARTIFACT_DIR = Path("/tmp/mlflow_artifacts")
 ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
-
-FEATURE_COLS = [
-    "duration", "layover_duration", "total_journey_duration", "price",
-    "hour_of_day", "day_of_week", "pos",
-    "is_best", "is_overnight", "has_layover",
-    "airline_code", "dep_airport_code", "arr_airport_code",
-    "temperature_c", "precipitation_mm", "weather_code",
-    "wind_speed_kmh", "visibility_m", "snowfall_cm", "weather_risk_score",
-]
-LABEL_COL = "is_delayed"
 
 RANDOM_STATE = 42
 TEST_SIZE    = 0.2

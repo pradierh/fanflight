@@ -78,8 +78,8 @@ def build_category_mappings(df: pd.DataFrame) -> dict:
     """
     return {
         "airline": {v: i for i, v in enumerate(sorted(df["airline"].dropna().unique()))},
-        "departure_airport_id": {v: i for i, v in enumerate(sorted(df["departure_airport_id"].dropna().unique()))},
-        "arrival_airport_id": {v: i for i, v in enumerate(sorted(df["arrival_airport_id"].dropna().unique()))},
+        "departure_airport_code": {v: i for i, v in enumerate(sorted(df["departure_airport_code"].dropna().unique()))},
+        "arrival_airport_code": {v: i for i, v in enumerate(sorted(df["arrival_airport_code"].dropna().unique()))},
     }
 
 
@@ -110,7 +110,7 @@ def build_features_for_flight(flight: dict, weather: dict | None, mappings: dict
     Transforme un vol unique + sa météo en dict de features prêt pour la prédiction.
 
     flight : dict avec au minimum
-        airline, departure_airport_id, arrival_airport_id,
+        airline, departure_airport_code, arrival_airport_code,
         duration, layover_duration, total_journey_duration, price,
         is_best, pos, departure_airport_time
     weather : dict météo (temperature_c, precipitation_mm, weather_code,
@@ -145,8 +145,8 @@ def build_features_for_flight(flight: dict, weather: dict | None, mappings: dict
         "is_overnight":           float(1 if (hour >= 21 or hour <= 5) else 0),
         "has_layover":            float(1 if layover > 0 else 0),
         "airline_code":           float(encode_category(flight.get("airline"), mappings["airline"])),
-        "dep_airport_code":       float(encode_category(flight.get("departure_airport_id"), mappings["departure_airport_id"])),
-        "arr_airport_code":       float(encode_category(flight.get("arrival_airport_id"), mappings["arrival_airport_id"])),
+        "dep_airport_code":       float(encode_category(flight.get("departure_airport_code"), mappings["departure_airport_code"])),
+        "arr_airport_code":       float(encode_category(flight.get("arrival_airport_code"), mappings["arrival_airport_code"])),
         "temperature_c":          float(wval("temperature_c")),
         "precipitation_mm":       float(wval("precipitation_mm")),
         "weather_code":           float(weather_code),

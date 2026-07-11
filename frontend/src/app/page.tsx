@@ -1,19 +1,18 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { City, Match, Flight, ViewState } from '@/types';
+import { City, Match, Flight, ViewState, Team } from '@/types';
+
 import {
   Header,
   CitySelector,
   MatchCard,
   MatchFilters,
-  FlightCard,
-  BookingConfirmation,
+  FlightCard
 } from '@/components';
-import { getUpcomingMatches } from '@/data/matches';
-import { generateFlightsForRoute } from '@/data/flights';
 import { formatDate } from '@/lib/utils';
+import { fetchCities, fetchMatches, fetchFlights, fetchTeams } from '@/lib/api'
 
 export default function Home() {
   const [originCity, setOriginCity] = useState<City | null>(null);
@@ -22,16 +21,36 @@ export default function Home() {
   const [view, setView] = useState<ViewState>('city-select');
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [filters, setFilters] = useState({ team: null as string | null, dateRange: 'all' });
+  const [allMatches, setAllMatches] = useState<Match[]>([]);
+  const [allCities, setAllCities] = useState<City[]>([])
+  const [availableFlights, setAvailableFlights] = useState<Flight[]>([]);
+  const [allTeams, setAllTeams] = useState<Team[]>([])
+
+ 
+
+  useEffect(() => {
+    // Récupère les villes, matches et teams
+    fetchCities().then(data => setAllCities(data))
+    fetchMatches().then(data => setAllMatches(data))
+    fetchTeams().then(data => setAllTeams(data))
+}, []);
+
+
+useEffect(() => {
+  if (!originCity || !selectedMatch) return;
+  fetchFlights(selectedMatch.match_id, originCity.city)
+    .then(data => setAvailableFlights(data.flights))
+}, [originCity, selectedMatch]);
 
   // Get matches excluding user's city
   const availableMatches = useMemo(() => {
-    let matches = getUpcomingMatches(originCity?.id);
+    let matches = allMatches.filter(match => match.city_name !== originCity?.city)
 
     // Apply team filter
     if (filters.team) {
       matches = matches.filter(
         (match) =>
-          match.homeTeam.id === filters.team || match.awayTeam.id === filters.team
+          match.name_team_a === filters.team || match.name_team_b === filters.team
       );
     }
 
@@ -45,7 +64,7 @@ export default function Home() {
       weekEnd.setDate(weekEnd.getDate() + 7);
 
       matches = matches.filter((match) => {
-        const matchDate = new Date(match.date);
+        const matchDate = new Date(match.match_date);
         switch (filters.dateRange) {
           case 'today':
             return matchDate >= today && matchDate < tomorrow;
@@ -62,18 +81,8 @@ export default function Home() {
     }
 
     return matches;
-  }, [originCity, filters]);
+  }, [allMatches, originCity, filters]);
 
-  // Generate flights for selected match
-  const availableFlights = useMemo(() => {
-    if (!originCity || !selectedMatch) return [];
-    return generateFlightsForRoute(
-      originCity,
-      selectedMatch.city,
-      selectedMatch.date,
-      selectedMatch.id
-    );
-  }, [originCity, selectedMatch]);
 
   const handleCitySelect = (city: City) => {
     setOriginCity(city);
@@ -82,6 +91,7 @@ export default function Home() {
 
   const handleMatchSelect = (match: Match) => {
     setSelectedMatch(match);
+    setAvailableFlights([]);
     setView('flights');
   };
 
@@ -132,7 +142,7 @@ export default function Home() {
               exit={{ opacity: 0, x: -50 }}
               className="max-w-7xl mx-auto pt-12 md:pt-20"
             >
-              <CitySelector selectedCity={originCity} onSelectCity={handleCitySelect} />
+              <CitySelector selectedCity={originCity} onSelectCity={handleCitySelect} cities={allCities} />
 
               {/* Hero illustration */}
               <motion.div
@@ -190,20 +200,20 @@ export default function Home() {
                 <div>
                   <h2 className="text-2xl font-bold text-white">Upcoming Matches</h2>
                   <p className="text-white/60 text-sm">
-                    Flying from {originCity?.name} ({originCity?.airportCode})
+                    Flying from {originCity?.city}
                   </p>
                 </div>
               </div>
 
               {/* Filters */}
-              <MatchFilters onFilterChange={setFilters} />
+              <MatchFilters onFilterChange={setFilters} teams={allTeams} />
 
               {/* Match Grid */}
               {availableMatches.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {availableMatches.map((match, index) => (
                     <MatchCard
-                      key={match.id}
+                      key={match.match_id}
                       match={match}
                       onSelect={() => handleMatchSelect(match)}
                       index={index}
@@ -245,10 +255,10 @@ export default function Home() {
                 </motion.button>
                 <div className="flex-1">
                   <h2 className="text-2xl font-bold text-white">
-                    Flights to {selectedMatch.city.name}
+                    Flights to {selectedMatch.city_name}
                   </h2>
                   <p className="text-white/60 text-sm">
-                    {originCity?.airportCode} → {selectedMatch.city.airportCode}
+                    {originCity?.city} → {selectedMatch.city_name}
                   </p>
                 </div>
               </div>
@@ -261,13 +271,13 @@ export default function Home() {
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
-                    <span className="text-2xl">{selectedMatch.homeTeam.flag}</span>
+                    <span className="text-2xl">{selectedMatch.flag_team_a}</span>
                     <span className="text-white/40">vs</span>
-                    <span className="text-2xl">{selectedMatch.awayTeam.flag}</span>
+                    <span className="text-2xl">{selectedMatch.flag_team_b}</span>
                   </div>
                   <div className="text-right">
-                    <p className="text-white font-medium">{formatDate(selectedMatch.date)}</p>
-                    <p className="text-white/60 text-sm">{selectedMatch.city.stadium}</p>
+                    <p className="text-white font-medium">{formatDate(selectedMatch.match_date)}</p>
+                    <p className="text-white/60 text-sm">{selectedMatch.city_name}</p>
                   </div>
                 </div>
               </motion.div>
@@ -276,7 +286,7 @@ export default function Home() {
               <div className="space-y-4">
                 {availableFlights.map((flight, index) => (
                   <FlightCard
-                    key={flight.id}
+                    key={flight.journey_sk}
                     flight={flight}
                     onSelect={() => handleFlightSelect(flight)}
                     index={index}
@@ -300,18 +310,8 @@ export default function Home() {
         </AnimatePresence>
       </div>
 
-      {/* Booking Confirmation Modal */}
-      {showConfirmation && selectedFlight && selectedMatch && (
-        <BookingConfirmation
-          flight={selectedFlight}
-          match={selectedMatch}
-          onClose={handleConfirmationClose}
-          onConfirm={handleBookingComplete}
-        />
-      )}
-
       {/* Footer */}
-      <footer className="relative z-10 py-8 text-center">
+      <footer className="relative z-10 py-8 text-center pointer-events-none">
         <p className="text-white/30 text-sm">
           FIFA World Cup 2026™ • POC Demo • Not affiliated with FIFA
         </p>

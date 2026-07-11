@@ -1,66 +1,67 @@
-export interface City {
-  id: string;
+export interface Airport {
+  iata_code: string;
   name: string;
-  country: 'USA' | 'Mexico' | 'Canada';
-  stadium: string;
-  airportCode: string;
-  coordinates: {
-    lat: number;
-    lng: number;
-  };
+}
+
+export interface City {
+  id_city: string;
+  city: string;
+  country: string;
+  flag: string;
+  airport_codes: string[];
 }
 
 export interface Team {
-  id: string;
-  name: string;
-  code: string;
+  team_name: string;
+  team_code: string;
   flag: string;
 }
 
 export interface Match {
-  id: string;
-  homeTeam: Team;
-  awayTeam: Team;
-  city: City;
-  date: Date;
-  group: string;
-  stage: 'group' | 'round16' | 'quarter' | 'semi' | 'final';
+  match_id: number;
+  match_date: Date;
+  id_team_a: number;
+  name_team_a: string;
+  flag_team_a: string;
+  id_team_b: number;
+  name_team_b: string;
+  flag_team_b: string;
+  stage: string;
+  city_name: string;
 }
 
-export type FlightRiskStatus = 'on-time' | 'potential-delay' | 'high-risk';
-
-export interface FlightRiskFactors {
-  weather: 'clear' | 'cloudy' | 'rain' | 'storm';
-  historicalOnTime: number; // percentage
-  distance: number; // miles
+export interface Segment {
+  flight_sk: string;
+  departure_airport_code: string;
+  departure_airport_time: string;
+  departure_city: string;
+  arrival_airport_code: string;
+  arrival_airport_time: string;
+  arrival_city: string;
+  duration: number | null;
+  layover_duration: number | null;
+  airline: string;
+  pos: number;
 }
 
 export interface Flight {
-  id: string;
-  airline: string;
-  flightNumber: string;
-  origin: City;
-  destination: City;
-  departureTime: Date;
-  arrivalTime: Date;
+  journey_sk: string;
   price: number;
-  seatsAvailable: number;
-  riskStatus: FlightRiskStatus;
-  riskFactors: FlightRiskFactors;
-}
-
-export interface BookingWindow {
-  opensAt: Date;
-  closesAt: Date;
-  isOpen: boolean;
-  timeRemaining: number; // milliseconds
+  airline: string;
+  is_best: boolean;
+  total_duration: number | null;
+  departure_airport_code: string;
+  departure_airport_time: string;
+  departure_city: string;
+  arrival_airport_code: string;
+  arrival_airport_time: string;
+  arrival_city: string;
+  nb_escales: number;
+  segments: Segment[];
+  // Prédictions ML — null si modèle non chargé
+  delay_probability: number | null;
+  delay_prediction: boolean | null;
+  model_used: string | null;
 }
 
 export type ViewState = 'city-select' | 'matches' | 'flights' | 'confirmation';
-
-export interface BookingState {
-  originCity: City | null;
-  selectedMatch: Match | null;
-  selectedFlight: Flight | null;
-  view: ViewState;
-}

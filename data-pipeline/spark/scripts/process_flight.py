@@ -123,11 +123,12 @@ df_detail_best_flight = df_detail_best_flight.withColumn(
 
 df_detail_best_flight = df_detail_best_flight.select(
     "journey_sk",
-    col("flight.departure_airport.id").alias("departure_airport_id"),
+    col("flight.departure_airport.id").alias("departure_airport_code"),
     col("flight.departure_airport.time").cast("timestamp").alias("departure_airport_time"),
-    col("flight.arrival_airport.id").alias("arrival_airport_id"),
+    col("flight.arrival_airport.id").alias("arrival_airport_code"),
     col("flight.arrival_airport.time").cast("timestamp").alias("arrival_airport_time"),
     col("flight.duration").alias("duration"),
+    col("flight.flight_number"),
     get(col("layovers"), col("pos")).getField("duration").alias("layover_duration"),
     "total_journey_duration",
     "price",
@@ -180,11 +181,12 @@ df_detail_other_flight = df_detail_other_flight.withColumn(
 
 df_detail_other_flight = df_detail_other_flight.select(
     "journey_sk",
-    col("flight.departure_airport.id").alias("departure_airport_id"),
+    col("flight.departure_airport.id").alias("departure_airport_code"),
     col("flight.departure_airport.time").cast("timestamp").alias("departure_airport_time"),
-    col("flight.arrival_airport.id").alias("arrival_airport_id"),
+    col("flight.arrival_airport.id").alias("arrival_airport_code"),
     col("flight.arrival_airport.time").cast("timestamp").alias("arrival_airport_time"),
     col("flight.duration").alias("duration"),
+    col("flight.flight_number"),
     get(col("layovers"), col("pos")).getField("duration").alias("layover_duration"),
     "total_journey_duration",
     "price",
@@ -197,13 +199,15 @@ df_detail_other_flight = df_detail_other_flight.select(
     col("flight.often_delayed_by_over_30_min").cast("boolean").alias("is_delayed"),
 )
 
-df_detail_best_flight.show()
-df_detail_other_flight.show()
-
+# ==================================================================
+# UNION + DÉDOUBLONNAGE + ÉCRITURE
+# ==================================================================
 df_final_to_load = df_detail_best_flight.unionByName(df_detail_other_flight)
 
+df_clean = df_final_to_load.dropDuplicates(["flight_sk"])
+
 try:
-    df_final_to_load.write.jdbc(
+    df_clean.write.jdbc(
         url=url,
         table="STG_FLIGHT",
         mode="overwrite",

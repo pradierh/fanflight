@@ -13,8 +13,8 @@ Logique :
 
   - Le script est idempotent : il peut être relancé sans dupliquer de données.
 
-Lancer depuis le container backend ou un service dédié :
-    python fetch_weather.py
+Lancer depuis le container ml :
+    docker compose run --rm ml python fetch_weather.py
 
 Variables d'environnement requises : DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD
 """
@@ -68,12 +68,12 @@ def fetch_flights_without_weather(cursor):
     cursor.execute("""
         SELECT
             f.flight_sk,
-            f.departure_airport_id,
+            f.departure_airport_code,
             f.departure_airport_time,
             a.latitude,
             a.longitude
         FROM fact_flight f
-        JOIN dim_airport a ON f.departure_airport_id = a.iata_code
+        JOIN dim_airport a ON f.departure_airport_code = a.iata_code
         LEFT JOIN fact_flight_weather w ON f.flight_sk = w.flight_sk
         WHERE w.flight_sk IS NULL
           AND a.latitude  IS NOT NULL
@@ -128,11 +128,11 @@ def fetch_weather(lat: float, lon: float, date_str: str) -> dict | None:
         return None
 
 
-def insert_weather(cursor, flight_sk, departure_airport_id, weather_date, hour, weather):
+def insert_weather(cursor, flight_sk, departure_airport_code, weather_date, hour, weather):
     cursor.execute(
         """
         INSERT INTO fact_flight_weather (
-            flight_sk, departure_airport_id,
+            flight_sk, departure_airport_code,
             weather_date, weather_hour,
             temperature_c, precipitation_mm, weather_code,
             wind_speed_kmh, visibility_m, snowfall_cm
@@ -141,7 +141,7 @@ def insert_weather(cursor, flight_sk, departure_airport_id, weather_date, hour, 
         """,
         (
             flight_sk,
-            departure_airport_id,
+            departure_airport_code,
             weather_date,
             hour,
             weather.get("temperature_c"),
@@ -172,14 +172,14 @@ def run():
     failed   = 0
 
     for flight in flights:
-        flight_sk      = flight["flight_sk"]
-        iata           = flight["departure_airport_id"]
-        dep_time: datetime = flight["departure_airport_time"]
-        lat            = float(flight["latitude"])
-        lon            = float(flight["longitude"])
+        flight_sk              = flight["flight_sk"]
+        iata                   = flight["departure_airport_code"]
+        dep_time: datetime     = flight["departure_airport_time"]
+        lat                    = float(flight["latitude"])
+        lon                    = float(flight["longitude"])
 
         # Date historique : même jour, même heure, N années en arrière
-        historical_dt  = dep_time.replace(year=dep_time.year - YEARS_BACK)
+        historical_dt   = dep_time.replace(year=dep_time.year - YEARS_BACK)
         historical_date = historical_dt.strftime("%Y-%m-%d")
         flight_hour     = dep_time.hour
 

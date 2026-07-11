@@ -56,7 +56,7 @@ NUMERIC_FEATURES = [
 ]
 
 CATEGORICAL_FEATURES = [
-    "airline", "departure_airport_id", "arrival_airport_id",
+    "airline", "departure_airport_code", "arrival_airport_code",
 ]
 
 # Seuils PSI
@@ -328,7 +328,7 @@ def run_drift_report(df_ref: pd.DataFrame, df_cur: pd.DataFrame,
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--reference", type=Path,
-                        default=Path(os.getenv("DATA_DIR", "/opt/spark/data")) / "training_set.parquet")
+                        default=Path(os.getenv("DATA_DIR", "/opt/data")) / "training_set.parquet"
     parser.add_argument("--current",   type=Path, required=False,
                         help="Nouveau batch à comparer. Si absent, simule une dérive.")
     args = parser.parse_args()

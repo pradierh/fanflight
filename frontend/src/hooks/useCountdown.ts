@@ -22,20 +22,13 @@ export const useCountdown = (targetDate: Date): CountdownResult => {
   });
 
   useEffect(() => {
+    const targetTime = new Date(targetDate).getTime()  // ← converti en number
+
     const calculateTimeLeft = () => {
-      const now = new Date().getTime();
-      const target = new Date(targetDate).getTime();
-      const difference = target - now;
+      const difference = targetTime - new Date().getTime()
 
       if (difference <= 0) {
-        return {
-          days: 0,
-          hours: 0,
-          minutes: 0,
-          seconds: 0,
-          isExpired: true,
-          totalMs: 0,
-        };
+        return { days: 0, hours: 0, minutes: 0, seconds: 0, isExpired: true, totalMs: 0 }
       }
 
       return {
@@ -45,17 +38,14 @@ export const useCountdown = (targetDate: Date): CountdownResult => {
         seconds: Math.floor((difference % (1000 * 60)) / 1000),
         isExpired: false,
         totalMs: difference,
-      };
-    };
+      }
+    }
 
-    setTimeLeft(calculateTimeLeft());
+    setTimeLeft(calculateTimeLeft())
+    const timer = setInterval(() => setTimeLeft(calculateTimeLeft()), 1000)
+    return () => clearInterval(timer)
 
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
+  }, [targetDate.getTime()])  // ← dépendance sur le timestamp, pas l'objet Date
 
-    return () => clearInterval(timer);
-  }, [targetDate]);
-
-  return timeLeft;
-};
+  return timeLeft
+}

@@ -15,7 +15,7 @@
     "WN": 12,
     "YX": 13
   },
-  "departure_airport_id": {
+  "departure_airport_code": {
     "ABE": 0,
     "ABI": 1,
     "ABQ": 2,
@@ -266,7 +266,7 @@
     "XNA": 247,
     "YUM": 248
   },
-  "arrival_airport_id": {
+  "arrival_airport_code": {
     "ATL": 0,
     "BOS": 1,
     "BUR": 2,

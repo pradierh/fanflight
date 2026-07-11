@@ -3,13 +3,14 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Team } from '@/types';
-import { TEAMS } from '@/data/teams';
+
 
 interface MatchFiltersProps {
   onFilterChange: (filters: { team: string | null; dateRange: string }) => void;
+  teams: Team[]
 }
 
-export const MatchFilters = ({ onFilterChange }: MatchFiltersProps) => {
+export const MatchFilters = ({ onFilterChange, teams }: MatchFiltersProps) => {
   const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
   const [dateRange, setDateRange] = useState('all');
   const [showTeamDropdown, setShowTeamDropdown] = useState(false);
@@ -21,10 +22,10 @@ export const MatchFilters = ({ onFilterChange }: MatchFiltersProps) => {
     { id: 'week', label: 'This Week' },
   ];
 
-  const handleTeamSelect = (teamId: string | null) => {
-    setSelectedTeam(teamId);
+  const handleTeamSelect = (team_name: string | null) => {
+    setSelectedTeam(team_name);
     setShowTeamDropdown(false);
-    onFilterChange({ team: teamId, dateRange });
+    onFilterChange({ team: team_name, dateRange });
   };
 
   const handleDateChange = (range: string) => {
@@ -32,7 +33,7 @@ export const MatchFilters = ({ onFilterChange }: MatchFiltersProps) => {
     onFilterChange({ team: selectedTeam, dateRange: range });
   };
 
-  const selectedTeamData = selectedTeam ? TEAMS.find(t => t.id === selectedTeam) : null;
+  const selectedTeamData = selectedTeam ? teams.find(t => t.team_name === selectedTeam) : null;
 
   return (
     <motion.div
@@ -66,7 +67,7 @@ export const MatchFilters = ({ onFilterChange }: MatchFiltersProps) => {
           {selectedTeamData ? (
             <>
               <span className="text-lg">{selectedTeamData.flag}</span>
-              <span className="text-sm font-medium">{selectedTeamData.name}</span>
+              <span className="text-sm font-medium">{selectedTeamData.team_name}</span>
             </>
           ) : (
             <>
@@ -90,18 +91,18 @@ export const MatchFilters = ({ onFilterChange }: MatchFiltersProps) => {
               >
                 All Teams
               </button>
-              {TEAMS.map((team) => (
+              {teams.map((team) => (
                 <button
-                  key={team.id}
-                  onClick={() => handleTeamSelect(team.id)}
+                  key={team.team_name}
+                  onClick={() => handleTeamSelect(team.team_name)}
                   className={`w-full px-3 py-2 text-left text-sm flex items-center gap-2 rounded-lg transition-colors cursor-pointer ${
-                    selectedTeam === team.id
+                    selectedTeam === team.team_name
                       ? 'bg-[var(--wc-teal)]/20 text-white'
                       : 'text-white/80 hover:bg-white/10'
                   }`}
                 >
                   <span className="text-lg">{team.flag}</span>
-                  <span>{team.name}</span>
+                  <span>{team.team_name}</span>
                 </button>
               ))}
             </div>

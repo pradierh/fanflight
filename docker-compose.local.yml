@@ -1,0 +1,166 @@
+name: fanflight-local
+
+services:
+  db:
+    image: postgres:17
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      start_period: 30s
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - postgres_db_local:/var/lib/postgresql/data
+
+  spark-master:
+    image: ${SPARK_IMAGE:-tezzosyris666/fanflight-spark}:${IMAGE_TAG:-local}
+    build:
+      context: ./data-pipeline/spark
+      dockerfile: Dockerfile
+    user: root
+    restart: unless-stopped
+    environment:
+      SPARK_MODE: master
+      SPARK_RPC_AUTHENTICATION_ENABLED: "no"
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+    command: >
+      bash -c "/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master &
+      sleep 5 &&
+      python3 /opt/spark/scripts/spark_listener.py"
+    working_dir: /opt/spark
+
+  spark-worker:
+    image: ${SPARK_IMAGE:-tezzosyris666/fanflight-spark}:${IMAGE_TAG:-local}
+    build:
+      context: ./data-pipeline/spark
+      dockerfile: Dockerfile
+    user: root
+    restart: unless-stopped
+    environment:
+      SPARK_MODE: worker
+      SPARK_MASTER_URL: spark://spark-master:7077
+      SPARK_RPC_AUTHENTICATION_ENABLED: "no"
+    env_file:
+      - .env
+    depends_on:
+      spark-master:
+        condition: service_started
+    ports:
+      - "8081:8081"
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    working_dir: /opt/spark
+
+  backend-api:
+    image: ${BACKEND_API_IMAGE:-tezzosyris666/fanflight-backend-api}:${IMAGE_TAG:-local}
+    build:
+      context: ./API
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    image: ${FRONTEND_IMAGE:-tezzosyris666/fanflight-frontend}:${IMAGE_TAG:-local}
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+
+  prometheus:
+    image: prom/prometheus:latest
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.enable-lifecycle"
+    volumes:
+      - ./monitoring/prometheus:/etc/prometheus:ro
+      - prometheus_data_local:/prometheus
+    depends_on:
+      - blackbox-exporter
+      - node-exporter
+      - cadvisor
+      - postgres-exporter
+
+  blackbox-exporter:
+    image: prom/blackbox-exporter:latest
+    restart: unless-stopped
+    command:
+      - "--config.file=/etc/blackbox_exporter/blackbox.yml"
+    volumes:
+      - ./monitoring/blackbox:/etc/blackbox_exporter:ro
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    restart: unless-stopped
+    command:
+      - "--path.rootfs=/host"
+    pid: host
+    volumes:
+      - /:/host:ro,rslave
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    restart: unless-stopped
+    privileged: true
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker:/var/lib/docker:ro
+      - /dev/disk:/dev/disk:ro
+
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter:latest
+    restart: unless-stopped
+    environment:
+      DATA_SOURCE_NAME: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}?sslmode=disable
+    depends_on:
+      db:
+        condition: service_healthy
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_ADMIN_USER:-admin}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-fanflight-admin}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    volumes:
+      - grafana_data_local:/var/lib/grafana
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    depends_on:
+      - prometheus
+
+volumes:
+  postgres_db_local:
+  prometheus_data_local:
+  grafana_data_local:
