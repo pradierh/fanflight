@@ -236,6 +236,13 @@ def get_weather_for_inference(cursor, flight):
     return None
 
 
+def clean_unused_cols(flights):
+    """Supprime les champs internes non destinés à l'API publique."""
+    for flight in flights:
+        flight.pop("is_delayed", None)
+    return flights
+
+
 def predict_delay(cursor, flights):
     """
     Ajoute delay_probability et delay_prediction à chaque vol.
