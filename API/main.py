@@ -13,14 +13,11 @@ from pathlib import Path
 
 # --- ML / inference ---
 import mlflow
-import mlflow.xgboost
-import mlflow.pyfunc
 import numpy as np
 import xgboost as xgb
 from mlflow.tracking import MlflowClient
 from feature_builder import (
-    FEATURE_COLS, WEATHER_DEFAULTS,
-    load_mappings, build_features_for_flight, features_to_vector,
+    FEATURE_COLS,load_mappings, build_features_for_flight, features_to_vector,
 )
 
 

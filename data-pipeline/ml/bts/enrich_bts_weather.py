@@ -22,8 +22,6 @@ Usage :
 import logging
 import os
 import time
-from pathlib import Path
-
 import psycopg2
 import psycopg2.extras
 import requests

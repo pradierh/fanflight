@@ -1,7 +1,7 @@
 """
 feature_builder.py
 -------------------
-Module PARTAGÉ entre l'entraînement (build_training_set.py) et l'inférence
+Module PARTAGÉ entre l'entraînement (build_training_set_bts.py) et l'inférence
 (API main.py). Son rôle unique : transformer un vol brut en vecteur de features
 de façon STRICTEMENT IDENTIQUE des deux côtés.
 
