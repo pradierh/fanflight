@@ -1,0 +1,31 @@
+# Pipeline ML — retard de vols
+# À installer dans le container backend ou un service ml dédié
+
+# DB
+psycopg2-binary==2.9.9
+
+# Data
+pandas==2.2.2
+numpy==1.26.4
+pyarrow==15.0.2      # pour read/write parquet
+
+# ML
+xgboost==2.0.3
+scikit-learn==1.4.2
+shap==0.45.0
+
+# Deep Learning
+# torch==2.3.0          # CPU build — remplacer par torch+cu121 si GPU disponible
+
+# MLflow
+mlflow==2.13.0
+
+# Stats (drift)
+scipy==1.13.0
+
+# Visualisation
+matplotlib==3.9.0
+seaborn==0.13.2
+
+# Météo
+requests==2.31.0

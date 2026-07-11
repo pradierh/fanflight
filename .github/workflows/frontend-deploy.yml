@@ -9,6 +9,7 @@ on:
       - "frontend/**"
       - "API/**"
       - "data-pipeline/spark/**"
+      - "data-pipeline/ml/**"
       - "monitoring/**"
       - ".github/workflows/frontend-deploy.yml"
   workflow_dispatch:
@@ -18,6 +19,7 @@ env:
   FRONTEND_IMAGE: tezzosyris666/fanflight-frontend
   BACKEND_API_IMAGE: tezzosyris666/fanflight-backend-api
   SPARK_IMAGE: tezzosyris666/fanflight-spark
+  ML_IMAGE: tezzosyris666/fanflight-ml
   EC2_HOST: 35.181.62.34
   EC2_USER: ubuntu
   
@@ -71,6 +73,16 @@ jobs:
           tags: |
             ${{ env.SPARK_IMAGE }}:latest
             ${{ env.SPARK_IMAGE }}:${{ github.sha }}
+
+      - name: Build and push ML image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./data-pipeline/ml
+          file: ./data-pipeline/ml/Dockerfile
+          push: true
+          tags: |
+            ${{ env.ML_IMAGE }}:latest
+            ${{ env.ML_IMAGE }}:${{ github.sha }}
 
   deploy-ec2:
     name: Deploy compose on EC2
@@ -176,25 +188,75 @@ jobs:
               labels:
                 - "com.centurylinklabs.watchtower.enable=true"
 
+            mlflow:
+              image: ghcr.io/mlflow/mlflow:v2.13.0
+              container_name: mlflow
+              restart: unless-stopped
+              ports:
+                - "127.0.0.1:5000:5000"
+              environment:
+                - MLFLOW_BACKEND_STORE_URI=postgresql://\${DB_USER}:\${DB_PASSWORD}@db:5432/mlflow_db
+                - MLFLOW_DEFAULT_ARTIFACT_ROOT=/mlflow/artifacts
+              volumes:
+                - mlflow_artifacts:/mlflow/artifacts
+              command: >
+                bash -c "pip install psycopg2-binary &&
+                mlflow server
+                --backend-store-uri postgresql://\${DB_USER}:\${DB_PASSWORD}@db:5432/mlflow_db
+                --default-artifact-root /mlflow/artifacts
+                --host 0.0.0.0
+                --port 5000"
+              depends_on:
+                db:
+                  condition: service_healthy
+
             backend-api:
               image: ${BACKEND_API_IMAGE}:latest
               container_name: backend_api
               restart: unless-stopped
               ports:
                 - "8000:8000"
+              environment:
+                - MLFLOW_TRACKING_URI=http://mlflow:5000
               env_file:
                 - .env
               volumes:
                 - /opt/fanflight/data:/opt/data
+                - mlflow_artifacts:/mlflow/artifacts
               depends_on:
                 db:
                   condition: service_healthy
+                mlflow:
+                  condition: service_started
               healthcheck:
                 test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready', timeout=5)\""]
                 start_period: 60s
                 interval: 15s
                 timeout: 5s
                 retries: 10
+              labels:
+                - "com.centurylinklabs.watchtower.enable=true"
+
+            ml:
+              image: ${ML_IMAGE}:latest
+              container_name: ml_trainer
+              restart: unless-stopped
+              environment:
+                - MLFLOW_TRACKING_URI=http://mlflow:5000
+                - DATA_DIR=/opt/data
+                - PYTHONPATH=/app
+              env_file:
+                - .env
+              volumes:
+                - /opt/fanflight/data:/opt/data
+                - mlflow_artifacts:/mlflow/artifacts
+              working_dir: /app
+              depends_on:
+                db:
+                  condition: service_healthy
+                mlflow:
+                  condition: service_started
+              command: ["tail", "-f", "/dev/null"]
               labels:
                 - "com.centurylinklabs.watchtower.enable=true"
 
@@ -304,6 +366,7 @@ jobs:
             postgres_db:
             prometheus_data:
             grafana_data:
+            mlflow_artifacts:
           EOF
 
       - name: Copy compose file to EC2
@@ -350,7 +413,7 @@ jobs:
           fi
 
           cd /opt/fanflight
-          sudo docker compose pull frontend backend-api spark-master spark-worker prometheus blackbox-exporter node-exporter cadvisor postgres-exporter grafana
+          sudo docker compose pull frontend backend-api spark-master spark-worker ml prometheus blackbox-exporter node-exporter cadvisor postgres-exporter grafana
           if ! sudo docker compose up -d; then
             sudo docker compose ps
             sudo docker logs postgres || true

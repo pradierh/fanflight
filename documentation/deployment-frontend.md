@@ -1,27 +1,21 @@
-# Deploiement Docker sur EC2
+# Deploiement du frontend sur EC2
 
-## Repos Docker Hub requis
+## Repo Docker Hub requis
 
-Le workflow publie les images internes dans ces repos Docker Hub :
+Le workflow publie l'image frontend dans ce repo Docker Hub :
 
 ```text
 tezzosyris666/fanflight-frontend
-tezzosyris666/fanflight-backend-api
-tezzosyris666/fanflight-spark
 ```
 
-Ces repos Docker Hub doivent exister avant de lancer le workflow. Le plus simple est de les creer en public, car l'EC2 pourra tirer les images sans `docker login`.
+Le repo Docker Hub doit exister avant de lancer le workflow. Le plus simple est de le creer en public, car l'EC2 pourra tirer l'image sans `docker login`.
 
 Tags pousses par GitHub Actions :
 
 - `tezzosyris666/fanflight-frontend:latest` : tag suivi par l'EC2 et Watchtower.
-- `tezzosyris666/fanflight-backend-api:latest` : tag suivi par l'EC2 et Watchtower.
-- `tezzosyris666/fanflight-spark:latest` : tag suivi par l'EC2 et Watchtower.
 - `tezzosyris666/fanflight-frontend:<git-sha>` : tag immutable pour retrouver une version precise.
-- `tezzosyris666/fanflight-backend-api:<git-sha>` : tag immutable pour retrouver une version precise.
-- `tezzosyris666/fanflight-spark:<git-sha>` : tag immutable pour retrouver une version precise.
 
-Pour que l'auto-update fonctionne sans modifier le compose a chaque release, les services de production suivent le tag stable `latest`.
+Pour que l'auto-update fonctionne sans modifier le compose a chaque release, il faut que le frontend de production suive le tag stable `latest`.
 
 ## Secrets GitHub requis
 
@@ -36,13 +30,6 @@ RSA=<contenu complet de la cle privee RSA pour l'EC2>
 Le secret `RSA` doit contenir toute la cle privee, avec les lignes `-----BEGIN ...-----` et `-----END ...-----`.
 Si la cle est collee sur une seule ligne avec des `\n` litteraux, le workflow la reconvertit automatiquement en cle multiligne.
 
-Si le log affiche `SSH_PRIVATE_KEY:` vide, alors le secret `RSA` n'est pas disponible pour le workflow. A verifier :
-
-- le secret s'appelle exactement `RSA` ;
-- il est cree dans le meme repository GitHub que celui qui lance l'action ;
-- il est dans `Settings > Secrets and variables > Actions`, pas seulement dans un autre environnement ;
-- le workflow n'est pas lance depuis un fork, car GitHub ne transmet pas les secrets aux workflows de forks non approuves.
-
 Si l'etape `Configure SSH key` echoue sur `ssh-keygen -y`, alors le secret `RSA` ne contient probablement pas la bonne cle privee. A verifier :
 
 - utiliser la cle privee, pas la cle `.pub` ;
@@ -54,13 +41,13 @@ Si l'etape `Configure SSH key` echoue sur `ssh-keygen -y`, alors le secret `RSA`
 
 Le workflow `.github/workflows/frontend-deploy.yml` se lance :
 
-- a chaque push sur `main` ou `master` qui touche `frontend/`, `API/` ou `data-pipeline/spark/` ;
+- a chaque push sur `main` ou `master` qui touche le dossier `frontend/` ;
 - manuellement via `workflow_dispatch`.
 
 Il fait ensuite :
 
-1. build des images Docker `frontend`, `backend-api` et `spark` ;
-2. push des images vers Docker Hub ;
+1. build de l'image Docker du frontend Next.js ;
+2. push vers Docker Hub ;
 3. connexion SSH a l'EC2 `ubuntu@35.181.62.34` ;
 4. installation de Docker si necessaire ;
 5. creation de `/opt/fanflight/docker-compose.yml` ;
