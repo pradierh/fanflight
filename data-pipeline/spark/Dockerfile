@@ -12,6 +12,8 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+COPY scripts /opt/spark/scripts
+RUN chmod -R 755 /opt/spark/scripts
 
 ADD https://jdbc.postgresql.org/download/postgresql-42.7.2.jar /opt/spark/jars/postgresql-42.7.2.jar
 RUN chmod 644 /opt/spark/jars/postgresql-42.7.2.jar
