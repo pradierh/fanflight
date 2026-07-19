@@ -9,8 +9,17 @@ import requests
 import json
 from collections import defaultdict
 import pandas as pd
+from prometheus_fastapi_instrumentator import Instrumentator
+import logging
+from pydantic import BaseModel
+from typing import Optional, List
+
 
 app = FastAPI(title="API de Vols - Coupe du Monde 2026")
+Instrumentator().instrument(app).expose(app)
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("alertmanager-webhook")
 
 origins = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
 
@@ -23,6 +32,22 @@ app.add_middleware(
 )
 
 API_KEY = os.getenv("API_KEY_SERAPI")
+
+class Alert(BaseModel):
+    status: str
+    labels: dict
+    annotations: dict
+    startsAt: str
+    endsAt: Optional[str] = None
+    generatorURL: Optional[str] = None
+
+
+class AlertmanagerPayload(BaseModel):
+    version: str
+    groupKey: str
+    status: str
+    receiver: str
+    alerts: List[Alert]
 
 def get_db_connection():
     return psycopg2.connect(
@@ -479,6 +504,25 @@ def get_cities():
     cursor.close()
     conn.close()
     return cities
+
+@app.post("/webhooks/alertmanager")
+async def handle_alertmanager_webhook(payload: AlertmanagerPayload):
+    for alert in payload.alerts:
+        alertname = alert.labels.get("alertname")
+        service = alert.labels.get("service")
+        severity = alert.labels.get("severity")
+
+        if alert.status != "firing":
+            logger.info(f"Alerte résolue: {alertname} ({service})")
+            continue
+
+        logger.warning(
+            f"Alerte active: {alertname} | service={service} | severity={severity} "
+            f"| résumé: {alert.annotations.get('summary')}"
+        )
+        # TODO: brancher une vraie remédiation ici plus tard
+
+    return {"status": "processed", "count": len(payload.alerts)}
 
 
 @app.get("/api/test")
