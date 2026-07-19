@@ -16,6 +16,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      - monitoring-network 
 
   spark-master:
     build: ./data-pipeline/spark
@@ -37,6 +39,8 @@ services:
     volumes:
       - ./data-pipeline/spark/scripts:/opt/spark/scripts
       - ./data-pipeline/data:/opt/spark/data
+    networks:
+      - monitoring-network 
 
   spark-worker:
     build: ./data-pipeline/spark
@@ -59,7 +63,10 @@ services:
     volumes:
       - ./data-pipeline/spark/scripts:/opt/spark/scripts
       - ./data-pipeline/data:/opt/spark/data
-  
+
+    networks:
+      - monitoring-network 
+
   backend-api:
     build: ./API       
     container_name: backend_api
@@ -74,11 +81,19 @@ services:
       db:
         condition: service_healthy                # L'API attend que la base de données soit lancée
 
+    networks:
+      - monitoring-network 
+
   frontend:
     build: ./frontend  # ← build depuis le Dockerfile
     container_name: frontend
     ports:
       - "3000:3000"
-                    
+    networks:
+      - monitoring-network                  
 volumes:
   postgres_db:
+
+networks:
+  monitoring-network:
+    external: true
