@@ -31,7 +31,3 @@ receivers:
     email_configs:
       - to: 'emy@fanflight.local'
         send_resolved: true
-    webhook_configs:
-      - url: 'http://backend-api:8000/webhooks/alertmanager'
-        send_resolved: true
-        max_alerts: 0
