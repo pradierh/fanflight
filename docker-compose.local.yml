@@ -1,3 +1,4 @@
+name: fanflight-local
 services:
   db:
     image: postgres:17
@@ -21,101 +22,85 @@ services:
       - monitoring-network
 
   spark-master:
+    image: ${SPARK_IMAGE:-tezzosyris666/fanflight-spark}:${IMAGE_TAG:-local}
     build:
       context: ./data-pipeline/spark
-    image: tezzosyris666/fanflight-spark:local
-    restart: unless-stopped
+      dockerfile: Dockerfile
     user: root
+    restart: unless-stopped
     environment:
       SPARK_MODE: master
       SPARK_RPC_AUTHENTICATION_ENABLED: "no"
-      DB_NAME: ${DB_NAME}
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_HOST: ${DB_HOST}
-      DB_PORT: ${DB_PORT}
-      API_KEY_SERAPI: ${API_KEY_SERAPI}
+    env_file:
+      - .env
     depends_on:
       db:
         condition: service_healthy
+    ports:
+      - "8080:8080"
+      - "7077:7077"
     command: >
       bash -c "/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master &
       sleep 5 &&
       python3 /opt/spark/scripts/spark_listener.py"
     working_dir: /opt/spark
-    ports:
-      - "8080:8080"
-      - "7077:7077"
     networks:
       - default
       - monitoring-network
 
   spark-worker:
+    image: ${SPARK_IMAGE:-tezzosyris666/fanflight-spark}:${IMAGE_TAG:-local}
     build:
       context: ./data-pipeline/spark
-    image: tezzosyris666/fanflight-spark:local
-    restart: unless-stopped
+      dockerfile: Dockerfile
     user: root
+    restart: unless-stopped
     environment:
       SPARK_MODE: worker
       SPARK_MASTER_URL: spark://spark-master:7077
       SPARK_RPC_AUTHENTICATION_ENABLED: "no"
-      DB_NAME: ${DB_NAME}
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_HOST: ${DB_HOST}
-      DB_PORT: ${DB_PORT}
-      API_KEY_SERAPI: ${API_KEY_SERAPI}
+    env_file:
+      - .env
     depends_on:
       spark-master:
         condition: service_started
-    command:
-      - /opt/spark/bin/spark-class
-      - org.apache.spark.deploy.worker.Worker
-      - spark://spark-master:7077
-    working_dir: /opt/spark
     ports:
       - "8081:8081"
+    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
+    working_dir: /opt/spark
     networks:
       - default
       - monitoring-network
 
   backend-api:
+    image: ${BACKEND_API_IMAGE:-tezzosyris666/fanflight-backend-api}:${IMAGE_TAG:-local}
     build:
       context: ./API
-    image: tezzosyris666/fanflight-backend-api:local
+      dockerfile: Dockerfile
     restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
     depends_on:
       db:
         condition: service_healthy
-    environment:
-      DB_NAME: ${DB_NAME}
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_HOST: ${DB_HOST}
-      DB_PORT: ${DB_PORT}
-      API_KEY_SERAPI: ${API_KEY_SERAPI}
-    ports:
-      - "8000:8000"
     networks:
       - default
       - monitoring-network
 
   frontend:
+    image: ${FRONTEND_IMAGE:-tezzosyris666/fanflight-frontend}:${IMAGE_TAG:-local}
     build:
       context: ./frontend
-      args:
-        NEXT_PUBLIC_API_URL: http://localhost:8000
-        NEXT_PUBLIC_GRAFANA_URL: ${NEXT_PUBLIC_GRAFANA_URL}
-        NEXT_PUBLIC_GRAFANA_DASHBOARD_UID: fanflight-app-metrics
-        NEXT_PUBLIC_GRAFANA_DASHBOARD_SLUG: fanflight-metriques-applicatives
-    image: tezzosyris666/fanflight-frontend:local
+      dockerfile: Dockerfile
     restart: unless-stopped
-    environment:
-      NODE_ENV: production
-      NEXT_PUBLIC_GRAFANA_URL: ${NEXT_PUBLIC_GRAFANA_URL}
     ports:
       - "3000:3000"
+    environment:
+      NODE_ENV: production
+    env_file:
+      - .env
     networks:
       - default
       - monitoring-network
@@ -124,5 +109,5 @@ volumes:
   postgres_db_local:
 
 networks:
-  monitoring-network:
+  monitoring-network: #monitoring
     external: true
