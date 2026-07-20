@@ -22,16 +22,9 @@ from feature_builder import (
 
 # -- Monitoring
 from prometheus_fastapi_instrumentator import Instrumentator
-import logging
-from pydantic import BaseModel
-from typing import Optional, List
-
 
 app = FastAPI(title="API de Vols - Coupe du Monde 2026")
 Instrumentator().instrument(app).expose(app) #Exposition des métriques pour monitoring
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("alertmanager-webhook")
 
 origins = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
 
@@ -44,24 +37,6 @@ app.add_middleware(
 )
 
 API_KEY = os.getenv("API_KEY_SERAPI")
-
-# ---- MONITORING ----
-class Alert(BaseModel):
-    status: str
-    labels: dict
-    annotations: dict
-    startsAt: str
-    endsAt: Optional[str] = None
-    generatorURL: Optional[str] = None
-
-
-class AlertmanagerPayload(BaseModel):
-    version: str
-    groupKey: str
-    status: str
-    receiver: str
-    alerts: List[Alert]
-# --------
 
 # ------------------------------------------------------------------
 # Configuration ML
@@ -683,7 +658,6 @@ def get_cities():
     cursor.close()
     conn.close()
     return cities
-
 
 @app.get("/api/test")
 def get_test():
