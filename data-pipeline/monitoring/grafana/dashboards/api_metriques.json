@@ -64,7 +64,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "dfrw9zrl4v18gc"
+                        "name": "prometheus"
                       },
                       "spec": {
                         "expr": "sum(rate(http_requests_total[5m]))",
@@ -140,7 +140,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "dfrw9zrl4v18gc"
+                        "name": "prometheus"
                       },
                       "spec": {
                         "expr": "sum(rate(http_requests_total[5m])) by (handler)",
@@ -209,7 +209,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "dfrw9zrl4v18gc"
+                        "name": "prometheus"
                       },
                       "spec": {
                         "expr": "sum(rate(http_requests_total[5m])) by (status)",
@@ -324,7 +324,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "dfrw9zrl4v18gc"
+                        "name": "prometheus"
                       },
                       "spec": {
                         "expr": "sum(rate(http_requests_total{status=~\"5..\"}[5m]))",
@@ -408,7 +408,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "dfrw9zrl4v18gc"
+                        "name": "prometheus"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.50, sum(rate(http_request_duration_highr_seconds_bucket[5m])) by (le))",
@@ -427,7 +427,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "dfrw9zrl4v18gc"
+                        "name": "prometheus"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_highr_seconds_bucket[5m])) by (le))",
@@ -446,7 +446,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "dfrw9zrl4v18gc"
+                        "name": "prometheus"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.99, sum(rate(http_request_duration_highr_seconds_bucket[5m])) by (le))",
@@ -515,7 +515,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "dfrw9zrl4v18gc"
+                        "name": "prometheus"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le, handler))",
@@ -584,7 +584,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "dfrw9zrl4v18gc"
+                        "name": "prometheus"
                       },
                       "spec": {
                         "expr": "sum(rate(http_request_duration_seconds_sum[5m])) by (handler) / sum(rate(http_request_duration_seconds_count[5m])) by (handler)",
@@ -653,7 +653,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "dfrw9zrl4v18gc"
+                        "name": "prometheus"
                       },
                       "spec": {
                         "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_highr_seconds_bucket[5m])) by (le))",
@@ -737,7 +737,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "dfrw9zrl4v18gc"
+                        "name": "prometheus"
                       },
                       "spec": {
                         "expr": "sum(rate(http_response_size_bytes_sum[5m])) by (handler) / sum(rate(http_response_size_bytes_count[5m])) by (handler)",
@@ -806,7 +806,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "dfrw9zrl4v18gc"
+                        "name": "prometheus"
                       },
                       "spec": {
                         "expr": "process_resident_memory_bytes",
@@ -825,7 +825,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "dfrw9zrl4v18gc"
+                        "name": "prometheus"
                       },
                       "spec": {
                         "expr": "rate(process_cpu_seconds_total[5m])",
@@ -918,7 +918,7 @@
                       "group": "prometheus",
                       "version": "v0",
                       "datasource": {
-                        "name": "dfrw9zrl4v18gc"
+                        "name": "prometheus"
                       },
                       "spec": {
                         "expr": "process_resident_memory_bytes",
@@ -1215,7 +1215,7 @@
       {
         "kind": "DatasourceVariable",
         "spec": {
-          "name": "DS_PROMETHEUS",
+          "name": "prometheus",
           "pluginId": "prometheus",
           "refresh": "never",
           "regex": "",

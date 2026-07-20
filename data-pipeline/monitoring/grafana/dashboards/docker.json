@@ -65,12 +65,12 @@
                       "group": "",
                       "version": "v0",
                       "datasource": {
-                        "name": "${DS_PROMETHEUS}"
+                        "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "container_memory_usage_bytes{image!=\"\"}",
+                        "expr": "container_memory_usage_bytes{id=~\"/docker/[a-f0-9]{12,}\"}",
                         "intervalFactor": 2,
-                        "legendFormat": "{{name}}",
+                        "legendFormat": "{{id}}",
                         "metric": "container_memory_usage_bytes",
                         "step": 10
                       }
@@ -176,12 +176,12 @@
                       "group": "",
                       "version": "v0",
                       "datasource": {
-                        "name": "${DS_PROMETHEUS}"
+                        "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "rate(container_cpu_user_seconds_total{image!=\"\"}[5m]) * 100",
+                        "expr": "rate(container_cpu_user_seconds_total{id=~\"/docker/[a-f0-9]{12,}\"}[5m]) * 100",
                         "intervalFactor": 2,
-                        "legendFormat": "{{name}}",
+                        "legendFormat": "{{id}}",
                         "metric": "cpu",
                         "step": 10
                       }
@@ -286,12 +286,12 @@
                       "group": "",
                       "version": "v0",
                       "datasource": {
-                        "name": "${DS_PROMETHEUS}"
+                        "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "irate(container_network_receive_bytes_total{image!=\"\"}[5m])",
+                        "expr": "irate(container_network_receive_bytes_total{id=~\"/docker/[a-f0-9]{12,}\"}[5m])",
                         "intervalFactor": 2,
-                        "legendFormat": "{{name}}",
+                        "legendFormat": "{{id}}",
                         "metric": "container_network_receive_bytes_total",
                         "step": 20
                       }
@@ -393,12 +393,12 @@
                       "group": "",
                       "version": "v0",
                       "datasource": {
-                        "name": "${DS_PROMETHEUS}"
+                        "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "irate(container_network_transmit_bytes_total{image!=\"\"}[5m])",
+                        "expr": "irate(container_network_transmit_bytes_total{id=~\"/docker/[a-f0-9]{12,}\"}[5m])",
                         "intervalFactor": 2,
-                        "legendFormat": "{{name}}",
+                        "legendFormat": "{{id}}",
                         "step": 20
                       }
                     },
@@ -499,10 +499,10 @@
                       "group": "",
                       "version": "v0",
                       "datasource": {
-                        "name": "${DS_PROMETHEUS}"
+                        "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "sum(container_memory_usage_bytes{image!=\"\"})/1024/1024",
+                        "expr": "sum(container_memory_usage_bytes{id=~\"/docker/[a-f0-9]{12,}\"})/1024/1024",
                         "intervalFactor": 2,
                         "legendFormat": "",
                         "metric": "container_memory_usage_bytes",
@@ -617,10 +617,10 @@
                       "group": "",
                       "version": "v0",
                       "datasource": {
-                        "name": "${DS_PROMETHEUS}"
+                        "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "sum(rate(container_cpu_user_seconds_total{image!=\"\"}[5m]) * 100)",
+                        "expr": "sum(rate(container_cpu_user_seconds_total{id=~\"/docker/[a-f0-9]{12,}\"}[5m]) * 100)",
                         "intervalFactor": 2,
                         "legendFormat": "",
                         "metric": "container_memory_usage_bytes",
@@ -735,10 +735,10 @@
                       "group": "",
                       "version": "v0",
                       "datasource": {
-                        "name": "${DS_PROMETHEUS}"
+                        "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "count(container_last_seen{image!=\"\"})",
+                        "expr": "count(container_last_seen{id=~\"/docker/[a-f0-9]{12,}\"})",
                         "intervalFactor": 2,
                         "legendFormat": "",
                         "metric": "container_last_seen",
