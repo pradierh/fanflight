@@ -30,10 +30,10 @@ origins = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins, # Autorise front Next.js
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"], # Autorise tous les verbes (GET, POST, etc.)
-    allow_headers=["*"], # Autorise tous les headers
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 API_KEY = os.getenv("API_KEY_SERAPI")
@@ -57,6 +57,7 @@ MODEL      = None
 MAPPINGS   = None
 MODEL_NAME = None
 
+
 # ==================================================================
 # DB
 # ==================================================================
@@ -70,6 +71,7 @@ def get_db_connection():
         password=os.getenv("DB_PASSWORD", "password_test"),
         cursor_factory=RealDictCursor
     )
+
 
 # ==================================================================
 # HEALTH / READY
