@@ -16,6 +16,9 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      - default
+      - monitoring-network
 
   spark-master:
     build: ./data-pipeline/spark
@@ -40,6 +43,9 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    networks:
+      - default
+      - monitoring-network
 
   spark-worker:
     build: ./data-pipeline/spark
@@ -61,6 +67,9 @@ services:
     volumes:
       - ./data-pipeline/spark/scripts:/opt/spark/scripts
       - ./data-pipeline/data:/opt/spark/data
+    networks:
+      - default
+      - monitoring-network
 
   backend-api:
     build: ./API
@@ -80,13 +89,18 @@ services:
         condition: service_healthy
       mlflow:
         condition: service_started
+    networks:
+      - default
+      - monitoring-network
 
   frontend:
     build: ./frontend
     container_name: frontend
     ports:
       - "3000:3000"
-
+    networks:
+      - default
+      - monitoring-network
   # ----------------------------------------------------------------
   # MLflow — serveur de tracking + model registry
   # UI accessible sur http://localhost:5000
@@ -113,7 +127,9 @@ services:
     depends_on:
       db:
         condition: service_healthy
-
+    networks:
+      - default
+      - monitoring-network
   # ----------------------------------------------------------------
   # ML — service d'entraînement et de monitoring
   # Ne tourne pas en continu : on l'exécute à la demande via
@@ -141,7 +157,14 @@ services:
       mlflow:
         condition: service_started
     command: ["tail", "-f", "/dev/null"]
+    networks:
+      - default
+      - monitoring-network
 
 volumes:
   postgres_db:
   mlflow_artifacts:
+
+networks:
+  monitoring-network: #monitoring
+    external: true

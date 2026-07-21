@@ -20,8 +20,11 @@ from feature_builder import (
     FEATURE_COLS,load_mappings, build_features_for_flight, features_to_vector,
 )
 
+# -- Monitoring
+from prometheus_fastapi_instrumentator import Instrumentator
 
 app = FastAPI(title="API de Vols - Coupe du Monde 2026")
+Instrumentator().instrument(app).expose(app) #Exposition des métriques pour monitoring
 
 origins = os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")
 
@@ -657,7 +660,6 @@ def get_cities():
     cursor.close()
     conn.close()
     return cities
-
 
 @app.get("/api/test")
 def get_test():
