@@ -1,0 +1,45 @@
+groups:
+  - name: fanflight-app
+    rules:
+      - alert: FanflightAPIDown
+        expr: up{job="backend-api"} == 0
+        for: 1m
+        labels:
+          severity: critical
+          service: backend-api
+        annotations:
+          summary: "L'API Fanflight ne répond plus"
+          description: "L'instance {{ $labels.instance }} est down depuis plus d'1 minute."
+
+      - alert: FanflightHighErrorRate
+        expr: |
+          sum(rate(http_requests_total{status=~"5.."}[5m]))
+          / sum(rate(http_requests_total[5m])) > 0.05
+        for: 5m
+        labels:
+          severity: critical
+          service: backend-api
+        annotations:
+          summary: "Taux d'erreurs 5xx élevé"
+          description: "Plus de 5% des requêtes échouent depuis 5 minutes."
+
+      - alert: FanflightHighLatency
+        expr: |
+          histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) > 1
+        for: 5m
+        labels:
+          severity: warning
+          service: backend-api
+        annotations:
+          summary: "Latence p95 élevée"
+          description: "La latence p95 dépasse 1s depuis 5 minutes."
+
+      - alert: FanflightHighMemory
+        expr: process_resident_memory_bytes{job="backend-api"} > 500000000
+        for: 10m
+        labels:
+          severity: warning
+          service: backend-api
+        annotations:
+          summary: "Mémoire résidente élevée"
+          description: "L'API consomme plus de 500MB de RAM depuis 10 minutes."

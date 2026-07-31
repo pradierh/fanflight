@@ -7,9 +7,8 @@ export interface City {
   id_city: string;
   city: string;
   country: string;
-  flag: string
+  flag: string;
   airport_codes: string[];
-
 }
 
 export interface Team {
@@ -19,25 +18,24 @@ export interface Team {
 }
 
 export interface Match {
-  match_id: number;          
-  match_date: Date;        
+  match_id: number;
+  match_date: Date;
   id_team_a: number;
   name_team_a: string;
   flag_team_a: string;
   id_team_b: number;
   name_team_b: string;
   flag_team_b: string;
-  stage: string;             
+  stage: string;
   city_name: string;
 }
 
-
 export interface Segment {
   flight_sk: string;
-  departure_airport_id: string;
+  departure_airport_code: string;
   departure_airport_time: string;
   departure_city: string;
-  arrival_airport_id: string;
+  arrival_airport_code: string;
   arrival_airport_time: string;
   arrival_city: string;
   duration: number | null;
@@ -52,17 +50,18 @@ export interface Flight {
   airline: string;
   is_best: boolean;
   total_duration: number | null;
-  departure_airport_id: string;
+  departure_airport_code: string;
   departure_airport_time: string;
   departure_city: string;
-  arrival_airport_id: string;
+  arrival_airport_code: string;
   arrival_airport_time: string;
   arrival_city: string;
   nb_escales: number;
   segments: Segment[];
+  // Prédictions ML — null si modèle non chargé
+  delay_probability: number | null;
+  delay_prediction: boolean | null;
+  model_used: string | null;
 }
 
-
 export type ViewState = 'city-select' | 'matches' | 'flights' | 'confirmation';
-
-

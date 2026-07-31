@@ -3,8 +3,8 @@
     "id": "6a2294e36561a674c1d490e0",
     "status": "Success",
     "json_endpoint": "https://serpapi.com/searches/9BeLfGvtVYJ5DknHcQ3jvQ/6a2294e36561a674c1d490e0.json",
-    "created_at": "2026-06-05 09:20:35 UTC",
-    "processed_at": "2026-06-05 09:20:35 UTC",
+    "created_at": "2026-08-05 09:20:35 UTC",
+    "processed_at": "2026-08-05 09:20:35 UTC",
     "google_flights_url": "https://www.google.com/travel/flights?hl=fr&gl=us&curr=EUR&tfs=CBwQAhoeEgoyMDI2LTA2LTI0agcIARIDSkZLcgcIARIDU05BQAFIAXABmAEC&tfu=EgIIAQ",
     "raw_html_file": "https://serpapi.com/searches/9BeLfGvtVYJ5DknHcQ3jvQ/6a2294e36561a674c1d490e0.html",
     "prettify_html_file": "https://serpapi.com/searches/9BeLfGvtVYJ5DknHcQ3jvQ/6a2294e36561a674c1d490e0.prettify",
@@ -17,7 +17,7 @@
     "type": "2",
     "departure_id": "JFK",
     "arrival_id": "SNA",
-    "outbound_date": "2026-06-24",
+    "outbound_date": "2026-08-24",
     "currency": "EUR"
   },
   "best_flights": [
@@ -27,12 +27,12 @@
           "departure_airport": {
             "name": "Aéroport international John F. Kennedy",
             "id": "JFK",
-            "time": "2026-06-24 07:15"
+            "time": "2026-08-24 07:15"
           },
           "arrival_airport": {
             "name": "Aéroport John-Wayne",
             "id": "SNA",
-            "time": "2026-06-24 10:26"
+            "time": "2026-08-24 10:26"
           },
           "duration": 371,
           "airplane": "Airbus A321 (Sharklets)",
@@ -70,12 +70,12 @@
           "departure_airport": {
             "name": "Aéroport international John F. Kennedy",
             "id": "JFK",
-            "time": "2026-06-24 08:15"
+            "time": "2026-08-24 08:15"
           },
           "arrival_airport": {
             "name": "Aéroport international de Dallas-Fort Worth",
             "id": "DFW",
-            "time": "2026-06-24 11:15"
+            "time": "2026-08-24 11:15"
           },
           "duration": 240,
           "airplane": "Boeing 737",
@@ -96,12 +96,12 @@
           "departure_airport": {
             "name": "Aéroport international de Dallas-Fort Worth",
             "id": "DFW",
-            "time": "2026-06-24 12:23"
+            "time": "2026-08-24 12:23"
           },
           "arrival_airport": {
             "name": "Aéroport John-Wayne",
             "id": "SNA",
-            "time": "2026-06-24 13:38"
+            "time": "2026-08-24 13:38"
           },
           "duration": 195,
           "airplane": "Boeing 737MAX 8 Passenger",
@@ -146,12 +146,12 @@
           "departure_airport": {
             "name": "Aéroport international John F. Kennedy",
             "id": "JFK",
-            "time": "2026-06-24 07:35"
+            "time": "2026-08-24 07:35"
           },
           "arrival_airport": {
             "name": "Aéroport John-Wayne",
             "id": "SNA",
-            "time": "2026-06-24 10:32"
+            "time": "2026-08-24 10:32"
           },
           "duration": 357,
           "airplane": "Boeing 757",
@@ -191,12 +191,12 @@
           "departure_airport": {
             "name": "Aéroport international John F. Kennedy",
             "id": "JFK",
-            "time": "2026-06-24 09:29"
+            "time": "2026-08-24 09:29"
           },
           "arrival_airport": {
             "name": "Aéroport de Phoenix-Sky Harbor",
             "id": "PHX",
-            "time": "2026-06-24 11:54"
+            "time": "2026-08-24 11:54"
           },
           "duration": 325,
           "airplane": "Boeing 737MAX 8 Passenger",
@@ -217,12 +217,12 @@
           "departure_airport": {
             "name": "Aéroport de Phoenix-Sky Harbor",
             "id": "PHX",
-            "time": "2026-06-24 14:15"
+            "time": "2026-08-24 14:15"
           },
           "arrival_airport": {
             "name": "Aéroport John-Wayne",
             "id": "SNA",
-            "time": "2026-06-24 15:34"
+            "time": "2026-08-24 15:34"
           },
           "duration": 79,
           "airplane": "Airbus A321neo",
@@ -268,12 +268,12 @@
           "departure_airport": {
             "name": "Aéroport international John F. Kennedy",
             "id": "JFK",
-            "time": "2026-06-24 12:42"
+            "time": "2026-08-24 12:42"
           },
           "arrival_airport": {
             "name": "Aéroport de Phoenix-Sky Harbor",
             "id": "PHX",
-            "time": "2026-06-24 15:05"
+            "time": "2026-08-24 15:05"
           },
           "duration": 323,
           "airplane": "Boeing 737MAX 8 Passenger",
@@ -294,12 +294,12 @@
           "departure_airport": {
             "name": "Aéroport de Phoenix-Sky Harbor",
             "id": "PHX",
-            "time": "2026-06-24 17:28"
+            "time": "2026-08-24 17:28"
           },
           "arrival_airport": {
             "name": "Aéroport John-Wayne",
             "id": "SNA",
-            "time": "2026-06-24 18:47"
+            "time": "2026-08-24 18:47"
           },
           "duration": 79,
           "airplane": "Boeing 737MAX 8 Passenger",
@@ -345,12 +345,12 @@
           "departure_airport": {
             "name": "Aéroport international John F. Kennedy",
             "id": "JFK",
-            "time": "2026-06-24 09:30"
+            "time": "2026-08-24 09:30"
           },
           "arrival_airport": {
             "name": "Aéroport international de San Francisco",
             "id": "SFO",
-            "time": "2026-06-24 12:52"
+            "time": "2026-08-24 12:52"
           },
           "duration": 382,
           "airplane": "Boeing 737",
@@ -371,12 +371,12 @@
           "departure_airport": {
             "name": "Aéroport international de San Francisco",
             "id": "SFO",
-            "time": "2026-06-24 15:48"
+            "time": "2026-08-24 15:48"
           },
           "arrival_airport": {
             "name": "Aéroport John-Wayne",
             "id": "SNA",
-            "time": "2026-06-24 17:26"
+            "time": "2026-08-24 17:26"
           },
           "duration": 98,
           "airplane": "Embraer 175",
@@ -422,12 +422,12 @@
           "departure_airport": {
             "name": "Aéroport international John F. Kennedy",
             "id": "JFK",
-            "time": "2026-06-24 17:20"
+            "time": "2026-08-24 17:20"
           },
           "arrival_airport": {
             "name": "Aéroport de Phoenix-Sky Harbor",
             "id": "PHX",
-            "time": "2026-06-24 19:55"
+            "time": "2026-08-24 19:55"
           },
           "duration": 335,
           "airplane": "Boeing 737MAX 8 Passenger",
@@ -448,12 +448,12 @@
           "departure_airport": {
             "name": "Aéroport de Phoenix-Sky Harbor",
             "id": "PHX",
-            "time": "2026-06-24 21:02"
+            "time": "2026-08-24 21:02"
           },
           "arrival_airport": {
             "name": "Aéroport John-Wayne",
             "id": "SNA",
-            "time": "2026-06-24 22:19"
+            "time": "2026-08-24 22:19"
           },
           "duration": 77,
           "airplane": "Boeing 737MAX 8 Passenger",
@@ -498,12 +498,12 @@
           "departure_airport": {
             "name": "Aéroport international John F. Kennedy",
             "id": "JFK",
-            "time": "2026-06-24 11:29"
+            "time": "2026-08-24 11:29"
           },
           "arrival_airport": {
             "name": "Aéroport international de Dallas-Fort Worth",
             "id": "DFW",
-            "time": "2026-06-24 14:28"
+            "time": "2026-08-24 14:28"
           },
           "duration": 239,
           "airplane": "Boeing 737",
@@ -524,12 +524,12 @@
           "departure_airport": {
             "name": "Aéroport international de Dallas-Fort Worth",
             "id": "DFW",
-            "time": "2026-06-24 16:24"
+            "time": "2026-08-24 16:24"
           },
           "arrival_airport": {
             "name": "Aéroport John-Wayne",
             "id": "SNA",
-            "time": "2026-06-24 17:34"
+            "time": "2026-08-24 17:34"
           },
           "duration": 190,
           "airplane": "Boeing 737MAX 8 Passenger",
@@ -575,12 +575,12 @@
           "departure_airport": {
             "name": "Aéroport international John F. Kennedy",
             "id": "JFK",
-            "time": "2026-06-24 11:30"
+            "time": "2026-08-24 11:30"
           },
           "arrival_airport": {
             "name": "Aéroport international de San Francisco",
             "id": "SFO",
-            "time": "2026-06-24 14:50"
+            "time": "2026-08-24 14:50"
           },
           "duration": 380,
           "airplane": "Boeing 737",
@@ -601,12 +601,12 @@
           "departure_airport": {
             "name": "Aéroport international de San Francisco",
             "id": "SFO",
-            "time": "2026-06-24 15:48"
+            "time": "2026-08-24 15:48"
           },
           "arrival_airport": {
             "name": "Aéroport John-Wayne",
             "id": "SNA",
-            "time": "2026-06-24 17:26"
+            "time": "2026-08-24 17:26"
           },
           "duration": 98,
           "airplane": "Embraer 175",
@@ -652,12 +652,12 @@
           "departure_airport": {
             "name": "Aéroport international John F. Kennedy",
             "id": "JFK",
-            "time": "2026-06-24 13:59"
+            "time": "2026-08-24 13:59"
           },
           "arrival_airport": {
             "name": "Aéroport international O'Hare de Chicago",
             "id": "ORD",
-            "time": "2026-06-24 15:55"
+            "time": "2026-08-24 15:55"
           },
           "duration": 176,
           "airplane": "Boeing 737MAX 8 Passenger",
@@ -678,12 +678,12 @@
           "departure_airport": {
             "name": "Aéroport international O'Hare de Chicago",
             "id": "ORD",
-            "time": "2026-06-24 17:04"
+            "time": "2026-08-24 17:04"
           },
           "arrival_airport": {
             "name": "Aéroport John-Wayne",
             "id": "SNA",
-            "time": "2026-06-24 19:37"
+            "time": "2026-08-24 19:37"
           },
           "duration": 273,
           "airplane": "Boeing 737MAX 8 Passenger",
