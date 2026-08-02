@@ -1,16 +1,14 @@
 import os
 from datetime import datetime, timedelta
-import time
 from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 import psycopg2
 from psycopg2.extras import RealDictCursor
 import requests
-import json
 from collections import defaultdict
 import pandas as pd
 from pathlib import Path
-
+from process_flight import process_flight
 # --- ML / inference ---
 import mlflow
 import numpy as np
@@ -340,7 +338,8 @@ def check_flight_db(cursor, departure_city, arrival_city, match_date_exact):
         f.flight_number,
         f.airline,
         f.is_best,
-        f.pos
+        f.pos,
+        f.updated_at
     FROM FACT_FLIGHT f
     join UNIONED u on f.journey_sk = u.journey_sk
     JOIN DIM_AIRPORT dep_a ON f.departure_airport_code = dep_a.iata_code
@@ -398,116 +397,35 @@ def get_flights_api(cursor, conn, departure_city, arrival_city, match_date_exact
     aeroports_arrivee = cursor.fetchall()
 
     if not aeroports_depart or not aeroports_arrivee:
-        raise HTTPException(
-            status_code=400,
-            detail="Impossible de trouver les codes aéroports (IATA) pour ces villes dans le dictionnaire."
-        )
+        raise HTTPException(status_code=400, detail="Impossible de trouver les codes IATA.")
 
-    all_flights_raw = []
     for aero_dep in aeroports_depart:
-        code_iata_depart = aero_dep['iata_code']
         for aero_arr in aeroports_arrivee:
-            code_iata_arrivee = aero_arr['iata_code']
             for day in range(2):
                 date_vol = (match_date_exact - timedelta(days=day + 1)).date()
                 params = {
-                    "engine":        "google_flights",
-                    "type":          "2",
-                    "departure_id":  code_iata_depart,
-                    "arrival_id":    code_iata_arrivee,
+                    "engine": "google_flights",
+                    "type": "2",
+                    "departure_id": aero_dep['iata_code'],
+                    "arrival_id": aero_arr['iata_code'],
                     "outbound_date": date_vol,
-                    "currency":      "EUR",
-                    "hl":            "fr",
-                    "api_key":       API_KEY
+                    "currency": "EUR",
+                    "hl": "en",
+                    "gl": "us",
+                    "api_key": API_KEY
                 }
                 try:
                     response = requests.get("https://serpapi.com/search", params=params)
                     if response.status_code == 200:
-                        all_flights_raw.append(response.json())
-                except requests.exceptions.RequestException:
-                    print(f"Erreur API pour {code_iata_depart} -> {code_iata_arrivee}")
-
-    job_id = insert_raw_flights(cursor, conn, all_flights_raw)
-    return job_id
-
-
-def insert_raw_flights(cursor, conn, raw_flight):
-    query = "INSERT INTO flights_raw (json_data) VALUES (%s) RETURNING id;"
-    cursor.execute(query, (json.dumps(raw_flight),))
-    job_id = cursor.fetchone()['id']
-    cursor.execute("SELECT pg_notify('new_flight', %s)", (str(job_id),))
-    conn.commit()
-    return job_id
+                        data = response.json()
+                        if 'best_flights' in data or 'other_flights' in data:
+                            process_flight(data, cursor, conn)  
+                        else:
+                            print(f"Pas de vols pour {aero_dep['iata_code']} → {aero_arr['iata_code']}")
+                except requests.exceptions.RequestException as e:
+                    print(f"Erreur API : {e}")
 
 
-def wait_to_spark(cursor, job_id):
-    start   = time.time()
-    timeout = 120
-    while True:
-        if time.time() - start > timeout:
-            raise Exception("Timeout")
-        cursor.execute(
-            "SELECT bool_and(processed) as is_done FROM flights_raw WHERE id = ANY(%s)",
-            ([job_id],)   # fix : liste, pas scalaire
-        )
-        row = cursor.fetchone()
-        if row and row['is_done'] == True:
-            return True
-        time.sleep(2)
-
-
-def enrich_airports(cursor, conn):
-    cursor.execute("""
-        SELECT DISTINCT f.departure_airport_code as iata_code
-        FROM FACT_FLIGHT f
-        WHERE NOT EXISTS (
-            SELECT 1 FROM DIM_AIRPORT a
-            WHERE a.iata_code = f.departure_airport_code
-        )
-        UNION
-        SELECT DISTINCT f.arrival_airport_code as iata_code
-        FROM FACT_FLIGHT f
-        WHERE NOT EXISTS (
-            SELECT 1 FROM DIM_AIRPORT a
-            WHERE a.iata_code = f.arrival_airport_code
-        )
-    """)
-
-    rows         = cursor.fetchall()
-    unknown_iata = [row['iata_code'] for row in rows]
-
-    if not unknown_iata:
-        return
-
-    airports_csv = pd.read_csv('/opt/data/raw_data/airport-codes.csv')
-
-    for iata in unknown_iata:
-        result = airports_csv[airports_csv['iata_code'] == iata]
-
-        if not result.empty:
-            row     = result.iloc[0]
-            city    = str(row['municipality']).strip().title()
-            country = str(row['iso_country']).strip().upper()
-            name    = str(row['name']).strip().lower()
-        else:
-            city, country, name = 'Unknown', 'Unknown', iata
-
-        cursor.execute("""
-            INSERT INTO DIM_CITY (CITY, COUNTRY, IS_HOST_CITY)
-            VALUES (%s, %s, FALSE)
-            ON CONFLICT (CITY) DO NOTHING
-        """, (city, country))
-
-        cursor.execute("SELECT ID_CITY FROM DIM_CITY WHERE CITY = %s", (city,))
-        id_city = cursor.fetchone()['id_city']
-
-        cursor.execute("""
-            INSERT INTO DIM_AIRPORT (IATA_CODE, NAME, ID_CITY)
-            VALUES (%s, %s, %s)
-            ON CONFLICT (IATA_CODE) DO NOTHING
-        """, (iata, name, id_city))
-
-        conn.commit()
 
 
 # ==================================================================
@@ -541,6 +459,17 @@ def get_flights(match_id: int, departure_city: str):
         flights = check_flight_db(cursor, departure_city, arrival_city, match_date_exact)
 
         if flights:
+            last_update = max(f['segments'][0]['updated_at'] for f in flights)
+            if isinstance(last_update, str):
+                last_update = datetime.fromisoformat(last_update)
+
+            days_since_update = (datetime.now() - last_update).days
+
+            if days_since_update >= 7:
+                print("Vols trop vieux → refresh API")
+                get_flights_api(cursor, conn, departure_city, arrival_city, match_date_exact)
+                flights = check_flight_db(cursor, departure_city, arrival_city, match_date_exact)
+ 
             flights = predict_delay(cursor, flights)
             cursor.close()
             conn.close()
@@ -556,35 +485,33 @@ def get_flights(match_id: int, departure_city: str):
             }
 
         if not flights:
-            job_id = get_flights_api(cursor, conn, departure_city, arrival_city, match_date_exact)
+            get_flights_api(cursor, conn, departure_city, arrival_city, match_date_exact)
 
-            if not job_id:
+            flights = check_flight_db(cursor, departure_city, arrival_city, match_date_exact)
+            
+            if not flights:
                 return {
                     "meta": {
-                        "match_id":          match_id,
-                        "destination_city":  arrival_city,
+                        "match_id": match_id,
+                        "destination_city": arrival_city,
                         "match_date_actual": match_date_exact.strftime("%Y-%m-%d %H:%M"),
-                        "results_count":     0,
-                        "model_used":        MODEL_NAME,
+                        "results_count": 0,
+                        "model_used": MODEL_NAME,
                     },
                     "flights": []
                 }
-
-            wait_to_spark(cursor, job_id)
-            enrich_airports(cursor, conn)
-            flights = check_flight_db(cursor, departure_city, arrival_city, match_date_exact)
+            
             flights = predict_delay(cursor, flights)
-
             cursor.close()
             conn.close()
 
             return {
                 "meta": {
-                    "match_id":          match_id,
-                    "destination_city":  arrival_city,
+                    "match_id": match_id,
+                    "destination_city": arrival_city,
                     "match_date_actual": match_date_exact.strftime("%Y-%m-%d %H:%M"),
-                    "results_count":     len(flights),
-                    "model_used":        MODEL_NAME,
+                    "results_count": len(flights),
+                    "model_used": MODEL_NAME,
                 },
                 "flights": flights
             }

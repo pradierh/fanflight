@@ -17,10 +17,10 @@ const DelayBadge = ({ probability }: { probability: number | null }) => {
 
   const config =
     pct < 20
-      ? { label: 'Faible risque de retard', color: 'text-green-400', bg: 'bg-green-400/10', dot: 'bg-green-400' }
+      ? { label: 'Low delay risk', color: 'text-green-400', bg: 'bg-green-400/10', dot: 'bg-green-400' }
       : pct < 50
-      ? { label: 'Risque modéré', color: 'text-orange-400', bg: 'bg-orange-400/10', dot: 'bg-orange-400' }
-      : { label: 'Risque élevé de retard', color: 'text-red-400', bg: 'bg-red-400/10', dot: 'bg-red-400' };
+      ? { label: 'Moderate risk', color: 'text-orange-400', bg: 'bg-orange-400/10', dot: 'bg-orange-400' }
+      : { label: 'High delay risk', color: 'text-red-400', bg: 'bg-red-400/10', dot: 'bg-red-400' };
 
   return (
     <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg ${config.bg} w-fit`}>
@@ -35,9 +35,8 @@ const DelayBadge = ({ probability }: { probability: number | null }) => {
 export const FlightCard = ({ flight, onSelect, index }: FlightCardProps) => {
 
   const formatTime = (timeStr: string) =>
-    new Date(timeStr).toLocaleTimeString('fr-FR', {
-      day: '2-digit', month: '2-digit', year: '2-digit',
-      hour: '2-digit', minute: '2-digit'
+    new Date(timeStr).toLocaleTimeString('en-US', {
+      hour: '2-digit', minute: '2-digit', hour12: false
     });
 
   return (
@@ -61,19 +60,19 @@ export const FlightCard = ({ flight, onSelect, index }: FlightCardProps) => {
               <div>
                 <p className="text-white font-medium">{flight.airline}</p>
                 {flight.nb_escales > 0 && (
-                  <p className="text-orange-400 text-xs">{flight.nb_escales} escale{flight.nb_escales > 1 ? 's' : ''}</p>
+                  <p className="text-orange-400 text-xs">{flight.nb_escales} stop{flight.nb_escales > 1 ? 's' : ''}</p>
                 )}
                 {flight.nb_escales === 0 && (
                   <p className="text-green-400 text-xs">Direct</p>
                 )}
               </div>
             </div>
-            <DelayBadge probability={flight.delay_probability} />
+            <DelayBadge probability={flight.delay_probability ?? null} />
           </div>
 
           {/* Segments */}
           {flight.segments.map((segment, i) => (
-            <div key={i} className="mb-2">
+            <div key={segment.flight_sk || i} className="mb-2">
               <div className="flex items-center gap-4">
                 <div className="flex-1">
                   <p className="text-xl font-bold text-white">{formatTime(segment.departure_airport_time)}</p>
@@ -101,7 +100,7 @@ export const FlightCard = ({ flight, onSelect, index }: FlightCardProps) => {
                 <div className="flex items-center gap-2 my-2 px-2">
                   <div className="h-px flex-1 bg-white/10" />
                   <span className="text-orange-400 text-xs">
-                    ⏱ Escale {segment.layover_duration} min — {segment.arrival_airport_code}
+                    ⏱ Layover {segment.layover_duration} min — {segment.arrival_airport_code}
                   </span>
                   <div className="h-px flex-1 bg-white/10" />
                 </div>

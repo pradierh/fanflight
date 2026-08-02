@@ -62,38 +62,17 @@ cursor.execute("""
 """)
 
 # ------------------------------------------------------------------
-# VOLS - staging + fait
+# VOLS - fait
 # ------------------------------------------------------------------
 
-cursor.execute("""
-    CREATE TABLE IF NOT EXISTS STG_FLIGHT (
-        journey_sk             VARCHAR(32),
-        flight_sk              VARCHAR(32),
-        departure_airport_code VARCHAR(10),
-        departure_airport_time TIMESTAMP,
-        arrival_airport_code   VARCHAR(10),
-        arrival_airport_time   TIMESTAMP,
-        duration               INTEGER,
-        flight_number          VARCHAR(12),
-        layover_duration       INTEGER,
-        total_journey_duration INTEGER,
-        price                  DECIMAL(10, 2),
-        airline                VARCHAR(100),
-        airline_logo           TEXT,
-        type                   VARCHAR(20),
-        is_best                BOOLEAN,
-        pos                    INTEGER,
-        is_delayed             BOOLEAN DEFAULT FALSE
-    );
-""")
 
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS FACT_FLIGHT (
         flight_sk              VARCHAR(32) PRIMARY KEY,
         journey_sk             VARCHAR(32),
-        departure_airport_code VARCHAR(10),
+        departure_airport_code VARCHAR(10) REFERENCES DIM_AIRPORT(IATA_CODE),
         departure_airport_time TIMESTAMP,
-        arrival_airport_code   VARCHAR(10),
+        arrival_airport_code   VARCHAR(10) REFERENCES DIM_AIRPORT(IATA_CODE),
         arrival_airport_time   TIMESTAMP,
         duration               INTEGER,
         flight_number          VARCHAR(12),
@@ -105,7 +84,6 @@ cursor.execute("""
         type                   VARCHAR(20),
         is_best                BOOLEAN,
         pos                    INTEGER,
-        is_delayed             BOOLEAN DEFAULT FALSE,
         created_at             TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at             TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
@@ -133,18 +111,7 @@ cursor.execute("""
     );
 """)
 
-# ------------------------------------------------------------------
-# BUFFER TRAITEMENT SPARK
-# ------------------------------------------------------------------
 
-cursor.execute("""
-    CREATE TABLE IF NOT EXISTS FLIGHTS_RAW (
-        id         SERIAL PRIMARY KEY,
-        json_data  JSONB,
-        processed  BOOLEAN   DEFAULT FALSE,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
-""")
 
 conn.commit()
 cursor.close()
