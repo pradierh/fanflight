@@ -299,10 +299,22 @@ jobs:
                 - /opt/fanflight/monitoring/prometheus:/etc/prometheus:ro
                 - prometheus_data:/prometheus
               depends_on:
+                - alertmanager
                 - blackbox-exporter
                 - node-exporter
                 - cadvisor
                 - postgres-exporter
+
+            alertmanager:
+              image: prom/alertmanager:latest
+              container_name: fanflight_alertmanager
+              restart: unless-stopped
+              ports:
+                - "127.0.0.1:9093:9093"
+              command:
+                - "--config.file=/etc/alertmanager/alertmanager.yml"
+              volumes:
+                - /opt/fanflight/monitoring/alertmanager:/etc/alertmanager:ro
 
             blackbox-exporter:
               image: prom/blackbox-exporter:latest
@@ -413,12 +425,13 @@ jobs:
           fi
 
           cd /opt/fanflight
-          sudo docker compose pull frontend backend-api spark-master spark-worker ml prometheus blackbox-exporter node-exporter cadvisor postgres-exporter grafana
+          sudo docker compose pull frontend backend-api spark-master spark-worker ml prometheus alertmanager blackbox-exporter node-exporter cadvisor postgres-exporter grafana
           if ! sudo docker compose up -d; then
             sudo docker compose ps
             sudo docker logs postgres || true
             sudo docker logs backend_api || true
             sudo docker logs fanflight_prometheus || true
+            sudo docker logs fanflight_alertmanager || true
             sudo docker logs fanflight_grafana || true
             exit 1
           fi
@@ -426,6 +439,7 @@ jobs:
             http://127.0.0.1/ \
             http://127.0.0.1:8000/ready \
             http://127.0.0.1:9090/-/ready \
+            http://127.0.0.1:9093/-/ready \
             http://127.0.0.1:3001/api/health
           do
             for attempt in $(seq 1 30); do
@@ -438,6 +452,7 @@ jobs:
                 sudo docker compose ps
                 sudo docker logs backend_api || true
                 sudo docker logs fanflight_prometheus || true
+                sudo docker logs fanflight_alertmanager || true
                 sudo docker logs fanflight_grafana || true
                 exit 1
               fi
