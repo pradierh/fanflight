@@ -18,51 +18,6 @@ services:
     volumes:
       - postgres_db_local:/var/lib/postgresql/data
 
-  spark-master:
-    image: ${SPARK_IMAGE:-tezzosyris666/fanflight-spark}:${IMAGE_TAG:-local}
-    build:
-      context: ./data-pipeline/spark
-      dockerfile: Dockerfile
-    user: root
-    restart: unless-stopped
-    environment:
-      SPARK_MODE: master
-      SPARK_RPC_AUTHENTICATION_ENABLED: "no"
-    env_file:
-      - .env
-    depends_on:
-      db:
-        condition: service_healthy
-    ports:
-      - "8080:8080"
-      - "7077:7077"
-    command: >
-      bash -c "/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master &
-      sleep 5 &&
-      python3 /opt/spark/scripts/spark_listener.py"
-    working_dir: /opt/spark
-
-  spark-worker:
-    image: ${SPARK_IMAGE:-tezzosyris666/fanflight-spark}:${IMAGE_TAG:-local}
-    build:
-      context: ./data-pipeline/spark
-      dockerfile: Dockerfile
-    user: root
-    restart: unless-stopped
-    environment:
-      SPARK_MODE: worker
-      SPARK_MASTER_URL: spark://spark-master:7077
-      SPARK_RPC_AUTHENTICATION_ENABLED: "no"
-    env_file:
-      - .env
-    depends_on:
-      spark-master:
-        condition: service_started
-    ports:
-      - "8081:8081"
-    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
-    working_dir: /opt/spark
-
   backend-api:
     image: ${BACKEND_API_IMAGE:-tezzosyris666/fanflight-backend-api}:${IMAGE_TAG:-local}
     build:
