@@ -281,6 +281,8 @@ jobs:
               image: containrrr/watchtower:latest
               container_name: fanflight_watchtower
               restart: unless-stopped
+              environment:
+                - DOCKER_API_VERSION=1.41
               command: --interval 60 --cleanup --label-enable
               volumes:
                 - /var/run/docker.sock:/var/run/docker.sock
@@ -407,6 +409,7 @@ jobs:
           sudo systemctl enable --now docker
           sudo mkdir -p /opt/fanflight
           sudo mv /tmp/fanflight-compose.yml /opt/fanflight/docker-compose.yml
+          sudo rm -rf /opt/fanflight/monitoring
           sudo mkdir -p /opt/fanflight/monitoring
           sudo cp -R /tmp/fanflight-monitoring/. /opt/fanflight/monitoring/
           sudo rm -rf /tmp/fanflight-monitoring
@@ -435,6 +438,17 @@ jobs:
             sudo docker logs fanflight_grafana || true
             exit 1
           fi
+          # Bind-mounted monitoring config (dashboards, provisioning, scrape rules) can
+          # change without the compose service definition changing, so `up -d` alone
+          # won't recreate/reload these containers. Force it every deploy.
+          sudo docker compose restart grafana
+          for attempt in $(seq 1 30); do
+            if curl -fsS --max-time 5 -X POST http://127.0.0.1:9090/-/reload >/dev/null; then
+              echo "Prometheus config reloaded"
+              break
+            fi
+            sleep 5
+          done
           for url in \
             http://127.0.0.1/ \
             http://127.0.0.1:8000/ready \
