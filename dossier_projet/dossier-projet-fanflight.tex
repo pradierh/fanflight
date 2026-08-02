@@ -89,9 +89,9 @@ Mes remerciements s'adressent en premier lieu à Dan Cohen, notre mentor projet,
 
 Je remercie également l'équipe pédagogique de Liora et de DataScientest pour la qualité de la formation et son accompagnement tout au long du cursus Data Engineer (RNCP38919).
 
-Ma gratitude va tout particulièrement à mes coéquipiers, Hugo Jacquit, Daniel Kouacou et Emy Regna, avec qui ce projet a été mené du premier commit jusqu'à la mise en production. Malgré une équipe répartie sur toute la France et des emplois du temps contraints par nos alternances respectives, nous avons su maintenir une dynamique de travail collective sur la durée du projet -- une réussite en elle-même. Hugo Jacquit a posé les fondations du backend et du pipeline Spark ; Daniel Kouacou a poussé le projet au-delà de son périmètre initial en y intégrant un volet complet de machine learning ; Emy Regna a conçu et mis en place l'ensemble de la chaîne d'observabilité du projet.
+Ma gratitude va tout particulièrement à mes coéquipiers, Hugo Jacquit, Daniel Kouacou et Emy Regna, avec qui ce projet a été mené du premier commit jusqu'à la mise en production. Malgré une équipe répartie sur toute la France et des emplois du temps contraints par nos alternances respectives, nous avons su maintenir une dynamique de travail collective sur la durée du projet -- une réussite en elle-même. Hugo Jacquit a posé les fondations du backend et du pipeline ETL ; Daniel Kouacou a poussé le projet au-delà de son périmètre initial en y intégrant un volet complet de machine learning ; Emy Regna a conçu et mis en place l'ensemble de la chaîne d'observabilité du projet.
 
-Enfin, je remercie la communauté open-source (FastAPI, Apache Spark, PostgreSQL, Next.js, MLflow) dont la documentation et les forums ont été des ressources précieuses pour surmonter les obstacles techniques rencontrés.
+Enfin, je remercie la communauté open-source (FastAPI, Pandas, PostgreSQL, Next.js, MLflow) dont la documentation et les forums ont été des ressources précieuses pour surmonter les obstacles techniques rencontrés.
 
 \tableofcontents
 
@@ -118,18 +118,18 @@ C'est ce double enjeu -- rendre accessible une information aujourd'hui fragment�
 \item[API (Application Programming Interface)] Interface permettant à deux applications de communiquer. FastAPI expose une API REST consommée par le frontend Next.js de FanFlight.
 \item[BTS (Bureau of Transportation Statistics)] Agence fédérale américaine publiant des statistiques de ponctualité des vols domestiques. Utilisée dans l'extension machine learning de FanFlight comme source d'entraînement réelle.
 \item[CI/CD (Continuous Integration / Continuous Deployment)] Pratique consistant à automatiser la construction, la vérification et le déploiement du code. GitHub Actions orchestre ce cycle pour FanFlight.
-\item[Conteneur (Docker)] Unité logicielle packageant du code et ses dépendances pour une exécution reproductible. Chaque composant de FanFlight (frontend, API, Spark, base de données) est conteneurisé.
+\item[Conteneur (Docker)] Unité logicielle packageant du code et ses dépendances pour une exécution reproductible. Chaque composant de FanFlight (frontend, API, base de données) est conteneurisé.
 \item[Data Warehouse / Schéma en étoile] Modélisation de données organisée autour de tables de faits (\code{FACT_FLIGHT}, \code{FACT_MATCHS}) reliées à des tables de dimensions (\code{DIM_CITY}, \code{DIM_AIRPORT}, \code{DIM_TEAM}). Modèle retenu pour la base PostgreSQL de FanFlight.
 \item[Docker Hub] Registre public d'images Docker. Les images de FanFlight y sont publiées sous le namespace \code{tezzosyris666}.
 \item[Drift (dérive de données)] Évolution statistique des données en production par rapport aux données d'entraînement d'un modèle. Surveillée dans FanFlight via des tests PSI et Kolmogorov-Smirnov.
-\item[ETL (Extract, Transform, Load)] Processus d'extraction, de transformation et de chargement de données. Implémenté par le pipeline Spark de FanFlight, qui transforme les réponses brutes de l'API de vols en enregistrements exploitables.
-\item[Event-driven architecture (architecture événementielle)] Architecture où un traitement est déclenché par un événement plutôt que par un ordonnancement périodique. Le pipeline Spark de FanFlight est déclenché par une notification PostgreSQL, pas par une tâche planifiée (cron).
+\item[ETL (Extract, Transform, Load)] Processus d'extraction, de transformation et de chargement de données. Implémenté par le module Pandas de FanFlight, qui transforme les réponses brutes de l'API de vols en enregistrements exploitables.
+
 \item[FastAPI] Framework Python pour construire des API REST avec validation automatique des données et documentation OpenAPI générée. Framework backend de FanFlight.
 \item[GitHub Actions] Plateforme d'intégration et de déploiement continu intégrée à GitHub. Orchestre la construction des images Docker et le déploiement de FanFlight.
 \item[Grafana] Plateforme open-source de visualisation de métriques sous forme de tableaux de bord. Utilisée par FanFlight pour restituer les métriques collectées par Prometheus.
 \item[IATA] Code à trois lettres identifiant un aéroport (ex. \code{JFK}, \code{LAX}). Utilisé comme clé de correspondance entre villes et aéroports dans FanFlight.
-\item[JSONB] Type de colonne PostgreSQL stockant du JSON de façon binaire et indexable. Utilisé par FanFlight pour la table d'atterrissage \code{FLIGHTS_RAW}, qui conserve les réponses brutes de l'API de vols avant leur transformation.
-\item[LISTEN/NOTIFY] Mécanisme natif de PostgreSQL permettant à un processus de notifier des événements à des processus abonnés. Utilisé par FanFlight pour déclencher le pipeline Spark dès qu'une nouvelle donnée de vol brute est insérée.
+
+
 \item[MLflow] Plateforme open-source de suivi d'expériences et de registre de modèles de machine learning. Utilisée dans l'extension ML de FanFlight pour comparer et versionner les modèles de prédiction de retard.
 \item[MLOps] Ensemble de pratiques visant à industrialiser le cycle de vie des modèles de machine learning (entraînement, déploiement, monitoring). Illustré dans FanFlight par le registre de modèles MLflow et le monitoring de dérive.
 \item[Model Registry] Composant de MLflow qui versionne les modèles entraînés et gère leur promotion vers un statut « Production ». Utilisé pour le modèle \code{flight_delay_xgboost} de FanFlight.
@@ -137,7 +137,7 @@ C'est ce double enjeu -- rendre accessible une information aujourd'hui fragment�
 \item[Open-Meteo] API météorologique gratuite et open-data. Utilisée dans FanFlight pour enrichir les données de vol avec des conditions météorologiques réelles ou prévisionnelles.
 \item[PostgreSQL] Système de gestion de base de données relationnelle open-source. Base de données centrale de FanFlight, épinglée en version 17.
 \item[Prometheus] Système open-source de collecte et de stockage de métriques temporelles, interrogé périodiquement (\emph{scraping}) auprès de ses cibles. Collecteur central de la chaîne d'observabilité de FanFlight.
-\item[PySpark / Apache Spark] Framework de traitement de données distribué et son API Python. Moteur du pipeline ETL de FanFlight.
+\item[Pandas] Bibliothèque Python de manipulation de données tabulaires. Moteur du pipeline ETL de FanFlight, intégré directement dans l'API FastAPI pour une transformation synchrone des réponses SerpAPI.
 \item[RGPD] Règlement Général sur la Protection des Données. FanFlight ne traite aucune donnée personnelle identifiante : la seule donnée utilisateur est une ville de départ sélectionnée dans une liste fermée.
 \item[RNCP] Répertoire National des Certifications Professionnelles. RNCP38919 « Data engineer » est le référentiel de certification du présent cursus.
 \item[SerpAPI] Service tiers exposant, entre autres, les résultats de recherche de vols de Google Flights sous forme d'API. Source de données de vol externe de FanFlight, facturée à la requête.
@@ -170,7 +170,7 @@ Le projet a été développé dans le cadre de notre formation Data Engineer che
 \includegraphics[width=2.6cm]{img/1679003524013.jpeg} &
 \includegraphics[width=2.6cm]{img/1739468289142.jpeg} \\
 \textbf{Hugo Pradier} & \textbf{Hugo Jacquit} & \textbf{Daniel Kouacou} & \textbf{Emy Regna} \\
-\footnotesize Infrastructure, pipeline, & \footnotesize Backend, pipeline Spark, & \footnotesize Extension machine & \footnotesize Observabilité \\
+\footnotesize Infrastructure, pipeline, & \footnotesize Backend, pipeline ETL, & \footnotesize Extension machine & \footnotesize Observabilité \\
 \footnotesize déploiement & \footnotesize base de données & \footnotesize learning & \footnotesize (Prometheus/Grafana) \\
 \end{tabular}
 \caption{L'équipe du projet FanFlight}
@@ -185,8 +185,8 @@ FanFlight repose sur une architecture conteneurisée orchestrée par Docker Comp
 \begin{itemize}
   \item \textbf{Frontend} : Next.js 16 (App Router) / React 19 / Tailwind CSS 4 / framer-motion
   \item \textbf{Backend} : FastAPI (Python), API REST documentée automatiquement (OpenAPI)
-  \item \textbf{Base de données} : PostgreSQL 17, schéma en étoile hybride relationnel / JSONB
-  \item \textbf{Pipeline de données} : Apache Spark (PySpark), déclenché par événements PostgreSQL (\code{LISTEN}/\code{NOTIFY})
+  \item \textbf{Base de données} : PostgreSQL 17, schéma en étoile relationnel
+  \item \textbf{Pipeline de données} : Pandas (Python), transformation synchrone intégrée à l'API FastAPI
   \item \textbf{Source de données externe} : SerpAPI (moteur \code{google_flights})
   \item \textbf{Extension Machine Learning} : XGBoost / PyTorch, suivi et registre via MLflow
   \item \textbf{Observabilité} : Prometheus, Grafana, Blackbox Exporter, node-exporter, cAdvisor, postgres-exporter
@@ -209,15 +209,15 @@ La figure~\ref{fig:archi} synthétise les flux entre ces composants.
 \node[box] (front) at (0,3.6) {Frontend\\Next.js};
 \node[box] (api) at (5,3.6) {API\\FastAPI};
 \node[ext] (serp) at (10.4,3.6) {SerpAPI\\(google\_flights)};
-\node[box] (db) at (5,-0.6) {PostgreSQL\\(star schema + JSONB)};
-\node[box] (spark) at (10.4,-0.6) {Spark\\(master/worker)};
+\node[box] (db) at (5,-0.6) {PostgreSQL\\(schéma en étoile)};
+\node[box] (pandas) at (10.4,-0.6) {Pandas ETL\\(process\_flight.py)};
 
 \draw[arr] (front) -- node[lbl, above] {fetch /api/*} (api);
 \draw[arr] (api) -- node[lbl, pos=0.62] {si cache vide} (serp);
 \draw[arr] (api) edge[bend left=18] node[lbl, pos=0.25] {lecture cache} (db);
-\draw[arr] (api) edge[bend right=18] node[lbl, pos=0.78] {insertion JSON brut} (db);
-\draw[arr] (db) edge[bend left=15] node[lbl, pos=0.5] {LISTEN/NOTIFY} (spark);
-\draw[arr] (spark) edge[bend left=15] node[lbl, pos=0.5] {STG\_FLIGHT $\to$ FACT\_FLIGHT} (db);
+\draw[arr] (serp) -- node[lbl, pos=0.5] {JSON brut} (pandas);
+\draw[arr] (pandas) edge[bend left=15] node[lbl, pos=0.5] {INSERT FACT\_FLIGHT} (db);
+\draw[arr] (db) edge[bend left=18] node[lbl, pos=0.75] {vols groupés} (api);
 \end{tikzpicture}
 \caption{Architecture applicative et flux de données de FanFlight}
 \label{fig:archi}
@@ -243,45 +243,40 @@ Le besoin a été formalisé à partir d'un constat simple : un supporter de la 
 Notre veille technique et réglementaire a porté sur plusieurs axes structurants :
 \begin{itemize}
   \item comparaison de fournisseurs de données de vol (API dédiées vs scraping) et sélection de SerpAPI pour son accès à Google Flights ;
-  \item évaluation d'une architecture de traitement par lot (cron) contre une architecture événementielle -- retenue pour limiter la latence perçue côté utilisateur ;
-  \item étude des mécanismes natifs PostgreSQL (\code{LISTEN}/\code{NOTIFY}) comme alternative légère à une file de messages (Kafka, RabbitMQ), jugée disproportionnée pour le volume et le budget du projet ;
+  \item évaluation d'une architecture de traitement par lot (cron) contre une architecture synchrone -- retenue pour limiter la latence perçue côté utilisateur et simplifier l'infrastructure ;
   \item veille sur les pratiques de MLOps (MLflow, model registry, monitoring de dérive) pour l'extension machine learning ;
   \item veille réglementaire sur la protection des données (RGPD), pour vérifier qu'un traitement ne collectant aucune donnée personnelle identifiante restait hors du champ des obligations les plus contraignantes, et sur les recommandations relatives à l'explicabilité des modèles de scoring, qui ont motivé le recours à SHAP pour documenter les prédictions du modèle de retard (cf. section~\ref{sec:ml}).
 \end{itemize}
 
 \subsection{Exploiter la veille au sein de l'équipe}
 
-Les arbitrages techniques ont été partagés et discutés entre les quatre membres de l'équipe et avec notre mentor Dan Cohen, malgré l'absence de coprésence physique. Les décisions d'architecture (schéma en étoile, pipeline événementiel, stratégie de cache) ont fait l'objet de revues de code via des \emph{pull requests} sur GitHub avant fusion sur la branche principale.
+Les arbitrages techniques ont été partagés et discutés entre les quatre membres de l'équipe et avec notre mentor Dan Cohen, malgré l'absence de coprésence physique. Les décisions d'architecture (schéma en étoile, pipeline synchrone Pandas, stratégie de cache) ont fait l'objet de revues de code via des \emph{pull requests} sur GitHub avant fusion sur la branche principale.
 
 \subsection{Définir le périmètre du projet}
 
-Le périmètre a été formalisé autour de : (1) un socle de données de référence figées pour l'édition 2026 (équipes, villes hôtes, calendrier des matchs de phase de groupes -- l'extension aux phases finales étant un axe d'évolution identifié, cf. section~\ref{sec:preconisations}), (2) une couche dynamique de vols alimentée à la demande, (3) une interface de consultation. Les enjeux réglementaires ont été jugés limités : FanFlight ne collecte aucune donnée personnelle identifiante, la seule saisie utilisateur étant une ville de départ choisie dans une liste fermée. L'enjeu principal identifié était économique : le coût par appel de l'API externe de vols imposait de concevoir le système pour minimiser les requêtes redondantes dès la conception (cf. chapitre~\ref{chap:recherche}). Ce même arbitrage a aussi guidé un choix à faible empreinte : privilégier les mécanismes déjà natifs de PostgreSQL (\code{LISTEN}/\code{NOTIFY}) plutôt que d'ajouter un service dédié supplémentaire (file de messages, cache Redis) limite le nombre de conteneurs actifs en permanence, et donc la consommation de ressources de l'infrastructure -- un objectif de sobriété numérique qui rejoignait naturellement la contrainte budgétaire.
+Le périmètre a été formalisé autour de : (1) un socle de données de référence figées pour l'édition 2026 (équipes, villes hôtes, calendrier des matchs de phase de groupes -- l'extension aux phases finales étant un axe d'évolution identifié, cf. section~\ref{sec:preconisations}), (2) une couche dynamique de vols alimentée à la demande, (3) une interface de consultation. Les enjeux réglementaires ont été jugés limités : FanFlight ne collecte aucune donnée personnelle identifiante, la seule saisie utilisateur étant une ville de départ choisie dans une liste fermée. L'enjeu principal identifié était économique : le coût par appel de l'API externe de vols imposait de concevoir le système pour minimiser les requêtes redondantes dès la conception (cf. chapitre~\ref{chap:recherche}). Ce même arbitrage a aussi guidé un choix à faible empreinte : intégrer la transformation directement dans l'API FastAPI via Pandas plutôt que d'ajouter un service dédié supplémentaire (file de messages, cluster Spark, cache Redis) limite le nombre de conteneurs actifs en permanence, et donc la consommation de ressources de l'infrastructure -- un objectif de sobriété numérique qui rejoignait naturellement la contrainte budgétaire.
 
 \subsection{Émettre des recommandations}
 
-Les choix d'architecture ont été présentés et défendus au sein de l'équipe puis auprès de notre mentor : modèle de données en étoile plutôt que documentaire, pipeline événementiel plutôt que batch, cache applicatif porté par PostgreSQL plutôt que par une brique dédiée (Redis) pour ne pas alourdir l'infrastructure à opérer par une petite équipe.
+Les choix d'architecture ont été présentés et défendus au sein de l'équipe puis auprès de notre mentor : modèle de données en étoile plutôt que documentaire, pipeline ETL synchrone Pandas plutôt que batch asynchrone, cache applicatif porté par PostgreSQL plutôt que par une brique dédiée (Redis) pour ne pas alourdir l'infrastructure à opérer par une petite équipe.
 
 \section{BC02 -- Élaborer une architecture technique de gestion de données}
 
 \subsection{Collecter les données structurées et non structurées}
 
-FanFlight combine deux natures de données : des données structurées codées en dur pour l'édition 2026 (équipes, villes hôtes et leurs aéroports, calendrier des matchs, dans \code{load_static_data.py}) et des données semi-structurées collectées dynamiquement (réponses JSON de SerpAPI), stockées telles quelles avant transformation. Un référentiel externe (\code{airport-codes.csv}) est également mobilisé pour enrichir les aéroports inconnus au fil de l'utilisation.
+FanFlight combine deux natures de données : des données structurées codées en dur pour l'édition 2026 (équipes, villes hôtes et leurs aéroports, calendrier des matchs, dans \code{load_static_data.py}) et des données de vol collectées dynamiquement via SerpAPI et transformées immédiatement en mémoire par le module Pandas. Un référentiel externe (\code{airport-codes.csv}) est également mobilisé pour enrichir les aéroports inconnus au fil de l'utilisation.
 
 \subsection{Élaborer des solutions de stockage}
 
-Le stockage repose sur PostgreSQL, avec un modèle hybride :
-\begin{itemize}
-  \item un schéma en étoile relationnel classique -- tables de dimensions \code{DIM_CITY}, \code{DIM_AIRPORT}, \code{DIM_TEAM} et tables de faits \code{FACT_MATCHS}, \code{FACT_FLIGHT} ;
-  \item une table d'atterrissage semi-structurée \code{FLIGHTS_RAW} en colonne \code{JSONB}, qui conserve la réponse brute de l'API externe avant sa transformation, avec un indicateur \code{processed} servant de suivi (\emph{watermark}) du pipeline.
-\end{itemize}
+Le stockage repose sur PostgreSQL, avec un schéma en étoile relationnel classique -- tables de dimensions \code{DIM_CITY}, \code{DIM_AIRPORT}, \code{DIM_TEAM} et tables de faits \code{FACT_MATCHS}, \code{FACT_FLIGHT}. La transformation des réponses SerpAPI est réalisée de façon synchrone par un module Pandas directement dans l'API, sans table d'atterrissage intermédiaire.
 
 \subsection{Concevoir les procédures d'extraction, de transformation et de stockage}
 
-Le pipeline suit un schéma classique \emph{staging puis fusion} : les données brutes sont extraites de la table d'atterrissage \code{FLIGHTS_RAW}, transformées par un job Spark dans une table de \emph{staging} (\code{STG_FLIGHT}), puis fusionnées de façon idempotente dans la table de faits finale (\code{FACT_FLIGHT}) via une clause \code{ON CONFLICT ... DO UPDATE}. Ce détail est développé au chapitre~\ref{chap:realisations}.
+Le pipeline suit un schéma direct : les données brutes reçues de SerpAPI sont transformées en mémoire par le module Pandas \code{process_flight.py}, puis fusionnées de façon idempotente dans la table de faits \code{FACT_FLIGHT} via une clause \code{ON CONFLICT ... DO UPDATE}. Ce détail est développé au chapitre~\ref{chap:realisations}.
 
 \subsection{Transformer les données en un format approprié}
 
-La transformation Spark infère dynamiquement le schéma JSON de chaque réponse SerpAPI (\code{schema_of_json}), sépare les propositions « meilleurs vols » et « autres vols », éclate chaque itinéraire en segments de vol (\code{posexplode}), calcule des clés de substitution par hachage MD5 pour garantir l'unicité et l'idempotence, gère de façon défensive les champs optionnels (une correspondance -- \emph{layover} -- n'existe pas pour un vol direct), et déduplique les segments avant chargement.
+La transformation Pandas parcourt chaque réponse SerpAPI, sépare les propositions « meilleurs vols » et « autres vols », éclate chaque itinéraire en segments de vol, calcule des clés de substitution par hachage MD5 pour garantir l'unicité et l'idempotence, gère de façon défensive les champs optionnels (une correspondance -- \emph{layover} -- n'existe pas pour un vol direct) avec remplacement des valeurs \code{NaN} par \code{None}, et déduplique les segments avant chargement.
 
 \subsection{Analyser les données}
 
@@ -289,7 +284,7 @@ La qualité et la disponibilité des données sont évaluées à chaque requête
 
 \subsection{Automatiser les circuits de collecte, de traitement et de stockage}
 
-L'ensemble du circuit est automatisé de bout en bout : une notification PostgreSQL déclenche automatiquement le job Spark, qui déclenche à son tour la fusion vers la table de faits et la mise à jour du statut de traitement -- sans intervention manuelle. Le script \code{entrypoint.sh} du conteneur API rejoue, à chaque démarrage, l'initialisation du schéma et le chargement des données de référence -- deux étapes rendues idempotentes par des clauses \code{ON CONFLICT}. Il exécute aussi systématiquement \code{replay_job.py}, qui réinjecte les réponses SerpAPI déjà sauvegardées sur disque : cette dernière étape n'est, elle, pas idempotente et déclenche un nouveau job Spark à chaque redémarrage du conteneur (cf. chapitre~\ref{chap:recherche} et section~\ref{sec:preconisations}).
+L'ensemble du circuit est automatisé de bout en bout : dès qu'une réponse SerpAPI est reçue, le module Pandas la transforme et l'insère directement dans \code{FACT_FLIGHT} sans passer par une table intermédiaire. Le script \code{entrypoint.sh} du conteneur API rejoue, à chaque démarrage, l'initialisation du schéma et le chargement des données de référence -- deux étapes rendues idempotentes par des clauses \code{ON CONFLICT}.
 
 \subsection{Développer un algorithme d'intelligence artificielle}
 
@@ -303,7 +298,7 @@ L'API FastAPI constitue l'interface unique entre le frontend, la base de donnée
 
 \subsection{Conteneuriser les composants de l'architecture}
 
-Chaque composant (frontend, API, Spark) dispose de son propre \code{Dockerfile} et de sa propre image, publiée sur Docker Hub. Ces images n'installent que les paquets système strictement nécessaires -- par exemple \code{gcc}/\code{libpq-dev} dans l'image Spark, requis pour compiler \code{psycopg2} (le pilote Python utilisé par \code{spark\_listener.py} et \code{stg\_to\_fact.py}), à ne pas confondre avec le pilote JDBC PostgreSQL utilisé par Spark lui-même, ajouté comme binaire préconstruit et ne nécessitant aucune compilation. L'accès aux registres et à l'infrastructure de production est protégé par une gestion de secrets : les identifiants Docker Hub et la clé SSH de déploiement sont stockés comme secrets GitHub Actions, jamais en clair dans le code versionné. Seule l'image frontend s'exécute toutefois avec un utilisateur non privilégié dédié ; les images API et Spark tournent encore avec un utilisateur root, ce qui constitue une piste de durcissement identifiée pour la suite du projet (cf. section~\ref{sec:preconisations}).
+Chaque composant (frontend, API, base de données) dispose de son propre \code{Dockerfile} et de sa propre image, publiée sur Docker Hub. Ces images n'installent que les paquets système strictement nécessaires -- par exemple \code{gcc}/\code{libpq-dev} dans l'image API, requis pour compiler \code{psycopg2} et \code{pandas}. L'accès aux registres et à l'infrastructure de production est protégé par une gestion de secrets : les identifiants Docker Hub et la clé SSH de déploiement sont stockés comme secrets GitHub Actions, jamais en clair dans le code versionné. Seule l'image frontend s'exécute toutefois avec un utilisateur non privilégié dédié ; l'image API tourne encore avec un utilisateur root, ce qui constitue une piste de durcissement identifiée pour la suite du projet (cf. section~\ref{sec:preconisations}).
 
 \subsection{Déployer le modèle dans un environnement de production}
 
@@ -311,7 +306,7 @@ Dans l'extension machine learning, le modèle est versionné et promu au statut 
 
 \subsection{Orchestrer les services de la solution}
 
-Docker Compose orchestre l'ensemble des services : base de données, cluster Spark (\emph{master} et \emph{worker}), API, frontend, et -- pour l'extension ML -- serveur MLflow. Les dépendances de démarrage sont explicitées via des conditions \code{depends_on} (par exemple l'API n'accepte des requêtes qu'une fois la base de données déclarée saine par son \emph{healthcheck}).
+Docker Compose orchestre l'ensemble des services : base de données, API, frontend, et -- pour l'extension ML -- serveur MLflow. Les dépendances de démarrage sont explicitées via des conditions \code{depends_on} (par exemple l'API n'accepte des requêtes qu'une fois la base de données déclarée saine par son \emph{healthcheck}).
 
 \subsection{Contrôler la mise en production de la solution}
 
@@ -325,11 +320,11 @@ Le déploiement continu repose sur GitHub Actions (construction et publication d
 
 \subsection{Définir la structure organisationnelle du projet}
 
-Le projet a été structuré en quatre flux de travail répartis selon les affinités de chacun : Hugo Pradier sur l'infrastructure, l'intégration du pipeline de données et le déploiement ; Hugo Jacquit sur l'amorçage du backend, du pipeline Spark et de la base de données ; Daniel Kouacou sur l'extension machine learning ; Emy Regna sur la chaîne d'observabilité de l'infrastructure (Prometheus, Grafana). Cette organisation a dû composer avec une contrainte forte, détaillée au chapitre~\ref{chap:cahier} : une équipe répartie sur toute la France, chacun en alternance en entreprise en parallèle du projet.
+Le projet a été structuré en quatre flux de travail répartis selon les affinités de chacun : Hugo Pradier sur l'infrastructure, l'intégration du pipeline de données et le déploiement ; Hugo Jacquit sur l'amorçage du backend, du pipeline ETL Pandas et de la base de données ; Daniel Kouacou sur l'extension machine learning ; Emy Regna sur la chaîne d'observabilité de l'infrastructure (Prometheus, Grafana). Cette organisation a dû composer avec une contrainte forte, détaillée au chapitre~\ref{chap:cahier} : une équipe répartie sur toute la France, chacun en alternance en entreprise en parallèle du projet.
 
 \subsection{Encadrer le développement du projet}
 
-Le développement a suivi une démarche itérative inspirée des pratiques agiles, adaptée à une équipe distribuée ne pouvant pas se caler sur des rituels synchrones quotidiens : le travail a été découpé en lots livrables et intégrables indépendamment (amorçage, socle backend/Spark/API, fiabilisation de la base, intégration ETL/frontend, durcissement du déploiement, extension machine learning -- cf. chapitre~\ref{chap:realisations} et section « Démarche technique »), chacun validé par une revue systématique de code avant fusion sur la branche principale -- trois de ces lots ont ainsi fait l'objet d'une fusion formelle par \emph{pull request}. Un accompagnement régulier de notre mentor Dan Cohen a complété ce cadre, avec un rôle proche de celui d'un \emph{product owner} : validation des choix d'architecture et priorisation des lots suivants. Le travail à distance a par ailleurs nécessité une discipline de communication asynchrone plus poussée qu'un travail en présentiel n'en aurait exigé.
+Le développement a suivi une démarche itérative inspirée des pratiques agiles, adaptée à une équipe distribuée ne pouvant pas se caler sur des rituels synchrones quotidiens : le travail a été découpé en lots livrables et intégrables indépendamment (amorçage, socle backend/ETL/API, fiabilisation de la base, intégration ETL/frontend, durcissement du déploiement, extension machine learning -- cf. chapitre~\ref{chap:realisations} et section « Démarche technique »), chacun validé par une revue systématique de code avant fusion sur la branche principale -- trois de ces lots ont ainsi fait l'objet d'une fusion formelle par \emph{pull request}. Un accompagnement régulier de notre mentor Dan Cohen a complété ce cadre, avec un rôle proche de celui d'un \emph{product owner} : validation des choix d'architecture et priorisation des lots suivants. Le travail à distance a par ailleurs nécessité une discipline de communication asynchrone plus poussée qu'un travail en présentiel n'en aurait exigé.
 
 \subsection{Gérer le budget du projet}
 
@@ -337,11 +332,11 @@ Deux postes de coût ont structuré les arbitrages du projet : le coût par requ
 
 \subsection{Communiquer l'avancement et les résultats du projet}
 
-L'avancement a été communiqué régulièrement à notre mentor et synthétisé au fil de l'historique Git (structuration initiale, intégration backend/Spark/API, correctifs de base de données, intégration ETL/frontend, durcissement du déploiement), permettant un suivi transparent de la progression malgré le travail à distance.
+L'avancement a été communiqué régulièrement à notre mentor et synthétisé au fil de l'historique Git (structuration initiale, intégration backend/ETL/API, correctifs de base de données, intégration ETL/frontend, durcissement du déploiement), permettant un suivi transparent de la progression malgré le travail à distance.
 
 \subsection{Évaluer la performance du projet}
 
-La performance du pipeline a été évaluée sur des critères concrets : taux de réussite du cache de vols (proportion de requêtes servies directement depuis PostgreSQL sans nouvel appel à SerpAPI), respect du délai maximal de 90 secondes toléré pour un cycle complet d'enrichissement asynchrone, et -- pour le volet machine learning -- l'aire sous la courbe ROC (AUC) des modèles de prédiction de retard (0,728 pour XGBoost).
+La performance du pipeline a été évaluée sur des critères concrets : taux de réussite du cache de vols (proportion de requêtes servies directement depuis PostgreSQL sans nouvel appel à SerpAPI), temps de réponse du traitement Pandas synchrone (quelques secondes contre plusieurs dizaines pour l'ancienne approche Spark), et -- pour le volet machine learning -- l'aire sous la courbe ROC (AUC) des modèles de prédiction de retard (0,728 pour XGBoost).
 
 \subsection{Former les utilisateurs finaux de la solution}
 
@@ -354,18 +349,18 @@ Le plan d'accompagnement conçu pour les utilisateurs finaux de FanFlight repose
 \textbf{Bloc} & \textbf{Compétence} & \textbf{Mise en œuvre dans FanFlight} \\
 \midrule
 \endhead
-BC01 -- Concevoir & Identifier les besoins, veille, périmètre & Analyse du besoin supporter/vols, veille SerpAPI/architecture événementielle, périmètre formalisé en équipe \\
- & Émettre des recommandations & Choix défendus en équipe et avec le mentor (schéma en étoile, pipeline événementiel) \\
+BC01 -- Concevoir & Identifier les besoins, veille, périmètre & Analyse du besoin supporter/vols, veille SerpAPI/architecture ETL synchrone, périmètre formalisé en équipe \\
+ & Émettre des recommandations & Choix défendus en équipe et avec le mentor (schéma en étoile, ETL Pandas synchrone) \\
 BC02 -- Élaborer & Collecter les données & Données statiques (équipes, villes, calendrier) + données SerpAPI dynamiques \\
- & Élaborer le stockage & PostgreSQL, schéma en étoile + table d'atterrissage JSONB \code{FLIGHTS_RAW} \\
- & Concevoir l'ETL & Pipeline Spark événementiel (staging $\to$ fusion upsert) \\
+ & Élaborer le stockage & PostgreSQL, schéma en étoile relationnel (\code{DIM\_*} + \code{FACT\_*}) \\
+ & Concevoir l'ETL & Pipeline Pandas synchrone (transformation en mémoire $\to$ fusion upsert) \\
  & Transformer et analyser & Inférence de schéma, clés de substitution MD5, requêtes de disponibilité \\
- & Automatiser les circuits & \code{LISTEN}/\code{NOTIFY} + \code{entrypoint.sh} idempotent \\
+ & Automatiser les circuits & Transformation synchrone Pandas + \code{entrypoint.sh} idempotent \\
  & Développer un algorithme d'IA & Modèle XGBoost / PyTorch de prédiction de retard (BTS + météo) \\
 BC03 -- Déployer & Interface de programmation & API REST FastAPI, documentation OpenAPI \\
  & Conteneuriser & Docker par composant, images publiées sur Docker Hub \\
  & Déployer le modèle & Registre MLflow, chargement au démarrage de l'API \\
- & Orchestrer les services & Docker Compose (DB, Spark, API, frontend, MLflow) \\
+ & Orchestrer les services & Docker Compose (DB, API, frontend, MLflow) \\
  & Contrôler la mise en production & Compose « prod-like » local avant déploiement réel \\
  & Automatiser déploiement/monitoring & GitHub Actions + Watchtower + Prometheus/Grafana + \code{drift\_monitor.py} \\
 BC04 -- Piloter & Structure organisationnelle & 4 rôles définis, équipe distribuée + alternances \\
@@ -395,7 +390,7 @@ L'idée de FanFlight est née du constat que la Coupe du Monde 2026 -- première
 \textbf{Objectifs techniques et data engineering (prioritaires pour la certification) :}
 \begin{itemize}
   \item concevoir un modèle de données combinant un référentiel stable et une donnée dynamique coûteuse à obtenir ;
-  \item construire un pipeline ETL automatisé et idempotent avec Apache Spark ;
+  \item construire un pipeline ETL automatisé et idempotent avec Pandas ;
   \item exposer les données via une API REST documentée ;
   \item conteneuriser l'ensemble de la solution et automatiser son déploiement (CI/CD) ;
   \item maîtriser le coût des appels à l'API externe de vols dès la conception de l'architecture ;
@@ -421,8 +416,8 @@ L'idée de FanFlight est née du constat que la Coupe du Monde 2026 -- première
 \section{Livrables attendus}
 
 \begin{itemize}
-  \item une application FanFlight fonctionnelle et déployée en production (frontend, API, base de données, pipeline Spark) ;
-  \item un pipeline de données automatisé, événementiel et idempotent ;
+  \item une application FanFlight fonctionnelle et déployée en production (frontend, API, base de données, pipeline ETL Pandas) ;
+  \item un pipeline de données synchrone, automatisé et idempotent ;
   \item une chaîne CI/CD fonctionnelle (GitHub Actions, Docker Hub, déploiement automatisé, mise à jour continue via Watchtower) ;
   \item une documentation technique du déploiement et de l'exploitation ;
   \item une chaîne d'observabilité de l'infrastructure (Prometheus, Grafana) restituée dans un tableau de bord unique ;
@@ -436,7 +431,7 @@ L'idée de FanFlight est née du constat que la Coupe du Monde 2026 -- première
 Le projet a été réparti selon quatre axes de responsabilité, en cohérence avec les affinités techniques de chacun :
 
 \begin{itemize}
-  \item \textbf{Hugo Jacquit} a posé les fondations du projet : structuration initiale du backend, du pipeline Spark et de l'API (première intégration \code{add base+spark+api}), puis correction de la logique d'initialisation de la base de données et de problèmes d'encodage de caractères.
+  \item \textbf{Hugo Jacquit} a posé les fondations du projet : structuration initiale du backend, du pipeline ETL et de l'API (première intégration \code{add base+etl+api}), puis correction de la logique d'initialisation de la base de données et de problèmes d'encodage de caractères.
   \item \textbf{Hugo Pradier} a pris en charge l'intégration de bout en bout du pipeline ETL avec le frontend, la correction de la communication entre l'API et le frontend, puis l'ensemble de la chaîne de déploiement : configuration SSH/production, workflow GitHub Actions, documentation de déploiement, fiabilisation de la base (épinglage de version PostgreSQL) et rédaction du présent dossier.
   \item \textbf{Daniel Kouacou} a conduit, sur une branche dédiée, l'extension machine learning du projet : collecte de données réelles de ponctualité aérienne (BTS), enrichissement météorologique, feature engineering, entraînement et suivi de modèles via MLflow, et monitoring de dérive des données.
   \item \textbf{Emy Regna} a conçu et mis en place l'ensemble de la chaîne d'observabilité du projet : stack Prometheus/Grafana, exporters système et applicatifs (node-exporter, cAdvisor, postgres-exporter), health-checks HTTP via Blackbox Exporter, et le dashboard de supervision (cf. section~\ref{sec:monitoring}).
@@ -448,9 +443,9 @@ L'historique du projet reflète une progression itérative, cohérente avec les 
 
 \begin{enumerate}
   \item \textbf{Amorçage} -- mise en place de la structure du dépôt et des conventions de projet.
-  \item \textbf{Intégration du socle technique} (\emph{pull request} \#1) -- première version fonctionnelle de la base de données, du pipeline Spark et de l'API, fusionnée depuis la branche de travail de Hugo Jacquit.
+  \item \textbf{Intégration du socle technique} (\emph{pull request} \#1) -- première version fonctionnelle de la base de données, du pipeline ETL et de l'API, fusionnée depuis la branche de travail de Hugo Jacquit.
   \item \textbf{Fiabilisation de la base de données} (\emph{pull request} \#2) -- correction de la logique d'initialisation du schéma et de problèmes d'encodage.
-  \item \textbf{Intégration ETL/frontend} (\emph{pull request} \#3) -- raccordement du pipeline de transformation Spark au frontend et correction de la communication entre l'API et le frontend.
+  \item \textbf{Intégration ETL/frontend} (\emph{pull request} \#3) -- raccordement du pipeline de transformation Pandas au frontend et correction de la communication entre l'API et le frontend.
   \item \textbf{Durcissement du déploiement} -- mise en place de la connexion SSH sécurisée vers l'instance de production, du workflow GitHub Actions complet, de la documentation de déploiement, suppression du cache de build devenu source d'incohérences, et épinglage explicite de la version majeure de PostgreSQL pour éviter une rupture de compatibilité de volume en production.
   \item \textbf{Extension machine learning} -- développement, en parallèle et sur une branche dédiée, d'un module de prédiction de retard de vol.
 \end{enumerate}
@@ -481,35 +476,28 @@ Cette section présente les composants techniques les plus significatifs du proj
 
 \subsection{Présentation et objectif}
 
-Le script \code{API/init_database/init_db.py} (environ 115 lignes) définit le schéma de la base PostgreSQL. Il combine un schéma en étoile relationnel classique pour les données de référence et une table d'atterrissage semi-structurée pour les données de vol brutes.
+Le script \code{API/init\_database/init\_db.py} (environ 115 lignes) définit le schéma de la base PostgreSQL en étoile : tables de dimensions (\code{DIM\_CITY}, \code{DIM\_AIRPORT}, \code{DIM\_TEAM}) et tables de faits (\code{FACT\_MATCHS}, \code{FACT\_FLIGHT}, \code{FACT\_FLIGHT\_WEATHER}).
 
-\begin{lstlisting}[language=SQL, caption={Extrait du schéma -- table de faits FACT\_FLIGHT et table d'atterrissage FLIGHTS\_RAW}]
+\begin{lstlisting}[language=SQL, caption={Extrait du schéma -- table de faits FACT\_FLIGHT}]
 CREATE TABLE IF NOT EXISTS FACT_FLIGHT (
-    flight_sk VARCHAR(32) PRIMARY KEY,
-    journey_sk VARCHAR(32),
+    flight_sk              VARCHAR(32) PRIMARY KEY,
+    journey_sk             VARCHAR(32),
     departure_airport_code VARCHAR(10),
     departure_airport_time TIMESTAMP,
-    arrival_airport_code VARCHAR(10),
-    arrival_airport_time TIMESTAMP,
-    duration INTEGER,
-    flight_number VARCHAR(12),
-    layover_duration INTEGER,
-    total_journey_duration INTEGER,
-    price DECIMAL(10, 2),
-    airline VARCHAR(100),
-    airline_logo TEXT,
-    type VARCHAR(20),
-    is_best BOOLEAN,
-    pos INTEGER,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE IF NOT EXISTS FLIGHTS_RAW (
-    id SERIAL PRIMARY KEY,
-    json_data JSONB,
-    processed BOOLEAN DEFAULT FALSE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    arrival_airport_code   VARCHAR(10),
+    arrival_airport_time   TIMESTAMP,
+    duration               BIGINT,
+    flight_number          VARCHAR(12),
+    layover_duration       BIGINT,
+    total_journey_duration BIGINT,
+    price                  DECIMAL(10, 2),
+    airline                VARCHAR(100),
+    airline_logo           TEXT,
+    type                   VARCHAR(20),
+    is_best                BOOLEAN,
+    pos                    INTEGER,
+    created_at             TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at             TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 \end{lstlisting}
 
@@ -517,10 +505,8 @@ CREATE TABLE IF NOT EXISTS FLIGHTS_RAW (
 \centering
 \begin{tikzpicture}[
   ent/.style={rectangle, rounded corners, draw=fannavy, fill=fannavy!8, minimum width=2.6cm, minimum height=0.9cm, align=center, font=\small},
-  raw/.style={rectangle, rounded corners, draw=gray, fill=gray!10, minimum width=2.6cm, minimum height=0.9cm, align=center, font=\small, dashed},
   fk/.style={-Latex, thick},
   appjoin/.style={-Latex, thick, dotted, gray},
-  etl/.style={-Latex, thick, dashed, gray},
   lbl/.style={font=\tiny, fill=white, inner sep=1pt}
 ]
 \node[ent] (team) at (0,4) {DIM\_TEAM};
@@ -528,15 +514,13 @@ CREATE TABLE IF NOT EXISTS FLIGHTS_RAW (
 \node[ent] (airport) at (8.4,4) {DIM\_AIRPORT};
 \node[ent] (matchs) at (2.1,1) {FACT\_MATCHS};
 \node[ent] (flight) at (8.4,1) {FACT\_FLIGHT};
-\node[raw] (rawt) at (13.2,1) {FLIGHTS\_RAW\\(JSONB)};
 
 \draw[fk] (matchs) -- node[lbl]{id\_team\_a / id\_team\_b} (team);
 \draw[fk] (matchs) -- node[lbl]{id\_city} (city);
 \draw[fk] (airport) -- node[lbl]{id\_city} (city);
 \draw[appjoin] (flight) -- node[lbl]{iata\_code} (airport);
-\draw[etl] (rawt) -- node[lbl, pos=0.5, yshift=1.5mm]{ETL Spark} (flight);
 \end{tikzpicture}
-\caption{Modèle de données FanFlight -- clés étrangères déclarées (traits pleins), jointure applicative non contrainte en base entre \code{FACT\_FLIGHT} et \code{DIM\_AIRPORT} (pointillés), et alimentation de \code{FACT\_FLIGHT} depuis la table d'atterrissage \code{FLIGHTS\_RAW} par le pipeline ETL (tirets)}
+\caption{Modèle de données FanFlight -- clés étrangères déclarées (traits pleins), jointure applicative non contrainte en base entre \code{FACT\_FLIGHT} et \code{DIM\_AIRPORT} (pointillés)}
 \label{fig:erd}
 \end{figure}
 
@@ -545,76 +529,53 @@ CREATE TABLE IF NOT EXISTS FLIGHTS_RAW (
 \begin{itemize}
   \item \textbf{Clé de substitution \code{flight_sk}} : identifiant technique calculé par hachage plutôt qu'auto-incrémenté, ce qui permet à la clause \code{ON CONFLICT (flight_sk) DO UPDATE} de rendre les rechargements du pipeline naturellement idempotents.
   \item \textbf{Regroupement par \code{journey_sk}} : chaque itinéraire (potentiellement multi-segments) partage une même clé de trajet, la colonne \code{pos} ordonnant les segments entre eux.
-  \item \textbf{Table \code{FLIGHTS_RAW} en \code{JSONB}} : conserver la réponse brute de l'API externe permet de rejouer une transformation en cas d'évolution du pipeline, sans nouvel appel (payant) à l'API.
+  \item \textbf{Transformation synchrone en mémoire} : la réponse SerpAPI est transformée par le module Pandas \code{process_flight.py} directement dans le process de l'API, sans persistance intermédiaire -- ce qui simplifie l'architecture et réduit la latence perçue par l'utilisateur à quelques secondes.
   \item \textbf{Chargement des données de référence} (\code{load_static_data.py}, environ 355 lignes) : équipes, villes hôtes, aéroports et calendrier des matchs de l'édition 2026 sont insérés via des clauses \code{ON CONFLICT DO NOTHING} / \code{DO UPDATE}, rendant le script rejouable sans risque de doublon.
   \item \textbf{Jointure applicative \code{FACT_FLIGHT} / \code{DIM_AIRPORT}} : contrairement aux autres relations du schéma, le lien entre un vol et son aéroport n'est pas déclaré comme contrainte de clé étrangère en base -- il n'est vérifié qu'au moment des requêtes SQL applicatives (\code{JOIN ... ON f.departure_airport_code = a.iata_code}). Ce choix évite un rejet en base si \code{enrich_airports} n'a pas encore inséré un aéroport rencontré pour la première fois, au prix d'une intégrité référentielle non garantie par le SGBD -- une piste de durcissement identifiée (cf. section~\ref{sec:preconisations}).
 \end{itemize}
 
-\section{Pipeline ETL événementiel avec Apache Spark}
+\section{Pipeline ETL synchrone avec Pandas}
 
 \subsection{Présentation et objectif}
 
-Plutôt qu'un pipeline ordonnancé (cron/Airflow), FanFlight utilise le mécanisme natif \code{LISTEN}/\code{NOTIFY} de PostgreSQL pour déclencher la transformation Spark dès qu'une nouvelle réponse de l'API de vols est insérée -- une architecture événementielle légère, adaptée au volume et au budget d'infrastructure du projet.
+Plutôt qu'un pipeline asynchrone piloté par des événements de base de données, FanFlight adopte une architecture de transformation synchrone : dès qu'une réponse SerpAPI est reçue, le module \code{process_flight.py} la transforme en mémoire avec Pandas et insère les segments dans \code{FACT\_FLIGHT} avant même que la requête HTTP ne se termine. Cette approche simplifie considérablement l'architecture (pas de conteneur Spark à gérer, pas de mécanisme de synchronisation asynchrone) tout en étant parfaitement adaptée au volume de données du projet.
 
-\begin{lstlisting}[language=Python, caption={\code{spark\_listener.py} -- déclenchement événementiel du job Spark}]
-cursor.execute("LISTEN new_flight;")
+\subsection{Transformation : parsing JSON et clés de substitution}
 
-while True:
-    try:
-        select.select([conn], [], [])
-        conn.poll()
-        for notify in conn.notifies:
-            job_id = notify.payload
-            subprocess.Popen([
-                "/opt/spark/bin/spark-submit",
-                "--master", "spark://spark-master:7077",
-                "/opt/spark/scripts/process_flight.py",
-                job_id
-            ])
-        conn.notifies.clear()
-    except Exception as e:
-        print(f"Erreur : {e}")
-\end{lstlisting}
-
-\subsection{Transformation : inférence de schéma et clés de substitution}
-
-Le script \code{process_flight.py} (environ 175 lignes) lit la ligne \code{FLIGHTS_RAW} correspondant au job via JDBC, infère dynamiquement le schéma JSON de la réponse SerpAPI, puis éclate les itinéraires « meilleurs vols » et « autres vols » en segments individuels :
+Le module \code{API/process\_flight.py} (environ 80 lignes) reçoit directement la réponse JSON de SerpAPI, sépare les propositions « meilleurs vols » et « autres vols », éclate chaque itinéraire en segments de vol, puis calcule des clés de substitution par hachage MD5 :
 
 \begin{lstlisting}[language=Python, caption={\code{process\_flight.py} -- calcul des clés de substitution par hachage}]
-df_best_flights = df_best_flights.withColumn("journey_sk",
-    md5(concat_ws('_',
-        col("bf.flights.departure_airport.id"),
-        col("bf.flights.arrival_airport.id"),
-        col("bf.flights.airline"),
-        col("bf.flights.flight_number"),
-        to_date(col("bf.flights")[0]["departure_airport"]["time"]))))
-        # date sans l'heure : la cle ne change pas si l'horaire est ajuste
+journey_sk = md5('_'.join([
+    str([f['departure_airport']['id'] for f in flights]),
+    str([f['arrival_airport']['id'] for f in flights]),
+    str([f['airline'] for f in flights]),
+    str([f['flight_number'] for f in flights]),
+    flights[0]['departure_airport']['time'].split(' ')[0]
+]).encode()).hexdigest()
 
-df_detail_best_flight = df_detail_best_flight.withColumn("flight_sk",
-    md5(concat_ws('_', col("journey_sk"), col("flight.flight_number"),
-        col("flight.departure_airport.id"), col("pos"))))
+flight_sk = md5(
+    f"{journey_sk}_{flight['flight_number']}_"
+    f"{flight['departure_airport']['id']}_{pos}".encode()
+).hexdigest()
 \end{lstlisting}
 
-Un point d'attention technique a été géré de façon défensive : les vols directs ne possèdent pas de champ \code{layovers} (correspondances) dans la réponse SerpAPI. Le code vérifie la présence de la colonne avant de la sélectionner, avec une valeur nulle typée en repli, pour éviter une erreur de schéma sur les vols sans escale.
+Un point d'attention technique a été géré de façon défensive : les vols directs ne possèdent pas de champ \code{layovers} dans la réponse SerpAPI, ce qui produit des valeurs \code{NaN} dans le DataFrame Pandas. Ces valeurs sont systématiquement converties en \code{None} avant l'insertion pour éviter une erreur de type PostgreSQL.
 
-\subsection{Chargement : staging puis fusion idempotente}
+\subsection{Chargement : fusion idempotente directe}
 
-Après union des deux branches (meilleurs vols / autres vols) et déduplication sur \code{flight_sk}, les données sont écrites en mode \code{overwrite} dans une table de \emph{staging} (\code{STG_FLIGHT}), puis fusionnées vers la table de faits par le script \code{stg_to_fact.py} (environ 45 lignes) :
+Après union des deux branches (meilleurs vols / autres vols) et déduplication sur \code{flight\_sk}, chaque segment est inséré directement dans \code{FACT\_FLIGHT} via une clause \code{ON CONFLICT ... DO UPDATE} :
 
-\begin{lstlisting}[language=SQL, caption={\code{stg\_to\_fact.py} -- fusion idempotente staging vers fait}]
-INSERT INTO fact_flight (flight_sk, journey_sk, departure_airport_code, ...)
-SELECT flight_sk, journey_sk, departure_airport_code, ...
-FROM stg_flight
+\begin{lstlisting}[language=SQL, caption={\code{process\_flight.py} -- fusion idempotente directe vers FACT\_FLIGHT}]
+INSERT INTO fact_flight (
+    flight_sk, journey_sk, departure_airport_code, ...
+)
+VALUES (%s, %s, %s, ...)
 ON CONFLICT (flight_sk)
 DO UPDATE SET
     price = EXCLUDED.price,
     departure_airport_time = EXCLUDED.departure_airport_time,
     updated_at = CURRENT_TIMESTAMP;
-
-UPDATE flights_raw SET processed = True WHERE id = %s;
 \end{lstlisting}
-
-Cette dernière instruction referme la boucle événementielle : c'est la mise à jour du drapeau \code{processed} qui permet à l'API, qui interroge ce champ en boucle, de savoir que le pipeline a terminé son travail.
 
 \section{API FastAPI : orchestration « cache d'abord, appel externe en repli »}
 
@@ -623,29 +584,26 @@ Cette dernière instruction referme la boucle événementielle : c'est la mise �
 Le fichier \code{API/main.py} (environ 490 lignes) est le point d'entrée unique du frontend. Sa route la plus significative, \code{GET /api/flights/\{match\_id\}}, matérialise directement la contrainte de coût du projet : elle ne déclenche un appel à l'API externe payante qu'en dernier recours.
 
 \begin{lstlisting}[language=Python, caption={\code{main.py} -- logique cache d'abord, appel externe en repli}]
-flights = check_flight_db(cursor, departure_city, match_info['arrival_city'], match_date_exact)
+flights = check_flight_db(cursor, departure_city,
+                           match_info['arrival_city'], match_date_exact)
 
 if flights:
     return {"meta": {...}, "flights": flights}
 
 if not flights:
-    job_ids = get_flights_api(cursor, conn, departure_city,
-                               match_info['arrival_city'], match_date_exact)
-    if not job_ids:
-        return {"meta": {...}, "flights": []}
-
-    wait_to_spark(cursor, job_ids)
+    get_flights_api(cursor, conn, departure_city,
+                    match_info['arrival_city'], match_date_exact)
     enrich_airports(cursor, conn)
     flights = check_flight_db(cursor, departure_city,
                                match_info['arrival_city'], match_date_exact)
     return {"meta": {...}, "flights": flights}
 \end{lstlisting}
 
-\code{check_flight_db} construit une requête SQL à base de CTE qui recherche des itinéraires \emph{aller simple} dont le premier segment part de la ville de l'utilisateur et dont le dernier segment arrive dans la ville du match, avec une contrainte temporelle métier sur ce seul trajet : arrivée au plus tôt 3 jours avant le match, et au plus tard 5 heures avant son coup d'envoi -- la fonction ne modélise pas de vol retour. En cas d'absence de résultat, \code{get_flights_api} interroge SerpAPI pour chaque paire d'aéroports possible sur les 3 jours précédant le match, insère la réponse brute dans \code{FLIGHTS_RAW}, puis \code{wait_to_spark} attend -- par interrogation périodique du drapeau \code{processed}, avec un délai maximal de 90 secondes -- que le pipeline Spark ait terminé la transformation, avant de relire la base.
+\code{check_flight_db} construit une requête SQL à base de CTE qui recherche des itinéraires \emph{aller simple} dont le premier segment part de la ville de l'utilisateur et dont le dernier segment arrive dans la ville du match, avec une contrainte temporelle métier sur ce seul trajet : arrivée au plus tôt 3 jours avant le match, et au plus tard 5 heures avant son coup d'envoi -- la fonction ne modélise pas de vol retour. En cas d'absence de résultat, \code{get\_flights\_api} interroge SerpAPI pour chaque paire d'aéroports possible sur les 3 jours précédant le match et appelle immédiatement \code{process\_with\_pandas} pour transformer et insérer chaque réponse dans \code{FACT\_FLIGHT} -- la transformation étant synchrone, aucune attente n'est nécessaire avant de relire la base.
 
 \subsection{Choix techniques et limites}
 
-Cette architecture synchrone (la requête HTTP attend la fin du traitement asynchrone) a été un compromis délibéré pour la durée du projet : elle évite de construire une API de notification côté frontend (\emph{polling} ou \emph{websocket}), au prix d'un temps de réponse pouvant atteindre plusieurs dizaines de secondes lors d'un cache manqué. C'est un axe d'amélioration identifié pour la suite du projet (cf. section~\ref{sec:preconisations}).
+La transformation synchrone par Pandas réduit significativement la latence perçue lors d'un cache manqué : l'essentiel du temps de réponse est désormais occupé par les appels à SerpAPI eux-mêmes (quelques secondes par appel), et non par un traitement asynchrone dont la fin devait être interrogée en boucle. Ce choix simplifie également l'architecture de déploiement, en supprimant le besoin d'un cluster Spark dédié.
 
 \section{Frontend Next.js : un parcours guidé en trois étapes}
 
@@ -704,7 +662,7 @@ L'image PostgreSQL est explicitement épinglée en version 17 plutôt que \code{
 
 \subsection{Intégration continue : construction et publication des images}
 
-Le workflow GitHub Actions \code{frontend-deploy.yml} se déclenche sur chaque \emph{push} vers la branche principale touchant le frontend, l'API ou le pipeline Spark, ou manuellement (\code{workflow_dispatch}). Il construit et publie trois images vers Docker Hub, chacune taguée à la fois \code{latest} et par le SHA du commit pour garantir la traçabilité :
+Le workflow GitHub Actions \code{frontend-deploy.yml} se déclenche sur chaque \emph{push} vers la branche principale touchant le frontend ou l'API, ou manuellement (\code{workflow_dispatch}). Il construit et publie deux images vers Docker Hub, chacune taguée à la fois \code{latest} et par le SHA du commit pour garantir la traçabilité :
 
 \begin{lstlisting}[caption={Extrait du workflow -- publication taguée par SHA}]
 - name: Build and push backend API image
@@ -743,7 +701,7 @@ La stack repose sur Prometheus comme collecteur central (scrutation toutes les 1
   \item \textbf{node-exporter} : métriques système de l'hôte (CPU, mémoire, disque) de l'instance EC2 de production ;
   \item \textbf{cAdvisor} : métriques par conteneur (CPU, mémoire), nécessitant un accès privilégié en lecture au socket Docker et au système de fichiers hôte ;
   \item \textbf{postgres-exporter} : métriques internes de la base PostgreSQL, connecté via la même chaîne de connexion applicative que l'API ;
-  \item \textbf{Blackbox Exporter} : \emph{health-checks} HTTP actifs sur le frontend, la route \code{/ready} de l'API, et les interfaces web de Spark master et worker ;
+  \item \textbf{Blackbox Exporter} : \emph{health-checks} HTTP actifs sur le frontend et la route \code{/ready} de l'API ;
   \item \textbf{Prometheus lui-même} : auto-supervision de sa propre disponibilité.
 \end{itemize}
 
@@ -756,8 +714,6 @@ La stack repose sur Prometheus comme collecteur central (scrutation toutes les 1
     - targets:
         - http://frontend:3000/
         - http://backend-api:8000/ready
-        - http://spark-master:8080/
-        - http://spark-worker:8081/
   relabel_configs:
     - source_labels: [__address__]
       target_label: __param_target
@@ -867,21 +823,20 @@ Cette dernière option soulevait cependant une difficulté : une réponse SerpAP
 
 \section{Implémentation de la solution}
 
-La solution mise en œuvre combine trois éléments complémentaires :
+La solution mise en œuvre combine deux éléments complémentaires :
 
 \begin{enumerate}
-  \item une table d'atterrissage \code{FLIGHTS_RAW} qui reçoit la réponse SerpAPI telle quelle, sous forme \code{JSONB}, sans bloquer sur sa transformation ;
-  \item un pipeline de transformation asynchrone (Spark, déclenché par \code{LISTEN}/\code{NOTIFY}) qui structure cette donnée brute en lignes exploitables dans \code{FACT_FLIGHT}, sans quoi elle resterait inutilisable par une simple requête SQL ;
+  \item un module de transformation synchrone (\code{process\_flight.py}, Pandas) appelé immédiatement après chaque réponse SerpAPI, qui structure la donnée brute en lignes exploitables dans \code{FACT\_FLIGHT} sans passer par une table intermédiaire ;
   \item une fonction de lecture (\code{check_flight_db}) systématiquement appelée \emph{avant} tout appel à SerpAPI, transformant l'appel externe en un recours de dernier ressort plutôt qu'un point de passage systématique.
 \end{enumerate}
 
-Un outil complémentaire, \code{replay_job.py}, exécuté automatiquement à chaque démarrage du conteneur API, permet de réinjecter dans le pipeline des réponses SerpAPI déjà obtenues et sauvegardées sur disque, sans consommer de nouveau quota d'API -- un choix directement motivé par la même contrainte de coût. Ce script n'est cependant pas idempotent : chaque redémarrage du conteneur déclenche un nouveau job de traitement, ce qui constitue une limite identifiée pour une exécution répétée en production (cf. section~\ref{sec:preconisations}).
+La transformation synchrone par Pandas offre un avantage supplémentaire sur l'approche initiale : la donnée est directement exploitable dès le retour de \code{get\_flights\_api}, sans délai d'attente lié à un traitement asynchrone. Le cache est donc immédiatement opérationnel après le premier appel externe, et les requêtes suivantes pour le même trajet sont servies directement depuis PostgreSQL.
 
-\section{Itération ultérieure : un registre explicite des trajets déjà interrogés}
+\section{Itération ultérieure : un registre explicite des trajets déjà interrogés et un rafraîchissement automatique}
 
-Le prolongement du projet par Daniel Kouacou (branche machine learning) a affiné cette stratégie de cache en documentant l'introduction d'une table \code{QUERIED_ROUTES}, destinée à enregistrer chaque trajet interrogé -- y compris lorsque SerpAPI n'a renvoyé \emph{aucun} vol -- avec un paramètre explicite (\code{force=true}) pour forcer un rafraîchissement volontaire (tests, données jugées obsolètes). Cette évolution, décrite dans la documentation du projet, corrige une limite identifiée de la première version : sans registre des trajets \emph{sans résultat}, un trajet effectivement sans vol disponible risquait d'être réinterrogé indéfiniment, consommant du quota pour ne jamais recevoir de réponse utile. À l'état actuel de la branche, cette table n'est cependant plus présente dans le code après une fusion intermédiaire ayant résolu \code{main.py} en faveur d'une autre branche parente -- un exemple concret de la difficulté à maintenir la cohérence entre documentation et code sur une branche de longue durée non encore intégrée à la production, et un point de vigilance retenu pour la fusion définitive de cette extension (cf. section~\ref{sec:preconisations}).
+Le prolongement du projet a affiné cette stratégie de cache sur deux axes. D'une part, l'introduction d'une logique de rafraîchissement automatique dans \code{check\_flight\_db} : si les vols en cache datent de plus de 7 jours (\code{updated\_at} de la table \code{FACT\_FLIGHT}), un nouvel appel à SerpAPI est déclenché pour mettre à jour les prix et disponibilités -- une donnée de vol étant par nature volatile. D'autre part, la documentation du projet identifie l'ajout d'une table \code{QUERIED\_ROUTES}, destinée à enregistrer chaque trajet interrogé -- y compris lorsque SerpAPI n'a renvoyé \emph{aucun} vol -- pour éviter de réinterroger indéfiniment un trajet sans vol disponible.
 
-Cette itération illustre bien la nature incrémentale d'une problématique de coût en ingénierie de données : la première solution (cache positif via \code{FACT_FLIGHT}) a résolu le cas dominant, avant qu'un usage plus poussé du système ne révèle un angle mort (le cas négatif) que la solution suivante a cherché à traiter.
+Cette itération illustre bien la nature incrémentale d'une problématique de coût en ingénierie de données : la première solution (cache positif via \code{FACT\_FLIGHT}) a résolu le cas dominant, avant qu'un usage plus poussé du système ne révèle deux angles morts (données obsolètes et cas négatifs) que les évolutions suivantes ont cherché à traiter.
 
 \chapter{Conclusion et ouverture}
 
@@ -892,8 +847,8 @@ Le projet FanFlight visait à démontrer la maîtrise d'une démarche data engin
 \textbf{Résultats obtenus :}
 \begin{itemize}
   \item une application fonctionnelle en production, permettant de croiser calendrier de matchs et propositions de vols ;
-  \item un modèle de données hybride (schéma en étoile + \code{JSONB}) adapté à une donnée externe volatile ;
-  \item un pipeline ETL événementiel, idempotent, déclenché par notification PostgreSQL plutôt que par ordonnancement périodique ;
+  \item un modèle de données en étoile adapté à une donnée externe volatile ;
+  \item un pipeline ETL synchrone et idempotent, intégré à l'API FastAPI via un module Pandas ;
   \item une architecture explicitement conçue pour maîtriser le coût d'un service externe payant ;
   \item une chaîne CI/CD complète (GitHub Actions, Docker Hub, déploiement SSH, mise à jour continue par Watchtower) ;
   \item une chaîne d'observabilité de l'infrastructure (Prometheus, Grafana) couvrant les niveaux système, conteneur et applicatif ;
@@ -902,7 +857,7 @@ Le projet FanFlight visait à démontrer la maîtrise d'une démarche data engin
 
 \section{Difficultés rencontrées et solutions apportées}
 
-\textbf{Coût de l'API externe de vols.} SerpAPI facturant chaque requête, une architecture naïve n'était pas soutenable. \emph{Solution} : conception d'un cache durable porté par PostgreSQL, complété par un registre explicite des trajets déjà interrogés (cf. chapitre~\ref{chap:recherche}).
+\textbf{Coût de l'API externe de vols.} SerpAPI facturant chaque requête, une architecture naïve n'était pas soutenable. \emph{Solution} : conception d'un cache durable porté par PostgreSQL, avec transformation synchrone Pandas pour une mise en cache immédiate après chaque appel (cf. chapitre~\ref{chap:recherche}).
 
 \textbf{Incertitude sur l'hébergement de production.} Aucune infrastructure de production n'était garantie au démarrage du projet. \emph{Solution} : développement et validation intégrale en local (Docker Compose) avant tout déploiement réel, ce qui a permis de ne pas bloquer l'avancement technique en attendant une solution d'hébergement ; celle-ci a finalement été apportée par notre école (Liora), qui a mis à disposition une instance AWS EC2 en fin de projet.
 
@@ -913,7 +868,7 @@ Le projet FanFlight visait à démontrer la maîtrise d'une démarche data engin
 \textbf{Montée en compétences techniques :}
 \begin{itemize}
   \item conception de modèles de données hybrides combinant schéma en étoile et données semi-structurées ;
-  \item construction d'un pipeline de données événementiel avec Apache Spark et les primitives natives de PostgreSQL ;
+  \item construction d'un pipeline ETL synchrone avec Pandas, intégré directement dans l'API FastAPI pour minimiser la latence et la complexité d'infrastructure ;
   \item conteneurisation et automatisation complète d'une chaîne de déploiement (CI/CD, mise à jour continue) ;
   \item initiation concrète aux pratiques de MLOps (registre de modèles, monitoring de dérive) au travers de l'extension machine learning du projet.
 \end{itemize}
@@ -927,9 +882,7 @@ Le projet FanFlight visait à démontrer la maîtrise d'une démarche data engin
 \begin{itemize}
   \item fusionner proprement l'extension machine learning et la chaîne d'observabilité Prometheus/Grafana dans la branche principale, en déplaçant les artefacts volumineux (jeux de données BTS, modèles) hors du dépôt Git vers un stockage dédié (versionnement de données, stockage objet), et en revalidant à cette occasion les fonctionnalités documentées mais perdues en cours de fusion (registre \code{QUERIED_ROUTES}) ;
   \item configurer des règles d'alerte Prometheus (Alertmanager) sur les métriques déjà collectées par Emy Regna (indisponibilité d'un service, saturation CPU/mémoire de l'instance EC2), pour transformer la supervision existante, aujourd'hui consultée manuellement dans Grafana, en une détection proactive des incidents ;
-  \item remplacer l'attente synchrone de l'API pendant le traitement Spark par un mécanisme de notification asynchrone côté frontend, pour ne plus bloquer la requête HTTP jusqu'à 90 secondes ;
-  \item rendre \code{replay_job.py} idempotent ou conditionnel à un premier démarrage, pour éviter de déclencher un nouveau job Spark à chaque redémarrage du conteneur API en production ;
-  \item faire tourner les conteneurs API et Spark avec un utilisateur non privilégié, à l'image de ce qui est déjà fait pour le frontend ;
+  \item faire tourner le conteneur API avec un utilisateur non privilégié, à l'image de ce qui est déjà fait pour le frontend ;
   \item ajouter la contrainte de clé étrangère entre \code{FACT_FLIGHT} et \code{DIM_AIRPORT} une fois \code{enrich_airports} déplacé avant le chargement des vols, pour que l'intégrité référentielle soit garantie par PostgreSQL plutôt que par la seule discipline applicative ;
   \item sécuriser les identifiants par défaut actuellement présents dans le code (mots de passe de secours codés en dur), au profit d'une gestion de secrets systématique.
 \end{itemize}
@@ -949,7 +902,7 @@ Le projet FanFlight visait à démontrer la maîtrise d'une démarche data engin
 
 \section{Ouverture}
 
-Ce projet fil rouge a été, pour chacun des quatre membres de l'équipe, une mise en pratique concrète des compétences du métier de Data Engineer sur un cas d'usage complet -- de la modélisation d'un entrepôt de données jusqu'à l'intégration d'un modèle de machine learning en production. Les enseignements en dépassent le cadre pédagogique : la nécessité de concevoir une architecture de données sous contrainte de coût dès sa conception, l'exigence de rigueur qu'impose un pipeline automatisé et idempotent, et la capacité à faire fonctionner une équipe technique malgré la distance géographique sont autant de compétences que nous comptons chacun continuer à approfondir dans nos parcours respectifs en ingénierie des données -- que ce soit en consolidant nos pratiques d'architecture événementielle, en allant plus loin dans l'industrialisation de modèles de machine learning, ou en poursuivant l'exploration des pratiques de MLOps amorcées avec l'extension prédictive de FanFlight.
+Ce projet fil rouge a été, pour chacun des quatre membres de l'équipe, une mise en pratique concrète des compétences du métier de Data Engineer sur un cas d'usage complet -- de la modélisation d'un entrepôt de données jusqu'à l'intégration d'un modèle de machine learning en production. Les enseignements en dépassent le cadre pédagogique : la nécessité de concevoir une architecture de données sous contrainte de coût dès sa conception, l'exigence de rigueur qu'impose un pipeline automatisé et idempotent, et la capacité à faire fonctionner une équipe technique malgré la distance géographique sont autant de compétences que nous comptons chacun continuer à approfondir dans nos parcours respectifs en ingénierie des données -- que ce soit en consolidant nos pratiques d'architecture ETL et de gestion de cache, en allant plus loin dans l'industrialisation de modèles de machine learning, ou en poursuivant l'exploration des pratiques de MLOps amorcées avec l'extension prédictive de FanFlight.
 
 \chapter*{Annexes}
 \addcontentsline{toc}{chapter}{Annexes}
@@ -966,13 +919,13 @@ Ce projet fil rouge a été, pour chacun des quatre membres de l'équipe, une mi
 \textbf{PostgreSQL}
 \begin{itemize}
   \item Documentation officielle : \url{https://www.postgresql.org/docs/}
-  \item LISTEN/NOTIFY : \url{https://www.postgresql.org/docs/current/sql-notify.html}
+
 \end{itemize}
 
-\textbf{Apache Spark / PySpark}
+\textbf{Pandas}
 \begin{itemize}
-  \item Documentation officielle : \url{https://spark.apache.org/docs/latest/api/python/}
-  \item Spark SQL Functions : \url{https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/functions.html}
+  \item Documentation officielle : \url{https://pandas.pydata.org/docs/}
+  \item Guide utilisateur : \url{https://pandas.pydata.org/docs/user_guide/index.html}
 \end{itemize}
 
 \textbf{Next.js}
@@ -1047,7 +1000,7 @@ Ce projet fil rouge a été, pour chacun des quatre membres de l'équipe, une mi
 
 \textbf{Forums techniques}
 \begin{itemize}
-  \item Stack Overflow (tag \emph{apache-spark}) : \url{https://stackoverflow.com/questions/tagged/apache-spark}
+  \item Stack Overflow (tag \emph{pandas}) : \url{https://stackoverflow.com/questions/tagged/pandas}
   \item Stack Overflow (tag \emph{fastapi}) : \url{https://stackoverflow.com/questions/tagged/fastapi}
   \item Stack Overflow (tag \emph{postgresql}) : \url{https://stackoverflow.com/questions/tagged/postgresql}
   \item Stack Overflow (tag \emph{mlflow}) : \url{https://stackoverflow.com/questions/tagged/mlflow}

@@ -49,7 +49,7 @@ def process_flight(data, cursor, conn):
     
     df = pd.DataFrame(rows).drop_duplicates(subset=['flight_sk'])
     
-    # ← Enrichit les aéroports AVANT d'insérer dans FACT_FLIGHT
+    #  Enrichit les aéroports AVANT d'insérer dans FACT_FLIGHT
     _enrich_airports(df, cursor, conn)
     
     for _, row in df.iterrows():
