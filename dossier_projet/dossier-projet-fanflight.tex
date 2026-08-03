@@ -16,6 +16,7 @@
 \usetikzlibrary{arrows.meta, positioning, fit, backgrounds}
 \usepackage{titlesec}
 \usepackage{graphicx}
+\usepackage{multicol}
 
 \geometry{margin=2.5cm}
 
@@ -524,6 +525,15 @@ CREATE TABLE IF NOT EXISTS FACT_FLIGHT (
 \label{fig:erd}
 \end{figure}
 
+Le schéma complet, avec l'ensemble des colonnes et des types, a été modélisé sur dbdiagram.io (cf. bibliographie) puis exporté sous forme de diagramme entité-association (figure~\ref{fig:schema-bd-complet}), incluant également la table isolée \code{BTS\_FLIGHTS} utilisée pour l'entraînement du modèle ML.
+
+\begin{figure}[p]
+\centering
+\includegraphics[height=0.85\textheight,keepaspectratio]{img/fanflight_schema_bd.png}
+\caption{Schéma complet de la base de données PostgreSQL (dbdiagram.io)}
+\label{fig:schema-bd-complet}
+\end{figure}
+
 \subsection{Choix techniques}
 
 \begin{itemize}
@@ -691,7 +701,7 @@ watchtower:
 
 \subsection{Présentation et objectif}
 
-En complément du socle applicatif, Emy Regna a conçu et déployé, sur la même branche que l'extension machine learning, une chaîne d'observabilité complète de l'infrastructure FanFlight : supervision système, applicative et réseau, restituée dans un tableau de bord Grafana unique. Ce travail n'est pas encore fusionné dans la branche de production, mais démontre concrètement le volet « monitoring » de la compétence BC03 « Automatiser le déploiement de nouvelles versions de la solution et son monitoring ».
+En complément du socle applicatif, Emy Regna a conçu et déployé, sur une branche dédiée (\code{monitoring-emy}) désormais fusionnée dans la branche principale, une chaîne d'observabilité complète de l'infrastructure FanFlight : supervision système, applicative et réseau, restituée dans un tableau de bord Grafana unique. Ce travail démontre concrètement le volet « monitoring » de la compétence BC03 « Automatiser le déploiement de nouvelles versions de la solution et son monitoring ».
 
 \subsection{Une chaîne de collecte à plusieurs niveaux}
 
@@ -746,14 +756,14 @@ Container CPU Usage & Conteneur & cAdvisor \\
 
 \subsection{Intégration au déploiement}
 
-La chaîne d'observabilité est packagée dans \code{docker-compose.local.yml} pour les tests, et son déploiement en production est intégré au workflow GitHub Actions : les fichiers de configuration sont copiés vers \code{/opt/fanflight/monitoring/} sur l'instance EC2, et les identifiants d'administration Grafana sont paramétrables par variable d'environnement plutôt que codés en dur. Comme pour l'extension machine learning, cette intégration n'est aujourd'hui présente que sur la branche de développement dédiée ; sa fusion vers la branche principale est identifiée comme une priorité de court terme (cf. section~\ref{sec:preconisations}).
+La chaîne d'observabilité est packagée dans \code{docker-compose.local.yml} pour les tests, et son déploiement en production est intégré au workflow GitHub Actions : les fichiers de configuration sont copiés vers \code{/opt/fanflight/monitoring/} sur l'instance EC2, et les identifiants d'administration Grafana sont paramétrables par variable d'environnement plutôt que codés en dur. Un module Alertmanager complète désormais cette chaîne, avec des règles d'alerte concrètes sur l'indisponibilité de l'API, un taux d'erreurs HTTP 5xx élevé, une latence p95 dégradée et une consommation mémoire excessive du service \code{backend-api}.
 
 \section{Extension Machine Learning : prédiction de retard de vol}
 \label{sec:ml}
 
 \subsection{Présentation et objectif}
 
-En parallèle du socle décrit ci-dessus, Daniel Kouacou a développé, sur une branche dédiée du dépôt, une extension complète de machine learning visant à afficher, pour chaque vol proposé à un supporter, une probabilité de retard. Ce travail n'est pas encore fusionné dans la branche de production, mais constitue une démonstration à part entière de la compétence BC02 « développer un algorithme d'intelligence artificielle ».
+En parallèle du socle décrit ci-dessus, Daniel Kouacou a développé, sur une branche dédiée (\code{DK_ML}) désormais fusionnée dans la branche principale, une extension complète de machine learning visant à afficher, pour chaque vol proposé à un supporter, une probabilité de retard. Ce travail constitue une démonstration à part entière de la compétence BC02 « développer un algorithme d'intelligence artificielle », et le score de retard est aujourd'hui restitué en production sur chaque proposition de vol de l'application (cf. figure~\ref{fig:app-delay}).
 
 \subsection{Un problème de cohérence des données résolu par une source alternative}
 
@@ -790,6 +800,17 @@ def load_model():
 \end{lstlisting}
 
 Ce chargement échoue de façon contrôlée -- l'API démarre sans modèle plutôt que de planter -- si aucun modèle n'a encore été entraîné et promu, ce qui constitue une limite assumée : le déploiement n'est pas encore auto-suffisant sans une exécution manuelle préalable du pipeline d'entraînement.
+
+\subsection{Restitution à l'utilisateur final}
+
+Le score produit par \code{predict_delay} n'est pas qu'une donnée technique interne : il est directement affiché sur chaque proposition de vol dans l'interface FanFlight, sous la forme d'un badge de risque (probabilité en pourcentage, avec un code couleur distinguant risque modéré et risque élevé de retard).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{img/app-delay-prediction.png}
+\caption{Propositions de vol Atlanta $\to$ Mexico City avec score de retard affiché par vol (\code{delay_probability})}
+\label{fig:app-delay}
+\end{figure}
 
 \subsection{Résultats et limites assumées}
 
@@ -880,7 +901,7 @@ Le projet FanFlight visait à démontrer la maîtrise d'une démarche data engin
 
 \textbf{Court terme :}
 \begin{itemize}
-  \item fusionner proprement l'extension machine learning et la chaîne d'observabilité Prometheus/Grafana dans la branche principale, en déplaçant les artefacts volumineux (jeux de données BTS, modèles) hors du dépôt Git vers un stockage dédié (versionnement de données, stockage objet), et en revalidant à cette occasion les fonctionnalités documentées mais perdues en cours de fusion (registre \code{QUERIED_ROUTES}) ;
+  \item désormais que l'extension machine learning et la chaîne d'observabilité Prometheus/Grafana sont fusionnées dans la branche principale, déplacer les artefacts volumineux qu'elles ont introduits (jeux de données BTS, modèles) hors du dépôt Git vers un stockage dédié (versionnement de données, stockage objet), et revalider à cette occasion les fonctionnalités documentées mais perdues en cours de fusion (registre \code{QUERIED_ROUTES}) ;
   \item configurer des règles d'alerte Prometheus (Alertmanager) sur les métriques déjà collectées par Emy Regna (indisponibilité d'un service, saturation CPU/mémoire de l'instance EC2), pour transformer la supervision existante, aujourd'hui consultée manuellement dans Grafana, en une détection proactive des incidents ;
   \item faire tourner le conteneur API avec un utilisateur non privilégié, à l'image de ce qui est déjà fait pour le frontend ;
   \item ajouter la contrainte de clé étrangère entre \code{FACT_FLIGHT} et \code{DIM_AIRPORT} une fois \code{enrich_airports} déplacé avant le chargement des vols, pour que l'intégrité référentielle soit garantie par PostgreSQL plutôt que par la seule discipline applicative ;
@@ -1067,5 +1088,91 @@ Ce projet fil rouge a été, pour chacun des quatre membres de l'équipe, une mi
   \item Data Council : \url{https://www.datacouncil.ai/}
   \item dbt Coalesce (dbt Labs) : \url{https://coalesce.getdbt.com/}
 \end{itemize}
+
+\section*{Annexe H : Périmètre des données de référence couvert par FanFlight}
+\addcontentsline{toc}{section}{Annexe H : Périmètre des données de référence couvert par FanFlight}
+
+Cette annexe liste l'intégralité des données de référence codées en dur dans \code{load\_static\_data.py} pour l'édition 2026 de la Coupe du Monde : les villes hôtes et leurs aéroports (utilisés pour la recherche de vols et l'enrichissement météo), ainsi que les équipes qualifiées.
+
+\subsection*{Villes hôtes et aéroports (16 villes, 29 aéroports)}
+
+\begin{longtable}{p{3.3cm}p{1.6cm}p{9cm}}
+\toprule
+\textbf{Ville hôte} & \textbf{Pays} & \textbf{Aéroports (code IATA)} \\
+\midrule
+\endhead
+New York & US & EWR, JFK, LGA \\
+Los Angeles & US & LAX, BUR, SNA, LGB \\
+San Francisco & US & SFO, SJC, OAK \\
+Dallas & US & DFW, DAL \\
+Miami & US & MIA, FLL \\
+Houston & US & IAH, HOU \\
+Atlanta & US & ATL \\
+Seattle & US & SEA, BFI \\
+Boston & US & BOS \\
+Philadelphie & US & PHL \\
+Kansas City & US & MCI \\
+Toronto & CA & YYZ, YTZ \\
+Vancouver & CA & YVR \\
+Mexico City & MX & MEX, NLU \\
+Monterrey & MX & MTY \\
+Guadalajara & MX & GDL \\
+\bottomrule
+\end{longtable}
+
+\subsection*{Équipes qualifiées (48)}
+
+\begin{multicols}{3}
+\begin{itemize}[nosep]
+\item Afrique du Sud (RSA)
+\item Algérie (ALG)
+\item Allemagne (GER)
+\item Angleterre (ENG)
+\item Arabie Saoudite (KSA)
+\item Argentine (ARG)
+\item Australie (AUS)
+\item Autriche (AUT)
+\item Belgique (BEL)
+\item Bosnie-Herzégovine (BIH)
+\item Brésil (BRA)
+\item Canada (CAN)
+\item Cap-Vert (CPV)
+\item Colombie (COL)
+\item Côte d'Ivoire (CIV)
+\item Croatie (CRO)
+\item Curaçao (CUW)
+\item Ecosse (SCO)
+\item Égypte (EGY)
+\item Équateur (ECU)
+\item Espagne (ESP)
+\item États-Unis (USA)
+\item France (FRA)
+\item Ghana (GHA)
+\item Haïti (HAI)
+\item Irak (IRQ)
+\item Iran (IRN)
+\item Japon (JPN)
+\item Jordanie (JOR)
+\item Maroc (MAR)
+\item Mexique (MEX)
+\item Norvège (NOR)
+\item Nouvelle-Zélande (NZL)
+\item Ouzbékistan (UZB)
+\item Panama (PAN)
+\item Paraguay (PAR)
+\item Pays-Bas (NED)
+\item Portugal (POR)
+\item Qatar (QAT)
+\item RD Congo (COD)
+\item République de Corée (KOR)
+\item Sénégal (SEN)
+\item Suède (SWE)
+\item Suisse (SUI)
+\item Tchéquie (CZE)
+\item Tunisie (TUN)
+\item Turquie (TUR)
+\item Uruguay (URU)
+\end{itemize}
+\end{multicols}
 
 \end{document}
