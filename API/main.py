@@ -40,9 +40,9 @@ API_KEY = os.getenv("API_KEY_SERAPI")
 class Segment(BaseModel):
     flight_sk: str
     departure_airport_code: str
-    departure_airport_time: str
+    departure_airport_time: datetime
     arrival_airport_code: str
-    arrival_airport_time: str
+    arrival_airport_time: datetime
     airline: str | None = None
     pos: int
 
@@ -53,10 +53,10 @@ class Flight(BaseModel):
     is_best: bool | None = None
     total_duration: int | None = None
     departure_airport_code: str
-    departure_airport_time: str
+    departure_airport_time: datetime
     departure_city: str
     arrival_airport_code: str
-    arrival_airport_time: str
+    arrival_airport_time: datetime
     arrival_city: str
     nb_escales: int
     segments: list[Segment]
