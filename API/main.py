@@ -9,6 +9,7 @@ from collections import defaultdict
 import pandas as pd
 from pathlib import Path
 from process_flight import process_flight
+from pydantic import BaseModel
 # --- ML / inference ---
 import mlflow
 import numpy as np
@@ -36,6 +37,67 @@ app.add_middleware(
 
 API_KEY = os.getenv("API_KEY_SERAPI")
 
+class Segment(BaseModel):
+    flight_sk: str
+    departure_airport_code: str
+    departure_airport_time: str
+    arrival_airport_code: str
+    arrival_airport_time: str
+    airline: str | None = None
+    pos: int
+
+class Flight(BaseModel):
+    journey_sk: str
+    price: float | None = None
+    airline: str | None = None
+    is_best: bool | None = None
+    total_duration: int | None = None
+    departure_airport_code: str
+    departure_airport_time: str
+    departure_city: str
+    arrival_airport_code: str
+    arrival_airport_time: str
+    arrival_city: str
+    nb_escales: int
+    segments: list[Segment]
+    delay_probability: float | None = None
+    delay_prediction: bool | None = None
+    model_used: str | None = None
+
+class FlightsMeta(BaseModel):
+    match_id: int
+    destination_city: str
+    match_date_actual: str
+    results_count: int
+    model_used: str | None = None
+
+class FlightsResponse(BaseModel):
+    meta: FlightsMeta
+    flights: list[Flight]
+
+class Match(BaseModel):
+    match_id: int
+    match_date: datetime
+    id_team_a: int
+    name_team_a: str
+    flag_team_a: str | None = None
+    id_team_b: int
+    name_team_b: str
+    flag_team_b: str | None = None
+    stage: str
+    city_name: str
+
+class Team(BaseModel):
+    team_name: str
+    team_code: str
+    flag: str | None = None
+
+class City(BaseModel):
+    id_city: int
+    city: str
+    country: str
+    flag: str | None = None
+    airport_codes: list[str | None] = []
 # ------------------------------------------------------------------
 # Configuration ML
 # ------------------------------------------------------------------
@@ -432,7 +494,7 @@ def get_flights_api(cursor, conn, departure_city, arrival_city, match_date_exact
 # ENDPOINTS
 # ==================================================================
 
-@app.get("/api/flights/{match_id}")
+@app.get("/api/flights/{match_id}", response_model=FlightsResponse)
 def get_flights(match_id: int, departure_city: str):
     try:
         conn   = get_db_connection()
@@ -524,7 +586,7 @@ def get_flights(match_id: int, departure_city: str):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.get("/api/matches")
+@app.get("/api/matches", response_model=list[Match])
 def get_matches():
     conn   = get_db_connection()
     cursor = conn.cursor()
@@ -552,7 +614,7 @@ def get_matches():
     return matches
 
 
-@app.get("/api/teams")
+@app.get("/api/teams", response_model=list[Team])
 def get_teams():
     conn   = get_db_connection()
     cursor = conn.cursor()
@@ -566,7 +628,7 @@ def get_teams():
     return teams
 
 
-@app.get("/api/cities")
+@app.get("/api/cities", response_model=list[City])
 def get_cities():
     conn   = get_db_connection()
     cursor = conn.cursor()
@@ -588,9 +650,3 @@ def get_cities():
     conn.close()
     return cities
 
-@app.get("/api/test")
-def get_test():
-    conn   = get_db_connection()
-    cursor = conn.cursor()
-    cursor.execute("SELECT * from fact_flight;")
-    return cursor.fetchall()
