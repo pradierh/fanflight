@@ -225,8 +225,6 @@ jobs:
               image: containrrr/watchtower:latest
               container_name: fanflight_watchtower
               restart: unless-stopped
-              environment:
-                - DOCKER_API_VERSION=1.41
               command: --interval 60 --cleanup --label-enable
               volumes:
                 - /var/run/docker.sock:/var/run/docker.sock
@@ -245,22 +243,10 @@ jobs:
                 - /opt/fanflight/monitoring/prometheus:/etc/prometheus:ro
                 - prometheus_data:/prometheus
               depends_on:
-                - alertmanager
                 - blackbox-exporter
                 - node-exporter
                 - cadvisor
                 - postgres-exporter
-
-            alertmanager:
-              image: prom/alertmanager:latest
-              container_name: fanflight_alertmanager
-              restart: unless-stopped
-              ports:
-                - "127.0.0.1:9093:9093"
-              command:
-                - "--config.file=/etc/alertmanager/alertmanager.yml"
-              volumes:
-                - /opt/fanflight/monitoring/alertmanager:/etc/alertmanager:ro
 
             blackbox-exporter:
               image: prom/blackbox-exporter:latest
@@ -353,7 +339,6 @@ jobs:
           sudo systemctl enable --now docker
           sudo mkdir -p /opt/fanflight
           sudo mv /tmp/fanflight-compose.yml /opt/fanflight/docker-compose.yml
-          sudo rm -rf /opt/fanflight/monitoring
           sudo mkdir -p /opt/fanflight/monitoring
           sudo cp -R /tmp/fanflight-monitoring/. /opt/fanflight/monitoring/
           sudo rm -rf /tmp/fanflight-monitoring
@@ -372,32 +357,19 @@ jobs:
           fi
 
           cd /opt/fanflight
-          sudo docker compose pull frontend backend-api ml prometheus alertmanager blackbox-exporter node-exporter cadvisor postgres-exporter grafana
+          sudo docker compose pull frontend backend-api ml prometheus blackbox-exporter node-exporter cadvisor postgres-exporter grafana
           if ! sudo docker compose up -d; then
             sudo docker compose ps
             sudo docker logs postgres || true
             sudo docker logs backend_api || true
             sudo docker logs fanflight_prometheus || true
-            sudo docker logs fanflight_alertmanager || true
             sudo docker logs fanflight_grafana || true
             exit 1
           fi
-          # Bind-mounted monitoring config (dashboards, provisioning, scrape rules) can
-          # change without the compose service definition changing, so `up -d` alone
-          # won't recreate/reload these containers. Force it every deploy.
-          sudo docker compose restart grafana
-          for attempt in $(seq 1 30); do
-            if curl -fsS --max-time 5 -X POST http://127.0.0.1:9090/-/reload >/dev/null; then
-              echo "Prometheus config reloaded"
-              break
-            fi
-            sleep 5
-          done
           for url in \
             http://127.0.0.1/ \
             http://127.0.0.1:8000/ready \
             http://127.0.0.1:9090/-/ready \
-            http://127.0.0.1:9093/-/ready \
             http://127.0.0.1:3001/api/health
           do
             for attempt in $(seq 1 30); do
@@ -410,7 +382,6 @@ jobs:
                 sudo docker compose ps
                 sudo docker logs backend_api || true
                 sudo docker logs fanflight_prometheus || true
-                sudo docker logs fanflight_alertmanager || true
                 sudo docker logs fanflight_grafana || true
                 exit 1
               fi

@@ -86,14 +86,11 @@ sudo docker compose up -d
 Le deploy EC2 lance aussi une stack d'observabilite Docker Compose :
 
 - `prometheus` collecte les metriques et les resultats de probes.
-- `alertmanager` recoit les alertes de Prometheus (regles dans `monitoring/prometheus/rules/fanflight-alerts.yml`) et les envoie par email (config dans `monitoring/alertmanager/alertmanager.yml`).
 - `grafana` expose un dashboard pre-provisionne sur le port `3001`.
 - `blackbox-exporter` teste les endpoints HTTP internes.
 - `node-exporter` remonte la sante de l'EC2 : CPU, memoire, disque.
 - `cadvisor` remonte la sante des conteneurs Docker.
 - `postgres-exporter` remonte l'etat de Postgres.
-
-Cette meme stack (sans Watchtower) est aussi disponible directement dans le `docker-compose.yml` principal pour le developpement local — plus besoin de reseau externe ni de compose separe.
 
 Endpoints testes en continu par Prometheus :
 
