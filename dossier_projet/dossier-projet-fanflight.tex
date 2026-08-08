@@ -325,7 +325,7 @@ Le projet a été structuré en quatre flux de travail répartis selon les affin
 
 \subsection{Encadrer le développement du projet}
 
-Le développement a suivi une démarche itérative inspirée des pratiques agiles, adaptée à une équipe distribuée ne pouvant pas se caler sur des rituels synchrones quotidiens : le travail a été découpé en lots livrables et intégrables indépendamment (amorçage, socle backend/ETL/API, fiabilisation de la base, intégration ETL/frontend, durcissement du déploiement, extension machine learning -- cf. chapitre~\ref{chap:realisations} et section « Démarche technique »), chacun validé par une revue systématique de code avant fusion sur la branche principale -- trois de ces lots ont ainsi fait l'objet d'une fusion formelle par \emph{pull request}. Un accompagnement régulier de notre mentor Dan Cohen a complété ce cadre, avec un rôle proche de celui d'un \emph{product owner} : validation des choix d'architecture et priorisation des lots suivants. Le travail à distance a par ailleurs nécessité une discipline de communication asynchrone plus poussée qu'un travail en présentiel n'en aurait exigé.
+Le développement a suivi une démarche itérative inspirée des pratiques agiles, adaptée à une équipe distribuée ne pouvant pas se caler sur des rituels synchrones quotidiens. Un tableau Kanban Trello (cf. figure~\ref{fig:trello}) a servi de backlog partagé tout au long du projet, organisé en huit colonnes correspondant chacune à un lot fonctionnel (cadrage, socle technique, base de données, intégration ETL/frontend, déploiement/CI-CD, machine learning, monitoring, rédaction du dossier projet), avec une carte par tâche assignée nominativement à l'un des quatre membres. Ce découpage a directement structuré l'intégration du code : chaque lot a été validé par une revue systématique avant fusion sur la branche principale, trois d'entre eux ayant fait l'objet d'une fusion formelle par \emph{pull request} (cf. chapitre~\ref{chap:realisations} et section « Démarche technique »). Un accompagnement régulier de notre mentor Dan Cohen a complété ce cadre, avec un rôle proche de celui d'un \emph{product owner} : validation des choix d'architecture et priorisation des lots suivants. Le travail à distance a par ailleurs nécessité une discipline de communication asynchrone plus poussée qu'un travail en présentiel n'en aurait exigé.
 
 \subsection{Gérer le budget du projet}
 
@@ -427,7 +427,17 @@ L'idée de FanFlight est née du constat que la Coupe du Monde 2026 -- première
 
 \chapter{Description de la démarche et des outils utilisés}
 
+Avant de détailler l'organisation de l'équipe et la progression du projet, la figure~\ref{fig:devops-loop} situe l'outillage retenu sur le cycle DevOps classique (\emph{plan -- code -- build -- test -- release -- deploy -- operate -- monitor}) : Trello pour la planification, Git/GitHub pour le code et l'intégration, Docker et Docker Hub pour la construction et la diffusion des images, AWS pour le déploiement et l'exploitation, Prometheus et Grafana pour la supervision. Cette vue d'ensemble sert de fil conducteur au reste du chapitre, qui reprend chacun de ces outils dans le détail de son usage concret sur FanFlight.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{img/devops_loop.png}
+\caption{Cycle DevOps et outillage retenu pour le projet FanFlight}
+\label{fig:devops-loop}
+\end{figure}
+
 \section{Organisation du projet et répartition des rôles}
+\label{sec:org-roles}
 
 Le projet a été réparti selon quatre axes de responsabilité, en cohérence avec les affinités techniques de chacun :
 
@@ -458,12 +468,21 @@ Cette progression illustre une caractéristique propre à un projet mené par un
 Face à ces contraintes (cf. chapitre~\ref{chap:cahier}), nous avons privilégié des outils et pratiques de collaboration asynchrone :
 
 \begin{itemize}
+  \item \textbf{Trello} : tableau Kanban partagé, backlog structuré en huit colonnes (une par lot fonctionnel, de l'idéation à la rédaction du dossier projet) avec cartes assignées nominativement ;
   \item \textbf{Git / GitHub} : développement sur des branches de fonctionnalité dédiées (une par contributeur ou par lot de travail), intégrées à la branche principale par \emph{pull request} revue avant fusion -- les étapes 2, 3 et 4 de la démarche technique ci-dessus (socle technique, fiabilisation de la base, intégration ETL/frontend) correspondent chacune à l'une des trois \emph{pull requests} qui ont structuré le projet ;
   \item \textbf{Docker Compose} : environnement de développement reproductible, permettant à chaque membre de l'équipe de retrouver un environnement identique malgré l'absence de poste de travail partagé ;
   \item \textbf{Suivi mentoré} : accompagnement régulier de Dan Cohen pour valider les choix d'architecture et déboguer les blocages techniques ;
   \item \textbf{Communication asynchrone} : échanges écrits pour la majorité des décisions, afin de s'adapter aux emplois du temps disjoints imposés par nos alternances.
 \end{itemize}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{img/trello-board.jpeg}
+\caption{Tableau Trello de planification du projet FanFlight -- huit colonnes, cartes assignées par membre de l'équipe}
+\label{fig:trello}
+\end{figure}
+
+Chaque carte porte les initiales de son responsable (HP pour Hugo Pradier, HJ pour Hugo Jacquit, DK pour Daniel Kouacou, ER pour Emy Regna), ce qui rend visible d'un coup d'œil la répartition des rôles décrite en section~\ref{sec:org-roles} : les colonnes « Socle technique » et « Base de données » portent majoritairement les initiales HJ, « Machine Learning » et « Monitoring » celles de DK et ER respectivement, et « Déploiement ; CI/CD » celles de HP. La dernière colonne, « Dossier Projet / Soutenance », est révélatrice : elle traite la rédaction du présent dossier, la production des captures d'écran et la relecture croisée comme des livrables planifiés au même titre que le code, avec des cartes assignées aux quatre membres -- la production de ce document a donc elle-même suivi la démarche outillée qu'il décrit.
 \section{Synthèse de la démarche}
 
 Le projet FanFlight illustre une progression méthodique typique d'un projet data engineering mené en équipe distribuée : un amorçage rapide, une intégration du socle technique par lots validés en revue de code, puis un durcissement progressif du déploiement jusqu'à son automatisation complète. La contrainte organisationnelle -- une équipe dispersée géographiquement et disponible par créneaux -- a, en retour, renforcé la rigueur de nos pratiques de revue de code et de documentation, plutôt que de constituer un obstacle bloquant.
@@ -652,6 +671,7 @@ export const fetchFlights = async (matchId: number, departureCity: string) => {
 L'interface repose sur Tailwind CSS 4 pour le style et ne nécessite aucune bibliothèque de gestion d'état externe, la complexité de l'application restant volontairement contenue pour un projet pédagogique mené à quatre.
 
 \section{Conteneurisation et intégration/déploiement continus}
+\label{sec:cicd}
 
 \subsection{Orchestration locale}
 
@@ -688,13 +708,24 @@ Le workflow GitHub Actions \code{frontend-deploy.yml} se déclenche sur chaque \
 
 Le second job du workflow se connecte en SSH à l'instance de production, génère un fichier \code{docker-compose.yml} de production (ajoutant un service \code{watchtower} et des étiquettes \code{com.centurylinklabs.watchtower.enable=true} sur chaque service applicatif), puis démarre ou met à jour les services. Watchtower assure ensuite la mise à jour continue des conteneurs en production, en interrogeant Docker Hub toutes les 60 secondes, sans nouvelle intervention du pipeline CI :
 
-\begin{lstlisting}[caption={Service Watchtower -- mise à jour continue en production}]
+\begin{lstlisting}[caption={Service Watchtower -- mise à jour continue en production}, label={lst:watchtower}]
 watchtower:
   image: containrrr/watchtower:latest
   command: --interval 60 --cleanup --label-enable
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
 \end{lstlisting}
+
+La figure~\ref{fig:cicd} synthétise l'ensemble de ce flux, du \emph{push} sur la branche principale jusqu'à la mise à jour des conteneurs en production.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{img/cicd.png}
+\caption{Flux CI/CD -- de \code{git push} sur \code{main} à la mise à jour des conteneurs sur l'instance EC2}
+\label{fig:cicd}
+\end{figure}
+
+Les sept dossiers listés sous GitHub dans la figure~\ref{fig:cicd} (\emph{Frontend, CICD, ML, Data, Docker Compose, Backend, Monitoring}) correspondent au découpage réel du dépôt et, par extension, au découpage des colonnes du tableau Trello (figure~\ref{fig:trello}) : chaque brique technique décrite dans ce chapitre a son pendant direct dans l'arborescence versionnée. La flèche \emph{« Push on main »} déclenche le job \code{build-and-push} (construction et publication des images), l'étape \emph{« ssh »} correspond au job \code{deploy-ec2} qui se connecte à l'instance de production, et \emph{« force docker compose down then up »} illustre la stratégie volontairement simple retenue pour la mise à jour des services -- un redémarrage complet plutôt qu'un déploiement progressif, cohérent avec la taille réduite de l'infrastructure. La flèche de retour \emph{« Pull latest images »} depuis Docker Hub est en réalité assurée en continu par Watchtower (interrogation toutes les 60 secondes, cf. listing~\ref{lst:watchtower}) plutôt que par ce pipeline lui-même, qui ne s'exécute qu'au moment du \emph{push}.
 
 \section{Observabilité de l'infrastructure : Prometheus et Grafana}
 \label{sec:monitoring}
@@ -819,6 +850,25 @@ Sur 628\,704 vols réels (contre 246 dans l'approche initiale fondée sur des do
 \subsection{Monitoring de dérive}
 
 Le script \code{drift_monitor.py} (environ 355 lignes) compare la distribution des variables d'un nouveau lot de données à celle du jeu de référence via des tests statistiques (indice de stabilité de population -- PSI -- et test de Kolmogorov--Smirnov), posant les bases d'une supervision de la qualité du modèle en production dans la durée -- une pratique de MLOps mature, même si l'alerting automatique n'est pas encore implémenté.
+
+\section{Vue d'ensemble de l'architecture de production}
+
+Les sections précédentes ont décrit séparément le socle applicatif, la chaîne d'observabilité et l'extension machine learning. La figure~\ref{fig:archi-globale} les rassemble dans une vue d'ensemble unique de l'instance EC2 de production : l'isolation entre la pile applicative (frontend, API, base de données, entraînement ML, MLflow) et la pile de monitoring (Prometheus, Grafana, exporters, Alertmanager), ainsi que les flux vers les services externes (SerpAPI, Open-Meteo, Docker Hub) et les acteurs (administrateur, utilisateur final, GitHub Actions).
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth]{img/architecture-app-monitoring-icons.png}
+\caption{Architecture globale de production -- piles applicative et monitoring sur l'instance EC2, services externes et acteurs}
+\label{fig:archi-globale}
+\end{figure}
+
+Plusieurs détails de cette vue d'ensemble méritent d'être explicités :
+\begin{itemize}
+  \item \textbf{Prometheus n'est exposé qu'en local} (annotation « local uniquement » sur le port 9090) : seul Grafana (port 3001) est accessible depuis l'extérieur du réseau Docker de l'instance EC2, ce qui limite la surface d'attaque de la chaîne de monitoring -- l'administrateur consulte les métriques via les tableaux de bord Grafana plutôt qu'en interrogeant directement le collecteur ;
+  \item \textbf{la boucle d'alerte se termine par un courriel} : Alertmanager transforme les règles d'alerte déclenchées en notification SMTP vers \code{emy@fanflight.local}, la responsable de la chaîne d'observabilité étant ainsi la destinataire directe des incidents qu'elle a elle-même instrumentés ;
+  \item \textbf{l'entraînement du modèle ML est à la demande} (« ml trainer -- à la demande ») et non permanent : le conteneur d'entraînement n'est pas un service qui tourne en continu, mais un job ponctuel qui charge le modèle promu dans MLflow, cohérent avec la limite assumée en section~\ref{sec:ml} sur le déploiement non auto-suffisant ;
+  \item \textbf{deux flux distincts vers Docker Hub coexistent} : le \emph{« build + push »} déclenché par GitHub Actions à chaque livraison de code, et le \emph{« poll 60s »} de Watchtower qui surveille en continu l'apparition de nouvelles images -- ce sont les deux moitiés, respectivement \emph{push} et \emph{pull}, du même mécanisme de déploiement continu détaillé section~\ref{sec:cicd}.
+\end{itemize}
 
 \chapter{Description d'une situation de travail ayant nécessité une recherche}
 \label{chap:recherche}
