@@ -295,7 +295,7 @@ Un algorithme de classification binaire (probabilité de retard de vol) a été 
 
 \subsection{Concevoir une interface de programmation}
 
-L'API FastAPI constitue l'interface unique entre le frontend, la base de données et -- dans l'extension machine learning -- le modèle de prédiction. Elle expose des routes REST simples (\code{/api/matches}, \code{/api/teams}, \code{/api/cities}, \code{/api/flights/\{match\_id\}}) et bénéficie d'une documentation OpenAPI générée automatiquement par FastAPI.
+L'API FastAPI constitue l'interface unique entre le frontend, la base de données et -- dans l'extension machine learning -- le modèle de prédiction. Elle expose quatre routes métier (\code{/api/matches}, \code{/api/teams}, \code{/api/cities}, \code{/api/flights/\{match\_id\}}) ainsi que trois routes d'exploitation (\code{/health} pour la \emph{liveness} et l'état du modèle ML chargé, \code{/ready} pour la \emph{readiness} -- une requête \code{SELECT 1} sur PostgreSQL -- et \code{/metrics} qui expose au format Prometheus les métriques de requêtes HTTP via \code{prometheus\_fastapi\_instrumentator}), et bénéficie d'une documentation OpenAPI générée automatiquement par FastAPI (interface Swagger, cf. figure~\ref{fig:swagger-overview}).
 
 \subsection{Conteneuriser les composants de l'architecture}
 
@@ -610,7 +610,23 @@ DO UPDATE SET
 
 \subsection{Présentation et objectif}
 
-Le fichier \code{API/main.py} (environ 490 lignes) est le point d'entrée unique du frontend. Sa route la plus significative, \code{GET /api/flights/\{match\_id\}}, matérialise directement la contrainte de coût du projet : elle ne déclenche un appel à l'API externe payante qu'en dernier recours.
+Le fichier \code{API/main.py} (environ 490 lignes) est le point d'entrée unique du frontend. Sa route la plus significative, \code{GET /api/flights/\{match\_id\}}, matérialise directement la contrainte de coût du projet : elle ne déclenche un appel à l'API externe payante qu'en dernier recours. Le tableau de la figure~\ref{fig:api-routes} en dresse le catalogue complet.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{img/api-routes.png}
+\caption{Catalogue des routes REST de l'API FanFlight -- méthode, paramètres, modèle de réponse et rôle}
+\label{fig:api-routes}
+\end{figure}
+
+Cette documentation n'est pas maintenue à la main : FastAPI la génère automatiquement à partir des \code{response\_model} Pydantic déclarés sur chaque route, et la restitue sous forme d'une interface Swagger interactive à l'adresse \code{/docs} (figure~\ref{fig:swagger-overview}) -- avec, en bas de page, les schémas Pydantic (\code{Match}, \code{Team}, \code{City}, \code{Flight}, \code{FlightsResponse}, \ldots) qui définissent le contrat de chaque réponse.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{img/swagger-overview.png}
+\caption{Interface Swagger générée automatiquement par FastAPI (\code{/docs}) -- routes et schémas de données}
+\label{fig:swagger-overview}
+\end{figure}
 
 \begin{lstlisting}[language=Python, caption={\code{main.py} -- logique cache d'abord, appel externe en repli}]
 flights = check_flight_db(cursor, departure_city,
@@ -629,6 +645,24 @@ if not flights:
 \end{lstlisting}
 
 \code{check_flight_db} construit une requête SQL à base de CTE qui recherche des itinéraires \emph{aller simple} dont le premier segment part de la ville de l'utilisateur et dont le dernier segment arrive dans la ville du match, avec une contrainte temporelle métier sur ce seul trajet : arrivée au plus tôt 3 jours avant le match, et au plus tard 5 heures avant son coup d'envoi -- la fonction ne modélise pas de vol retour. En cas d'absence de résultat, \code{get\_flights\_api} interroge SerpAPI pour chaque paire d'aéroports possible sur les 3 jours précédant le match et appelle immédiatement \code{process\_with\_pandas} pour transformer et insérer chaque réponse dans \code{FACT\_FLIGHT} -- la transformation étant synchrone, aucune attente n'est nécessaire avant de relire la base.
+
+La figure~\ref{fig:api-flux} synthétise ce flux en y ajoutant les deux enrichissements appliqués à chaque vol avant sa restitution au frontend : l'appel à Open-Meteo pour la météo à l'inférence, puis le scoring de retard par le modèle XGBoost chargé depuis MLflow (cf. section~\ref{sec:ml}).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{img/api-flux.png}
+\caption{Flux de traitement d'une requête \code{GET /api/flights/\{match\_id\}} -- cache, repli SerpAPI, enrichissement météo et scoring ML}
+\label{fig:api-flux}
+\end{figure}
+
+À titre d'exemple concret, la figure~\ref{fig:swagger-detail} montre, dans l'interface Swagger, le détail de cette route : ses deux paramètres obligatoires (\code{match\_id} dans le chemin, \code{departure\_city} en requête) et le corps JSON de sa réponse -- une structure \code{meta} (identifiants du match, ville de destination, nombre de résultats, modèle ML utilisé) suivie du tableau \code{flights}, chaque vol détaillant prix, compagnie, durée, aéroports et segments.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{img/swagger-flights-detail.png}
+\caption{Détail Swagger de la route \code{GET /api/flights/\{match\_id\}} -- paramètres et schéma de réponse}
+\label{fig:swagger-detail}
+\end{figure}
 
 \subsection{Choix techniques et limites}
 
@@ -736,13 +770,14 @@ En complément du socle applicatif, Emy Regna a conçu et déployé, sur une bra
 
 \subsection{Une chaîne de collecte à plusieurs niveaux}
 
-La stack repose sur Prometheus comme collecteur central (scrutation toutes les 15 secondes), alimenté par cinq sources complémentaires, chacune couvrant un niveau différent de l'infrastructure :
+La stack repose sur Prometheus comme collecteur central (scrutation toutes les 15 secondes), alimenté par six sources complémentaires, chacune couvrant un niveau différent de l'infrastructure :
 
 \begin{itemize}
   \item \textbf{node-exporter} : métriques système de l'hôte (CPU, mémoire, disque) de l'instance EC2 de production ;
   \item \textbf{cAdvisor} : métriques par conteneur (CPU, mémoire), nécessitant un accès privilégié en lecture au socket Docker et au système de fichiers hôte ;
   \item \textbf{postgres-exporter} : métriques internes de la base PostgreSQL, connecté via la même chaîne de connexion applicative que l'API ;
-  \item \textbf{Blackbox Exporter} : \emph{health-checks} HTTP actifs sur le frontend et la route \code{/ready} de l'API ;
+  \item \textbf{Blackbox Exporter} : \emph{health-checks} HTTP actifs sur le frontend et la route \code{/ready} de l'API -- une sonde \emph{externe} qui vérifie la disponibilité du service sans en connaître le détail interne ;
+  \item \textbf{\code{/metrics} natif de l'API} : à la différence de la sonde Blackbox, \code{prometheus\_fastapi\_instrumentator} instrumente directement le code FastAPI pour exposer, par route, le nombre de requêtes et leur latence -- une métrique \emph{interne}, complémentaire du simple constat de disponibilité ;
   \item \textbf{Prometheus lui-même} : auto-supervision de sa propre disponibilité.
 \end{itemize}
 
