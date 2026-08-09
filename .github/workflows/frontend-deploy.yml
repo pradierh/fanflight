@@ -356,6 +356,7 @@ jobs:
           sudo systemctl enable --now docker
           sudo mkdir -p /opt/fanflight
           sudo mv /tmp/fanflight-compose.yml /opt/fanflight/docker-compose.yml
+          sudo rm -rf /opt/fanflight/monitoring
           sudo mkdir -p /opt/fanflight/monitoring
           sudo cp -R /tmp/fanflight-monitoring/. /opt/fanflight/monitoring/
           sudo rm -rf /tmp/fanflight-monitoring
