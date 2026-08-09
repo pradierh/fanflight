@@ -8,7 +8,6 @@ on:
     paths:
       - "frontend/**"
       - "API/**"
-      - "data-pipeline/spark/**"
       - "data-pipeline/ml/**"
       - "monitoring/**"
       - ".github/workflows/frontend-deploy.yml"
@@ -18,7 +17,6 @@ env:
   DOCKERHUB_NAMESPACE: tezzosyris666
   FRONTEND_IMAGE: tezzosyris666/fanflight-frontend
   BACKEND_API_IMAGE: tezzosyris666/fanflight-backend-api
-  SPARK_IMAGE: tezzosyris666/fanflight-spark
   ML_IMAGE: tezzosyris666/fanflight-ml
   EC2_HOST: 35.181.62.34
   EC2_USER: ubuntu
@@ -50,6 +48,7 @@ jobs:
           push: true
           build-args: |
             NEXT_PUBLIC_API_URL=http://${{ env.EC2_HOST }}:8000
+            NEXT_PUBLIC_GRAFANA_URL=http://${{ env.EC2_HOST }}:3001
           tags: |
             ${{ env.FRONTEND_IMAGE }}:latest
             ${{ env.FRONTEND_IMAGE }}:${{ github.sha }}
@@ -64,15 +63,6 @@ jobs:
             ${{ env.BACKEND_API_IMAGE }}:latest
             ${{ env.BACKEND_API_IMAGE }}:${{ github.sha }}
 
-      - name: Build and push Spark image
-        uses: docker/build-push-action@v6
-        with:
-          context: ./data-pipeline/spark
-          file: ./data-pipeline/spark/Dockerfile
-          push: true
-          tags: |
-            ${{ env.SPARK_IMAGE }}:latest
-            ${{ env.SPARK_IMAGE }}:${{ github.sha }}
 
       - name: Build and push ML image
         uses: docker/build-push-action@v6
@@ -142,51 +132,6 @@ jobs:
                 retries: 20
               volumes:
                 - postgres_db:/var/lib/postgresql/data
-
-            spark-master:
-              image: ${SPARK_IMAGE}:latest
-              container_name: spark-master
-              user: root
-              restart: unless-stopped
-              environment:
-                SPARK_MODE: master
-                SPARK_RPC_AUTHENTICATION_ENABLED: "no"
-              env_file:
-                - .env
-              depends_on:
-                db:
-                  condition: service_healthy
-              ports:
-                - "8080:8080"
-                - "7077:7077"
-              command: >
-                bash -c "/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master &
-                sleep 5 &&
-                python3 /opt/spark/scripts/spark_listener.py"
-              working_dir: /opt/spark
-              labels:
-                - "com.centurylinklabs.watchtower.enable=true"
-
-            spark-worker:
-              image: ${SPARK_IMAGE}:latest
-              container_name: spark-worker
-              user: root
-              restart: unless-stopped
-              environment:
-                SPARK_MODE: worker
-                SPARK_MASTER_URL: spark://spark-master:7077
-                SPARK_RPC_AUTHENTICATION_ENABLED: "no"
-              env_file:
-                - .env
-              depends_on:
-                spark-master:
-                  condition: service_started
-              ports:
-                - "8081:8081"
-              command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
-              working_dir: /opt/spark
-              labels:
-                - "com.centurylinklabs.watchtower.enable=true"
 
             mlflow:
               image: ghcr.io/mlflow/mlflow:v2.13.0
@@ -413,7 +358,7 @@ jobs:
           fi
 
           cd /opt/fanflight
-          sudo docker compose pull frontend backend-api spark-master spark-worker ml prometheus blackbox-exporter node-exporter cadvisor postgres-exporter grafana
+          sudo docker compose pull frontend backend-api ml prometheus blackbox-exporter node-exporter cadvisor postgres-exporter grafana
           if ! sudo docker compose up -d; then
             sudo docker compose ps
             sudo docker logs postgres || true
