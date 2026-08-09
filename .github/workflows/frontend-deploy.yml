@@ -48,6 +48,7 @@ jobs:
           push: true
           build-args: |
             NEXT_PUBLIC_API_URL=http://${{ env.EC2_HOST }}:8000
+            NEXT_PUBLIC_GRAFANA_URL=http://${{ env.EC2_HOST }}:3001
           tags: |
             ${{ env.FRONTEND_IMAGE }}:latest
             ${{ env.FRONTEND_IMAGE }}:${{ github.sha }}
