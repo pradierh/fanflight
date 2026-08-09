@@ -20,57 +20,6 @@ services:
       - default
       - monitoring-network
 
-  spark-master:
-    build: ./data-pipeline/spark
-    container_name: spark-master
-    user: root
-    environment:
-      - SPARK_MODE=master
-      - SPARK_RPC_AUTHENTICATION_ENABLED=no
-    env_file:
-      - .env
-    ports:
-      - "8080:8080" # Interface Web (localhost:8080)
-      - "7077:7077" # Port de communication pour les machines
-    command: >
-      bash -c "/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master &
-      sleep 5 &&
-      python3 /opt/spark/scripts/spark_listener.py"
-    working_dir: /opt/spark
-    volumes:
-      - ./data-pipeline/spark/scripts:/opt/spark/scripts
-      - ./data-pipeline/data:/opt/spark/data
-    depends_on:
-      db:
-        condition: service_healthy
-    networks:
-      - default
-      - monitoring-network
-
-  spark-worker:
-    build: ./data-pipeline/spark
-    container_name: spark-worker
-    user: root
-    environment:
-      - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark://spark-master:7077
-      - SPARK_RPC_AUTHENTICATION_ENABLED=no
-    env_file:
-      - .env
-    depends_on:
-      spark-master:
-        condition: service_started
-    ports:
-      - "8081:8081" # Interface Web du Worker (localhost:8081)
-    command: /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077
-    working_dir: /opt/spark
-    volumes:
-      - ./data-pipeline/spark/scripts:/opt/spark/scripts
-      - ./data-pipeline/data:/opt/spark/data
-    networks:
-      - default
-      - monitoring-network
-
   backend-api:
     build: ./API
     container_name: backend_api
@@ -94,13 +43,16 @@ services:
       - monitoring-network
 
   frontend:
-    build: ./frontend
-    container_name: frontend
-    ports:
-      - "3000:3000"
-    networks:
-      - default
-      - monitoring-network
+      build:
+        context: ./frontend
+        args:
+          NEXT_PUBLIC_GRAFANA_URL: ${NEXT_PUBLIC_GRAFANA_URL}
+      container_name: frontend
+      ports:
+        - "3000:3000"
+      networks:
+        - default
+        - monitoring-network
   # ----------------------------------------------------------------
   # MLflow — serveur de tracking + model registry
   # UI accessible sur http://localhost:5000
