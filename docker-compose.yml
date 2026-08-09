@@ -43,16 +43,13 @@ services:
       - monitoring-network
 
   frontend:
-      build:
-        context: ./frontend
-        args:
-          NEXT_PUBLIC_GRAFANA_URL: ${NEXT_PUBLIC_GRAFANA_URL} #monitoring
-      container_name: frontend
-      ports:
-        - "3000:3000"
-      networks:
-        - default
-        - monitoring-network
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - default
+      - monitoring-network
   # ----------------------------------------------------------------
   # MLflow — serveur de tracking + model registry
   # UI accessible sur http://localhost:5000
