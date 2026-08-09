@@ -375,7 +375,7 @@ jobs:
 
           cd /opt/fanflight
           sudo docker compose pull frontend backend-api ml prometheus alertmanager blackbox-exporter node-exporter cadvisor postgres-exporter grafana
-          if ! sudo docker compose up -d; then
+          if ! sudo docker compose up -d --remove-orphans; then
             sudo docker compose ps
             sudo docker logs postgres || true
             sudo docker logs backend_api || true
@@ -384,6 +384,11 @@ jobs:
             sudo docker logs fanflight_grafana || true
             exit 1
           fi
+
+          # prometheus/alertmanager/grafana read their config from bind-mounted
+          # files that "up -d" does not track, so restart them on every deploy
+          # to pick up config changes even when their image/service spec is unchanged.
+          sudo docker compose restart prometheus alertmanager grafana
           for url in \
             http://127.0.0.1/ \
             http://127.0.0.1:8000/ready \
