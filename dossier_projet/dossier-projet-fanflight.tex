@@ -38,13 +38,27 @@
 
 \newcommand{\code}[1]{\lstinline{#1}}
 
+\newcommand{\footlogoleft}{\raisebox{-0.22cm}{\includegraphics[height=0.9cm]{img/fanflight-logo-icon.png}}}
+\newcommand{\footlogoright}{\raisebox{-0.18cm}{\includegraphics[height=0.78cm]{img/liora.png}}}
+
 \setlength{\headheight}{14.5pt}
+\setlength{\footskip}{50pt}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{HUGO PRADIER}
 \fancyhead[R]{DOSSIER PROJET}
+\fancyfoot[L]{\footlogoleft}
 \fancyfoot[C]{\thepage}
+\fancyfoot[R]{\footlogoright}
 \renewcommand{\headrulewidth}{0.4pt}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[L]{\footlogoleft}
+  \fancyfoot[C]{\thepage}
+  \fancyfoot[R]{\footlogoright}
+  \renewcommand{\headrulewidth}{0pt}
+}
 
 \titleformat{\chapter}[hang]{\normalfont\Large\bfseries\color{fannavy}}{\thechapter.}{0.5em}{}
 
@@ -58,16 +72,18 @@
 }
 
 \title{
-  \vspace{-2cm}
+  \vspace{-2.6cm}
   {\Large DOSSIER PROJET}\\[0.3cm]
   {\large Cursus Data Engineer}\\[0.1cm]
-  {\large RNCP38919}\\[1.2cm]
+  {\large RNCP38919}\\[0.8cm]
+  \includegraphics[width=3.2cm]{img/fanflight-logo-icon.png}\\[0.3cm]
   {\Huge \bfseries \color{fannavy} Projet FanFlight}\\[0.4cm]
-  {\large Plateforme de recherche de vols pour la Coupe du Monde 2026}\\[2cm]
+  {\large Plateforme de recherche de vols pour la Coupe du Monde 2026}\\[1.6cm]
   {\large Hugo PRADIER}\\[0.2cm]
   {\normalsize Projet réalisé avec Hugo Jacquit, Daniel Kouacou et Emy Regna}\\[0.6cm]
-  {\normalsize Promotion 2025--2026}\\[0.1cm]
-  {\normalsize Liora -- Certification DataScientest}
+  {\normalsize Promotion 2025--2026}\\[0.3cm]
+  {\normalsize Liora -- Certification DataScientest}\\[0.2cm]
+  \includegraphics[width=2.6cm]{img/liora.png}
 }
 \author{}
 \date{\today}
@@ -149,6 +165,13 @@ C'est ce double enjeu -- rendre accessible une information aujourd'hui fragment�
 
 \section*{Présentation du projet FanFlight}
 \addcontentsline{toc}{section}{Présentation du projet FanFlight}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.45\textwidth]{img/fanflight-logo.png}
+\caption{Identité visuelle du projet FanFlight}
+\label{fig:fanflight-logo}
+\end{figure}
 
 FanFlight est une application web qui permet à un supporter de choisir sa ville de départ, de consulter les matchs de la Coupe du Monde 2026, puis de visualiser des propositions de vols cohérentes avec le calendrier du match sélectionné. Le parcours utilisateur se déroule en trois étapes guidées : sélection de la ville de départ, sélection du match, puis consultation des vols proposés. La version livrée couvre le calendrier de la phase de groupes de l'édition 2026 ; l'extension aux phases finales de la compétition est identifiée comme un axe d'évolution (cf. section~\ref{sec:preconisations}).
 

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export const Header = () => {
@@ -12,9 +13,14 @@ export const Header = () => {
         className="max-w-7xl mx-auto flex items-center justify-between"
       >
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--wc-teal)] to-[var(--wc-coral)] flex items-center justify-center">
-            <span className="text-2xl">✈️</span>
-          </div>
+          <Image
+            src="/logo-icon.png"
+            alt="FanFlight logo"
+            width={48}
+            height={48}
+            className="w-12 h-12 object-contain"
+            priority
+          />
           <div>
             <h1 className="text-2xl font-bold text-white">
               Fan<span className="gradient-text">Flight</span>
