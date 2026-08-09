@@ -21734,7 +21734,7 @@
             },
             "spec": {
               "query": "label_values(node_uname_info, job)",
-              "refId": "Prometheus-job-Variable-Query"
+              "refId": "prometheus-job-Variable-Query"
             }
           },
           "regex": "",
@@ -21767,7 +21767,7 @@
             },
             "spec": {
               "query": "label_values(node_uname_info{job=\"$job\"}, nodename)",
-              "refId": "Prometheus-nodename-Variable-Query"
+              "refId": "prometheus-nodename-Variable-Query"
             }
           },
           "regex": "",
@@ -21800,7 +21800,7 @@
             },
             "spec": {
               "query": "label_values(node_uname_info{job=\"$job\", nodename=\"$nodename\"}, instance)",
-              "refId": "Prometheus-node-Variable-Query"
+              "refId": "prometheus-node-Variable-Query"
             }
           },
           "regex": "",

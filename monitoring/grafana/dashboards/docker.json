@@ -43,7 +43,7 @@
       }
     ],
     "cursorSync": "Crosshair",
-    "description": "Docker monitoring with Prometheus and cAdvisor",
+    "description": "Docker monitoring with prometheus and cAdvisor",
     "editable": true,
     "elements": {
       "panel-1": {
