@@ -375,7 +375,7 @@ jobs:
           fi
 
           cd /opt/fanflight
-          sudo docker compose pull frontend backend-api ml prometheus alertmanager blackbox-exporter node-exporter cadvisor postgres-exporter grafana
+          sudo docker compose pull frontend backend-api ml prometheus alertmanager blackbox-exporter node-exporter cadvisor postgres-exporter grafana watchtower
           if ! sudo docker compose up -d --remove-orphans; then
             sudo docker compose ps
             sudo docker logs postgres || true
