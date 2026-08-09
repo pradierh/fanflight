@@ -1226,7 +1226,7 @@
           "options": [],
           "multi": false,
           "includeAll": false,
-          "label": "Prometheus",
+          "label": "prometheus",
           "hide": "dontHide",
           "skipUrlSync": false,
           "allowCustomValue": true
