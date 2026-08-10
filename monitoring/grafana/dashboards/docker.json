@@ -68,7 +68,7 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "container_memory_usage_bytes",
+                        "expr": "container_memory_usage_bytes{id=~\"/docker/[a-f0-9]+\"}",
                         "intervalFactor": 2,
                         "legendFormat": "{{id}}",
                         "metric": "container_memory_usage_bytes",
@@ -179,7 +179,7 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "sum(rate(container_cpu_usage_seconds_total{id=~'/docker/.*'}[5m])) by (id, name) * 100",
+                        "expr": "sum(rate(container_cpu_usage_seconds_totalcontainer_start_time_seconds{id=~\"/docker/[a-f0-9]+\"}[5m])) by (id, name) * 100",
                         "intervalFactor": 2,
                         "legendFormat": "{{name}}",
                         "metric": "cpu",
@@ -736,7 +736,7 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "count(container_memory_usage_bytes{id=~'/docker/.*'})",
+                        "expr": "count(container_memory_usage_bytes{id=~\"/docker/[a-f0-9]+\"})",
                         "intervalFactor": 2,
                         "legendFormat": "",
                         "metric": "container_last_seen",
@@ -854,7 +854,7 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "sum(rate(container_cpu_usage_seconds_total{id=~'/docker/.*'}[5m])) * 100",
+                        "expr": "sum(rate(container_cpu_usage_seconds_total{id=~\"/docker/[a-f0-9]+\"}[5m])) * 100",
                         "intervalFactor": 2,
                         "legendFormat": "",
                         "metric": "cpu_total",
@@ -973,7 +973,7 @@
                   "name": "prometheus"
                 },
                 "spec": {
-                  "expr": "sum(rate(container_fs_reads_bytes_total{id=~'/docker/.*'}[5m])) by (id)",
+                  "expr": "sum(rate(container_fs_reads_bytes_total{id=~\"/docker/[a-f0-9]+\"}[5m])) by (id)",
                   "intervalFactor": 2,
                   "legendFormat": "{{id}}",
                   "metric": "container_fs_reads_bytes_total",
@@ -1029,7 +1029,7 @@
                   "name": "prometheus"
                 },
                 "spec": {
-                  "expr": "sum(rate(container_fs_writes_bytes_total{id=~'/docker/.*'}[5m])) by (id)",
+                  "expr": "sum(rate(container_fs_writes_bytes_total{id=~\"/docker/[a-f0-9]+\"}[5m])) by (id)",
                   "intervalFactor": 2,
                   "legendFormat": "{{id}}",
                   "metric": "container_fs_writes_bytes_total",
@@ -1143,7 +1143,7 @@
                   "name": "prometheus"
                 },
                 "spec": {
-                  "expr": "changes(container_start_time_seconds{id=~\"/docker/.*\"}[1h])",
+                  "expr": "changes(container_start_time_seconds{id=~\"/docker/[a-f0-9]+\"}[1h])",
                   "intervalFactor": 2,
                   "legendFormat": "{{id}}",
                   "step": 30
