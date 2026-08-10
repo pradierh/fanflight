@@ -1538,7 +1538,7 @@
 "panel-19": {
   "kind": "Panel",
   "spec": {
-    "id": 13,
+    "id": 19,
     "title": "Container Restarts — Last 3 min",
     "description": "Nombre de redémarrages de conteneurs détectés sur les 3 dernières minutes",
     "links": [],
