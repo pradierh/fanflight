@@ -68,7 +68,7 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "container_memory_usage_bytesprometheus",
+                        "expr": "container_memory_usage_bytes",
                         "intervalFactor": 2,
                         "legendFormat": "{{id}}",
                         "metric": "container_memory_usage_bytes",
@@ -179,7 +179,7 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "rate(container_cpu_user_seconds_totalprometheus[5m]) * 100",
+                        "expr": "rate(container_cpu_user_seconds_total[5m]) * 100",
                         "intervalFactor": 2,
                         "legendFormat": "{{id}}",
                         "metric": "cpu",
@@ -289,7 +289,7 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "irate(container_network_receive_bytes_totalprometheus[5m])",
+                        "expr": "irate(container_network_receive_bytes_total[5m])",
                         "intervalFactor": 2,
                         "legendFormat": "{{id}}",
                         "metric": "container_network_receive_bytes_total",
@@ -396,7 +396,7 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "irate(container_network_transmit_bytes_totalprometheus[5m])",
+                        "expr": "irate(container_network_transmit_bytes_total[5m])",
                         "intervalFactor": 2,
                         "legendFormat": "{{id}}",
                         "step": 20
@@ -502,7 +502,7 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "sum(container_memory_usage_bytesprometheus)/1024/1024",
+                        "expr": "sum(container_memory_usage_bytes)/1024/1024",
                         "intervalFactor": 2,
                         "legendFormat": "",
                         "metric": "container_memory_usage_bytes",
@@ -620,7 +620,7 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "sum(rate(container_cpu_user_seconds_totalprometheus[5m]) * 100)",
+                        "expr": "sum(rate(container_cpu_usage_seconds_total[5m])) * 100",
                         "intervalFactor": 2,
                         "legendFormat": "",
                         "metric": "container_memory_usage_bytes",
@@ -738,7 +738,7 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "count(container_last_seenprometheus)",
+                        "expr": "count(container_last_seen)",
                         "intervalFactor": 2,
                         "legendFormat": "",
                         "metric": "container_last_seen",
