@@ -50,8 +50,8 @@
         "kind": "Panel",
         "spec": {
           "id": 1,
-          "title": "Memory Usage",
-          "description": "",
+          "title": "Memory Usage - Containers",
+          "description": "Utilisation mémoire de chaque conteneur Docker",
           "links": [],
           "data": {
             "kind": "QueryGroup",
@@ -161,8 +161,8 @@
         "kind": "Panel",
         "spec": {
           "id": 2,
-          "title": "CPU Usage",
-          "description": "",
+          "title": "CPU Usage — Containers",
+          "description": "Utilisation du CPU par chaque conteneur Docker",
           "links": [],
           "data": {
             "kind": "QueryGroup",
@@ -179,9 +179,9 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "rate(container_cpu_user_seconds_total[5m]) * 100",
+                        "expr": "sum(rate(container_cpu_usage_seconds_total{id=~'/docker/.*'}[5m])) by (id, name) * 100",
                         "intervalFactor": 2,
-                        "legendFormat": "{{id}}",
+                        "legendFormat": "{{name}}",
                         "metric": "cpu",
                         "step": 10
                       }
@@ -271,8 +271,8 @@
         "kind": "Panel",
         "spec": {
           "id": 3,
-          "title": "Network Rx",
-          "description": "",
+          "title": "Network Rx — Containers",
+          "description": "Débit de données réseau reçues par les conteneurs Docker",
           "links": [],
           "data": {
             "kind": "QueryGroup",
@@ -378,8 +378,8 @@
         "kind": "Panel",
         "spec": {
           "id": 4,
-          "title": "Network Tx",
-          "description": "",
+          "title": "Network Tx - Containers",
+          "description": "Débit de données réseau envoyées par les conteneurs Docker",
           "links": [],
           "data": {
             "kind": "QueryGroup",
@@ -485,7 +485,7 @@
         "spec": {
           "id": 5,
           "title": "Total Memory Usage",
-          "description": "",
+          "description": "Mémoire totale utilisée par l'ensemble des conteneurs Docker",
           "links": [],
           "data": {
             "kind": "QueryGroup",
@@ -602,8 +602,8 @@
         "kind": "Panel",
         "spec": {
           "id": 6,
-          "title": "Total CPU Usage",
-          "description": "",
+          "title": "Total CPU Usage — EC2",
+          "description": "Utilisation moyenne du CPU de l'EC2 sur les 5 dernières minutes",
           "links": [],
           "data": {
             "kind": "QueryGroup",
@@ -620,11 +620,11 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "sum(rate(container_cpu_usage_seconds_total[5m])) * 100",
+                        "expr": "100 - (avg(rate(node_cpu_seconds_total{mode='idle'}[5m])) * 100)",
                         "intervalFactor": 2,
                         "legendFormat": "",
-                        "metric": "container_memory_usage_bytes",
-                        "step": 240
+                        "metric": "node_cpu_seconds_total",
+                        "step": 10
                       }
                     },
                     "refId": "A",
@@ -633,9 +633,7 @@
                 }
               ],
               "transformations": [],
-              "queryOptions": {
-                "maxDataPoints": 100
-              }
+              "queryOptions": {}
             }
           },
           "vizConfig": {
@@ -721,7 +719,7 @@
         "spec": {
           "id": 7,
           "title": "Running containers",
-          "description": "",
+          "description": "Nombre de containers actifs",
           "links": [],
           "data": {
             "kind": "QueryGroup",
@@ -738,7 +736,7 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "count(container_last_seen)",
+                        "expr": "count(container_memory_usage_bytes{id=~'/docker/.*'})",
                         "intervalFactor": 2,
                         "legendFormat": "",
                         "metric": "container_last_seen",
@@ -833,8 +831,793 @@
           },
           "transparent": true
         }
+      },
+      "panel-8": {
+        "kind": "Panel",
+        "spec": {
+          "id": 8,
+          "title": "Total CPU Usage — Containers",
+          "description": "Utilisation CPU totale de l'ensemble des conteneurs Docker, exprimée en pourcentage de CPU utilisé",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "prometheus"
+                      },
+                      "spec": {
+                        "expr": "sum(rate(container_cpu_usage_seconds_total{id=~'/docker/.*'}[5m])) * 100",
+                        "intervalFactor": 2,
+                        "legendFormat": "",
+                        "metric": "cpu_total",
+                        "step": 10
+                      }
+                    },
+                    "refId": "A",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {
+                "maxDataPoints": 100
+              }
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "stat",
+            "version": "",
+            "spec": {
+              "options": {
+                "__angularMigration": {
+                  "autoMigrateFrom": "singlestat",
+                  "originalOptions": {
+                    "colorBackground": false,
+                    "colorValue": false,
+                    "colors": [
+                      "rgba(245, 54, 54, 0.9)",
+                      "rgba(237, 129, 40, 0.89)",
+                      "rgba(50, 172, 45, 0.97)"
+                    ],
+                    "editable": true,
+                    "error": false,
+                    "format": "percent",
+                    "gauge": {
+                      "maxValue": 100,
+                      "minValue": 0,
+                      "show": false,
+                      "thresholdLabels": false,
+                      "thresholdMarkers": true
+                    },
+                    "height": "20",
+                    "mappingType": 1,
+                    "mappingTypes": [
+                      {
+                        "name": "value to text",
+                        "value": 1
+                      },
+                      {
+                        "name": "range to text",
+                        "value": 2
+                      }
+                    ],
+                    "nullPointMode": "connected",
+                    "postfix": "",
+                    "postfixFontSize": "50%",
+                    "prefix": "",
+                    "prefixFontSize": "50%",
+                    "rangeMaps": [
+                      {
+                        "from": "null",
+                        "text": "N/A",
+                        "to": "null"
+                      }
+                    ],
+                    "sparkline": {
+                      "fillColor": "rgba(31, 118, 189, 0.18)",
+                      "full": false,
+                      "lineColor": "rgb(31, 120, 193)",
+                      "show": false
+                    },
+                    "thresholds": "",
+                    "valueFontSize": "80%",
+                    "valueMaps": [
+                      {
+                        "op": "=",
+                        "text": "N/A",
+                        "value": "null"
+                      }
+                    ],
+                    "valueName": "current"
+                  }
+                }
+              },
+              "fieldConfig": {
+                "defaults": {},
+                "overrides": []
+              }
+            }
+          },
+          "transparent": true
+        }
+      },
+      
+"panel-9": {
+  "kind": "Panel",
+  "spec": {
+    "id": 9,
+    "title": "Disk Read I/O — Containers",
+    "description": "Volume de données lues depuis le disque par conteneur",
+    "links": [],
+    "data": {
+      "kind": "QueryGroup",
+      "spec": {
+        "queries": [
+          {
+            "kind": "PanelQuery",
+            "spec": {
+              "query": {
+                "kind": "DataQuery",
+                "group": "",
+                "version": "v0",
+                "datasource": {
+                  "name": "prometheus"
+                },
+                "spec": {
+                  "expr": "sum(rate(container_fs_reads_bytes_total{id=~'/docker/.*'}[5m])) by (id)",
+                  "intervalFactor": 2,
+                  "legendFormat": "{{id}}",
+                  "metric": "container_fs_reads_bytes_total",
+                  "step": 10
+                }
+              },
+              "refId": "A",
+              "hidden": false
+            }
+          }
+        ],
+        "transformations": [],
+        "queryOptions": {}
       }
     },
+    "vizConfig": {
+      "kind": "VizConfig",
+      "group": "timeseries",
+      "version": "",
+      "spec": {
+        "options": {},
+        "fieldConfig": {
+          "defaults": {        
+              "unit": "Bps",
+              "decimals": 2,
+              "min": 0},
+          "overrides": []
+        }
+      }
+    }
+  }
+},
+
+"panel-10": {
+  "kind": "Panel",
+  "spec": {
+    "id": 10,
+    "title": "Disk Write I/O — Containers",
+    "description": "Volume de données écrites sur le disque par conteneur",
+    "links": [],
+    "data": {
+      "kind": "QueryGroup",
+      "spec": {
+        "queries": [
+          {
+            "kind": "PanelQuery",
+            "spec": {
+              "query": {
+                "kind": "DataQuery",
+                "group": "",
+                "version": "v0",
+                "datasource": {
+                  "name": "prometheus"
+                },
+                "spec": {
+                  "expr": "sum(rate(container_fs_writes_bytes_total{id=~'/docker/.*'}[5m])) by (id)",
+                  "intervalFactor": 2,
+                  "legendFormat": "{{id}}",
+                  "metric": "container_fs_writes_bytes_total",
+                  "step": 10
+                }
+              },
+              "refId": "A",
+              "hidden": false
+            }
+          }
+        ],
+        "transformations": [],
+        "queryOptions": {}
+      }
+    },
+    "vizConfig": {
+      "kind": "VizConfig",
+      "group": "timeseries",
+      "version": "",
+      "spec": {
+        "options": {},
+        "fieldConfig": {
+          "defaults": {
+             "unit": "Bps",
+            "decimals": 2,
+            "min": 0
+          },
+          "overrides": []
+        }
+      }
+    }
+  }
+},
+
+"panel-11": {
+  "kind": "Panel",
+  "spec": {
+    "id": 11,
+    "title": "Disk Usage — EC2",
+    "description": "Espace disque utilisé sur l'EC2",
+    "links": [],
+    "data": {
+      "kind": "QueryGroup",
+      "spec": {
+        "queries": [
+          {
+            "kind": "PanelQuery",
+            "spec": {
+              "query": {
+                "kind": "DataQuery",
+                "group": "",
+                "version": "v0",
+                "datasource": {
+                  "name": "prometheus"
+                },
+                "spec": {
+                  "expr": "node_filesystem_size_bytes - node_filesystem_avail_bytes",
+                  "intervalFactor": 2,
+                  "legendFormat": "{{mountpoint}}",
+                  "metric": "node_filesystem_size_bytes",
+                  "step": 30
+                }
+              },
+              "refId": "A",
+              "hidden": false
+            }
+          }
+        ],
+        "transformations": [],
+        "queryOptions": {}
+      }
+    },
+    "vizConfig": {
+      "kind": "VizConfig",
+      "group": "timeseries",
+      "version": "",
+      "spec": {
+        "options": {},
+        "fieldConfig": {
+          "defaults": {
+            "unit": "bytes",
+            "min": 0,
+            "decimals": 2
+          },
+          "overrides": []
+        }
+      }
+    }
+  }
+},
+
+"panel-13": {
+  "kind": "Panel",
+  "spec": {
+    "id": 13,
+    "title": "Container Restarts — Last Hour",
+    "description": "Nombre de redémarrages des conteneurs au cours de la dernière heure",
+    "links": [],
+    "data": {
+      "kind": "QueryGroup",
+      "spec": {
+        "queries": [
+          {
+            "kind": "PanelQuery",
+            "spec": {
+              "query": {
+                "kind": "DataQuery",
+                "group": "",
+                "version": "v0",
+                "datasource": {
+                  "name": "prometheus"
+                },
+                "spec": {
+                  "expr": "changes(container_start_time_seconds{id=~\"/docker/.*\"}[1h])",
+                  "intervalFactor": 2,
+                  "legendFormat": "{{id}}",
+                  "step": 30
+                }
+              },
+              "refId": "A",
+              "hidden": false
+            }
+          }
+        ],
+        "transformations": [],
+        "queryOptions": {}
+      }
+    },
+    "vizConfig": {
+      "kind": "VizConfig",
+      "group": "timeseries",
+      "version": "",
+      "spec": {
+        "options": {},
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "min": 0,
+            "decimals": 0
+          },
+          "overrides": []
+        }
+      }
+    }
+  }
+},
+
+"panel-15": {
+  "kind": "Panel",
+  "spec": {
+    "id": 15,
+    "title": "EC2 Memory Usage",
+    "description": "Pourcentage de mémoire utilisée sur l'instance EC2",
+    "links": [],
+    "data": {
+      "kind": "QueryGroup",
+      "spec": {
+        "queries": [
+          {
+            "kind": "PanelQuery",
+            "spec": {
+              "query": {
+                "kind": "DataQuery",
+                "group": "",
+                "version": "v0",
+                "datasource": {
+                  "name": "prometheus"
+                },
+                "spec": {
+                  "expr": "(1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100",
+                  "intervalFactor": 2,
+                  "legendFormat": "{{instance}}",
+                  "step": 10
+                }
+              },
+              "refId": "A",
+              "hidden": false
+            }
+          }
+        ],
+        "transformations": [],
+        "queryOptions": {}
+      }
+    },
+    "vizConfig": {
+      "kind": "VizConfig",
+      "group": "timeseries",
+      "version": "",
+      "spec": {
+        "options": {},
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "min": 0,
+            "max": 100,
+            "decimals": 1,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "value": null
+                },
+                {
+                  "value": 70
+                },
+                {
+                  "value": 85
+                }
+              ]
+            }
+          },
+          "overrides": []
+        }
+      }
+    }
+  }
+},
+
+"panel-16": {
+  "kind": "Panel",
+  "spec": {
+    "id": 16,
+    "title": "EC2 Load Average — 1 min",
+    "description": "Charge moyenne du système sur une minute",
+    "links": [],
+    "data": {
+      "kind": "QueryGroup",
+      "spec": {
+        "queries": [
+          {
+            "kind": "PanelQuery",
+            "spec": {
+              "query": {
+                "kind": "DataQuery",
+                "group": "",
+                "version": "v0",
+                "datasource": {
+                  "name": "prometheus"
+                },
+                "spec": {
+                  "expr": "node_load1",
+                  "intervalFactor": 2,
+                  "legendFormat": "{{instance}}",
+                  "step": 10
+                }
+              },
+              "refId": "A",
+              "hidden": false
+            }
+          }
+        ],
+        "transformations": [],
+        "queryOptions": {}
+      }
+    },
+    "vizConfig": {
+      "kind": "VizConfig",
+      "group": "timeseries",
+      "version": "",
+      "spec": {
+        "options": {},
+        "fieldConfig": {
+          "defaults": {
+            "unit": "none",
+            "min": 0,
+            "decimals": 2
+          },
+          "overrides": []
+        }
+      }
+    }
+  }
+},
+
+"panel-17": {
+  "kind": "Panel",
+  "spec": {
+    "id": 17,
+    "title": "Network Receive Errors",
+    "description": "Nombre d'erreurs réseau reçues par seconde",
+    "links": [],
+    "data": {
+      "kind": "QueryGroup",
+      "spec": {
+        "queries": [
+          {
+            "kind": "PanelQuery",
+            "spec": {
+              "query": {
+                "kind": "DataQuery",
+                "group": "",
+                "version": "v0",
+                "datasource": {
+                  "name": "prometheus"
+                },
+                "spec": {
+                  "expr": "sum(rate(container_network_receive_errors_total[5m]))",
+                  "intervalFactor": 2,
+                  "legendFormat": "",
+                  "step": 10
+                }
+              },
+              "refId": "A",
+              "hidden": false
+            }
+          }
+        ],
+        "transformations": [],
+        "queryOptions": {}
+      }
+    },
+    "vizConfig": {
+            "kind": "VizConfig",
+            "group": "stat",
+            "version": "",
+            "spec": {
+              "options": {
+                "__angularMigration": {
+                  "autoMigrateFrom": "singlestat",
+                  "originalOptions": {
+                    "colorBackground": false,
+                    "colorValue": false,
+                    "colors": [
+                      "rgba(245, 54, 54, 0.9)",
+                      "rgba(237, 129, 40, 0.89)",
+                      "rgba(50, 172, 45, 0.97)"
+                    ],
+                    "editable": true,
+                    "error": false,
+                    "format": "mbytes",
+                    "gauge": {
+                      "maxValue": 100,
+                      "minValue": 0,
+                      "show": false,
+                      "thresholdLabels": false,
+                      "thresholdMarkers": true
+                    },
+                    "height": "20",
+                    "mappingType": 1,
+                    "mappingTypes": [
+                      {
+                        "name": "value to text",
+                        "value": 1
+                      },
+                      {
+                        "name": "range to text",
+                        "value": 2
+                      }
+                    ],
+                    "nullPointMode": "connected",
+                    "postfix": "",
+                    "postfixFontSize": "50%",
+                    "prefix": "",
+                    "prefixFontSize": "50%",
+                    "rangeMaps": [
+                      {
+                        "from": "null",
+                        "text": "N/A",
+                        "to": "null"
+                      }
+                    ],
+                    "sparkline": {
+                      "fillColor": "rgba(31, 118, 189, 0.18)",
+                      "full": false,
+                      "lineColor": "rgb(31, 120, 193)",
+                      "show": false
+                    },
+                    "thresholds": "",
+                    "valueFontSize": "80%",
+                    "valueMaps": [
+                      {
+                        "op": "=",
+                        "text": "N/A",
+                        "value": "null"
+                      }
+                    ],
+                    "valueName": "current"
+                  }
+                }
+              },
+              "fieldConfig": {
+                "defaults": {},
+                "overrides": []
+              }
+            }
+          },
+          "transparent":true
+  }
+},
+
+"panel-18": {
+  "kind": "Panel",
+  "spec": {
+    "id": 18,
+    "title": "Network Dropped Packets",
+    "description": "Nombre de paquets réseau reçus mais abandonnés par seconde",
+    "links": [],
+    "data": {
+      "kind": "QueryGroup",
+      "spec": {
+        "queries": [
+          {
+            "kind": "PanelQuery",
+            "spec": {
+              "query": {
+                "kind": "DataQuery",
+                "group": "",
+                "version": "v0",
+                "datasource": {
+                  "name": "prometheus"
+                },
+                "spec": {
+                  "expr": "sum(rate(container_network_receive_packets_dropped_total[5m]))",
+                  "intervalFactor": 2,
+                  "legendFormat": "",
+                  "step": 10
+                }
+              },
+              "refId": "A",
+              "hidden": false
+            }
+          }
+        ],
+        "transformations": [],
+        "queryOptions": {}
+      }
+    },
+    "vizConfig": {
+            "kind": "VizConfig",
+            "group": "stat",
+            "version": "",
+            "spec": {
+              "options": {
+                "__angularMigration": {
+                  "autoMigrateFrom": "singlestat",
+                  "originalOptions": {
+                    "colorBackground": false,
+                    "colorValue": false,
+                    "colors": [
+                      "rgba(245, 54, 54, 0.9)",
+                      "rgba(237, 129, 40, 0.89)",
+                      "rgba(50, 172, 45, 0.97)"
+                    ],
+                    "editable": true,
+                    "error": false,
+                    "format": "mbytes",
+                    "gauge": {
+                      "maxValue": 100,
+                      "minValue": 0,
+                      "show": false,
+                      "thresholdLabels": false,
+                      "thresholdMarkers": true
+                    },
+                    "height": "20",
+                    "mappingType": 1,
+                    "mappingTypes": [
+                      {
+                        "name": "value to text",
+                        "value": 1
+                      },
+                      {
+                        "name": "range to text",
+                        "value": 2
+                      }
+                    ],
+                    "nullPointMode": "connected",
+                    "postfix": "",
+                    "postfixFontSize": "50%",
+                    "prefix": "",
+                    "prefixFontSize": "50%",
+                    "rangeMaps": [
+                      {
+                        "from": "null",
+                        "text": "N/A",
+                        "to": "null"
+                      }
+                    ],
+                    "sparkline": {
+                      "fillColor": "rgba(31, 118, 189, 0.18)",
+                      "full": false,
+                      "lineColor": "rgb(31, 120, 193)",
+                      "show": false
+                    },
+                    "thresholds": "",
+                    "valueFontSize": "80%",
+                    "valueMaps": [
+                      {
+                        "op": "=",
+                        "text": "N/A",
+                        "value": "null"
+                      }
+                    ],
+                    "valueName": "current"
+                  }
+                }
+              },
+              "fieldConfig": {
+                "defaults": {},
+                "overrides": []
+              }
+            }
+          },
+          "transparent": true
+  }
+},
+"panel-19": {
+  "kind": "Panel",
+  "spec": {
+    "id": 13,
+    "title": "Container Restarts — Last 3 min",
+    "description": "Nombre de redémarrages de conteneurs détectés sur les 3 dernières minutes",
+    "links": [],
+    "data": {
+      "kind": "QueryGroup",
+      "spec": {
+        "queries": [
+          {
+            "kind": "PanelQuery",
+            "spec": {
+              "query": {
+                "kind": "DataQuery",
+                "group": "",
+                "version": "v0",
+                "datasource": {
+                  "name": "prometheus"
+                },
+                "spec": {
+                  "expr": "sum(changes(container_start_time_seconds{id=~\"/docker/.*\"}[3m]))",
+                  "intervalFactor": 2,
+                  "legendFormat": "",
+                  "metric": "container_start_time_seconds",
+                  "step": 10
+                }
+              },
+              "refId": "A",
+              "hidden": false
+            }
+          }
+        ],
+        "transformations": [],
+        "queryOptions": {
+          "maxDataPoints": 100
+        }
+      }
+    },
+    "vizConfig": {
+      "kind": "VizConfig",
+      "group": "stat",
+      "version": "",
+      "spec": {
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "textMode": "auto"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "none",
+            "decimals": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "value": null
+                },
+                {
+                  "value": 1
+                }
+              ]
+            }
+          },
+          "overrides": []
+        }
+      }
+    },
+    "transparent": true
+  }
+}
+          },
     "layout": {
       "kind": "GridLayout",
       "spec": {
@@ -844,7 +1627,7 @@
             "spec": {
               "x": 0,
               "y": 0,
-              "width": 8,
+              "width": 5,
               "height": 3,
               "element": {
                 "kind": "ElementReference",
@@ -855,9 +1638,9 @@
           {
             "kind": "GridLayoutItem",
             "spec": {
-              "x": 8,
+              "x": 5,
               "y": 0,
-              "width": 8,
+              "width": 5,
               "height": 3,
               "element": {
                 "kind": "ElementReference",
@@ -868,13 +1651,26 @@
           {
             "kind": "GridLayoutItem",
             "spec": {
-              "x": 16,
+              "x": 10,
               "y": 0,
-              "width": 8,
+              "width": 5,
               "height": 3,
               "element": {
                 "kind": "ElementReference",
                 "name": "panel-6"
+              }
+            }
+          },
+          {
+            "kind": "GridLayoutItem",
+            "spec": {
+              "x": 15,
+              "y": 0,
+              "width": 5,
+              "height": 3,
+              "element": {
+                "kind": "ElementReference",
+                "name": "panel-8"
               }
             }
           },
@@ -929,7 +1725,125 @@
                 "name": "panel-4"
               }
             }
+          },
+        {
+          "kind": "GridLayoutItem",
+          "spec": {
+            "x": 0,
+            "y": 24,
+            "width": 12,
+            "height": 7,
+            "element": {
+              "kind": "ElementReference",
+              "name": "panel-9"
+            }
           }
+        },
+        {
+          "kind": "GridLayoutItem",
+          "spec": {
+            "x": 12,
+            "y": 24,
+            "width": 12,
+            "height": 7,
+            "element": {
+              "kind": "ElementReference",
+              "name": "panel-10"
+            }
+          }
+        },
+        {
+          "kind": "GridLayoutItem",
+          "spec": {
+            "x": 0,
+            "y": 31,
+            "width": 12,
+            "height": 7,
+            "element": {
+              "kind": "ElementReference",
+              "name": "panel-11"
+            }
+          }
+        },
+      
+{
+  "kind": "GridLayoutItem",
+  "spec": {
+    "x": 0,
+    "y": 38,
+    "width": 12,
+    "height": 7,
+    "element": {
+      "kind": "ElementReference",
+      "name": "panel-13"
+    }
+  }
+},
+{
+  "kind": "GridLayoutItem",
+  "spec": {
+    "x": 0,
+    "y": 59,
+    "width": 24,
+    "height": 7,
+    "element": {
+      "kind": "ElementReference",
+      "name": "panel-15"
+    }
+  }
+},
+{
+  "kind": "GridLayoutItem",
+  "spec": {
+    "x": 12,
+    "y": 52,
+    "width": 12,
+    "height": 7,
+    "element": {
+      "kind": "ElementReference",
+      "name": "panel-16"
+    }
+  }
+},
+{
+  "kind": "GridLayoutItem",
+  "spec": {
+    "x": 0,
+    "y": 52,
+    "width": 12,
+    "height": 7,
+    "element": {
+      "kind": "ElementReference",
+      "name": "panel-17"
+    }
+  }
+},
+{
+  "kind": "GridLayoutItem",
+  "spec": {
+    "x": 12,
+    "y": 52,
+    "width": 12,
+    "height": 7,
+    "element": {
+      "kind": "ElementReference",
+      "name": "panel-18"
+    }
+  }
+},
+{
+  "kind": "GridLayoutItem",
+  "spec": {
+    "x": 20,
+    "y": 0,
+    "width": 4,
+    "height": 3,
+    "element": {
+      "kind": "ElementReference",
+      "name": "panel-19"
+    }
+  }
+}
         ]
       }
     },
