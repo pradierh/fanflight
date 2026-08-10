@@ -45,8 +45,6 @@ services:
   frontend:
     build:
       context: ./frontend
-      args:
-        NEXT_PUBLIC_GRAFANA_URL: ${NEXT_PUBLIC_GRAFANA_URL}
     container_name: frontend
     ports:
       - "3000:3000"
