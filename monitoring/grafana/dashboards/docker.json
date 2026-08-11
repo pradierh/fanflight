@@ -68,9 +68,9 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "container_memory_usage_bytes{id=~'/docker/.*'}",
+                        "expr": "container_memory_usage_bytes{name!=\"\"}",
                         "intervalFactor": 2,
-                        "legendFormat": "{{id}}",
+                        "legendFormat": "{{name}}",
                         "metric": "container_memory_usage_bytes",
                         "step": 10
                       }
@@ -289,7 +289,7 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "irate(container_network_receive_bytes_total[5m])",
+                        "expr": "sum(rate(container_network_receive_bytes_total{name!=\"\"}[5m])) by (name)",
                         "intervalFactor": 2,
                         "legendFormat": "{{name}}",
                         "metric": "container_network_receive_bytes_total",
@@ -638,76 +638,33 @@
           },
           "vizConfig": {
             "kind": "VizConfig",
-            "group": "stat",
-            "version": "",
-            "spec": {
-              "options": {
-                "__angularMigration": {
-                  "autoMigrateFrom": "singlestat",
-                  "originalOptions": {
-                    "colorBackground": false,
-                    "colorValue": false,
-                    "colors": [
-                      "rgba(245, 54, 54, 0.9)",
-                      "rgba(237, 129, 40, 0.89)",
-                      "rgba(50, 172, 45, 0.97)"
-                    ],
-                    "editable": true,
-                    "error": false,
-                    "format": "percent",
-                    "gauge": {
-                      "maxValue": 100,
-                      "minValue": 0,
-                      "show": false,
-                      "thresholdLabels": false,
-                      "thresholdMarkers": true
-                    },
-                    "height": "20",
-                    "mappingType": 1,
-                    "mappingTypes": [
-                      {
-                        "name": "value to text",
-                        "value": 1
-                      },
-                      {
-                        "name": "range to text",
-                        "value": 2
-                      }
-                    ],
-                    "nullPointMode": "connected",
-                    "postfix": "",
-                    "postfixFontSize": "50%",
-                    "prefix": "",
-                    "prefixFontSize": "50%",
-                    "rangeMaps": [
-                      {
-                        "from": "null",
-                        "text": "N/A",
-                        "to": "null"
-                      }
-                    ],
-                    "sparkline": {
-                      "fillColor": "rgba(31, 118, 189, 0.18)",
-                      "full": false,
-                      "lineColor": "rgb(31, 120, 193)",
-                      "show": false
-                    },
-                    "thresholds": "",
-                    "valueFontSize": "80%",
-                    "valueMaps": [
-                      {
-                        "op": "=",
-                        "text": "N/A",
-                        "value": "null"
-                      }
-                    ],
-                    "valueName": "current"
-                  }
-                }
-              },
-              "fieldConfig": {
-                "defaults": {},
-                "overrides": []
+  "group": "stat",
+  "version": "",
+  "spec": {
+    "options": {
+      "colorMode": "value",
+      "graphMode": "none",
+      "justifyMode": "auto",
+      "orientation": "auto",
+      "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+      "textMode": "auto"
+    },
+    "fieldConfig": {
+      "defaults": {
+        "unit": "percent",
+        "min": 0,
+        "max": 100,
+        "decimals": 1,
+        "thresholds": {
+          "mode": "absolute",
+          "steps": [
+            { "value": null, "color": "green" },
+            { "value": 70, "color": "orange" },
+            { "value": 90, "color": "red" }
+          ]
+        }
+      },
+      "overrides": []
               }
             }
           },
@@ -874,76 +831,33 @@
           },
           "vizConfig": {
             "kind": "VizConfig",
-            "group": "stat",
-            "version": "",
-            "spec": {
-              "options": {
-                "__angularMigration": {
-                  "autoMigrateFrom": "singlestat",
-                  "originalOptions": {
-                    "colorBackground": false,
-                    "colorValue": false,
-                    "colors": [
-                      "rgba(245, 54, 54, 0.9)",
-                      "rgba(237, 129, 40, 0.89)",
-                      "rgba(50, 172, 45, 0.97)"
-                    ],
-                    "editable": true,
-                    "error": false,
-                    "format": "percent",
-                    "gauge": {
-                      "maxValue": 100,
-                      "minValue": 0,
-                      "show": false,
-                      "thresholdLabels": false,
-                      "thresholdMarkers": true
-                    },
-                    "height": "20",
-                    "mappingType": 1,
-                    "mappingTypes": [
-                      {
-                        "name": "value to text",
-                        "value": 1
-                      },
-                      {
-                        "name": "range to text",
-                        "value": 2
-                      }
-                    ],
-                    "nullPointMode": "connected",
-                    "postfix": "",
-                    "postfixFontSize": "50%",
-                    "prefix": "",
-                    "prefixFontSize": "50%",
-                    "rangeMaps": [
-                      {
-                        "from": "null",
-                        "text": "N/A",
-                        "to": "null"
-                      }
-                    ],
-                    "sparkline": {
-                      "fillColor": "rgba(31, 118, 189, 0.18)",
-                      "full": false,
-                      "lineColor": "rgb(31, 120, 193)",
-                      "show": false
-                    },
-                    "thresholds": "",
-                    "valueFontSize": "80%",
-                    "valueMaps": [
-                      {
-                        "op": "=",
-                        "text": "N/A",
-                        "value": "null"
-                      }
-                    ],
-                    "valueName": "current"
-                  }
-                }
-              },
-              "fieldConfig": {
-                "defaults": {},
-                "overrides": []
+  "group": "stat",
+  "version": "",
+  "spec": {
+    "options": {
+      "colorMode": "value",
+      "graphMode": "none",
+      "justifyMode": "auto",
+      "orientation": "auto",
+      "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+      "textMode": "auto"
+    },
+    "fieldConfig": {
+      "defaults": {
+        "unit": "percent",
+        "min": 0,
+        "max": 100,
+        "decimals": 1,
+        "thresholds": {
+          "mode": "absolute",
+          "steps": [
+            { "value": null, "color": "green" },
+            { "value": 70, "color": "orange" },
+            { "value": 90, "color": "red" }
+          ]
+        }
+      },
+      "overrides": []
               }
             }
           },
@@ -1069,7 +983,7 @@
   "spec": {
     "id": 11,
     "title": "Disk Usage — EC2",
-    "description": "Espace disque utilisé sur l'EC2",
+    "description": "Pourcentage d'espace disque utilisé sur l'EC2",
     "links": [],
     "data": {
       "kind": "QueryGroup",
@@ -1082,14 +996,11 @@
                 "kind": "DataQuery",
                 "group": "",
                 "version": "v0",
-                "datasource": {
-                  "name": "prometheus"
-                },
+                "datasource": { "name": "prometheus" },
                 "spec": {
-                  "expr": "node_filesystem_size_bytes - node_filesystem_avail_bytes",
+                  "expr": "(1 - node_filesystem_avail_bytes{mountpoint=\"/\"} / node_filesystem_size_bytes{mountpoint=\"/\"}) * 100",
                   "intervalFactor": 2,
                   "legendFormat": "{{mountpoint}}",
-                  "metric": "node_filesystem_size_bytes",
                   "step": 30
                 }
               },
@@ -1104,15 +1015,29 @@
     },
     "vizConfig": {
       "kind": "VizConfig",
-      "group": "timeseries",
+      "group": "gauge",
       "version": "",
       "spec": {
-        "options": {},
+        "options": {
+          "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+          "orientation": "auto",
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
         "fieldConfig": {
           "defaults": {
-            "unit": "bytes",
+            "unit": "percent",
             "min": 0,
-            "decimals": 2
+            "max": 100,
+            "decimals": 1,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                { "value": null, "color": "green" },
+                { "value": 75, "color": "orange" },
+                { "value": 90, "color": "red" }
+              ]
+            }
           },
           "overrides": []
         }
@@ -1322,9 +1247,7 @@
                 "kind": "DataQuery",
                 "group": "",
                 "version": "v0",
-                "datasource": {
-                  "name": "prometheus"
-                },
+                "datasource": { "name": "prometheus" },
                 "spec": {
                   "expr": "sum(rate(container_network_receive_errors_total[5m]))",
                   "intervalFactor": 2,
@@ -1342,81 +1265,36 @@
       }
     },
     "vizConfig": {
-            "kind": "VizConfig",
-            "group": "stat",
-            "version": "",
-            "spec": {
-              "options": {
-                "__angularMigration": {
-                  "autoMigrateFrom": "singlestat",
-                  "originalOptions": {
-                    "colorBackground": false,
-                    "colorValue": false,
-                    "colors": [
-                      "rgba(245, 54, 54, 0.9)",
-                      "rgba(237, 129, 40, 0.89)",
-                      "rgba(50, 172, 45, 0.97)"
-                    ],
-                    "editable": true,
-                    "error": false,
-                    "format": "mbytes",
-                    "gauge": {
-                      "maxValue": 100,
-                      "minValue": 0,
-                      "show": false,
-                      "thresholdLabels": false,
-                      "thresholdMarkers": true
-                    },
-                    "height": "20",
-                    "mappingType": 1,
-                    "mappingTypes": [
-                      {
-                        "name": "value to text",
-                        "value": 1
-                      },
-                      {
-                        "name": "range to text",
-                        "value": 2
-                      }
-                    ],
-                    "nullPointMode": "connected",
-                    "postfix": "",
-                    "postfixFontSize": "50%",
-                    "prefix": "",
-                    "prefixFontSize": "50%",
-                    "rangeMaps": [
-                      {
-                        "from": "null",
-                        "text": "N/A",
-                        "to": "null"
-                      }
-                    ],
-                    "sparkline": {
-                      "fillColor": "rgba(31, 118, 189, 0.18)",
-                      "full": false,
-                      "lineColor": "rgb(31, 120, 193)",
-                      "show": false
-                    },
-                    "thresholds": "",
-                    "valueFontSize": "80%",
-                    "valueMaps": [
-                      {
-                        "op": "=",
-                        "text": "N/A",
-                        "value": "null"
-                      }
-                    ],
-                    "valueName": "current"
-                  }
-                }
-              },
-              "fieldConfig": {
-                "defaults": {},
-                "overrides": []
-              }
+      "kind": "VizConfig",
+      "group": "stat",
+      "version": "",
+      "spec": {
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+          "textMode": "auto"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "decimals": 2,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                { "value": null, "color": "green" },
+                { "value": 0.01, "color": "red" }
+              ]
             }
           },
-          "transparent":true
+          "overrides": []
+        }
+      }
+    },
+    "transparent": true
   }
 },
 
@@ -1438,9 +1316,7 @@
                 "kind": "DataQuery",
                 "group": "",
                 "version": "v0",
-                "datasource": {
-                  "name": "prometheus"
-                },
+                "datasource": { "name": "prometheus" },
                 "spec": {
                   "expr": "sum(rate(container_network_receive_packets_dropped_total[5m]))",
                   "intervalFactor": 2,
@@ -1458,83 +1334,39 @@
       }
     },
     "vizConfig": {
-            "kind": "VizConfig",
-            "group": "stat",
-            "version": "",
-            "spec": {
-              "options": {
-                "__angularMigration": {
-                  "autoMigrateFrom": "singlestat",
-                  "originalOptions": {
-                    "colorBackground": false,
-                    "colorValue": false,
-                    "colors": [
-                      "rgba(245, 54, 54, 0.9)",
-                      "rgba(237, 129, 40, 0.89)",
-                      "rgba(50, 172, 45, 0.97)"
-                    ],
-                    "editable": true,
-                    "error": false,
-                    "format": "mbytes",
-                    "gauge": {
-                      "maxValue": 100,
-                      "minValue": 0,
-                      "show": false,
-                      "thresholdLabels": false,
-                      "thresholdMarkers": true
-                    },
-                    "height": "20",
-                    "mappingType": 1,
-                    "mappingTypes": [
-                      {
-                        "name": "value to text",
-                        "value": 1
-                      },
-                      {
-                        "name": "range to text",
-                        "value": 2
-                      }
-                    ],
-                    "nullPointMode": "connected",
-                    "postfix": "",
-                    "postfixFontSize": "50%",
-                    "prefix": "",
-                    "prefixFontSize": "50%",
-                    "rangeMaps": [
-                      {
-                        "from": "null",
-                        "text": "N/A",
-                        "to": "null"
-                      }
-                    ],
-                    "sparkline": {
-                      "fillColor": "rgba(31, 118, 189, 0.18)",
-                      "full": false,
-                      "lineColor": "rgb(31, 120, 193)",
-                      "show": false
-                    },
-                    "thresholds": "",
-                    "valueFontSize": "80%",
-                    "valueMaps": [
-                      {
-                        "op": "=",
-                        "text": "N/A",
-                        "value": "null"
-                      }
-                    ],
-                    "valueName": "current"
-                  }
-                }
-              },
-              "fieldConfig": {
-                "defaults": {},
-                "overrides": []
-              }
+      "kind": "VizConfig",
+      "group": "stat",
+      "version": "",
+      "spec": {
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+          "textMode": "auto"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "decimals": 2,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                { "value": null, "color": "green" },
+                { "value": 0.01, "color": "red" }
+              ]
             }
           },
-          "transparent": true
+          "overrides": []
+        }
+      }
+    },
+    "transparent": true
   }
 },
+
 "panel-19": {
   "kind": "Panel",
   "spec": {
@@ -1621,230 +1453,31 @@
     "layout": {
       "kind": "GridLayout",
       "spec": {
-        "items": [
-          {
-            "kind": "GridLayoutItem",
-            "spec": {
-              "x": 0,
-              "y": 0,
-              "width": 5,
-              "height": 3,
-              "element": {
-                "kind": "ElementReference",
-                "name": "panel-7"
-              }
-            }
-          },
-          {
-            "kind": "GridLayoutItem",
-            "spec": {
-              "x": 5,
-              "y": 0,
-              "width": 5,
-              "height": 3,
-              "element": {
-                "kind": "ElementReference",
-                "name": "panel-5"
-              }
-            }
-          },
-          {
-            "kind": "GridLayoutItem",
-            "spec": {
-              "x": 10,
-              "y": 0,
-              "width": 5,
-              "height": 3,
-              "element": {
-                "kind": "ElementReference",
-                "name": "panel-6"
-              }
-            }
-          },
-          {
-            "kind": "GridLayoutItem",
-            "spec": {
-              "x": 15,
-              "y": 0,
-              "width": 5,
-              "height": 3,
-              "element": {
-                "kind": "ElementReference",
-                "name": "panel-8"
-              }
-            }
-          },
-          {
-            "kind": "GridLayoutItem",
-            "spec": {
-              "x": 0,
-              "y": 3,
-              "width": 24,
-              "height": 7,
-              "element": {
-                "kind": "ElementReference",
-                "name": "panel-2"
-              }
-            }
-          },
-          {
-            "kind": "GridLayoutItem",
-            "spec": {
-              "x": 0,
-              "y": 10,
-              "width": 24,
-              "height": 7,
-              "element": {
-                "kind": "ElementReference",
-                "name": "panel-1"
-              }
-            }
-          },
-          {
-            "kind": "GridLayoutItem",
-            "spec": {
-              "x": 0,
-              "y": 17,
-              "width": 12,
-              "height": 7,
-              "element": {
-                "kind": "ElementReference",
-                "name": "panel-3"
-              }
-            }
-          },
-          {
-            "kind": "GridLayoutItem",
-            "spec": {
-              "x": 12,
-              "y": 17,
-              "width": 12,
-              "height": 7,
-              "element": {
-                "kind": "ElementReference",
-                "name": "panel-4"
-              }
-            }
-          },
-        {
-          "kind": "GridLayoutItem",
-          "spec": {
-            "x": 0,
-            "y": 24,
-            "width": 12,
-            "height": 7,
-            "element": {
-              "kind": "ElementReference",
-              "name": "panel-9"
-            }
-          }
-        },
-        {
-          "kind": "GridLayoutItem",
-          "spec": {
-            "x": 12,
-            "y": 24,
-            "width": 12,
-            "height": 7,
-            "element": {
-              "kind": "ElementReference",
-              "name": "panel-10"
-            }
-          }
-        },
-        {
-          "kind": "GridLayoutItem",
-          "spec": {
-            "x": 0,
-            "y": 31,
-            "width": 12,
-            "height": 7,
-            "element": {
-              "kind": "ElementReference",
-              "name": "panel-11"
-            }
-          }
-        },
-      
-{
-  "kind": "GridLayoutItem",
-  "spec": {
-    "x": 0,
-    "y": 38,
-    "width": 12,
-    "height": 7,
-    "element": {
-      "kind": "ElementReference",
-      "name": "panel-13"
-    }
-  }
-},
-{
-  "kind": "GridLayoutItem",
-  "spec": {
-    "x": 0,
-    "y": 59,
-    "width": 24,
-    "height": 7,
-    "element": {
-      "kind": "ElementReference",
-      "name": "panel-15"
-    }
-  }
-},
-{
-  "kind": "GridLayoutItem",
-  "spec": {
-    "x": 12,
-    "y": 52,
-    "width": 12,
-    "height": 7,
-    "element": {
-      "kind": "ElementReference",
-      "name": "panel-16"
-    }
-  }
-},
-{
-  "kind": "GridLayoutItem",
-  "spec": {
-    "x": 0,
-    "y": 52,
-    "width": 12,
-    "height": 7,
-    "element": {
-      "kind": "ElementReference",
-      "name": "panel-17"
-    }
-  }
-},
-{
-  "kind": "GridLayoutItem",
-  "spec": {
-    "x": 12,
-    "y": 52,
-    "width": 12,
-    "height": 7,
-    "element": {
-      "kind": "ElementReference",
-      "name": "panel-18"
-    }
-  }
-},
-{
-  "kind": "GridLayoutItem",
-  "spec": {
-    "x": 20,
-    "y": 0,
-    "width": 4,
-    "height": 3,
-    "element": {
-      "kind": "ElementReference",
-      "name": "panel-19"
-    }
-  }
-}
-        ]
+        "items": [{ 
+          "kind": "GridLayoutItem", "spec": { "x": 0,  "y": 0,  "width": 5,  "height": 3, "element": { "kind": "ElementReference", "name": "panel-7" } } },
+        { "kind": "GridLayoutItem", "spec": { "x": 5,  "y": 0,  "width": 5,  "height": 3, "element": { "kind": "ElementReference", "name": "panel-5" } } },
+        { "kind": "GridLayoutItem", "spec": { "x": 10, "y": 0,  "width": 5,  "height": 3, "element": { "kind": "ElementReference", "name": "panel-6" } } },
+        { "kind": "GridLayoutItem", "spec": { "x": 15, "y": 0,  "width": 5,  "height": 3, "element": { "kind": "ElementReference", "name": "panel-8" } } },
+        { "kind": "GridLayoutItem", "spec": { "x": 20, "y": 0,  "width": 4,  "height": 3, "element": { "kind": "ElementReference", "name": "panel-19" } } },
+
+        { "kind": "GridLayoutItem", "spec": { "x": 0,  "y": 3,  "width": 24, "height": 7, "element": { "kind": "ElementReference", "name": "panel-2" } } },
+        { "kind": "GridLayoutItem", "spec": { "x": 0,  "y": 10, "width": 24, "height": 7, "element": { "kind": "ElementReference", "name": "panel-1" } } },
+
+        { "kind": "GridLayoutItem", "spec": { "x": 0,  "y": 17, "width": 12, "height": 7, "element": { "kind": "ElementReference", "name": "panel-3" } } },
+        { "kind": "GridLayoutItem", "spec": { "x": 12, "y": 17, "width": 12, "height": 7, "element": { "kind": "ElementReference", "name": "panel-4" } } },
+
+        { "kind": "GridLayoutItem", "spec": { "x": 0,  "y": 24, "width": 12, "height": 7, "element": { "kind": "ElementReference", "name": "panel-9" } } },
+        { "kind": "GridLayoutItem", "spec": { "x": 12, "y": 24, "width": 12, "height": 7, "element": { "kind": "ElementReference", "name": "panel-10" } } },
+
+        { "kind": "GridLayoutItem", "spec": { "x": 0,  "y": 31, "width": 24, "height": 7, "element": { "kind": "ElementReference", "name": "panel-13" } } },
+
+        { "kind": "GridLayoutItem", "spec": { "x": 0,  "y": 38, "width": 12, "height": 7, "element": { "kind": "ElementReference", "name": "panel-17" } } },
+        { "kind": "GridLayoutItem", "spec": { "x": 12, "y": 38, "width": 12, "height": 7, "element": { "kind": "ElementReference", "name": "panel-18" } } },
+
+        { "kind": "GridLayoutItem", "spec": { "x": 0,  "y": 45, "width": 12, "height": 7, "element": { "kind": "ElementReference", "name": "panel-11" } } },
+        { "kind": "GridLayoutItem", "spec": { "x": 12, "y": 45, "width": 12, "height": 7, "element": { "kind": "ElementReference", "name": "panel-16" } } },
+
+        { "kind": "GridLayoutItem", "spec": { "x": 0,  "y": 52, "width": 24, "height": 7, "element": { "kind": "ElementReference", "name": "panel-15" } } }]
       }
     },
     "links": [],
