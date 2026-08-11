@@ -1389,7 +1389,7 @@
                   "name": "prometheus"
                 },
                 "spec": {
-                  "expr": "sum(changes(container_start_time_seconds{id=~\"/docker/.*\"}[3m]))",
+                  "expr": "sum(changes(container_start_time_seconds{name!=\"\"}[3m]))",
                   "intervalFactor": 2,
                   "legendFormat": "",
                   "metric": "container_start_time_seconds",
