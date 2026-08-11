@@ -1,14 +1,24 @@
-version: "3.9"
-
 services:
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
+    restart: unless-stopped
     ports:
       - "9090:9090"
+    command:
+    - '--config.file=/etc/prometheus/prometheus.yml'
+    - '--storage.tsdb.path=/prometheus'
+    - '--storage.tsdb.retention.time=15d'
+    - '--storage.tsdb.retention.size=5GB'
     volumes:
+      - prometheus-data:/prometheus 
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - ./prometheus/rules:/etc/prometheus/rules:ro
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:9090/-/healthy"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
     networks:
       - monitoring-network
 
@@ -23,13 +33,19 @@ services:
     - GF_SECURITY_ALLOW_EMBEDDING=false
     - GF_SECURITY_COOKIE_SAMESITE=lax
     - GF_AUTH_ANONYMOUS_ENABLED=false
+    restart: unless-stopped
     volumes:
       - grafana-data:/var/lib/grafana
       - ./grafana/provisioning:/etc/grafana/provisioning
       - ./grafana/dashboards:/var/lib/grafana/dashboards
-
     depends_on:
-      - prometheus
+      prometheus:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:3000/api/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
     networks:
       - monitoring-network
 
@@ -54,6 +70,7 @@ services:
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
     container_name: cadvisor
+    restart: unless-stopped
     ports:
       - "18080:8080"
     privileged: true
@@ -69,6 +86,7 @@ services:
   alertmanager:
     image: prom/alertmanager:latest
     container_name: alertmanager
+    restart: unless-stopped
     ports:
       - "9093:9093"
     volumes:
@@ -77,6 +95,7 @@ services:
       - monitoring-network
 
 volumes:
+  prometheus-data:
   grafana-data:
 
 networks:
