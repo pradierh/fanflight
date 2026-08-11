@@ -179,9 +179,9 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "sum(rate(container_cpu_usage_seconds_total{id=~'/docker/.*'}[5m])) by (id) * 100",
+                        "expr": "sum(rate(container_cpu_usage_seconds_total{name!=\"\"}[5m])) by (name) * 100",
                         "intervalFactor": 2,
-                        "legendFormat": "{{id}}",
+                        "legendFormat": "{{name}}",
                         "metric": "cpu",
                         "step": 10
                       }
@@ -291,7 +291,7 @@
                       "spec": {
                         "expr": "irate(container_network_receive_bytes_total[5m])",
                         "intervalFactor": 2,
-                        "legendFormat": "{{id}}",
+                        "legendFormat": "{{name}}",
                         "metric": "container_network_receive_bytes_total",
                         "step": 20
                       }
@@ -396,9 +396,9 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "irate(container_network_transmit_bytes_total[5m])",
+                        "expr": "irate(container_network_transmit_bytes_total{name!=\"\"}[5m])",
                         "intervalFactor": 2,
-                        "legendFormat": "{{id}}",
+                        "legendFormat": "{{name}}",
                         "step": 20
                       }
                     },
@@ -736,7 +736,7 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "count(container_memory_usage_bytes{id=~\"/docker/.*\"})",
+                        "expr": "count(container_memory_usage_bytes{name!=\"\"})",
                         "intervalFactor": 2,
                         "legendFormat": "",
                         "metric": "container_memory_usage_bytes",
@@ -854,7 +854,7 @@
                         "name": "prometheus"
                       },
                       "spec": {
-                        "expr": "sum(rate(container_cpu_usage_seconds_total{id=~'/docker/.*'}[5m])) * 100",
+                        "expr": "sum(rate(container_cpu_usage_seconds_total{name!=\"\"}[5m])) * 100",
                         "intervalFactor": 2,
                         "legendFormat": "",
                         "metric": "cpu_total",
@@ -973,9 +973,9 @@
                   "name": "prometheus"
                 },
                 "spec": {
-                  "expr": "sum(rate(container_fs_reads_bytes_total{id=~'/docker/.*'}[5m])) by (id)",
+                  "expr": "sum(rate(container_fs_reads_bytes_total{name!=\"\"}[5m])) by (id)",
                   "intervalFactor": 2,
-                  "legendFormat": "{{id}}",
+                  "legendFormat": "{{name}}",
                   "metric": "container_fs_reads_bytes_total",
                   "step": 10
                 }
@@ -1029,9 +1029,9 @@
                   "name": "prometheus"
                 },
                 "spec": {
-                  "expr": "sum(rate(container_fs_writes_bytes_total{id=~'/docker/.*'}[5m])) by (id)",
+                  "expr": "sum(rate(container_fs_writes_bytes_total{name!=\"\"}[5m])) by (id)",
                   "intervalFactor": 2,
-                  "legendFormat": "{{id}}",
+                  "legendFormat": "{{name}}",
                   "metric": "container_fs_writes_bytes_total",
                   "step": 10
                 }
@@ -1143,9 +1143,9 @@
                   "name": "prometheus"
                 },
                 "spec": {
-                  "expr": "changes(container_start_time_seconds{id=~'/docker/.*'}[1h])",
+                  "expr": "changes(container_start_time_seconds{name!=\"\"}[1h])",
                   "intervalFactor": 2,
-                  "legendFormat": "{{id}}",
+                  "legendFormat": "{{name}}",
                   "step": 30
                 }
               },
