@@ -789,23 +789,22 @@ Les sept dossiers listés sous GitHub dans la figure~\ref{fig:cicd} (\emph{Front
 
 \subsection{Présentation et objectif}
 
-En complément du socle applicatif, Emy Regna a conçu et déployé, sur une branche dédiée (\code{monitoring-emy}) désormais fusionnée dans la branche principale, une chaîne d'observabilité complète de l'infrastructure FanFlight : supervision système, applicative et réseau, restituée dans un tableau de bord Grafana unique. Ce travail démontre concrètement le volet « monitoring » de la compétence BC03 « Automatiser le déploiement de nouvelles versions de la solution et son monitoring ».
+En complément du socle applicatif, Emy Regna a conçu et déployé, sur une branche dédiée (\code{monitoring-emy}) désormais fusionnée dans la branche principale, une chaîne d'observabilité complète de l'infrastructure FanFlight : supervision système, applicative et réseau, restituée dans trois tableaux de bord Grafana complémentaires (cf. section~\ref{sec:grafana-dashboards}). Ce travail démontre concrètement le volet « monitoring » de la compétence BC03 « Automatiser le déploiement de nouvelles versions de la solution et son monitoring ».
 
 \subsection{Une chaîne de collecte à plusieurs niveaux}
 
-La stack repose sur Prometheus comme collecteur central (scrutation toutes les 15 secondes), alimenté par six sources complémentaires, chacune couvrant un niveau différent de l'infrastructure :
+La stack repose sur Prometheus comme collecteur central (scrutation toutes les 15 secondes), alimenté par cinq sources complémentaires, chacune couvrant un niveau différent de l'infrastructure :
 
 \begin{itemize}
-  \item \textbf{node-exporter} : métriques système de l'hôte (CPU, mémoire, disque) de l'instance EC2 de production ;
-  \item \textbf{cAdvisor} : métriques par conteneur (CPU, mémoire), nécessitant un accès privilégié en lecture au socket Docker et au système de fichiers hôte ;
+  \item \textbf{\code{/metrics} natif de l'API} : \code{prometheus\_fastapi\_instrumentator} instrumente directement le code FastAPI pour exposer, par route, le nombre de requêtes, leur latence et la taille des réponses -- une métrique \emph{interne} à l'application ;
+  \item \textbf{node-exporter} : métriques système de l'hôte (CPU, mémoire, disque, réseau) de l'instance EC2 de production ;
+  \item \textbf{cAdvisor} : métriques par conteneur (CPU, mémoire, réseau, I/O disque), nécessitant un accès privilégié en lecture au socket Docker et au système de fichiers hôte ;
   \item \textbf{postgres-exporter} : métriques internes de la base PostgreSQL, connecté via la même chaîne de connexion applicative que l'API ;
-  \item \textbf{Blackbox Exporter} : \emph{health-checks} HTTP actifs sur le frontend et la route \code{/ready} de l'API -- une sonde \emph{externe} qui vérifie la disponibilité du service sans en connaître le détail interne ;
-  \item \textbf{\code{/metrics} natif de l'API} : à la différence de la sonde Blackbox, \code{prometheus\_fastapi\_instrumentator} instrumente directement le code FastAPI pour exposer, par route, le nombre de requêtes et leur latence -- une métrique \emph{interne}, complémentaire du simple constat de disponibilité ;
-  \item \textbf{Prometheus lui-même} : auto-supervision de sa propre disponibilité.
+  \item \textbf{Blackbox Exporter} : \emph{health-checks} HTTP actifs sur le frontend et la route \code{/ready} de l'API -- une sonde \emph{externe} qui vérifie la disponibilité du service sans en connaître le détail interne, complémentaire du \code{/metrics} natif.
 \end{itemize}
 
 \begin{lstlisting}[caption={\code{monitoring/prometheus/prometheus.yml} -- health-checks HTTP via Blackbox Exporter}]
-- job_name: service-health
+- job_name: blackbox-http
   metrics_path: /probe
   params:
     module: [http_2xx]
@@ -822,30 +821,75 @@ La stack repose sur Prometheus comme collecteur central (scrutation toutes les 1
       replacement: blackbox-exporter:9115
 \end{lstlisting}
 
+Un module Alertmanager, référencé par Prometheus via \code{rule\_files}, complète cette chaîne de collecte avec des règles d'alerte concrètes portant sur l'indisponibilité de l'API, un taux d'erreurs HTTP 5xx élevé, une latence p95 dégradée et une consommation mémoire excessive du service \code{backend-api}.
+
 Cette configuration illustre un motif classique de Blackbox Exporter : les cibles à sonder sont déclarées comme de simples URLs, puis réaffectées (\emph{relabeling}) pour être effectivement interrogées via l'exporter plutôt que directement -- Prometheus scrute ainsi la disponibilité de chaque service applicatif sans que celui-ci ait besoin d'exposer lui-même un point de métrique dédié.
 
-\subsection{Restitution : un tableau de bord Grafana provisionné}
+\subsection{Restitution : trois tableaux de bord Grafana provisionnés}
+\label{sec:grafana-dashboards}
 
-Grafana est connecté à Prometheus via une source de données provisionnée automatiquement au démarrage (fichier YAML, sans configuration manuelle dans l'interface), de même que le tableau de bord \emph{FanFlight Overview}, dont les sept panneaux couvrent les trois niveaux de supervision de la stack :
+Grafana est connecté à Prometheus via une source de données provisionnée automatiquement au démarrage (fichier YAML, sans configuration manuelle dans l'interface), de même que trois tableaux de bord, chacun couvrant un niveau distinct de la stack : \emph{Fanflight -- Métriques applicatives} (niveau applicatif, conçu spécifiquement pour FanFlight), \emph{Docker monitoring} (niveau conteneur et hôte, également conçu pour ce projet) et \emph{Node Exporter Full} (niveau système, importé depuis la bibliothèque de tableaux de bord communautaires Grafana.com).
 
-\begin{longtable}{p{4.2cm}p{4cm}p{5cm}}
-\toprule
-\textbf{Panneau} & \textbf{Niveau} & \textbf{Source} \\
-\midrule
-\endhead
-Service Health Checks & Applicatif & Blackbox Exporter (\code{/probe}) \\
-HTTP Probe Duration & Applicatif & Blackbox Exporter \\
-Exporter Health & Infrastructure de monitoring & Prometheus (\emph{self-scrape} de chaque exporter) \\
-EC2 CPU Usage & Système (hôte) & node-exporter \\
-EC2 Memory Usage & Système (hôte) & node-exporter \\
-EC2 Root Disk Usage & Système (hôte) & node-exporter \\
-Container CPU Usage & Conteneur & cAdvisor \\
-\bottomrule
-\end{longtable}
+\subsubsection{Fanflight -- Métriques applicatives}
+
+Ce tableau de bord restitue directement les métriques exposées par \code{prometheus\_fastapi\_instrumentator} : taux de requêtes global et par route, taux d'erreurs 5xx, latences p50/p95/p99 (globales et par \emph{endpoint}), taille moyenne des réponses, et consommation mémoire/CPU du processus API.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{img/grafana-app-metrics-1.png}
+\caption{Fanflight -- Métriques applicatives : vue d'ensemble et trafic par \emph{endpoint}}
+\label{fig:grafana-app-1}
+\end{figure}
+
+Sur la capture de la figure~\ref{fig:grafana-app-1}, prise sur l'environnement de recette, le trafic est volontairement synthétique (0,2 requête/s, générée par des appels de test) mais illustre le fonctionnement réel du tableau de bord : un taux d'erreurs 5xx à « No data » signifie qu'aucune erreur serveur n'a été observée sur la fenêtre considérée -- l'absence de donnée est ici une bonne nouvelle plutôt qu'un défaut de collecte -- et la latence p95 globale s'établit à 23,8~ms.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{img/grafana-app-metrics-2.png}
+\caption{Fanflight -- Métriques applicatives : latences p50/p95/p99 globales et par \emph{endpoint}}
+\label{fig:grafana-app-2}
+\end{figure}
+
+La figure~\ref{fig:grafana-app-2} détaille la distribution de latence : p50 à 13,2~ms, p95 à 27,5~ms (51,9~ms au pic), p99 à 50,3~ms (165~ms au pic) sur la fenêtre observée, avec un panneau dédié permettant d'identifier quel \emph{endpoint} (\code{/api/cities}, \code{/api/flights/\{match\_id\}}, \code{/api/matches}) contribue le plus à la queue de latence -- un niveau de granularité qui dépasse largement le simple \emph{health-check} de Blackbox Exporter.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{img/grafana-app-metrics-3.png}
+\caption{Fanflight -- Métriques applicatives : taille des réponses et mémoire/CPU par processus}
+\label{fig:grafana-app-3}
+\end{figure}
+
+Le dernier panneau (figure~\ref{fig:grafana-app-3}) va jusqu'à mesurer la latence des routes d'exploitation elles-mêmes (\code{/metrics} à 2,82~ms, \code{/ready} à 10,5~ms dans l'infobulle affichée), et suit la taille moyenne des réponses par route (jusqu'à 12~Kio) ainsi que la mémoire résidente et le CPU de chaque processus applicatif -- une instrumentation fine qui permettrait, par exemple, de détecter une fuite mémoire progressive avant qu'elle ne cause un incident.
+
+\subsubsection{Node Exporter Full}
+
+Plutôt que de redévelopper un tableau de bord système from scratch, l'équipe a importé \emph{Node Exporter Full}, le tableau de bord communautaire de référence pour node-exporter (plusieurs dizaines de panneaux couvrant CPU, mémoire, disque, réseau et processus) -- un choix pragmatique qui illustre la compétence de veille technologique déjà mobilisée par ailleurs dans le projet.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{img/grafana-node-exporter-1.png}
+\caption{Node Exporter Full : vue de synthèse CPU/mémoire/disque de l'instance EC2 de production}
+\label{fig:grafana-node-1}
+\end{figure}
+
+La capture de la figure~\ref{fig:grafana-node-1}, prise directement sur l'instance EC2 de production, montre des chiffres réels d'exploitation : une disponibilité de 17,9 semaines sans interruption, 2 cœurs CPU, un usage disque racine à 86,5~\% (29~Gio au total) et une charge système (\emph{load average}) rapportée à 176,5~\% -- une valeur à surveiller qui dépasse la capacité nominale de la machine et qui constitue un signal concret pour les préconisations de dimensionnement de la section~\ref{sec:preconisations}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{img/grafana-node-exporter-2.png}
+\caption{Node Exporter Full : liste des sections disponibles (mémoire, réseau, stockage, processus)}
+\label{fig:grafana-node-2}
+\end{figure}
+
+La figure~\ref{fig:grafana-node-2} donne un aperçu de l'exhaustivité du tableau de bord importé : au-delà de la vue de synthèse, il expose des sections dépliables dédiées à la mémoire détaillée, à la synchronisation temporelle, aux processus système, au stockage (disque et système de fichiers) et au réseau (trafic, sockets, \emph{netstat}) -- une profondeur d'analyse qu'il aurait été disproportionné de reconstruire manuellement pour ce projet.
+
+\subsubsection{Docker monitoring}
+
+Un troisième tableau de bord, \emph{Docker monitoring}, comble l'angle mort laissé par les deux précédents : la consommation par conteneur individuel (mémoire, CPU, réseau, I/O disque, nombre de redémarrages) plutôt que par processus applicatif ou par hôte global. Il combine des panneaux par conteneur (\emph{Memory Usage -- Containers}, \emph{CPU Usage -- Containers}, \emph{Network Rx/Tx -- Containers}, \emph{Disk Read/Write I/O -- Containers}, \emph{Container Restarts}) avec des panneaux de synthèse au niveau de l'hôte (\emph{Total CPU/Memory Usage -- EC2}, \emph{EC2 Load Average}, \emph{Disk Usage -- EC2}), permettant de relier directement une dérive de ressource observée au niveau système à un conteneur précis.
 
 \subsection{Intégration au déploiement}
 
-La chaîne d'observabilité est packagée dans \code{docker-compose.local.yml} pour les tests, et son déploiement en production est intégré au workflow GitHub Actions : les fichiers de configuration sont copiés vers \code{/opt/fanflight/monitoring/} sur l'instance EC2, et les identifiants d'administration Grafana sont paramétrables par variable d'environnement plutôt que codés en dur. Un module Alertmanager complète désormais cette chaîne, avec des règles d'alerte concrètes sur l'indisponibilité de l'API, un taux d'erreurs HTTP 5xx élevé, une latence p95 dégradée et une consommation mémoire excessive du service \code{backend-api}.
+La chaîne d'observabilité est packagée dans \code{docker-compose.local.yml} pour les tests, et son déploiement en production est intégré au workflow GitHub Actions : les fichiers de configuration (Prometheus, Alertmanager, provisioning Grafana et les trois définitions de tableaux de bord) sont copiés vers \code{/opt/fanflight/monitoring/} sur l'instance EC2, et les identifiants d'administration Grafana sont paramétrables par variable d'environnement plutôt que codés en dur.
 
 \section{Extension Machine Learning : prédiction de retard de vol}
 \label{sec:ml}
@@ -1010,7 +1054,7 @@ Le projet FanFlight visait à démontrer la maîtrise d'une démarche data engin
 \textbf{Court terme :}
 \begin{itemize}
   \item désormais que l'extension machine learning et la chaîne d'observabilité Prometheus/Grafana sont fusionnées dans la branche principale, déplacer les artefacts volumineux qu'elles ont introduits (jeux de données BTS, modèles) hors du dépôt Git vers un stockage dédié (versionnement de données, stockage objet), et revalider à cette occasion les fonctionnalités documentées mais perdues en cours de fusion (registre \code{QUERIED_ROUTES}) ;
-  \item configurer des règles d'alerte Prometheus (Alertmanager) sur les métriques déjà collectées par Emy Regna (indisponibilité d'un service, saturation CPU/mémoire de l'instance EC2), pour transformer la supervision existante, aujourd'hui consultée manuellement dans Grafana, en une détection proactive des incidents ;
+  \item étendre les règles d'alerte Alertmanager déjà en place (indisponibilité API, erreurs 5xx, latence, mémoire) à la charge système de l'instance EC2 : le tableau de bord \emph{Node Exporter Full} y a fait apparaître une charge (\emph{load average}) rapportée à 176,5~\%, au-delà de la capacité nominale de la machine à 2 cœurs (cf. section~\ref{sec:grafana-dashboards}), ce qui justifie une alerte dédiée plutôt qu'une simple observation manuelle ;
   \item faire tourner le conteneur API avec un utilisateur non privilégié, à l'image de ce qui est déjà fait pour le frontend ;
   \item ajouter la contrainte de clé étrangère entre \code{FACT_FLIGHT} et \code{DIM_AIRPORT} une fois \code{enrich_airports} déplacé avant le chargement des vols, pour que l'intégrité référentielle soit garantie par PostgreSQL plutôt que par la seule discipline applicative ;
   \item sécuriser les identifiants par défaut actuellement présents dans le code (mots de passe de secours codés en dur), au profit d'une gestion de secrets systématique.
