@@ -43,3 +43,23 @@ groups:
         annotations:
           summary: "Mémoire résidente élevée"
           description: "L'API consomme plus de 500MB de RAM depuis 10 minutes."
+
+  - name: fanflight-containers
+    rules:
+      - alert: ContainerDown
+        expr: (time() - container_last_seen{name!=""}) > 60
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Le conteneur {{ $labels.name }} est down"
+          description: "Le conteneur {{ $labels.name }} n'a plus été vu par cAdvisor depuis plus d'1 minute (arrêté ou crashé)."
+
+      - alert: ContainerRestartingLoop
+        expr: sum(changes(container_start_time_seconds{name!=""}[15m])) by (name) > 3
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Le conteneur {{ $labels.name }} redémarre en boucle"
+          description: "Le conteneur {{ $labels.name }} a redémarré plus de 3 fois au cours des 15 dernières minutes."
