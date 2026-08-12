@@ -24,8 +24,8 @@ Le projet separe proprement l'entrainement (passe observe) de l'inference
 
 ```
 fanflight/
-├── docker-compose.yml
-├── docker-compose.local.yml       # variante images pre-buildees + frontend
+├── docker-compose.yml             # source de verite unique (local ET prod)
+├── docker-compose.override.yml    # charge auto en local : build + bind-mounts source
 ├── .env
 ├── API/
 │   ├── main.py                    # API + chargement modele + prediction + cache
@@ -65,8 +65,15 @@ fanflight/
 docker compose up -d
 docker compose ps   # attendre que postgres soit healthy
 ```
-Lance : Postgres, Spark (master et worker), API FastAPI, MLflow, conteneur ML
-(dormant).
+Lance : Postgres, API FastAPI, frontend, MLflow, conteneur ML (dormant).
+`docker-compose.override.yml` est charge automatiquement (build depuis le
+code source + montage `./API`, `./data-pipeline/ml` pour l'auto-reload).
+
+Pour tester en plus la pile de monitoring (Prometheus, Grafana, Alertmanager,
+exporters) et Watchtower, memes services qu'en production :
+```bash
+docker compose --profile prod up -d
+```
 
 ### 2. Creer la base MLflow (une seule fois)
 ```bash

@@ -1,0 +1,28 @@
+# Chargé automatiquement par `docker compose` quand aucune option -f
+# n'est passée (convention Compose). Rajoute uniquement ce qui sert au
+# développement local : build depuis les Dockerfile + montage du code
+# source pour l'auto-reload. La CI/prod invoque toujours
+# `docker compose -f docker-compose.yml ...` et ignore donc ce fichier.
+services:
+  backend-api:
+    build:
+      context: ./API
+      dockerfile: Dockerfile
+    volumes:
+      - ./API:/app
+      - ${DATA_DIR_HOST:-./data-pipeline/data}:/opt/data
+      - mlflow_artifacts:/mlflow/artifacts
+
+  ml:
+    build:
+      context: ./data-pipeline/ml
+      dockerfile: Dockerfile
+    volumes:
+      - ./data-pipeline/ml:/app
+      - ${DATA_DIR_HOST:-./data-pipeline/data}:/opt/data
+      - mlflow_artifacts:/mlflow/artifacts
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile

@@ -330,11 +330,11 @@ Dans l'extension machine learning, le modèle est versionné et promu au statut 
 
 \subsection{Orchestrer les services de la solution}
 
-Docker Compose orchestre l'ensemble des services : base de données, API, frontend, et -- pour l'extension ML -- serveur MLflow. Les dépendances de démarrage sont explicitées via des conditions \code{depends_on} (par exemple l'API n'accepte des requêtes qu'une fois la base de données déclarée saine par son \emph{healthcheck}).
+Docker Compose orchestre l'ensemble des services : base de données, API, frontend, serveur MLflow et conteneur ML, ainsi que la chaîne de monitoring (section~\ref{sec:monitoring}) et Watchtower. Un unique fichier \code{docker-compose.yml}, versionné à la racine du dépôt, fait office de source de vérité unique pour les deux environnements : c'est exactement ce fichier que le pipeline copie et exécute sur l'instance de production (section~\ref{sec:cicd}), sans transformation intermédiaire. Les dépendances de démarrage sont explicitées via des conditions \code{depends_on} (par exemple l'API n'accepte des requêtes qu'une fois la base de données déclarée saine par son \emph{healthcheck}).
 
 \subsection{Contrôler la mise en production de la solution}
 
-Un fichier \code{docker-compose.local.yml} permet de rejouer, en local, une configuration proche de la production (images pré-construites, mêmes variables d'environnement) avant tout déploiement réel. Le pipeline de déploiement inclut par ailleurs une étape de diagnostic automatique (relevé des journaux des conteneurs \code{postgres} et \code{backend\_api}) en cas d'échec du démarrage des services sur l'instance de production.
+Les quelques différences légitimes entre local et production (port du frontend, restriction des ports de monitoring à \code{127.0.0.1}, activation de Watchtower) sont pilotées par variables d'environnement à valeur par défaut adaptée au développement local, et par un mécanisme de \emph{profils} Docker Compose : les services de monitoring et Watchtower portent le profil \code{prod}, actif uniquement quand la variable \code{COMPOSE_PROFILES=prod} est présente dans le \code{.env} -- ce qui n'est le cas que sur l'instance EC2. Un second fichier, \code{docker-compose.override.yml}, est chargé automatiquement par Compose en local uniquement (il est ignoré dès qu'on invoque explicitement \code{-f docker-compose.yml}, ce que fait le pipeline) : il ajoute les instructions \code{build} et les montages du code source nécessaires au \emph{hot-reload} pendant le développement, sans jamais concerner la production, qui ne consomme que des images publiées sur Docker Hub. Le pipeline de déploiement inclut par ailleurs une étape de diagnostic automatique (relevé des journaux des conteneurs \code{postgres} et \code{backend\_api}) en cas d'échec du démarrage des services sur l'instance de production.
 
 \subsection{Automatiser le déploiement de nouvelles versions et son monitoring}
 
@@ -734,7 +734,7 @@ L'interface repose sur Tailwind CSS 4 pour le style et ne nécessite aucune bibl
 
 \begin{lstlisting}[caption={\code{docker-compose.yml} -- extrait, dépendances de démarrage}]
 backend-api:
-  build: ./API
+  image: ${BACKEND_API_IMAGE:-.../fanflight-backend-api}:${IMAGE_TAG:-latest}
   depends_on:
     db:
       condition: service_healthy
@@ -743,6 +743,17 @@ db:
   image: postgres:17
   healthcheck:
     test: ["CMD-SHELL", "pg_isready -U root -d ${DB_NAME}"]
+\end{lstlisting}
+
+En local, \code{docker-compose.override.yml} (chargé automatiquement, listing~\ref{lst:override}) ajoute l'instruction \code{build} manquante pour reconstruire l'image depuis le code source plutôt que de tirer celle publiée sur Docker Hub :
+
+\begin{lstlisting}[caption={\code{docker-compose.override.yml} -- extrait, build local uniquement}, label={lst:override}]
+backend-api:
+  build:
+    context: ./API
+    dockerfile: Dockerfile
+  volumes:
+    - ./API:/app
 \end{lstlisting}
 
 L'image PostgreSQL est explicitement épinglée en version 17 plutôt que \code{latest} : un changement de version majeure non contrôlé pourrait rendre un volume de données existant incompatible sans migration explicite (\code{pg_upgrade}) -- un risque jugé inacceptable pour une base de production.
@@ -763,7 +774,7 @@ Le workflow GitHub Actions \code{frontend-deploy.yml} se déclenche sur chaque \
 
 \subsection{Déploiement continu : SSH, Docker Compose et Watchtower}
 
-Le second job du workflow se connecte en SSH à l'instance de production, génère un fichier \code{docker-compose.yml} de production (ajoutant un service \code{watchtower} et des étiquettes \code{com.centurylinklabs.watchtower.enable=true} sur chaque service applicatif), puis démarre ou met à jour les services. Watchtower assure ensuite la mise à jour continue des conteneurs en production, en interrogeant Docker Hub toutes les 60 secondes, sans nouvelle intervention du pipeline CI :
+Le second job du workflow copie par \code{scp} le \code{docker-compose.yml} du dépôt (et le dossier \code{monitoring/}) vers \code{/opt/fanflight} sur l'instance de production -- exactement le fichier décrit en~\ref{sec:cicd}, sans génération intermédiaire -- puis se connecte en SSH pour démarrer ou mettre à jour les services avec \code{docker compose -f docker-compose.yml up -d}. La variable \code{COMPOSE_PROFILES=prod}, ajoutée une seule fois dans le \code{.env} de l'instance, active le profil \code{prod} du fichier et démarre ainsi la chaîne de monitoring et le service \code{watchtower}, absents du profil par défaut utilisé en local. Watchtower assure ensuite la mise à jour continue des conteneurs en production, en interrogeant Docker Hub toutes les 60 secondes, sans nouvelle intervention du pipeline CI :
 
 \begin{lstlisting}[caption={Service Watchtower -- mise à jour continue en production}, label={lst:watchtower}]
 watchtower:
@@ -889,7 +900,7 @@ Un troisième tableau de bord, \emph{Docker monitoring}, comble l'angle mort lai
 
 \subsection{Intégration au déploiement}
 
-La chaîne d'observabilité est packagée dans \code{docker-compose.local.yml} pour les tests, et son déploiement en production est intégré au workflow GitHub Actions : les fichiers de configuration (Prometheus, Alertmanager, provisioning Grafana et les trois définitions de tableaux de bord) sont copiés vers \code{/opt/fanflight/monitoring/} sur l'instance EC2, et les identifiants d'administration Grafana sont paramétrables par variable d'environnement plutôt que codés en dur.
+La chaîne d'observabilité est définie dans le \code{docker-compose.yml} unique du projet (section~\ref{sec:cicd}), derrière le profil \code{prod} activé en production et activable à la demande en local (\code{docker compose --profile prod up -d}) pour reproduire la même configuration avant tout déploiement réel. Son déploiement en production est intégré au workflow GitHub Actions : les fichiers de configuration (Prometheus, Alertmanager, provisioning Grafana et les trois définitions de tableaux de bord) sont copiés vers \code{/opt/fanflight/monitoring/} sur l'instance EC2, et les identifiants d'administration Grafana sont paramétrables par variable d'environnement plutôt que codés en dur.
 
 \section{Extension Machine Learning : prédiction de retard de vol}
 \label{sec:ml}

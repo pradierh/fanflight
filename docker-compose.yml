@@ -1,67 +1,37 @@
+name: fanflight
+
 services:
   db:
     image: postgres:17
-    restart: always
     container_name: postgres
-    volumes:
-      - postgres_db:/var/lib/postgresql/data
+    restart: unless-stopped
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_DB=${DB_NAME}
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
       interval: 5s
       timeout: 5s
-      retries: 5
-    networks:
-      - default
-      - monitoring-network
-
-  backend-api:
-    build: ./API
-    container_name: backend_api
-    environment:
-      - MLFLOW_TRACKING_URI=http://mlflow:5000
-    ports:
-      - "8000:8000"
+      retries: 20
+      start_period: 30s
     volumes:
-      - ./API:/app
-      - ./data-pipeline/data:/opt/data
-      - mlflow_artifacts:/mlflow/artifacts
-    env_file:
-      - .env
-    depends_on:
-      db:
-        condition: service_healthy
-      mlflow:
-        condition: service_started
-    networks:
-      - default
-      - monitoring-network
+      - postgres_db:/var/lib/postgresql/data
 
-  frontend:
-    build:
-      context: ./frontend
-    container_name: frontend
-    ports:
-      - "3000:3000"
-    networks:
-      - default
-      - monitoring-network
   # ----------------------------------------------------------------
   # MLflow — serveur de tracking + model registry
-  # UI accessible sur http://localhost:5000
+  # UI accessible sur http://localhost:5001 (local) / tunnel SSH (prod)
   # Backend store : Postgres (même instance, base dédiée mlflow_db)
-  # Artifact store : volume local monté dans le conteneur
+  # Artifact store : volume nommé partagé avec backend-api et ml
   # ----------------------------------------------------------------
   mlflow:
     image: ghcr.io/mlflow/mlflow:v2.13.0
     container_name: mlflow
+    restart: unless-stopped
     ports:
-      - "5001:5000"
+      - "${MLFLOW_PORTS:-5001:5000}"
     environment:
       - MLFLOW_BACKEND_STORE_URI=postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/mlflow_db
       - MLFLOW_DEFAULT_ARTIFACT_ROOT=/mlflow/artifacts
@@ -77,9 +47,34 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    networks:
-      - default
-      - monitoring-network
+
+  backend-api:
+    image: ${BACKEND_API_IMAGE:-tezzosyris666/fanflight-backend-api}:${IMAGE_TAG:-latest}
+    container_name: backend_api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    env_file:
+      - .env
+    volumes:
+      - ${DATA_DIR_HOST:-./data-pipeline/data}:/opt/data
+      - mlflow_artifacts:/mlflow/artifacts
+    depends_on:
+      db:
+        condition: service_healthy
+      mlflow:
+        condition: service_started
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready', timeout=5)\""]
+      start_period: 60s
+      interval: 15s
+      timeout: 5s
+      retries: 10
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
   # ----------------------------------------------------------------
   # ML — service d'entraînement et de monitoring
   # Ne tourne pas en continu : on l'exécute à la demande via
@@ -89,16 +84,16 @@ services:
   #   docker compose run --rm ml python build_training_set.py
   # ----------------------------------------------------------------
   ml:
-    build: ./data-pipeline/ml
+    image: ${ML_IMAGE:-tezzosyris666/fanflight-ml}:${IMAGE_TAG:-latest}
     container_name: ml_trainer
     environment:
       - MLFLOW_TRACKING_URI=http://mlflow:5000
       - DATA_DIR=/opt/data
+      - PYTHONPATH=/app
     env_file:
       - .env
     volumes:
-      - ./data-pipeline/ml:/app
-      - ./data-pipeline/data:/opt/data
+      - ${DATA_DIR_HOST:-./data-pipeline/data}:/opt/data
       - mlflow_artifacts:/mlflow/artifacts
     working_dir: /app
     depends_on:
@@ -107,14 +102,144 @@ services:
       mlflow:
         condition: service_started
     command: ["tail", "-f", "/dev/null"]
-    networks:
-      - default
-      - monitoring-network
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+  frontend:
+    image: ${FRONTEND_IMAGE:-tezzosyris666/fanflight-frontend}:${IMAGE_TAG:-latest}
+    container_name: frontend
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORTS:-3000:3000}"
+    environment:
+      NODE_ENV: production
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/ >/dev/null || exit 1"]
+      start_period: 30s
+      interval: 15s
+      timeout: 5s
+      retries: 10
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+  # ----------------------------------------------------------------
+  # Pile de monitoring + Watchtower — actifs uniquement quand le
+  # profil "prod" est activé (COMPOSE_PROFILES=prod dans .env, déjà
+  # positionné sur l'instance EC2). En local, "docker compose up"
+  # reste volontairement léger (app seule) ; pour tester la pile
+  # complète : `docker compose --profile prod up -d`.
+  # ----------------------------------------------------------------
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: watchtower
+    restart: unless-stopped
+    command: --interval 60 --cleanup --label-enable
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    profiles: ["prod"]
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    restart: unless-stopped
+    ports:
+      - "${PROMETHEUS_PORTS:-9090:9090}"
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.enable-lifecycle"
+    volumes:
+      - ./monitoring/prometheus:/etc/prometheus:ro
+      - prometheus_data:/prometheus
+    depends_on:
+      - alertmanager
+      - blackbox-exporter
+      - node-exporter
+      - cadvisor
+      - postgres-exporter
+    profiles: ["prod"]
+
+  blackbox-exporter:
+    image: prom/blackbox-exporter:latest
+    container_name: blackbox_exporter
+    restart: unless-stopped
+    command:
+      - "--config.file=/etc/blackbox_exporter/blackbox.yml"
+    volumes:
+      - ./monitoring/blackbox:/etc/blackbox_exporter:ro
+    profiles: ["prod"]
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node_exporter
+    restart: unless-stopped
+    pid: host
+    command:
+      - "--path.rootfs=/host"
+    volumes:
+      - /:/host:ro,rslave
+    profiles: ["prod"]
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    restart: unless-stopped
+    privileged: true
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker:/var/lib/docker:ro
+      - /dev/disk:/dev/disk:ro
+    profiles: ["prod"]
+
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter:latest
+    container_name: postgres_exporter
+    restart: unless-stopped
+    environment:
+      DATA_SOURCE_NAME: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}?sslmode=disable
+    depends_on:
+      db:
+        condition: service_healthy
+    profiles: ["prod"]
+
+  alertmanager:
+    image: prom/alertmanager:latest
+    container_name: alertmanager
+    restart: unless-stopped
+    ports:
+      - "${ALERTMANAGER_PORTS:-9093:9093}"
+    command:
+      - "--config.file=/etc/alertmanager/alertmanager.yml"
+    volumes:
+      - ./monitoring/alertmanager:/etc/alertmanager:ro
+      - alertmanager_data:/alertmanager
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    profiles: ["prod"]
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_ADMIN_USER:-admin}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-fanflight-admin}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    depends_on:
+      - prometheus
+    profiles: ["prod"]
 
 volumes:
   postgres_db:
   mlflow_artifacts:
-
-networks:
-  monitoring-network: #monitoring
-    external: true
+  prometheus_data:
+  alertmanager_data:
+  grafana_data:

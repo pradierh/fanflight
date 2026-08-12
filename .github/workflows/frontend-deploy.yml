@@ -10,6 +10,7 @@ on:
       - "API/**"
       - "data-pipeline/ml/**"
       - "monitoring/**"
+      - "docker-compose.yml"
       - ".github/workflows/frontend-deploy.yml"
   workflow_dispatch:
 
@@ -108,232 +109,10 @@ jobs:
           ssh-keygen -y -f ~/.ssh/fanflight_ec2.pem > /dev/null
           ssh-keyscan -H "${EC2_HOST}" >> ~/.ssh/known_hosts
 
-      - name: Create production compose file
-        run: |
-          cat > fanflight-compose.yml <<EOF
-          name: fanflight
-
-          services:
-            db:
-              image: postgres:17
-              container_name: postgres
-              restart: unless-stopped
-              ports:
-                - "5432:5432"
-              environment:
-                POSTGRES_DB: \${DB_NAME}
-                POSTGRES_USER: \${DB_USER}
-                POSTGRES_PASSWORD: \${DB_PASSWORD}
-              healthcheck:
-                test: ["CMD-SHELL", "pg_isready -U \${DB_USER} -d \${DB_NAME}"]
-                start_period: 30s
-                interval: 5s
-                timeout: 5s
-                retries: 20
-              volumes:
-                - postgres_db:/var/lib/postgresql/data
-
-            mlflow:
-              image: ghcr.io/mlflow/mlflow:v2.13.0
-              container_name: mlflow
-              restart: unless-stopped
-              ports:
-                - "127.0.0.1:5000:5000"
-              environment:
-                - MLFLOW_BACKEND_STORE_URI=postgresql://\${DB_USER}:\${DB_PASSWORD}@db:5432/mlflow_db
-                - MLFLOW_DEFAULT_ARTIFACT_ROOT=/mlflow/artifacts
-              volumes:
-                - mlflow_artifacts:/mlflow/artifacts
-              command: >
-                bash -c "pip install psycopg2-binary &&
-                mlflow server
-                --backend-store-uri postgresql://\${DB_USER}:\${DB_PASSWORD}@db:5432/mlflow_db
-                --default-artifact-root /mlflow/artifacts
-                --host 0.0.0.0
-                --port 5000"
-              depends_on:
-                db:
-                  condition: service_healthy
-
-            backend-api:
-              image: ${BACKEND_API_IMAGE}:latest
-              container_name: backend_api
-              restart: unless-stopped
-              ports:
-                - "8000:8000"
-              environment:
-                - MLFLOW_TRACKING_URI=http://mlflow:5000
-              env_file:
-                - .env
-              volumes:
-                - /opt/fanflight/data:/opt/data
-                - mlflow_artifacts:/mlflow/artifacts
-              depends_on:
-                db:
-                  condition: service_healthy
-                mlflow:
-                  condition: service_started
-              healthcheck:
-                test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready', timeout=5)\""]
-                start_period: 60s
-                interval: 15s
-                timeout: 5s
-                retries: 10
-              labels:
-                - "com.centurylinklabs.watchtower.enable=true"
-
-            ml:
-              image: ${ML_IMAGE}:latest
-              container_name: ml_trainer
-              restart: unless-stopped
-              environment:
-                - MLFLOW_TRACKING_URI=http://mlflow:5000
-                - DATA_DIR=/opt/data
-                - PYTHONPATH=/app
-              env_file:
-                - .env
-              volumes:
-                - /opt/fanflight/data:/opt/data
-                - mlflow_artifacts:/mlflow/artifacts
-              working_dir: /app
-              depends_on:
-                db:
-                  condition: service_healthy
-                mlflow:
-                  condition: service_started
-              command: ["tail", "-f", "/dev/null"]
-              labels:
-                - "com.centurylinklabs.watchtower.enable=true"
-
-            frontend:
-              image: ${FRONTEND_IMAGE}:latest
-              container_name: fanflight_frontend
-              restart: unless-stopped
-              ports:
-                - "80:3000"
-              environment:
-                NODE_ENV: production
-              healthcheck:
-                test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:3000/ >/dev/null || exit 1"]
-                start_period: 30s
-                interval: 15s
-                timeout: 5s
-                retries: 10
-              labels:
-                - "com.centurylinklabs.watchtower.enable=true"
-
-            watchtower:
-              image: containrrr/watchtower:latest
-              container_name: fanflight_watchtower
-              restart: unless-stopped
-              command: --interval 60 --cleanup --label-enable
-              volumes:
-                - /var/run/docker.sock:/var/run/docker.sock
-
-            prometheus:
-              image: prom/prometheus:latest
-              container_name: fanflight_prometheus
-              restart: unless-stopped
-              ports:
-                - "127.0.0.1:9090:9090"
-              command:
-                - "--config.file=/etc/prometheus/prometheus.yml"
-                - "--storage.tsdb.path=/prometheus"
-                - "--web.enable-lifecycle"
-              volumes:
-                - /opt/fanflight/monitoring/prometheus:/etc/prometheus:ro
-                - prometheus_data:/prometheus
-              depends_on:
-                - alertmanager
-                - blackbox-exporter
-                - node-exporter
-                - cadvisor
-                - postgres-exporter
-
-            blackbox-exporter:
-              image: prom/blackbox-exporter:latest
-              container_name: fanflight_blackbox_exporter
-              restart: unless-stopped
-              command:
-                - "--config.file=/etc/blackbox_exporter/blackbox.yml"
-              volumes:
-                - /opt/fanflight/monitoring/blackbox:/etc/blackbox_exporter:ro
-
-            node-exporter:
-              image: prom/node-exporter:latest
-              container_name: fanflight_node_exporter
-              restart: unless-stopped
-              pid: host
-              command:
-                - "--path.rootfs=/host"
-              volumes:
-                - /:/host:ro,rslave
-
-            cadvisor:
-              image: gcr.io/cadvisor/cadvisor:latest
-              container_name: fanflight_cadvisor
-              restart: unless-stopped
-              privileged: true
-              volumes:
-                - /:/rootfs:ro
-                - /var/run:/var/run:ro
-                - /sys:/sys:ro
-                - /var/lib/docker:/var/lib/docker:ro
-                - /dev/disk:/dev/disk:ro
-
-            postgres-exporter:
-              image: prometheuscommunity/postgres-exporter:latest
-              container_name: fanflight_postgres_exporter
-              restart: unless-stopped
-              environment:
-                DATA_SOURCE_NAME: postgresql://\${DB_USER}:\${DB_PASSWORD}@db:5432/\${DB_NAME}?sslmode=disable
-              depends_on:
-                db:
-                  condition: service_healthy
-
-            alertmanager:
-              image: prom/alertmanager:latest
-              container_name: fanflight_alertmanager
-              restart: unless-stopped
-              ports:
-                - "127.0.0.1:9093:9093"
-              command:
-                - "--config.file=/etc/alertmanager/alertmanager.yml"
-              volumes:
-                - /opt/fanflight/monitoring/alertmanager:/etc/alertmanager:ro
-                - alertmanager_data:/alertmanager
-              labels:
-                - "com.centurylinklabs.watchtower.enable=true"
-
-            grafana:
-              image: grafana/grafana-oss:latest
-              container_name: fanflight_grafana
-              restart: unless-stopped
-              ports:
-                - "3001:3000"
-              environment:
-                GF_SECURITY_ADMIN_USER: \${GRAFANA_ADMIN_USER:-admin}
-                GF_SECURITY_ADMIN_PASSWORD: \${GRAFANA_ADMIN_PASSWORD:-fanflight-admin}
-                GF_USERS_ALLOW_SIGN_UP: "false"
-              volumes:
-                - grafana_data:/var/lib/grafana
-                - /opt/fanflight/monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
-                - /opt/fanflight/monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
-              depends_on:
-                - prometheus
-
-          volumes:
-            postgres_db:
-            prometheus_data:
-            alertmanager_data:
-            grafana_data:
-            mlflow_artifacts:
-          EOF
-
       - name: Copy compose file to EC2
         run: |
-          scp -i ~/.ssh/fanflight_ec2.pem fanflight-compose.yml \
-            "${EC2_USER}@${EC2_HOST}:/tmp/fanflight-compose.yml"
+          scp -i ~/.ssh/fanflight_ec2.pem docker-compose.yml \
+            "${EC2_USER}@${EC2_HOST}:/tmp/docker-compose.yml"
 
       - name: Copy monitoring config to EC2
         run: |
@@ -355,7 +134,7 @@ jobs:
 
           sudo systemctl enable --now docker
           sudo mkdir -p /opt/fanflight
-          sudo mv /tmp/fanflight-compose.yml /opt/fanflight/docker-compose.yml
+          sudo mv /tmp/docker-compose.yml /opt/fanflight/docker-compose.yml
           sudo rm -rf /opt/fanflight/monitoring
           sudo mkdir -p /opt/fanflight/monitoring
           sudo cp -R /tmp/fanflight-monitoring/. /opt/fanflight/monitoring/
@@ -374,22 +153,37 @@ jobs:
           ENV
           fi
 
+          # docker-compose.yml is now the same file used locally: these
+          # prod-only settings (loopback-restricted monitoring ports, port 80,
+          # the real /opt/fanflight/data path, the "prod" profile that enables
+          # monitoring + watchtower) are added once if missing, without
+          # touching secrets already present in .env from earlier deploys.
+          add_if_missing() {
+            sudo grep -q "^${1}=" /opt/fanflight/.env || echo "${1}=${2}" | sudo tee -a /opt/fanflight/.env >/dev/null
+          }
+          add_if_missing DATA_DIR_HOST /opt/fanflight/data
+          add_if_missing FRONTEND_PORTS 80:3000
+          add_if_missing MLFLOW_PORTS 127.0.0.1:5000:5000
+          add_if_missing PROMETHEUS_PORTS 127.0.0.1:9090:9090
+          add_if_missing ALERTMANAGER_PORTS 127.0.0.1:9093:9093
+          add_if_missing COMPOSE_PROFILES prod
+
           cd /opt/fanflight
-          sudo docker compose pull frontend backend-api ml prometheus alertmanager blackbox-exporter node-exporter cadvisor postgres-exporter grafana watchtower
-          if ! sudo docker compose up -d --remove-orphans; then
-            sudo docker compose ps
+          sudo docker compose -f docker-compose.yml pull frontend backend-api ml prometheus alertmanager blackbox-exporter node-exporter cadvisor postgres-exporter grafana watchtower
+          if ! sudo docker compose -f docker-compose.yml up -d --remove-orphans; then
+            sudo docker compose -f docker-compose.yml ps
             sudo docker logs postgres || true
             sudo docker logs backend_api || true
-            sudo docker logs fanflight_prometheus || true
-            sudo docker logs fanflight_alertmanager || true
-            sudo docker logs fanflight_grafana || true
+            sudo docker logs prometheus || true
+            sudo docker logs alertmanager || true
+            sudo docker logs grafana || true
             exit 1
           fi
 
           # prometheus/alertmanager/grafana read their config from bind-mounted
           # files that "up -d" does not track, so restart them on every deploy
           # to pick up config changes even when their image/service spec is unchanged.
-          sudo docker compose restart prometheus alertmanager grafana
+          sudo docker compose -f docker-compose.yml restart prometheus alertmanager grafana
           for url in \
             http://127.0.0.1/ \
             http://127.0.0.1:8000/ready \
@@ -404,11 +198,11 @@ jobs:
               fi
               if [ "$attempt" -eq 30 ]; then
                 echo "Health check failed: $url"
-                sudo docker compose ps
+                sudo docker compose -f docker-compose.yml ps
                 sudo docker logs backend_api || true
-                sudo docker logs fanflight_prometheus || true
-                sudo docker logs fanflight_alertmanager || true
-                sudo docker logs fanflight_grafana || true
+                sudo docker logs prometheus || true
+                sudo docker logs alertmanager || true
+                sudo docker logs grafana || true
                 exit 1
               fi
               sleep 5

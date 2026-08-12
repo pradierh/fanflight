@@ -54,3 +54,9 @@ __pycache__/
 __pycache__/
 *.pyc
 data-pipeline/data/
+
+# LaTeX build byproducts
+dossier_projet/*.aux
+dossier_projet/*.log
+dossier_projet/*.out
+dossier_projet/*.toc
