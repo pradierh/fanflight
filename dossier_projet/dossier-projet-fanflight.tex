@@ -779,10 +779,24 @@ Le second job du workflow copie par \code{scp} le \code{docker-compose.yml} du d
 \begin{lstlisting}[caption={Service Watchtower -- mise à jour continue en production}, label={lst:watchtower}]
 watchtower:
   image: containrrr/watchtower:latest
+  environment:
+    - DOCKER_API_VERSION=1.44
   command: --interval 60 --cleanup --label-enable
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
 \end{lstlisting}
+
+\label{sec:watchtower-fix}
+La variable \code{DOCKER\_API\_VERSION} a été ajoutée en cours de projet à la suite d'un incident réel : le client Docker embarqué dans l'image Watchtower négociait par défaut une version d'API très ancienne (1.25), que le démon Docker de l'instance de production (API 1.55) rejette (\emph{minimum supported API version is 1.40}) -- Watchtower restait alors bloqué dans une boucle d'erreurs sans jamais parvenir à surveiller les conteneurs. Fixer explicitement une version récente et compatible (1.44) a résolu l'incident (figures~\ref{fig:alert-watchtower-log} et~\ref{fig:alert-watchtower-mail}).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{img/ec2-docker-ps.png}
+\caption{\code{docker ps} sur l'instance de production : les 13 services du \code{docker-compose.yml} unique (application, ML, monitoring et Watchtower) actifs simultanément grâce au profil \code{prod}}
+\label{fig:ec2-docker-ps}
+\end{figure}
+
+La figure~\ref{fig:ec2-docker-ps}, capturée directement sur l'instance EC2, confirme que les 13 services attendus tournent effectivement sous les noms de conteneur déclarés dans \code{docker-compose.yml} (\code{backend\_api}, \code{frontend}, \code{watchtower}, \code{prometheus}, \code{grafana}, etc.), la plupart marqués \emph{healthy} par leur \emph{healthcheck}, avec une durée de fonctionnement continue (\emph{Up 11 hours}) qui atteste qu'aucun de ces conteneurs -- Watchtower en particulier, cf. correctif de la section~\ref{sec:watchtower-fix} -- ne redémarre en boucle.
 
 La figure~\ref{fig:cicd} synthétise l'ensemble de ce flux, du \emph{push} sur la branche principale jusqu'à la mise à jour des conteneurs en production.
 
@@ -832,7 +846,7 @@ La stack repose sur Prometheus comme collecteur central (scrutation toutes les 1
       replacement: blackbox-exporter:9115
 \end{lstlisting}
 
-Un module Alertmanager, référencé par Prometheus via \code{rule\_files}, complète cette chaîne de collecte avec des règles d'alerte concrètes portant sur l'indisponibilité de l'API, un taux d'erreurs HTTP 5xx élevé, une latence p95 dégradée et une consommation mémoire excessive du service \code{backend-api}.
+Un module Alertmanager, référencé par Prometheus via \code{rule\_files}, complète cette chaîne de collecte avec des règles d'alerte concrètes réparties en deux groupes : un groupe applicatif (indisponibilité de l'API, taux d'erreurs HTTP 5xx élevé, latence p95 dégradée, consommation mémoire excessive du service \code{backend-api}) et un groupe conteneurs, alimenté par cAdvisor (\code{ContainerDown} lorsqu'un conteneur n'est plus vu depuis plus d'une minute, \code{ContainerRestartingLoop} au-delà de trois redémarrages en 15 minutes). Alertmanager route chaque alerte vers une notification par e-mail (section~\ref{sec:alerting-proof}).
 
 Cette configuration illustre un motif classique de Blackbox Exporter : les cibles à sonder sont déclarées comme de simples URLs, puis réaffectées (\emph{relabeling}) pour être effectivement interrogées via l'exporter plutôt que directement -- Prometheus scrute ainsi la disponibilité de chaque service applicatif sans que celui-ci ait besoin d'exposer lui-même un point de métrique dédié.
 
@@ -898,9 +912,73 @@ La figure~\ref{fig:grafana-node-2} donne un aperçu de l'exhaustivité du tablea
 
 Un troisième tableau de bord, \emph{Docker monitoring}, comble l'angle mort laissé par les deux précédents : la consommation par conteneur individuel (mémoire, CPU, réseau, I/O disque, nombre de redémarrages) plutôt que par processus applicatif ou par hôte global. Il combine des panneaux par conteneur (\emph{Memory Usage -- Containers}, \emph{CPU Usage -- Containers}, \emph{Network Rx/Tx -- Containers}, \emph{Disk Read/Write I/O -- Containers}, \emph{Container Restarts}) avec des panneaux de synthèse au niveau de l'hôte (\emph{Total CPU/Memory Usage -- EC2}, \emph{EC2 Load Average}, \emph{Disk Usage -- EC2}), permettant de relier directement une dérive de ressource observée au niveau système à un conteneur précis.
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{img/docker-monitoring-1.png}
+\caption{Docker monitoring : vue de synthèse (13 conteneurs actifs) et détail CPU/mémoire par conteneur}
+\label{fig:docker-mon-1}
+\end{figure}
+
+La capture de la figure~\ref{fig:docker-mon-1}, prise en production, dénombre 13 conteneurs actifs (l'ensemble de la stack applicative et de monitoring) et détaille la mémoire consommée par chacun : \code{backend\_api} domine largement (343~Mio), loin devant \code{frontend} (46,0~Mio), \code{postgres\_exporter} (15,6~Mio) et \code{node\_exporter} (18,7~Mio) -- les exporters et Watchtower ne pèsent chacun que quelques Mio.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{img/docker-monitoring-2.png}
+\caption{Docker monitoring : I/O disque par conteneur, redémarrages, erreurs réseau et charge de l'hôte EC2}
+\label{fig:docker-mon-2}
+\end{figure}
+
+La figure~\ref{fig:docker-mon-2} confirme, sur la même fenêtre d'observation, zéro redémarrage de conteneur, zéro erreur ou paquet réseau perdu, mais un disque racine déjà occupé à 74,4~\% -- cohérent avec le taux d'usage disque relevé sur le tableau de bord \emph{Node Exporter Full} (figure~\ref{fig:grafana-node-1}) et avec la préconisation de dimensionnement associée (section~\ref{sec:preconisations}).
+
 \subsection{Intégration au déploiement}
 
 La chaîne d'observabilité est définie dans le \code{docker-compose.yml} unique du projet (section~\ref{sec:cicd}), derrière le profil \code{prod} activé en production et activable à la demande en local (\code{docker compose --profile prod up -d}) pour reproduire la même configuration avant tout déploiement réel. Son déploiement en production est intégré au workflow GitHub Actions : les fichiers de configuration (Prometheus, Alertmanager, provisioning Grafana et les trois définitions de tableaux de bord) sont copiés vers \code{/opt/fanflight/monitoring/} sur l'instance EC2, et les identifiants d'administration Grafana sont paramétrables par variable d'environnement plutôt que codés en dur.
+
+\subsection{Alertes par e-mail : preuve de fonctionnement en conditions réelles}
+\label{sec:alerting-proof}
+
+Alertmanager relaie chaque alerte par e-mail via un bac à sable SMTP (Mailtrap), avec un regroupement des alertes similaires (\code{group\_wait} de 30 secondes, \code{group\_interval} de 5 minutes) et une relance si l'incident persiste (\code{repeat\_interval} de 4 heures) ; chaque notification de résolution est également envoyée (\code{send\_resolved: true}). Trois épisodes réels, survenus en cours de projet, illustrent que cette chaîne fonctionne effectivement de bout en bout plutôt que sur le papier.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{img/alert-api-down-mail.png}
+\caption{Boîte de réception Mailtrap : alternance \code{[FIRING:1]}/\code{[RESOLVED]} pour \code{FanflightAPIDown}}
+\label{fig:alert-api-down}
+\end{figure}
+
+La figure~\ref{fig:alert-api-down} montre l'alerte applicative \code{FanflightAPIDown} déclenchée puis résolue à plusieurs reprises sur deux jours -- chaque cycle correspond à une indisponibilité réelle de l'API détectée par Prometheus, suivie de sa récupération.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{img/alert-watchtower-log.png}
+\caption{Journal du conteneur Watchtower au moment de l'incident : API Docker trop ancienne (cf. section~\ref{sec:watchtower-fix})}
+\label{fig:alert-watchtower-log}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{img/alert-watchtower-mail.png}
+\caption{Alerte \code{ContainerDown} correspondante, reçue par e-mail pour le conteneur \code{fanflight\_watchtower}}
+\label{fig:alert-watchtower-mail}
+\end{figure}
+
+Les figures~\ref{fig:alert-watchtower-log} et~\ref{fig:alert-watchtower-mail} documentent un même incident réel sous deux angles : le rejet des requêtes de Watchtower par le démon Docker (version d'API cliente trop ancienne, cf. section~\ref{sec:cicd}) a fini par rendre le conteneur invisible pour cAdvisor, déclenchant l'alerte \code{ContainerDown} correspondante -- une preuve concrète que la règle conçue pour détecter un conteneur arrêté ou planté fonctionne également sur ce type de panne applicative.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{img/alert-frontend-down-mail.png}
+\caption{\code{[3] Firing} : trois alertes \code{ContainerDown} groupées pour le service \code{frontend}}
+\label{fig:alert-frontend-down}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\textwidth]{img/alert-frontend-resolved-mail.png}
+\caption{\code{[4] Resolved} : résolution du même incident sur le conteneur \code{frontend}}
+\label{fig:alert-frontend-resolved}
+\end{figure}
+
+Les figures~\ref{fig:alert-frontend-down} et~\ref{fig:alert-frontend-resolved} illustrent un second incident \code{ContainerDown}, cette fois sur le conteneur \code{frontend}, avec le comportement de regroupement (\emph{group\_by: [alertname, service]}) : plusieurs occurrences de la même alerte sont fusionnées dans un seul e-mail plutôt que d'en envoyer une par occurrence, puis un e-mail de résolution distinct est envoyé au retour à la normale.
 
 \section{Extension Machine Learning : prédiction de retard de vol}
 \label{sec:ml}
