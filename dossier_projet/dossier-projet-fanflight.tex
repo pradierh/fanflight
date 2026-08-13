@@ -1004,6 +1004,22 @@ Pour éviter toute divergence entre les données vues à l'entraînement et cell
 
 Le script \code{train.py} (environ 440 lignes) entraîne et compare deux modèles -- XGBoost et un réseau de neurones PyTorch -- et journalise métriques, graphiques (SHAP, courbe ROC, matrice de confusion) et artefacts dans MLflow, avant de promouvoir le meilleur modèle au statut « Production » dans le registre de modèles. Au démarrage, l'API charge automatiquement la version la plus récente enregistrée dans le registre pour ce modèle -- qui correspond en pratique à la version promue, puisque chaque entraînement promeut la dernière version :
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{img/mlflow-experiments.png}
+\caption{Interface MLflow -- expérience \code{flight\_delay\_prediction} : le run parent \code{FlightDelay\_Comparison} et ses deux runs enfants \code{XGBoost}/\code{NeuralNetwork}}
+\label{fig:mlflow-experiments}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\textwidth]{img/mlflow-run-detail.png}
+\caption{Détail du run \code{FlightDelay\_Comparison} : paramètres et métriques de comparaison}
+\label{fig:mlflow-run-detail}
+\end{figure}
+
+Les figures~\ref{fig:mlflow-experiments} et~\ref{fig:mlflow-run-detail} montrent une comparaison réelle, journalisée automatiquement par \code{train.py} sur 628\,704 lignes d'entraînement (20 features, 20~\% de jeu de test, taux de retard observé de 27,8~\%) : l'AUC final de XGBoost (0,728) dépasse celui du réseau de neurones (0,711), ce qui justifie la promotion de XGBoost comme \code{best\_model} / \code{production\_model} -- exactement le modèle \code{flight\_delay\_xgboost} chargé au démarrage de l'API ci-dessous.
+
 \begin{lstlisting}[language=Python, caption={Extrait de \code{main.py} (branche ML) -- chargement du modèle au démarrage}]
 @app.on_event("startup")
 def load_model():
